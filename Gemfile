@@ -17,6 +17,8 @@ gem 'devise'
 gem 'instagram' 
  
 gem 'sinatra'
+gem 'json'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -29,7 +31,7 @@ gem 'bootstrap-sass'
 gem 'sinatra'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-gem 'instagram_api'
+
 group :development, :test do
      gem 'sqlite3'
 end
