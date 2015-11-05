@@ -1,0 +1,29 @@
+  
+
+
+
+
+
+  <%= form_for(@instauser) do |f| %>  
+  <div class="input-group"> 
+  	<div class="form-group"> 
+    <%= f.label :email %><br> 
+    <%= f.text_field :email, class: "form-control" %> <br>
+   </div>
+    <%= f.label :password %><br> 
+    <%= f.text_field :password, class: "form-control" %> <br>
+    <%= f.label :age %><br> 
+    <%= f.text_field :age, class: "form-control", :placeholder => "23" %> <br>
+    <%= f.label :location %><br> 
+    <%= f.text_field :location, class: "form-control" %> <br>
+     <%= f.label :tema %> <br>
+    <%= f.text_field :theme, class: "form-control" , :placeholder=> "Sanat, Yemek, Alışveriş ..." %> <br>
+     <%= f.label :fiyat  %> <br>
+     <%= f.text_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
+    <%= f.hidden_field :username, { :value => @client.user.username } %>
+     
+  </div> <br>
+  <div class="actions"> 
+    <%= f.submit "Create" %> 
+  </div> 
+<% end %>

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104115829) do
+ActiveRecord::Schema.define(version: 20151105125557) do
+
+  create_table "instausers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "fullname"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "location"
+    t.integer  "age"
+    t.string   "theme"
+    t.string   "role"
+    t.integer  "postprice"
+    t.string   "company"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

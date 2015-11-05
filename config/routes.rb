@@ -3,11 +3,15 @@ Rails.application.routes.draw do
  
   devise_for :users
   root 'pages#home'  
+   
+  resources :instausers 
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
-  get '/auth' => 'instagrammers#auth'
-  get '/dashboard' => 'instagrammers#dashboard' 
-  get '/callback' => 'instagrammers#callback'
+  get '/auth' => 'instausers#auth'
+  get '/signup' => 'instausers#new' 
+  get '/callback' => 'instausers#callback'
+  get '/dashboard' => 'instausers#dashboard' 
+  get 'login' => 'instausers#auth'
    
 end
   # The priority is based upon order of creation: first created -> highest priority.

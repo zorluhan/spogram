@@ -1,5 +1,8 @@
  
 <div class="jumbotron">
-	<h1>Welcome to my app!</h1>
-	Click here to <%= link_to "Sign Up", "#", class: "btn btn-primary" %>
+	<% unless current_instauser %>
+	<h1>Markayım  <%= link_to "Kaydol", "#", class: "btn btn-primary" %></h1><br>
+		<h1><img src='assets/download.jpeg' width="80">Instagrammer'ım.  <%= link_to "Kaydol", '/auth', class: "btn btn-primary" %></h1>
+<%end%>
+    <h1> This is how much you made: $456 </h1>
 </div>

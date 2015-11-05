@@ -1,0 +1,47 @@
+
+<marquee loop=1 color="black" behaviour="slide">En son fotolarınız güncel olsun...En çok yorum alan ve en çok beğenilen fotolarınızı güncelleyin...Sık Sık kampanyaları kontrol edin...Sorularınız olursa yazın info@reklogram.com</marquee>
+<h1>@<%= @client.user.username %></h1>
+  <% a=0 %>
+ <% counter=0 %>
+ <% b=0 %>
+ <div class="container">
+ 	<div class="row">
+
+ <div class="col-md-8">
+		<% for x in @client.user_recent_media %>
+  		<div style='float:left;'>
+  		<%= image_tag(x.images.thumbnail.url) %><br/> 
+  		<span class="glyphicon glyphicon-heart-empty"></span> <%= x.likes[:count] %><br> 
+  	 	<% a=a+x.likes[:count] %>
+ 	 	 <% counter=counter+1 %>
+  		</div>
+ 
+		<%end%>
+
+		<% for t in @client.user_recent_media %>
+  		<div style='float:left;'>
+     
+   		<% b=b+t.comments[:count] %>
+
+  		</div>
+ 		<%end%>
+</div>
+
+<div class="col-md-3">
+ 
+	 
+		<div class="row" align="right"><h2>Followers</h2>total...<%= @client.user.counts.followed_by %></div>
+
+        <div class="row" align="right"><h2>Likes</h2>on average...<%= a/counter %></div>
+		<div class="row" align="right"><h2>Comments</h2>on average...<%= b/counter %></div>
+	 	<div class="row" align="right"><h2>Location</h2>on average...<%= b/counter %></div>
+	  
+	 	<div class="row" align="right"><h2>Age</h2> <%= @instauser.age %></div>
+	 	<div class="row" align="right"><h2>Price</h2> <%= @instauser.postprice %></div>
+	 	<div class="row" align="right"><h2>Theme</h2> <%= @instauser.theme %></div>
+	  
+  
+ 
+</div>
+ </div>
+</div>
