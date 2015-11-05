@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
 gem 'instagram' 
- 
+gem  'bcrypt'
 gem 'sinatra'
 gem 'json'
 

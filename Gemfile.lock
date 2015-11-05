@@ -148,6 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
