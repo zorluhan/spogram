@@ -20,10 +20,18 @@
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About", about_path %></li> 
-    <% unless current_instauser %>
-      <li><%= link_to "Login", edit_user_registration_path %></li>
+
+
+    <% if current_instauser.present? %>
+      <li><%= link_to "Logout", '/logout', :method=>:delete %></li>
+    
+      <li><%= link_to "User Dashboard", '/dashboard' %></li> 
+      <% elsif current_branduser.present? %>
+      <li><%= link_to "Brand Logout", '/blogout' %></li>
+      <li><%= link_to "Company Dashboard", '/bdashboard' %></li> 
       <%end%>
-      <li><%= link_to "Dashboard", '/dashboard' %></li> 
+       
+
     </ul>
   </div>  <!-- /.navbar-collapse -->
 </nav>

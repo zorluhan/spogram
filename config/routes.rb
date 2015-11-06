@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#home'  
    
+   get 'bsignup' => 'brandusers#new'
+   get '/blogin' => 'sessions#new' 
+   post 'blogin' => 'sessions#create'
+   delete '/blogout' => 'sessions#destroy'
+   get '/bdashboard' => 'brandusers#dashboard'
+   resources :brandusers
+
   resources :instausers 
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
@@ -12,7 +19,10 @@ Rails.application.routes.draw do
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
   get 'login' => 'instausers#auth'
-   
+  get '/about' => 'pages#about'
+  delete '/logout' => 'sessions#destroy'
+  get 'pages/logout' => 'pages#logout'
+ 
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
