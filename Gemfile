@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 
+gem "bootstrap_flash_messages", "~> 1.0.1"
+gem 'spinjs-rails'
+gem 'sunspot_rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -15,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
 gem 'instagram' 
+gem 'validates_email_format_of'
 gem  'bcrypt'
 gem 'sinatra'
 gem 'json'

@@ -2,8 +2,6 @@
   <!-- Brand and toggle get grouped for better mobile display -->
 
   <nav class="navbar navbar-inverse navbar-default" role="navigation">
-  	 
- 
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
@@ -18,17 +16,22 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_path %></li> 
+      
+      
+       
 
-
-    <% if current_instauser.present? %>
-      <li><%= link_to "Logout", '/logout', :method=>:delete %></li>
-    
+      <% if @current_instauser %>
+      <li><%= link_to "Logout", logout_path(:instauser), :method =>:delete %></li>
       <li><%= link_to "User Dashboard", '/dashboard' %></li> 
-      <% elsif current_branduser.present? %>
-      <li><%= link_to "Brand Logout", '/blogout' %></li>
+
+      <% elsif @current_branduser %>
+
+      <li><%= link_to "Brand Logout", blogout_path(:branduser), :method => :delete %></li>
       <li><%= link_to "Company Dashboard", '/bdashboard' %></li> 
+      <%else%>
+      <li><%= link_to "About", about_path %></li>
+    <li><%= link_to "Login for Instagrammer", '/login' %></li> 
+      <li><%= link_to "Login for Brand", '/blogin' %></li> 
       <%end%>
        
 

@@ -15,14 +15,16 @@ Rails.application.routes.draw do
   get '/about' => 'pages#about'
   get '/contact' => 'pages#contact'
   get '/auth' => 'instausers#auth'
-  get '/signup' => 'instausers#new' 
+  get '/signup' => 'instausers#signup'
+  get '/newuser' => 'instausers#new'  
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
   get 'login' => 'instausers#auth'
   get '/about' => 'pages#about'
   delete '/logout' => 'sessions#destroy'
   get 'pages/logout' => 'pages#logout'
- 
+  get '/checkin' => 'instausers#checkin'
+   
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,26 @@
+  
+
+<%= form_for(@instauser) do |f| %>  
+  <div class="input-group"> 
+  	<div class="form-group"> 
+    <%= f.label :email %><br> 
+    <%= f.text_field :email, class: "form-control" %> <br>
+   </div>
+    <%= "Password:" %><br> 
+    <%= f.password_field :password, class: "form-control" %> <br>
+    <%= "age" %><br> 
+    <%= f.text_field :age, class: "form-control", :placeholder => "23" %> <br>
+    <%= f.label :location %><br> 
+ <%= f.select :location, 
+    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br>
+      
+   <%= f.select :theme, 
+    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}, { :class => 'form-control' } %> <br>
+     <%= f.label :fiyat  %> <br>
+     <%= f.text_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
+     <%= f.hidden_field :username, :value => @client.user.username %>
+  </div> <br>
+  <div class="actions"> 
+    <%= f.submit "Create" %> 
+  </div> 
+<% end %>
