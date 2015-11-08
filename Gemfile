@@ -7,7 +7,9 @@ gem 'rails', '4.1.4'
 
 gem "bootstrap_flash_messages", "~> 1.0.1"
 gem 'spinjs-rails'
-gem 'sunspot_rails'
+ gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -36,6 +38,8 @@ gem 'bootstrap-sass'
 gem 'sinatra'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+ 
+
 
 group :development, :test do
      gem 'sqlite3'

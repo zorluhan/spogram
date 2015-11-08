@@ -1,6 +1,4 @@
 
-<marquee loop=1 color="black" behaviour="slide">En son fotolarınız güncel olsun...En çok yorum alan ve en çok beğenilen fotolarınızı güncelleyin...Sık Sık kampanyaları kontrol edin...Sorularınız olursa yazın info@reklogram.com</marquee>
-<h1>@<%= @client.user.username %></h1>
   <% a=0 %>
  <% counter=0 %>
  <% b=0 %>
@@ -27,18 +25,40 @@
  		<%end%>
 </div>
 
-<div class="col-md-3">
- 
-	 
-		<div class="row" align="right"><h2>Followers</h2>total...<%= @client.user.counts.followed_by %></div>
 
-        <div class="row" align="right"><h2>Likes</h2>on average...<%= a/counter %></div>
-		<div class="row" align="right"><h2>Comments</h2>on average...<%= b/counter %></div>
-	 	<div class="row" align="right"><h2>Location</h2>on average...<%= b/counter %></div>
-	  
-	 	<div class="row" align="right"><h2>Age</h2> <%= @instauser.age %></div>
-	 	<div class="row" align="right"><h2>Price</h2> <%= @instauser.postprice %></div>
-	 	<div class="row" align="right"><h2>Theme</h2> <%= @instauser.theme %></div>
+<div class="col-md-3">
+ <% profile=@client.user.profile_picture %>
+	 <ul class="list-group">
+	 	<li class="list-group-item">
+<p><span class="username" id="any"> <%= @client.user.full_name %></span>
+<span class="pull-right" id="any"> <%= image_tag(src=profile, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
+</li>
+  
+ <li class="list-group-item">
+    <span class="badge"><%= @client.user.counts.followed_by %></span>
+Followers  </li>
+
+<li class="list-group-item">
+    <span class="badge"><%= a/counter %></span>
+Likes on avg. </li>
+
+<li class="list-group-item">
+    <span class="badge"><%= b/counter %></span>
+Comments on avg. </li>
+
+<li class="list-group-item">
+    <span class="badge"><%= @instauser.location %></span>
+Location  </li><li class="list-group-item">
+    <span class="badge"><%= @instauser.age %></span>
+Age  </li><li class="list-group-item">
+    <span class="badge badge-success">$<%= @instauser.postprice %></span>
+Price </li>
+
+
+
+</ul>
+	
+	 	
 	  
   
  

@@ -1,30 +1,39 @@
 Rails.application.routes.draw do
   
- 
-  devise_for :users
-  root 'pages#home'  
+resources :brandusers
+resources :instausers 
+
+  root 'pages#home'
+  get '/pages/about' => 'pages#about'
+  get '/pages/contact' => 'pages#contact'
+  get '/pages/logout' => 'pages#logout'
+  post '/pages/search' => 'pages#search'
+  get '/pages/search' => 'pages#search'
+  get '/pages/age'=>'pages#age'
+  patch '/pages/results' => 'pages#results'
+  get '/pages/form' => 'pages#form'
+
    
-   get 'bsignup' => 'brandusers#new'
+
+   get '/bsignup' => 'brandusers#new'
    get '/blogin' => 'sessions#new' 
-   post 'blogin' => 'sessions#create'
+   post '/blogin' => 'sessions#create'
    delete '/blogout' => 'sessions#destroy'
    get '/bdashboard' => 'brandusers#dashboard'
-   resources :brandusers
+   
 
-  resources :instausers 
-  get '/about' => 'pages#about'
-  get '/contact' => 'pages#contact'
   get '/auth' => 'instausers#auth'
   get '/signup' => 'instausers#signup'
   get '/newuser' => 'instausers#new'  
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
   get 'login' => 'instausers#auth'
-  get '/about' => 'pages#about'
+  
   delete '/logout' => 'sessions#destroy'
-  get 'pages/logout' => 'pages#logout'
   get '/checkin' => 'instausers#checkin'
-   
+  
+
+
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,16 +6,16 @@ before_action :require_user, only: [:dashboard]
 
 
 		def auth
-       
-  		require 'instagram'
-  		require 'sinatra'
+      
 
   		Instagram.configure do |config|
   		config.client_id= "55b89c9652df4cd4b5249cada73369e9"
   		config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
   
   		end 
- redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
+      
+
+      redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
  
   		
  		end 
@@ -53,12 +53,12 @@ def signup
 
   			def create
   			@client = Instagram.client(:access_token => session[:access_token])
-  		    @instauser= Instauser.new(instauser_params) 
+  		  @instauser= Instauser.new(instauser_params) 
   		
   		 
   			if @instauser.save 
-   			 session[:user_id] = @instauser.id 
-   			 flash[:notice] = "Giriş Başarılıdır."
+   			 instauser_log_in(@instauser)
+   			 
     		redirect_to '/dashboard' 
   			else 
    			 redirect_to '/signup' 

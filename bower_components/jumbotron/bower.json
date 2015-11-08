@@ -1,0 +1,25 @@
+{
+  "name": "jumbotron",
+  "main": "jumbotron.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stereosteve/jumbotron",
+  "authors": [
+    "Steve Perkins <stereosteve@gmail.com>"
+  ],
+  "description": "Fill your background with a video.",
+  "keywords": [
+    "video",
+    "background"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -9,29 +9,49 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <%= link_to "Reklogram", root_path, class: "navbar-brand" %>
 
+    <div>
+
+  <% if !@current_instauser.nil? %>
+  <%= link_to "Reklogram", root_path(@current_instauser), class: "logo navbar-brand" %></div>
+ <% elsif !@current_branduser.nil? %>
+  <%= link_to "Reklogram", root_path(@current_branduser), class: "logo navbar-brand" %></div>
+  <%else %>
+  <%= link_to "Reklogram", root_path, class: "logo navbar-brand" %></div>
+  <%end%>
+
+ <!-- <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="REKLOGRAM">
+        </div>
+        <button type="submit" class="btn btn-default"> </button> 
+      </form>-->
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-left">
       
       
        
 
-      <% if @current_instauser %>
-      <li><%= link_to "Logout", logout_path(:instauser), :method =>:delete %></li>
-      <li><%= link_to "User Dashboard", '/dashboard' %></li> 
+      <% if instauser_logged_in?  %>
+      <li><a><%= current_instauser.username %></a></li>
+      <li><%= link_to "Logout", logout_path(@current_instauser), :method =>:delete %></li>
+      <li><%= link_to "User Dashboard", dashboard_path(@current_instauser), data: {disable_with: "Loading Now..."} %></li> 
 
-      <% elsif @current_branduser %>
+      <% elsif branduser_logged_in? %>
+      <li><a><%= current_branduser.fullname %></a></li>
+      <li><%= link_to "Brand Logout", blogout_path(@current_branduser), :method => :delete %></li>
+      <li><%= link_to "Company Dashboard", bdashboard_path(@current_branduser) , data: {disable_with: "Loading Now..."} %></li> 
+      
+      <% else %> 
 
-      <li><%= link_to "Brand Logout", blogout_path(:branduser), :method => :delete %></li>
-      <li><%= link_to "Company Dashboard", '/bdashboard' %></li> 
-      <%else%>
-      <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Login for Instagrammer", '/login' %></li> 
-      <li><%= link_to "Login for Brand", '/blogin' %></li> 
+      <li><%= link_to "About", pages_about_path %></li>
+      <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
+      <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
+
+
       <%end%>
        
 

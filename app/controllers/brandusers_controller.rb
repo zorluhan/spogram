@@ -13,7 +13,7 @@ before_action :require_buser, only: [:dashboard]
 		@branduser= Branduser.new(branduser_params) 
 
   			if @branduser.save 
-   			 session[:user_id] = @branduser.id 
+   			 session[:buser_id] = @branduser.id 
     		redirect_to '/bdashboard'
   			else 
          flash!(:error)
@@ -24,7 +24,7 @@ before_action :require_buser, only: [:dashboard]
 
 
  def dashboard
- 	@branduser= Branduser.find_by_id(session[:user_id])
+ 	@branduser= Branduser.find_by_id(session[:buser_id])
  end
 
   private

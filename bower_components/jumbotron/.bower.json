@@ -1,0 +1,34 @@
+{
+  "name": "jumbotron",
+  "main": "jumbotron.js",
+  "homepage": "https://github.com/stereosteve/jumbotron",
+  "authors": [
+    "Steve Perkins <stereosteve@gmail.com>"
+  ],
+  "description": "Fill your background with a video.",
+  "keywords": [
+    "video",
+    "background"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "e73f0aecf3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "e73f0aecf382f5dbbc500b9feade7bd584df6f08"
+  },
+  "_source": "git://github.com/stereosteve/jumbotron.git",
+  "_target": "*",
+  "_originalSource": "jumbotron",
+  "_direct": true
+}

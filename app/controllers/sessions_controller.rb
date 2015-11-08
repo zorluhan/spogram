@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
 
 	def new 
-		@client = Instagram.client(:access_token => session[:access_token])
-		@instauser
-
+		
 	end 
 
 	def create 
+
 		@branduser=Branduser.find_by_email([params[:session][:email]])
 		if @branduser && @branduser.authenticate(params[:session][:password])
-			session[:user_id]=@branduser.id 
+			branduser_log_in(@branduser) 
+			
 			redirect_to '/bdashboard'
 		else
 			redirect_to '/blogin'
@@ -21,6 +21,10 @@ class SessionsController < ApplicationController
 
 	 @instauser=nil
 			session.delete(:user_id)
+						session.delete(:buser_id)
+
+			session[:user_id]=nil
+			session[:buser_id]=nil
 			@branduser=nil
 					redirect_to '/pages/logout'
   
