@@ -31,7 +31,7 @@ resources :instausers
   
   delete '/logout' => 'sessions#destroy'
   get '/checkin' => 'instausers#checkin'
-  
+
 
 
 end

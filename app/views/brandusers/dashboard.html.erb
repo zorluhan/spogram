@@ -1,19 +1,55 @@
-
-
  
-  <iframe width=20%>
 
-deneme
-sdafasdfas
-
-
-<%= image_tag @branduser.image.url %>
-brand user yaratıldı. afferim.
+<% @instausers.each do |x| %>
  
- <%= @branduser.id %>
- <%= current_branduser.fullname %>
- <%= session[:user_id] %>
+ <% @profile_picture_url=x.profile_picture %>
+
+  <div class="col-md-3">
+	 <ul class="list-group">
+	 	<li class="list-group-item">
+<p><span class="username" id="any"> <%= x.fullname %></span>
+<span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
+</li>
   
+ <li class="list-group-item">
+    <span class="badge"><%= x.followed_by %></span>
+Followers  </li>
 
-  </iframe>
-dfsdfaasfsa
+<li class="list-group-item">
+    <span class="badge"><%= x.averagelikes %></span>
+Likes on avg. </li>
+
+<li class="list-group-item">
+    <span class="badge"><%= x.averagecomments %></span>
+Comments on avg. </li>
+
+<li class="list-group-item">
+    <span class="badge"><%= x.location %></span>
+Location  </li><li class="list-group-item">
+    <span class="badge"><%= x.age %></span>
+Age  </li><li class="list-group-item">
+    <span class="badge badge-success">$<%= x.postprice %></span>
+Price </li>
+
+<li class="list-group-item">
+<% c= x.recent_media_urls %>
+<% a= c.tr("[]","") %>
+<% b= a.tr('"',"") %>
+<% array= b.split(",") %>
+<p>
+<% array.each do |s| %> 
+<img src='<%=s%>', width="50" ></a>
+<%end%> 
+</p>
+</li>
+
+
+
+</ul>
+	
+	 	
+	  
+  
+ 
+</div>
+<%end %>

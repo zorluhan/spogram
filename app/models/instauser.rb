@@ -7,6 +7,9 @@ class Instauser < ActiveRecord::Base
 	 
 	  include Elasticsearch::Model
 	  include Elasticsearch::Model::Callbacks
+	 
+ 
+	      serialize :recent_media_urls
 	end
 
 

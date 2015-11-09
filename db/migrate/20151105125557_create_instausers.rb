@@ -10,11 +10,14 @@ class CreateInstausers < ActiveRecord::Migration
       t.string :location
       t.integer :age 
       t.string :theme
-      t.string :role
       t.integer :postprice
-      t.string :company
-       
+      t.integer :averagelikes
+      t.integer :averagecomments 
+      t.integer :followed_by 
+      t.text :profile_picture 
+      t.text :recent_media_urls 
 
+      
     end
   end
 end

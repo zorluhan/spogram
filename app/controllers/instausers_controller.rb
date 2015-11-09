@@ -6,26 +6,24 @@ before_action :require_user, only: [:dashboard]
 
 
 		def auth
-      
+       
 
   		Instagram.configure do |config|
   		config.client_id= "55b89c9652df4cd4b5249cada73369e9"
   		config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
-  
-  		end 
+      end 
       
 
       redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
  
   		
- 		end 
+ 		  end 
 
   					def callback 
              
    					response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
   					session[:access_token] = response.access_token
-  					 
-  					 	@client = Instagram.client(:access_token => session[:access_token])
+  					@client = Instagram.client(:access_token => session[:access_token])
               
   					 	if Instauser.find_by_username(@client.user.username).nil?
   					 		redirect_to '/signup'
@@ -48,17 +46,17 @@ end
 def signup
 @instauser=Instauser.new 
 @client = Instagram.client(:access_token => session[:access_token])
-  end 
+
+end 
 
 
   			def create
-  			@client = Instagram.client(:access_token => session[:access_token])
+  			 
   		  @instauser= Instauser.new(instauser_params) 
   		
   		 
   			if @instauser.save 
    			 instauser_log_in(@instauser)
-   			 
     		redirect_to '/dashboard' 
   			else 
    			 redirect_to '/signup' 
@@ -78,10 +76,11 @@ end
 
 private
   def instauser_params
-    params.require(:instauser).permit(:age, :location, :email, :password, :username, :postprice, :theme)
-  end
+    params.require(:instauser).permit(:profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :password, :username, :postprice, :theme, :averagelikes, :averagecomments )
+  end 
+       
+       
+
 
 end
-
-
 

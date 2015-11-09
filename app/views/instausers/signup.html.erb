@@ -1,26 +1,68 @@
+ 
   
+<div class="container">
+   
+ <% a=0 %>
+ <% counter=0 %>
+ <% b=0 %>
+ <% c=Array.new %>
+
+     <% for x in @client.user_recent_media %>
+       <% c.push(x.images.thumbnail.url) %> 
+       <% x.likes[:count] %> 
+       <% a=a+x.likes[:count] %>
+       <% counter=counter+1 %>
+      <%end%>
+
+
+    <% for t in @client.user_recent_media %>
+    <% b=b+t.comments[:count] %>
+    <%end%>
+
+
+
+    <% @averagecomments=b/counter %>
+    <% @averagelikes=a/counter %>
+    <% @profile_picture_url= @client.user.profile_picture %>
+
+
+<div class="col-md-6">
 
 <%= form_for(@instauser) do |f| %>  
-  <div class="input-group"> 
-  	<div class="form-group"> 
+  <div class="input-group-lg"> 
+  	<div class="form-group">
+
+    <%= f.label :fullname %><br> 
+    <%= f.text_field :fullname, class: "form-control" %> <br>
     <%= f.label :email %><br> 
     <%= f.text_field :email, class: "form-control" %> <br>
-   </div>
-    <%= "Password:" %><br> 
+    <%= f.label :password %><br> 
     <%= f.password_field :password, class: "form-control" %> <br>
-    <%= "age" %><br> 
-    <%= f.text_field :age, class: "form-control", :placeholder => "23" %> <br>
+    <%= f.label :age %><br> 
+    <%= f.number_field :age, class: "form-control" %> <br>
     <%= f.label :location %><br> 
- <%= f.select :location, 
+    <%= f.select :location, 
     options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br>
       
-   <%= f.select :theme, 
+     <%= f.select :theme, 
     options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}, { :class => 'form-control' } %> <br>
      <%= f.label :fiyat  %> <br>
-     <%= f.text_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
-     <%= f.hidden_field :username, :value => @client.user.username %>
+     <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
+     <%= f.hidden_field :followed_by, :value => @client.user.counts.followed_by %>
+     <%=  f.hidden_field :username, :value => @client.user.username %>
+     <%= f.hidden_field :averagelikes, :value => @averagelikes %>
+     <%= f.hidden_field :averagecomments, :value => @averagecomments %>
+     <%= f.hidden_field :profile_picture,  :value => @profile_picture_url %>
+     <%= f.hidden_field :recent_media_urls, :value => c %>
+
   </div> <br>
   <div class="actions"> 
-    <%= f.submit "Create" %> 
-  </div> 
+    <%= f.submit "Create", data: {disable_with: "Uploading Now (Be Patient)..."} %> 
+   </div>
 <% end %>
+ </div>
+</div>
+ 
+
+ </div>
+ 

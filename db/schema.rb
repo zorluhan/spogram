@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20151106091626) do
     t.string   "cowebsite"
     t.string   "coname"
     t.string   "email"
-    t.string   "profilepic"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -40,9 +39,12 @@ ActiveRecord::Schema.define(version: 20151106091626) do
     t.string   "location"
     t.integer  "age"
     t.string   "theme"
-    t.string   "role"
     t.integer  "postprice"
-    t.string   "company"
+    t.integer  "averagelikes"
+    t.integer  "averagecomments"
+    t.integer  "followed_by"
+    t.text     "profile_picture"
+    t.text     "recent_media_urls"
   end
 
   create_table "users", force: true do |t|

@@ -23,20 +23,27 @@ before_filter :set_cache_buster
   end
 
 
-  def current_instauser
-	 @current_instauser ||= Instauser.find(session[:user_id]) if session[:user_id]
- end
+ 	 def current_instauser
+ 	
+ 	if session[:user_id]  
+	 @current_instauser ||= Instauser.find_by_id(session[:user_id]) 
+	 
+	end
+	
+	 end 
+
+  
 
 
 	def require_user 
-  redirect_to login_path unless current_instauser 
+  	redirect_to login_path unless current_instauser 
 	end
 
 
 
 
 	def current_branduser 
- 	@current_branduser ||= Branduser.find(session[:buser_id]) if session[:buser_id]
+ 	@current_branduser ||= Branduser.find_by_id(session[:buser_id]) if session[:buser_id]
  	end
 
 

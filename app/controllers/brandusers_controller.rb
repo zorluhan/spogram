@@ -25,6 +25,12 @@ before_action :require_buser, only: [:dashboard]
 
  def dashboard
  	@branduser= Branduser.find_by_id(session[:buser_id])
+  @instausers=Instauser.all 
+
+
+
+
+
  end
 
   private

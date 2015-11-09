@@ -7,7 +7,7 @@ $border-radius-base:                  0;
 $navbar-inverse-link-color: 		#ecf0f1;
 $font-family-sans-serif:           'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $navbar-height:                    55px;
-$navbar-inverse-bg:             #2c3e50;
+$navbar-inverse-bg:                    #e74c3c;
 $brand-primary:                    #c0392b;
 $jumbotron-bg:                     white;
 $badge-font-family:                        'oxygen';
@@ -15,7 +15,15 @@ $badge-font-family:                        'oxygen';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-
+.jumbotron {
+    position: relative;
+    background: #000 url("/assets/jumbotron.jpg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    color: white;
+}
 .center {
      text-align: center;
 }
