@@ -1,6 +1,7 @@
-
-<!-- search !-->
-
+ 
+<div><% if @instausers.first.nil? %>
+<font color="red" family="Lobster"><%= "No users found, search again" %></font>
+ <%end%>
 
 <%= form_for :instauser, url: search_path do |f| %>     
  
@@ -27,23 +28,21 @@
      <%= f.select :averagelikes, 
     options_for_select([['0-100','0-100'],['100-300','100-300'], ['300-500','300-500'], ['500+','500+']],2),{}, :placeholder=>"average likes" %> 
  
-  <%= "|" %>
-    <%= f.submit "Ara", class: "btn btn-primary-info" , data: {disable_with: "Uploading Now (Be Patient)..."} %> 
+  <%= "|" %><br>
+    <%= f.submit "Ara", class: "btn btn-primary-info" , data: {disable_with: "I am searching..." }%> 
    
 <%end%>
-
- 
-<!-- LISTING INSTAUSERS !-->
-
-
+<br>
+</div>
 <% @instausers.each do |x| %>
  
  <% @profile_picture_url=x.profile_picture %>
 
-  <div class="col-md-3">
+<div class="col-md-3">
 	 <ul class="list-group">
 	 	<li class="list-group-item">
 <p><span class="username" id="any"> <%= x.fullname %></span>
+  <span><%= link_to "Propose", {:controller=> "charges", :action=> "new", :instauser => x.id} %></span>
 <span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
 </li>
   
@@ -82,10 +81,10 @@ Price </li>
 
 
 </ul>
-	
+
 	 	
 	  
   
  
 </div>
-<%end %>
+    <%end%>

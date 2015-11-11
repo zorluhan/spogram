@@ -56,7 +56,7 @@ end
   		
   		 
   			if @instauser.save 
-   			 instauser_log_in(@instauser)
+   			instauser_log_in(@instauser)
     		redirect_to '/dashboard' 
   			else 
    			 redirect_to '/signup' 
@@ -72,6 +72,11 @@ def dashboard
 	@instauser=Instauser.find_by_username(username)
 
 end 
+
+def search
+@instausers=Instauser.where(:age => params[:instauser][:age1]..params[:instauser][:age2]) if !params[:instauser].nil?
+ 
+ end 
 
 
 private

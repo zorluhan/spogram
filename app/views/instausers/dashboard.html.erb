@@ -41,11 +41,11 @@
 Followers  </li>
 
 <li class="list-group-item">
-    <span class="badge"><%= a/counter %></span>
+    <span class="badge"><%= a/(counter.nonzero? || 1)%> </span>
 Likes on avg. </li>
 
 <li class="list-group-item">
-    <span class="badge"><%= b/counter %></span>
+    <span class="badge"><%= b/(counter.nonzero? || 1) %></span>
 Comments on avg. </li>
 
 <li class="list-group-item">

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
 resources :brandusers
 resources :instausers 
+resources :charges 
+
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
@@ -12,7 +14,7 @@ resources :instausers
   get '/pages/age'=>'pages#age'
   patch '/pages/results' => 'pages#results'
   get '/pages/form' => 'pages#form'
-
+  get 'charges/new' => 'charges#new'
    
 
    get '/bsignup' => 'brandusers#new'
@@ -31,8 +33,7 @@ resources :instausers
   
   delete '/logout' => 'sessions#destroy'
   get '/checkin' => 'instausers#checkin'
-
-
+  post '/search' => 'instausers#search'
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

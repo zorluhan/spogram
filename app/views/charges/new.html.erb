@@ -1,0 +1,35 @@
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+     
+     <span> <%= @instauser.fullname %></span>
+    <span> <%= @branduser.id %></span>
+    <%=   @message %>
+    <%= @amount %>
+ 
+  </article>
+
+  <%= hidden_field_tag :message, @message %>
+  <%= hidden_field_tag :amount, @amount %> 
+  <%= hidden_field_tag :email, @branduser.email %>
+    
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description=<%= @message %>
+                    data-amount= <%= @amount %>
+          data-locale="auto"
+          data-label="Öde"
+          data-email= <%=@branduser.email%>  
+          data-allow-remember-me= "false" 
+
+
+          ></script>
+ 
+
+<% end %>
