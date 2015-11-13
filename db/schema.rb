@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106091626) do
+ActiveRecord::Schema.define(version: 20151111221017) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20151106091626) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "charges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "explanation"
+    t.string   "instapost"
+    t.string   "instalink"
+    t.string   "productname"
+    t.string   "status"
+    t.integer  "instauser_id"
+    t.integer  "branduser_id"
+    t.integer  "amount"
+  end
+
+  add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"
+  add_index "charges", ["instauser_id"], name: "index_charges_on_instauser_id"
 
   create_table "instausers", force: true do |t|
     t.datetime "created_at"

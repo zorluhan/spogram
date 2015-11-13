@@ -1,11 +1,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Oxygen:300,700);
 @import url(https://fonts.googleapis.com/css?family=Lobster); 
+
 $body-bg:                    #ecf0f1;
 $navbar-default-bg: 				#2c3e50;
 $border-radius-base:                  0;
 $navbar-inverse-link-color: 		#ecf0f1;
-$font-family-sans-serif:           'Oxygen', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-sans-serif:           'Oxygen', 'sans-serif';
 $navbar-height:                    55px;
 $navbar-inverse-bg:                    #e74c3c;
 $brand-primary:                    #c0392b;
@@ -37,6 +38,12 @@ $badge-font-family:                        'oxygen';
  
 }
 
+#search
+{
+	
+background-color: #bdc3c7;
+
+}
 .username
 {
 font-weight: light;

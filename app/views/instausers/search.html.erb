@@ -1,39 +1,14 @@
  
-<div><% if @instausers.first.nil? %>
-<font color="red" family="Lobster"><%= "No users found, search again" %></font>
+<div>
+  <% if @instausers.first.nil? %>
+
+<img src="http://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-monkey-free.png", width="400"> 
+<%= link_to "No users found, search again", bdashboard_path %></font>
+
  <%end%>
 
-<%= form_for :instauser, url: search_path do |f| %>     
- 
-  <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18' } %>
-
-  <%= f.number_field :age2 , :placeholder=>"24", :input_html => { :value => '24' } %><%= "|" %>
-  <%= "Şehir" %>
-    <%= f.select :location, 
-    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}%> <%= "|" %>
-      <%= "Konu" %>
-     <%= f.select :theme, 
-    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}%> 
- 
- <%= "|" %><%= "Fiyat:" %>
-     <%= f.select :postprice, 
-    options_for_select([['100-200','100-200'],['200-300','200-300'], ['300-500','300-500'], ['500+','500+']],2),{} %> 
-   
-
- <%= "|" %><%= "Followers:" %> 
-     <%= f.select :followed_by, 
-    options_for_select([['10000-20000','10000-20000'],['20000-50000','20000-50000'], ['50000-100000','50000-100000'], ['100k+','100k+']],2),{} %> 
- 
-  <%= "|" %><%= "Average Likes:" %>
-     <%= f.select :averagelikes, 
-    options_for_select([['0-100','0-100'],['100-300','100-300'], ['300-500','300-500'], ['500+','500+']],2),{}, :placeholder=>"average likes" %> 
- 
-  <%= "|" %><br>
-    <%= f.submit "Ara", class: "btn btn-primary-info" , data: {disable_with: "I am searching..." }%> 
-   
-<%end%>
-<br>
 </div>
+
 <% @instausers.each do |x| %>
  
  <% @profile_picture_url=x.profile_picture %>
@@ -42,9 +17,12 @@
 	 <ul class="list-group">
 	 	<li class="list-group-item">
 <p><span class="username" id="any"> <%= x.fullname %></span>
-  <span><%= link_to "Propose", {:controller=> "charges", :action=> "new", :instauser => x.id} %></span>
-<span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
-</li>
+  <span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
+ 
+   <%= link_to "Teklif Yap", {:controller=> "charges", :action=>"new", :instauser => "#{x.id}"}, :class=> "btn btn-default btn-xs" %>
+
+  </li>
+
   
  <li class="list-group-item">
     <span class="badge"><%= x.followed_by %></span>
@@ -78,13 +56,7 @@ Price </li>
 </p>
 </li>
 
-
-
 </ul>
-
-	 	
-	  
-  
  
 </div>
-    <%end%>
+<%end%>

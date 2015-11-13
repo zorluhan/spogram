@@ -28,10 +28,6 @@ before_action :require_buser, only: [:dashboard]
   @instausers=Instauser.all 
 
 
-def search
-@instausers=Instauser.where(age: :age)
-
-end 
 
 
 

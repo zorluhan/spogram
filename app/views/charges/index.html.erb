@@ -1,0 +1,27 @@
+
+<span class="btn btn-default">
+<%= link_to "Kabul" %></span>
+<span class="btn btn-default">
+<%= link_to "Bekliyor" %>
+</span>
+<br><br>
+<% @charges.each do |x| %>
+ <div class="col-md-3">
+	<ul class="list-group">
+<li class="list-group-item">
+ <%= image_tag(src=x.instauser.profile_picture, :width=>"20") %>
+<font face="lobster"><%= x.instauser.username %></font> </li>
+<li class="list-group-item">
+	<%= "Miktar:" %>
+<%= "$ "%><%= x.amount/100 %></li>
+<li class="list-group-item">
+	<%= "Ürün:" %>
+<%= x.productname %></li>
+<li class="list-group-item">
+	<%= "Explanation:"%>
+	<%= x.explanation %></li>
+<li class="list-group-item">
+	<%= "Durum:" %>
+<span class="label label-default"><%= x.status %></span></li>
+</div>
+<%end%>

@@ -44,7 +44,8 @@
       <li><a><%= current_branduser.fullname %></a></li>
       <li><%= link_to "Brand Logout", blogout_path(@current_branduser), :method => :delete %></li>
       <li><%= link_to "Company Dashboard", bdashboard_path(@current_branduser) , data: {disable_with: "Loading Now..."} %></li> 
-      
+            <li><%= link_to "Proposals", charges_path , data: {disable_with: "Loading Now..."} %></li> 
+
       <% else %> 
 
       <li><%= link_to "About", pages_about_path %></li>

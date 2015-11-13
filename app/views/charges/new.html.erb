@@ -1,4 +1,14 @@
-<%= form_tag charges_path do %>
+ 
+ <div class="col-md-4" %>
+ </div>
+<div class="col-md-4" %>
+ <div class="list-group">
+<li class="list-group-item list-group-item-disabled" align="center">
+  <h3><strong><font face="Lobster"> <%= "Teklif" %></font></strong></h3>
+</li>
+ 
+<%= form_tag charges_path do  %>
+ <div class="center">
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -6,30 +16,48 @@
       </div>
     <% end %>
      
-     <span> <%= @instauser.fullname %></span>
-    <span> <%= @branduser.id %></span>
-    <%=   @message %>
-    <%= @amount %>
+   
  
   </article>
+ <li class="list-group-item">
+       <%= "Product Name:" %><br><%= text_field_tag 'charge[productname]'   %></li> 
+       <li class="list-group-item">
+    <%=  "Explanation:" %> <br><%= text_area_tag 'charge[explanation]' %></li>
+    <li class="list-group-item">
+  <%= "Post:" %><br> <%= text_area_tag 'charge[instapost]' %> </li>
+  <li class="list-group-item">
+   <%= "Link:" %><br> <%= text_field_tag 'charge[instalink]' %> </li>
+    <li class="list-group-item">
+     <%= "Instagrammer Post Fiyatı:   "%><%= @amount/100 %><br>
+  <%= "Hizmet Bedeli:  "%><%= (@amount*0.15/100).round %><br><br>
 
-  <%= hidden_field_tag :message, @message %>
-  <%= hidden_field_tag :amount, @amount %> 
-  <%= hidden_field_tag :email, @branduser.email %>
-    
+ <strong> <%= "TOPLAM:   " %><%= (@amount*1.15/100).round %></strong></li>
+ <li class="list-group-item" align="center">
+    <%= hidden_field_tag 'charge[amount]', (@amount*1.15).round %> 
+    <%= hidden_field_tag :amount, (@amount*1.15).round %> 
+   <%= hidden_field_tag :useremail, @instauser.email %>
+  <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
+  <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
+  <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
 
+ 
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description=<%= @message %>
-                    data-amount= <%= @amount %>
+                    data-amount= <%= (@amount*1.15).round %>
           data-locale="auto"
-          data-label="Öde"
+          data-label="Gönder"
           data-email= <%=@branduser.email%>  
           data-allow-remember-me= "false" 
 
 
-          ></script>
- 
+          ></script></li>
 
+ 
+<br>
+</div></div>
 <% end %>
+ 
+</div> 
+ 

@@ -1,6 +1,7 @@
 class Branduser < ActiveRecord::Base
 	has_secure_password 
-
+    has_many :charges
+    has_many :instausers, through: :charges
 	 
 	validates :phone , presence: true 
 	validates :coname, presence: true

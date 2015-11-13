@@ -3,6 +3,7 @@ class InstausersController < ApplicationController
   include InstausersHelper
 
 before_action :require_user, only: [:dashboard]
+before_action :require_buser, only: [:search]
 
 
 		def auth
@@ -60,11 +61,9 @@ end
     		redirect_to '/dashboard' 
   			else 
    			 redirect_to '/signup' 
- 			 end 
+ 			  end 
    
- 
-
-			end
+        end
 
 def dashboard
 	@client = Instagram.client(:access_token => session[:access_token])
@@ -74,7 +73,9 @@ def dashboard
 end 
 
 def search
-@instausers=Instauser.where(:age => params[:instauser][:age1]..params[:instauser][:age2]) if !params[:instauser].nil?
+
+
+@instausers=Instauser.where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >?", params[:instauser][:averagelikes])  if !params[:instauser].nil?
  
  end 
 
