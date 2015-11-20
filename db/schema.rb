@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111221017) do
+ActiveRecord::Schema.define(version: 20151116115155) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20151111221017) do
     t.integer  "instauser_id"
     t.integer  "branduser_id"
     t.integer  "amount"
+    t.string   "customer"
+    t.string   "useremail"
   end
 
   add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"

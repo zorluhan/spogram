@@ -1,17 +1,18 @@
 
 @import url(https://fonts.googleapis.com/css?family=Oxygen:300,700);
 @import url(https://fonts.googleapis.com/css?family=Lobster); 
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-$body-bg:                    #ecf0f1;
+$body-bg:                           #ecf0f1;
 $navbar-default-bg: 				#2c3e50;
 $border-radius-base:                  0;
 $navbar-inverse-link-color: 		#ecf0f1;
-$font-family-sans-serif:           'Oxygen', 'sans-serif';
-$navbar-height:                    55px;
+$font-family-sans-serif:           'Montserrat', 'sans-serif';
+$navbar-height:                           55px;
 $navbar-inverse-bg:                    #e74c3c;
 $brand-primary:                    #c0392b;
 $jumbotron-bg:                     white;
-$badge-font-family:                        'oxygen';
+$badge-font-family:                        'Andale Mono';
  
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -25,6 +26,7 @@ $badge-font-family:                        'oxygen';
     overflow: hidden;
     color: white;
 }
+
 .center {
      text-align: center;
 }
@@ -42,6 +44,8 @@ $badge-font-family:                        'oxygen';
 {
 	
 background-color: #bdc3c7;
+font-family: 'Oxygen';
+
 
 }
 .username
@@ -56,7 +60,7 @@ font-weight: light;
 {
     
      font-size: small;
-     	font-family: 'Helvetica';
+     	font-family: 'Andale Mono';
      	 color:  #ecf0f1;
 
  }

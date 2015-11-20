@@ -29,7 +29,7 @@
    <%= "Link:" %><br> <%= text_field_tag 'charge[instalink]' %> </li>
     <li class="list-group-item">
      <%= "Instagrammer Post Fiyatı:   "%><%= @amount/100 %><br>
-  <%= "Hizmet Bedeli:  "%><%= (@amount*0.15/100).round %><br><br>
+  <%= "Hizmet Bedeli:  "%><%= (@amount*0.15/100).round %><br><hr>
 
  <strong> <%= "TOPLAM:   " %><%= (@amount*1.15/100).round %></strong></li>
  <li class="list-group-item" align="center">

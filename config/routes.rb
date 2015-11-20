@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   
 resources :brandusers
 resources :instausers 
-resources :charges 
-
+ 
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
@@ -15,8 +14,15 @@ resources :charges
   patch '/pages/results' => 'pages#results'
   get '/pages/form' => 'pages#form'
   get 'charges/new' => 'charges#new'
-   
-
+  post '/charges/new' => 'charges#create'
+  get '/charges/bill' => 'charges#bill'
+  get 'charges/billed' => 'charges#billed'
+  
+  get '/charges' => 'charges#index'
+  get 'charges/:id'=>'charges#show', :as => 'charge'
+  post 'charges/bill' => 'charges#bill'
+  post '/charges' => 'charges#create'
+ 
    get '/bsignup' => 'brandusers#new'
    get '/blogin' => 'sessions#new' 
    post '/blogin' => 'sessions#create'

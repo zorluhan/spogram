@@ -39,6 +39,7 @@
       <li><a><%= current_instauser.username %></a></li>
       <li><%= link_to "Logout", logout_path(@current_instauser), :method =>:delete %></li>
       <li><%= link_to "User Dashboard", dashboard_path(@current_instauser), data: {disable_with: "Loading Now..."} %></li> 
+      <li><%= link_to "Proposals", charges_path , data: {disable_with: "Loading Now..."} %></li> 
 
       <% elsif branduser_logged_in? %>
       <li><a><%= current_branduser.fullname %></a></li>

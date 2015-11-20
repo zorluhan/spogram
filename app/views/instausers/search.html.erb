@@ -19,7 +19,7 @@
 <p><span class="username" id="any"> <%= x.fullname %></span>
   <span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
  
-   <%= link_to "Teklif Yap", {:controller=> "charges", :action=>"new", :instauser => "#{x.id}"}, :class=> "btn btn-default btn-xs" %>
+   <%= link_to "Collaborate", {:controller=> "charges", :action=>"new", :instauser => "#{x.id}"}, :class=> "btn btn-default btn-xs" %>
 
   </li>
 

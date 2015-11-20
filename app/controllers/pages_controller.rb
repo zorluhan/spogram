@@ -20,8 +20,7 @@ end
  end
   
 	 
-
-
+ 
 def results
 	sleep 1
 @instausers=Instauser.where(location: "İstanbul")

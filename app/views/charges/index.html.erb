@@ -1,3 +1,45 @@
+<% if (instauser_logged_in? && !branduser_logged_in?) %>
+
+<!-- buraya unaccepted accepted search tool gelecek !-->
+
+ <div class="col-md-6">
+
+ <% @charges.each do |x| %>
+ 
+<ul class="list-group">
+<li class="list-group-item list-group-item-disabled">
+<font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font></li>
+<li class="list-group-item">
+	<%= "Miktar:" %>
+<%= "$ "%><%= x.amount/100 %></li>
+<li class="list-group-item">
+	<%= "Ürün:" %>
+<%= x.productname %></li>
+<li class="list-group-item">
+	<%= "Explanation:"%>
+	<%= x.explanation %></li>
+	<% if x.status=="accepted" %>
+<li class="list-group-item" align="center">
+<h4><span class="label label-success"><%= x.status %></span></h4>
+</li>
+	 
+<% elsif x.status=="unaccepted" %>
+ 
+<li class="list-group-item list-group-item-disabled">
+<h4><span class="label label-warning"><%= x.status %></span></h4></li>
+
+<li class="list-group-item" align="center">
+	<span class="btn-group"><button type="button" class="btn btn-default"><%= link_to "Accept the Proposal", {:controller=> "charges", :action=>"bill", :charge => "#{x.id}"},  data: {disable_with: "Accepting..."}  %>
+ </button> </span></li>
+ 
+<%end%>
+<br>
+ <%end%>
+ 
+ </div>
+
+	<% elsif branduser_logged_in? && !instauser_logged_in? %>
+
 
 <span class="btn btn-default">
 <%= link_to "Kabul" %></span>
@@ -5,6 +47,7 @@
 <%= link_to "Bekliyor" %>
 </span>
 <br><br>
+
 <% @charges.each do |x| %>
  <div class="col-md-3">
 	<ul class="list-group">
@@ -24,4 +67,12 @@
 	<%= "Durum:" %>
 <span class="label label-default"><%= x.status %></span></li>
 </div>
+<%end%>
+
+<% else %>
+
+
+<% redirect_to root_path %>
+
+
 <%end%>
