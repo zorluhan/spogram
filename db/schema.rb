@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116115155) do
+ActiveRecord::Schema.define(version: 20151120125158) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 20151116115155) do
     t.integer  "followed_by"
     t.text     "profile_picture"
     t.text     "recent_media_urls"
+  end
+
+  create_table "messages", force: true do |t|
+    t.integer  "sender"
+    t.integer  "instauser_id"
+    t.integer  "branduser_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "message"
   end
 
   create_table "users", force: true do |t|

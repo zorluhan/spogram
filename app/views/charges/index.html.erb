@@ -1,11 +1,12 @@
+
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
 <!-- buraya unaccepted accepted search tool gelecek !-->
 
- <div class="col-md-6">
-
- <% @charges.each do |x| %>
  
+ <div class="col-md-6">
+ <% @charges.each do |x| %>
+
 <ul class="list-group">
 <li class="list-group-item list-group-item-disabled">
 <font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font></li>
@@ -22,6 +23,9 @@
 <li class="list-group-item" align="center">
 <h4><span class="label label-success"><%= x.status %></span></h4>
 </li>
+<li class="list-group-item">
+ <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
+ </li>
 	 
 <% elsif x.status=="unaccepted" %>
  
@@ -49,7 +53,7 @@
 <br><br>
 
 <% @charges.each do |x| %>
- <div class="col-md-3">
+ <div class="col-md-8">
 	<ul class="list-group">
 <li class="list-group-item">
  <%= image_tag(src=x.instauser.profile_picture, :width=>"20") %>
@@ -66,6 +70,11 @@
 <li class="list-group-item">
 	<%= "Durum:" %>
 <span class="label label-default"><%= x.status %></span></li>
+<li class="list-group-item">
+<% if x.status=="accepted" %>
+<%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %>
+<% end %>
+</li>
 </div>
 <%end%>
 

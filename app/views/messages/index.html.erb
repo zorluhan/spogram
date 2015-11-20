@@ -1,0 +1,31 @@
+
+
+<% if (instauser_logged_in? && !branduser_logged_in?) %>
+
+<% @messages.each do |x| %>
+
+<%= x.message %><br>
+<% end %>
+
+
+
+
+
+	<% elsif branduser_logged_in? && !instauser_logged_in? %>
+
+
+<% @messages.each do |x| %>
+
+<%= x.message %><br>
+<% end %>
+
+
+
+
+
+ 
+
+
+
+
+<%end%>

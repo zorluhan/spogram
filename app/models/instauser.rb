@@ -4,7 +4,7 @@ require 'elasticsearch/model'
 
 class Instauser < ActiveRecord::Base
 	has_secure_password
-
+    has_many :messages
 	has_many :charges 
     has_many :brandusers, through: :charges
 	 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 resources :brandusers
 resources :instausers 
- 
+resources :messages 
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
