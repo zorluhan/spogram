@@ -10,12 +10,14 @@ sender: <%= @sender %>  !-->
  <% if @sender==0 %>
 
   <%= form_for(@message) do |f| %>  
-  <div class="input-group-lg"> 
-  	<div class="form-group">
-      <%= image_tag(src=@profile_picture, width: "50") %>
-      To: <%= @instauser.fullname %>  
+    <div class="badge"><h4><%= image_tag(src=@profile_picture, width: "50", class: "margin") %> <%= @instauser.fullname %>  </h4> </div>
       <br> 
       <br>
+
+ <div class="input-group-lg"> 
+    <div class="form-group">
+
+
      <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
        <div class="actions"> 
     <%= f.submit "Send", data: {disable_with: "Uploading Now..."} %> 
@@ -27,14 +29,14 @@ sender: <%= @sender %>  !-->
  <%end%>
 
   <% elsif @sender==1 %>
-
+    
   <%= form_for(@message) do |f| %>  
-      To: <%= @branduser.coname %>
+      <div class="badge"><h4> Kime:  <%= @branduser.coname %></h4> </div>
       <br> 
       <br>
      <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
        <div class="actions"> 
-    <%= f.submit "Send", data: {disable_with: "Uploading Now..."} %> 
+    <%= f.submit "Gönder", data: {disable_with: "Uploading Now..."} %> 
    </div>
      <%=  f.hidden_field :instauser_id, :value => @instauser_id %>
      <%= f.hidden_field :branduser_id, :value => @branduser_id %>

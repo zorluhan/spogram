@@ -35,6 +35,7 @@ end
 
 if @message.save 
 	redirect_to messages_path
+	flash!(:email_success)
 	 
 end 
 
@@ -47,17 +48,35 @@ def index
 	if current_branduser 
 		@id=current_branduser.id 
 		@messages=Message.where(:branduser_id => @id)
+		instauserids= Message.where(:branduser_id => @id).uniq.pluck(:instauser_id)
+ 		@instausers=Instauser.where(:id => instauserids)
+ 
+	    
  	
  	elsif current_instauser 
         @id=current_instauser.id
  		@messages=Message.where(:instauser_id => @id)
+ 		branduserids= Message.where(:instauser_id => @id).uniq.pluck(:branduser_id)
+ 		@brandusers=Branduser.where(:id => branduserids)
  
  	end
 
 
-
 end 
 
+
+
+def publish 
+
+if current_instauser 
+	@messages=Message.where(:branduser_id => params[:branduser_id], :instauser_id => current_instauser.id)
+elsif current_branduser 
+   @messages=Message.where(:instauser_id => params[:instauser_id], :branduser_id => current_branduser.id)
+end	 
+    
+ 
+
+end
 
 private
 

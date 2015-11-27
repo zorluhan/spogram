@@ -3,11 +3,11 @@
 <div class="container">
   <div class="col-md-2">
   </div>
-  <div class="col-md-8">
+  <div class="col-md-9">
  <div class="panel" id="search">
   <div align="center">
 <%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>     
- <font size="1" face="andale mono"> <%= "Yaş" %><%= ":" %>
+ <font size="2"> <%= "Yaş" %><%= ":" %>
  
   <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18', :class=> "form-group"}%><%= "-" %> 
 
@@ -21,12 +21,12 @@
  
  <%= "Max Fiyat:" %>
      <%= f.select :postprice, 
-    options_for_select([['100','100'],['200','200'], ['300','300'], ['1000','1000']],2),{} %> 
+    options_for_select([['100','100'],['200','200'], ['300','300'], ['2000','2000']],2),{} %> 
    
 
  <%= "Min. Followers:" %> 
      <%= f.select :followed_by, 
-    options_for_select([['100','100'],['200','200'],['10000','100000'], ['20000','20000'], ['50k','50000']]),{} %> 
+    options_for_select([['0','0'],['200','200'],['10000','100000'], ['20000','20000'], ['50k','50000']]),{} %> 
  
    <%= "Min. Average Likes:" %>
      <%= f.select :averagelikes, 

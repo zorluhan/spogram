@@ -37,14 +37,19 @@ $badge-font-family:                        'Andale Mono';
      	font-family: 'Lobster';
      	 color:  #ecf0f1;
 
- 
+
 }
 
+#textcenter{
+    
+    text-align: center;
+}
 #search
 {
 	
 background-color: #bdc3c7;
-font-family: 'Oxygen';
+font-family: 'Helvetica';
+border-radius: 10px;
 
 
 }
@@ -60,13 +65,16 @@ font-weight: light;
 {
     
      font-size: small;
-     	font-family: 'Andale Mono';
+     	font-family: 'Helvetica';
      	 color:  #ecf0f1;
 
  }
 
 .badge-success {
   background-color: #398439;
+}
+
+.margin { margin: 10px;
 }
 
 
@@ -79,9 +87,35 @@ font-weight: light;
 
 }
 
+.panel-body {
+background:#FFFFFF;
+border-radius: 10px}
+
+
+#mm {
+background-color: #bdc3c7;}
+
+
 
 .navbar-brand:hover, 
 .navbar-brand:focus {
   background-color: transparent;
   color: #999999;
+}
+
+#leftbar {
+
+  float: left;
+  width: 20%;
+
+}
+
+#publish {
+  margin-left:  25%;
+  margin-right: 5%;
+}
+
+
+.verticalLine {
+    border-left: thick solid #ff0000;
 }

@@ -3,7 +3,7 @@
  </div>
 <div class="col-md-4" %>
  <div class="list-group">
-<li class="list-group-item list-group-item-disabled" align="center">
+<li class="list-group-item list-group-item-disabled" id="textcenter">
   <h3><strong><font face="Lobster"> <%= "Teklif" %></font></strong></h3>
 </li>
  
@@ -20,18 +20,18 @@
  
   </article>
  <li class="list-group-item">
-       <%= "Product Name:" %><br><%= text_field_tag 'charge[productname]'   %></li> 
+       <%= "Product Name:" %><br><%= text_field_tag( 'charge[productname]' , nil, size: 40 )%></li> 
        <li class="list-group-item">
-    <%=  "Explanation:" %> <br><%= text_area_tag 'charge[explanation]' %></li>
+    <%=  "Explanation:" %> <br><%= text_area_tag 'charge[explanation]', nil,  cols: 40 %></li>
     <li class="list-group-item">
-  <%= "Post:" %><br> <%= text_area_tag 'charge[instapost]' %> </li>
+  <%= "Post:" %><br> <%= text_area_tag 'charge[instapost]', nil, cols: 40 %> </li>
   <li class="list-group-item">
-   <%= "Link:" %><br> <%= text_field_tag 'charge[instalink]' %> </li>
+   <%= "Link:" %><br> <%= text_field_tag 'charge[instalink]', nil, size:40 %> </li>
     <li class="list-group-item">
      <%= "Instagrammer Post Fiyatı:   "%><%= @amount/100 %><br>
   <%= "Hizmet Bedeli:  "%><%= (@amount*0.15/100).round %><br><hr>
 
- <strong> <%= "TOPLAM:   " %><%= (@amount*1.15/100).round %></strong></li>
+ <strong> <%= "TOPLAM TUTAR:   " %><%= (@amount*1.15/100).round %></strong></li>
  <li class="list-group-item" align="center">
     <%= hidden_field_tag 'charge[amount]', (@amount*1.15).round %> 
     <%= hidden_field_tag :amount, (@amount*1.15).round %> 

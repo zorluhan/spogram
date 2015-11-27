@@ -22,7 +22,7 @@ def index
 	@charges=Charge.where(:branduser_id => id)
 elsif instauser_logged_in?
 	id=current_instauser.id 
-	@charges=Charge.where(:branduser_id => id)
+	@charges=Charge.where(:instauser_id => id)
 else
 	redirect_to root_path
 
@@ -49,6 +49,7 @@ customer=Stripe::Customer.create(
 
 
  if @charge.save
+ 	flash!(:payment_notify_branduser)
    	redirect_to charge_path(@charge)
    	end 
 
@@ -73,8 +74,10 @@ charge=Stripe::Charge.create(
     
  if charge["paid"] == true
  	@charge.status= "accepted"
- 	@charge.save
- 	redirect_to charges_path
+ 	   if @charge.save
+ 	   	flash!(:payment_notify_instauser)
+	    end 
+	    redirect_to charges_path
 
  end
 

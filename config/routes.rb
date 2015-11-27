@@ -17,7 +17,7 @@ resources :messages
   post '/charges/new' => 'charges#create'
   get '/charges/bill' => 'charges#bill'
   get 'charges/billed' => 'charges#billed'
-  
+  patch '/publish' => 'messages#publish'
   get '/charges' => 'charges#index'
   get 'charges/:id'=>'charges#show', :as => 'charge'
   post 'charges/bill' => 'charges#bill'

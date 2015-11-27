@@ -5,12 +5,13 @@
   
 
     defaults:
-        success: "This is a notification"
-        error: "Something went wrong"
+        email_success: "Email başarıyla gönderilmiştir."
+        payment_notify_instauser: "İşlem başarıyla gerçekleşti. Marka ile iletişime geçebilirsiniz."
+        payment_notify_branduser: "Instagramer onayladıktan sonra kredi kartınız işlem görecektir."
 
     brandusers: 
         new:
-            success: "Success!"
+            success: "Başarıyla gönderildi!"
             info: "Info!"
             warning: "Warning!"
             error: "Bir yerlerde hata var! Forma tekrar bak, tüm alanları doldur, email adresini düzgün gir!" 

@@ -1,12 +1,24 @@
 
- 
+ <div class="container">
 <div class="jumbotron">
 	 
-
+<% if !instauser_logged_in? and !branduser_logged_in? %>
 <p><div class="row" align="center">
  <h1>Markayım  <%= link_to "Kaydol", '/bsignup', class: "btn btn-primary" %></h1><hr>
 		<h1>Instagrammer'ım.  <%= link_to "Kaydol", new_instauser_path, class: "btn btn-primary" %></h1>
 	</p><br>
- </div></div>
-  
 
+<%else%>
+<div class="row" align="center">
+ <h1>Collaboration is awesome</h1>
+ <h4> Reklogram is where brands and instagramers meet to work together for a common cause.</h4>
+</div>
+<%end%>
+
+ </div>
+
+
+</div>
+ 
+
+ 
