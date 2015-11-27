@@ -75,7 +75,7 @@ end
 def search
 
 
-@instausers=Instauser.where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >?", params[:instauser][:averagelikes])  if !params[:instauser].nil?
+@instausers=Instauser.where(:gender => params[:instauser][:gender]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >?", params[:instauser][:averagelikes])  if !params[:instauser].nil?
  
  end 
 
@@ -84,7 +84,7 @@ def search
 
 private
   def instauser_params
-    params.require(:instauser).permit(:profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :password, :username, :postprice, :theme, :averagelikes, :averagecomments )
+    params.require(:instauser).permit(:gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :password, :username, :postprice, :theme, :averagelikes, :averagecomments )
   end 
        
        

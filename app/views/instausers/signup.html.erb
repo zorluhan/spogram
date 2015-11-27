@@ -40,6 +40,9 @@
     <%= f.password_field :password, class: "form-control" %> <br>
     <%= f.label :age %><br> 
     <%= f.number_field :age, class: "form-control" %> <br>
+    <%= f.select :location, 
+    options_for_select([['Erkek','Erkek'],['Kadın','Kadın']] ,2),{}, { :class => 'form-control' } %><br>
+      
     <%= f.label :location %><br> 
     <%= f.select :location, 
     options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br>
