@@ -31,10 +31,16 @@ before_action :require_buser, only: [:search]
   					 
   					 	else
                 @instauser=Instauser.find_by_username(@client.user.username)
-  					 		session[:user_id]=@instauser.id
+                @instauser.profile_picture=@client.user.profile_picture
+                 if @instauser.save
+                    session[:user_id]=@instauser.id
+                end
+                
+  				      
   					 		redirect_to "/dashboard"
-   						end
+   					 
    					end
+          end
 
 
 def new 

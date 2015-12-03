@@ -2,12 +2,13 @@
 
   
     <div class="row">
-      <div class="col-xs-6">
+      <div class="col-xs-5" id="form">
+        <br>
   <%= form_for(@branduser)  do |f| %>  
   <div class="input-group"> 
   	<div class="form-group"> 
     <%= f.label :fullname %> <br> 
-    <%= f.text_field :fullname, class: "form-control"  %> <br>
+    <%= f.text_field :fullname, class: "form-control", size: "50" %> <br>
    </div>
    <%= f.label :email  %> <br>
      <%= f.text_field :email, class: "form-control" %> <br>
@@ -19,20 +20,22 @@
     <%= f.text_field :coname, class: "form-control" %> <br>
     <%= f.label :country %><br> 
     <%= f.select :country, 
-    options_for_select([['Turkey','Turkey'],['USA','USA']], params[:country]),
+    options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
     {}, { :class => 'form-control' }  %>
 
      <%= f.label :website %> <br>
     <%= f.text_field :cowebsite, class: "form-control"  %> <br>
      
+     <!-- 
      <%= f.label :image %> <br>
-     <%= f.file_field :image, class: "form-control" %> <br>
+     <%= f.file_field :image, class: "form-control" %> <br> !-->
      
      
   </div> <br>
   <div class="actions"> 
     <%= f.submit "Create"  %> 
   </div> 
+  <br>
 <% end %>
 </div>
  

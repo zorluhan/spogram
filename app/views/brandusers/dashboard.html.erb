@@ -6,7 +6,7 @@
   <div class="col-md-10">
  <div class="panel" id="search">
   <div align="center">
-
+ 
 
 <%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>  
 
@@ -54,7 +54,7 @@
  <% @profile_picture_url=x.profile_picture %>
 
   <div class="col-md-3">
-   <ul class="list-group">
+   <ul class="list-group" id="form">
     <li class="list-group-item">
 <p><span class="username" id="any"> <%= x.fullname %></span>
 <span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>

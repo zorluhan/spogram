@@ -1,17 +1,7 @@
-
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
-<!-- buraya unaccepted accepted search tool gelecek !-->
-<span class="btn btn-default">
-<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %></span>
-<span class="btn btn-default">
-<%= link_to "Bekliyor", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
-</span>
-<br><br>  
  
- <div class="col-md-6" id="publishproposal">
-
-<!--
+ 
  <% @charges.each do |x| %>
 
 <ul class="list-group" id="form">
@@ -46,29 +36,17 @@
 <%end%>
  
 </ul>
- <%end%> !-->
+ <%end%>
  
- </div>
+ 
 
 	<% elsif branduser_logged_in? && !instauser_logged_in? %>
 
  
+
+<% @charges.each do |x| %>
  
-<span class="btn btn-default">
-<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %></span>
-<span class="btn btn-default">
-<%= link_to "Bekliyor", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
-</span>
-<br><br>  
-
-
-
- <div class="col-md-6" id="publishproposal">
-
-
-<!-- <% @charges.each do |x| %>
-
-	<ul class="list-group" id="form">
+<ul class="list-group" id="form">
 <li class="list-group-item">
  <%= image_tag(src=x.instauser.profile_picture, :width=>"20") %>
 <font face="lobster"><%= x.instauser.username %></font> </li>
@@ -81,18 +59,24 @@
 <li class="list-group-item">
 	<%= "Explanation:"%>
 	<%= x.explanation %></li>
+
+	<% if x.status=="accepted" %>
+<li class="list-group-item">
+	<%= "Durum:" %>
+<span class="label label-success"><%= x.status %></span></li>
+<li class="list-group-item">
+
+<%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %></li>
+<%elsif x.status=="unaccepted" %>
 <li class="list-group-item">
 	<%= "Durum:" %>
 <span class="label label-default"><%= x.status %></span></li>
-<li class="list-group-item">
-<% if x.status=="accepted" %>
-<%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %>
+
 <% end %>
-</li>
-</ul>  <%end%>!--> 
 
-</div>
-
+</ul>
+ 
+<%end%>
 
 <% else %>
 

@@ -18,15 +18,14 @@ class SessionsController < ApplicationController
 
 
 	def destroy 
-
-	 @instauser=nil
+ 
+	 		@current_instauser=nil
 			session.delete(:user_id)
-						session.delete(:buser_id)
-
+			session.delete(:buser_id)
 			session[:user_id]=nil
 			session[:buser_id]=nil
-			@branduser=nil
-					redirect_to '/pages/logout'
+			@current_branduser=nil
+			redirect_to '/pages/logout'
   
 
 

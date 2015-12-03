@@ -31,6 +31,30 @@ end
 end
 
 
+def publish_proposal
+
+     if branduser_logged_in? 
+	id=current_branduser.id 
+	status=params[:status]
+	@charges=Charge.where(:branduser_id => id).where(:status => status)
+
+
+elsif instauser_logged_in?
+	id=current_instauser.id 
+	status=params[:status]
+	@charges=Charge.where(:instauser_id => id).where(:status => status)
+
+else
+	redirect_to root_path
+
+end
+
+end
+
+
+
+
+
 def create 
 
 @charge=Charge.new(charge_params)
