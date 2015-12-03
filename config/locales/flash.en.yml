@@ -8,6 +8,7 @@
         email_success: "Email başarıyla gönderilmiştir."
         payment_notify_instauser: "İşlem başarıyla gerçekleşti. Marka ile iletişime geçebilirsiniz."
         payment_notify_branduser: "Instagramer onayladıktan sonra kredi kartınız işlem görecektir."
+        refused: "Hesabınız 10 bin takipçiden az olduğu için kabul edilmemiştir"
 
     brandusers: 
         new:

@@ -122,6 +122,10 @@ end
 
 def show
 @charge=Charge.find_by_id(params[:id])
+if @charge.branduser_id!=current_branduser.id
+	redirect_to root_path
+end
+
 end 
 
 

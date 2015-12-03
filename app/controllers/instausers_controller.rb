@@ -76,6 +76,10 @@ def dashboard
 	username=@client.user.username 
 	@instauser=Instauser.find_by_username(username)
 
+  if @client.user.counts.followed_by<10000 
+   flash!(:refused)
+  end
+
 end 
 
 def search

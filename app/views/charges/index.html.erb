@@ -2,14 +2,18 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
 <!-- buraya unaccepted accepted search tool gelecek !-->
-<span class="btn btn-default">
-<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %></span>
-<span class="btn btn-default">
+<div id="leftbar">
+	<ul class="list-group" id="form">
+
+	 <font face="Lobster">
+	 	<li class="list-group-item"><h4>
+<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %> </h4></li>
+ <li class="list-group-item"><h4>
 <%= link_to "Bekliyor", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
-</span>
-<br><br>  
+ </h4></li></font>
+<br><br>  </div>
  
- <div class="col-md-6" id="publishproposal">
+ <div id="publishproposal">
 
 <!--
  <% @charges.each do |x| %>
@@ -53,17 +57,21 @@
 	<% elsif branduser_logged_in? && !instauser_logged_in? %>
 
  
- 
-<span class="btn btn-default">
-<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %></span>
-<span class="btn btn-default">
-<%= link_to "Bekliyor", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
-</span>
-<br><br>  
+ <div id="leftbar">
+ 	
+<ul class="list-group" id="form">
+	<li class="list-group-item">
+ <h4><font face="Lobster">
+<%= link_to "Accepted", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %> </h4></li>
+<li class="list-group-item">
+ <h4>
+<%= link_to "Unaccepted", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
+ </h4></font></li>
+  </div> 
 
 
 
- <div class="col-md-6" id="publishproposal">
+ <div id="publishproposal">
 
 
 <!-- <% @charges.each do |x| %>
