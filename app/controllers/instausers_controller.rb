@@ -4,11 +4,11 @@ class InstausersController < ApplicationController
 
 before_action :require_user, only: [:dashboard]
 before_action :require_buser, only: [:search]
-
+before_action :logged_in_instauser , only: [:edit, :update]
+before_action :correct_instauser , only: [:edit, :update]
 
 		def auth
        
-
   		Instagram.configure do |config|
   		config.client_id= "55b89c9652df4cd4b5249cada73369e9"
   		config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
@@ -72,13 +72,17 @@ end
         end
 
 def dashboard
-	@client = Instagram.client(:access_token => session[:access_token])
+  @client = Instagram.client(:access_token => session[:access_token])
+
+  # if @client.user.counts.followed_by<10000 
+  #  redirect_to root_path
+ #   flash!(:refused)
+#  else
+
 	username=@client.user.username 
 	@instauser=Instauser.find_by_username(username)
 
-  if @client.user.counts.followed_by<10000 
-   flash!(:refused)
-  end
+# end
 
 end 
 
@@ -89,7 +93,21 @@ def search
  
  end 
 
- 
+
+def edit
+@instauser=Instauser.find_by_id(params[:id]) 
+end
+
+def update
+  @instauser=Instauser.find_by_id(params[:id])
+  if @instauser.update_attributes(instauser_params)
+      flash!(:success)
+      redirect_to '/dashboard'
+  else
+    render 'edit'
+  end
+end
+
 
 
 private
@@ -97,6 +115,18 @@ private
     params.require(:instauser).permit(:gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :password, :username, :postprice, :theme, :averagelikes, :averagecomments )
   end 
        
+       def logged_in_instauser
+        unless instauser_logged_in?
+          flash!(:notloggedin)
+          redirect_to root_path
+       end
+       end
+
+      def correct_instauser
+      @instauser = Instauser.find_by_id(params[:id])
+
+      redirect_to root_path unless @instauser==current_instauser 
+      end
        
 
 

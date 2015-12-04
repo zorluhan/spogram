@@ -21,19 +21,19 @@
     options_for_select([['Erkek','Erkek'],['Kadın','Kadın']] ,2),{}%>   
   <%= "Şehir:" %>
     <%= f.select :location,
-    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}%>   
+    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin']] ,2),{}%>   
       <%= "Konu:" %>
      <%= f.select :theme, 
-    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}%> 
+    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım'], ['Cinsel','Cinsel']], 2), {}%> 
  
  <%= "Max Fiyat:" %>
      <%= f.select :postprice, 
-    options_for_select([['100','100'],['200','200'], ['300','300'], ['2000','2000']],2),{} %> 
+    options_for_select([['100','100'],['200','200'], ['300','300'], ['400','400'],['500','500'],['1000','1000'],['2000','2000']],2),{} %> 
    
 
  <%= "Min. Followers:" %> 
      <%= f.select :followed_by, 
-    options_for_select([['0','0'],['200','200'],['10000','100000'], ['20000','20000'], ['50k','50000']],2),{} %> 
+    options_for_select([['0','0'],['15000','15000'],['30000','30000'], ['50000','50000'], ['100k','100000']],2),{} %> 
  
    <%= "Min. Average Likes:" %>
      <%= f.select :averagelikes, 

@@ -1,5 +1,4 @@
 
- 
 
  <% a=0 %>
  <% counter=0 %>
@@ -7,6 +6,9 @@
  <div class="container">
 
 
+  <%  if @client.user.counts.followed_by<10000 %>
+   <font color="red">Başvurunuz Reddedilmiştir.</font>
+  <%end%>
 
  	<div class="row">
 

@@ -10,7 +10,7 @@ sender: <%= @sender %>  !-->
  <% if @sender==0 %>
 
   <%= form_for(@message) do |f| %>  
-    <div class="badge"><h4><%= image_tag(src=@profile_picture, width: "50", class: "margin") %> <%= @instauser.fullname %>  </h4> </div>
+    <div class="badge badge-info"><h4><%= image_tag(src=@profile_picture, width: "50", class: "margin") %> To: <%= @instauser.fullname %></h4> </div>
       <br> 
       <br>
 
@@ -31,7 +31,7 @@ sender: <%= @sender %>  !-->
   <% elsif @sender==1 %>
     
   <%= form_for(@message) do |f| %>  
-      <div class="badge"><h4> Kime:  <%= @branduser.coname %></h4> </div>
+      <div class="badge badge-info"><h4> Kime:  <%= @branduser.coname %></h4> </div>
       <br> 
       <br>
      <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 

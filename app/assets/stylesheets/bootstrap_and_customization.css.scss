@@ -9,7 +9,7 @@ $border-radius-base:                  0;
 $navbar-inverse-link-color: 		#ecf0f1;
 $font-family-sans-serif:           'Montserrat', 'sans-serif';
 $navbar-height:                           55px;
-$navbar-inverse-bg:                    #34495e;
+$navbar-inverse-bg:                    #e74c3c;
 $brand-primary:                    #c0392b;
 $jumbotron-bg:                     white;
 $badge-font-family:                        'Andale Mono';
@@ -38,6 +38,9 @@ $badge-font-family:                        'Andale Mono';
      	 color:  #ecf0f1;
 
 
+}
+.badge-info {
+  background-color: #f1c40f;
 }
 
 #textcenter{

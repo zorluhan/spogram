@@ -3,7 +3,8 @@ class ChargesController < ApplicationController
  
 before_action :require_buser, only: [:new, :create, :show] 
 before_action :require_user, only: [:bill]
- 
+before_action :correct_user, only: [:show, :bill]
+
 def new
 @charge=Charge.new 
 @instauser=Instauser.find_by_id(params[:instauser])
@@ -20,9 +21,18 @@ def index
 	if branduser_logged_in? 
 	id=current_branduser.id 
 	@charges=Charge.where(:branduser_id => id)
+
 elsif instauser_logged_in?
 	id=current_instauser.id 
 	@charges=Charge.where(:instauser_id => id)
+	@earned=0
+	@charges.each do |x|
+		if x.status=="accepted" 
+			@earned=@earned+x.amount
+		end
+	end 
+
+
 else
 	redirect_to root_path
 
@@ -137,7 +147,24 @@ def charge_params
        
 
 
- 
+ def correct_user
+ 	if instauser_logged_in?
+      @charge = current_instauser.charges.find_by_id(params[:charge])
+       if @charge.nil?
+        flash!(:sizeaitdegil)
+       	redirect_to root_path
+
+    	end
+  elsif branduser_logged_in?
+  	@charge = current_branduser.charges.find_by_id(params[:charge])
+  	 if @charge.nil?
+  	  flash!(:sizeaitdegil)
+  	  redirect_to root_path
+  	  end
+
+  	end
+    
+    end
 
 
 

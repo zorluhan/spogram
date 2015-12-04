@@ -1,0 +1,34 @@
+<div class="col-md-6">
+
+<%= form_for(@instauser) do |f| %>  
+  <div class="input-group-lg"> 
+  	<div class="form-group">
+
+    <%= f.label :fullname %><br> 
+    <%= f.text_field :fullname, class: "form-control" %> <br>
+ 
+    <%= f.label :password %><br> 
+    <%= f.password_field :password, class: "form-control" %> <br>
+
+    <%= f.label :age %><br> 
+    <%= f.number_field :age, class: "form-control" %> <br>
+
+    <%= f.select :location, 
+    options_for_select([['Erkek','Erkek'],['Kadın','Kadın']] ,2),{}, { :class => 'form-control' } %><br>
+      
+    <%= f.label :location %><br> 
+    <%= f.select :location, 
+    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br>
+      
+     <%= f.select :theme, 
+    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}, { :class => 'form-control' } %> <br>
+     <%= f.label :fiyat  %> <br>
+     <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
+   
+  </div> <br>
+  <div class="actions"> 
+    <%= f.submit "Değişiklikleri Kaydet", data: {disable_with: "Uploading Now (Be Patient)..."} %> 
+   </div>
+<% end %>
+ </div>
+</div>
