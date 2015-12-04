@@ -34,6 +34,9 @@ before_filter :set_cache_buster
 
   
 
+def require_anyuser
+  redirect_to root_path unless current_instauser or current_branduser 
+end 
 
 	def require_user 
   	redirect_to login_path unless current_instauser 

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
-
+before_action :require_anyuser 
+before_action :correct_user, only:[:show, :edit, :update]
 
 	def new 
 
@@ -83,6 +84,27 @@ private
  def message_params
     params.require(:message).permit(:message, :instauser_id, :branduser_id, :sender)
  end 
+
+
+def correct_user 
+ 	if instauser_logged_in?
+      @message = current_instauser.messages.find_by_id(params[:id])
+       if @message.nil?
+        flash!(:sizeaitdegil)
+       	redirect_to root_path
+
+    	end
+  elsif branduser_logged_in?
+  	@message= current_branduser.messages.find_by_id(params[:id])
+  	 if @message.nil?
+  	  flash!(:sizeaitdegil)
+  	  redirect_to root_path
+  	  end
+
+  	end
+
+end 
+
 
 
 end
