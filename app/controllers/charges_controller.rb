@@ -3,7 +3,8 @@ class ChargesController < ApplicationController
  
 before_action :require_buser, only: [:new, :create, :show] 
 before_action :require_user, only: [:bill]
-before_action :correct_user, only: [:show, :bill]
+before_action :correct_user, only: [:bill]
+before_action :correct_user_for_show, only: [:show]
 
 def new
 @charge=Charge.new 
@@ -76,7 +77,7 @@ explanation=params[:charge][:explanation]
 customer=Stripe::Customer.create(
 	:email => params[:stripeEmail],
 	:source => params[:stripeToken],
-	:description => "#{amount},#{useremail} , #{explanation}")
+	:description => "#{amount},#{useremail},#{explanation}")
 
 @charge.customer=customer.id 
 @charge.useremail=useremail
@@ -98,24 +99,35 @@ customerid= @charge.customer
 useremail=@charge.useremail
 explanation=@charge.explanation 
 
+if @charge.status=="accepted"
+	flash!(:recurring)
+	redirect_to root_path 
+else 
 
 charge=Stripe::Charge.create(
 
-	:customer=>  customerid, 
+	:customer=>  "#{customerid}", 
 	:amount => "#{amount}" ,
 	:description => "#{useremail}",
 	:currency => 'usd')
-    
+ 
+
+
  if charge["paid"] == true
  	@charge.status= "accepted"
- 	   if @charge.save
+ 	 if @charge.save
  	   	flash!(:payment_notify_instauser)
-	    end 
 	    redirect_to charges_path
+	  
 
- end
+ 	 else 
+ 			flash!(:couldntgetbilled)
+ 			redirect_to root_path
 
+     end 
+  end
 
+end 
 
 rescue Stripe::CardError => e 
 	flash[:error]=e.message
@@ -123,9 +135,11 @@ rescue Stripe::CardError => e
 
  
   
-end 
+ 
+ end
 
 
+ 
 
 
 
@@ -166,6 +180,17 @@ def charge_params
     
     end
 
+
+def correct_user_for_show
+
+	if branduser_logged_in?
+		@charge=current_branduser.charges.find_by_id(params[:id])
+		if @charge.nil?
+			flash!(:sizeaitdegil)
+			redirect_to root_path
+		end
+	end
+end
 
 
 

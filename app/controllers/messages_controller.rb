@@ -44,6 +44,13 @@ end
 end 
 
 
+def show
+end
+
+def edit
+end
+
+
 def index
 
 	if current_branduser 

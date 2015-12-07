@@ -13,7 +13,8 @@
         wronguser: "Başka bir kullanıcının bilgilerine ulaşmaya çalışıyorsunuz! Çok ayıp! "
         success: "Başarıyla tamamlandı!"
         sizeaitdegil: "Bu işlemi gerçekleştirmeye yetkiniz yoktur!"
-
+        recurring: "Daha önce bu işlem yapıldı!"
+        couldntgetbilled: "Kredi kartı işlemi gerçekleşemedi"
     brandusers: 
         new:
             success: "Başarıyla gönderildi!"
