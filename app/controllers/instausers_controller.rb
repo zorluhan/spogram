@@ -15,14 +15,14 @@ before_action :correct_instauser , only: [:edit, :update]
       end 
       
 
-      redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
+      redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com//callback")
  
   		
  		  end 
 
   					def callback 
              
-   					response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
+   					response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com//callback")
   					session[:access_token] = response.access_token
   					@client = Instagram.client(:access_token => session[:access_token])
               
