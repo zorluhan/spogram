@@ -23,7 +23,8 @@ before_action :correct_instauser , only: [:edit, :update]
   					def callback 
              
    					response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com//callback")
-  					session[:access_token] = response.access_token
+  					 
+            session[:access_token] = response.access_token
   					@client = Instagram.client(:access_token => session[:access_token])
               
   					 	if Instauser.find_by_username(@client.user.username).nil?
