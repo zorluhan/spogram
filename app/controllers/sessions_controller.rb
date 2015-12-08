@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 			redirect_to bdashboard_path(id: @branduser.id)
 		else
 			flash!(:youarenotauser)
-			redirect_to '/blogin'
+			render 'new'
 		end
 	end 
 
