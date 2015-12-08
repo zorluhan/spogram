@@ -3,6 +3,10 @@ class BrandusersController < ApplicationController
   include BrandusersHelper
 
 before_action :require_buser, only: [:dashboard]
+before_action :logged_in_branduser , only: [:edit, :update, :dashboard]
+before_action :correct_branduser , only: [:edit, :update, :dashboard]
+
+
 
 	def new
     @branduser=Branduser.new 
@@ -26,15 +30,55 @@ before_action :require_buser, only: [:dashboard]
  def dashboard
  	@branduser= Branduser.find_by_id(session[:buser_id])
   @instausers=Instauser.all 
-
-
-
-
-
  end
+
+def edit
+@branduser=Branduser.find_by_id(params[:id]) 
+end
+
+def update
+  @branduser=Branduser.find_by_id(params[:id])
+  if @branduser.update_attributes(branduser_params)
+      flash!(:success)
+      redirect_to '/bdashboard'
+  else
+    render 'edit'
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
 
   private
   def branduser_params
     params.require(:branduser).permit(:coname, :country, :phone, :fullname, :cowebsite, :email, :password, :username, :image)
   end
+
+  def logged_in_branduser
+        unless branduser_logged_in?
+          flash!(:notloggedin)
+          redirect_to root_path
+       end
+       end
+
+      def correct_branduser
+      @branduser = Branduser.find_by_id(params[:id])
+
+      redirect_to root_path unless @branduser==current_branduser 
+      end
+       
+
+
+
+
+
+
 end

@@ -1,7 +1,6 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
  
- 
  <% @charges.each do |x| %>
 
 <ul class="list-group" id="form">
@@ -16,7 +15,9 @@
 <li class="list-group-item">
 	<%= "Explanation:"%>
 	<%= x.explanation %></li>
-	<% if x.status=="accepted" %>
+
+<% if x.status=="accepted" %>
+
 <li class="list-group-item" align="center">
 <h4><span class="label label-success"><%= x.status %></span></h4>
 </li>
