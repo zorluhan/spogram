@@ -1,6 +1,8 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
- 
+<% if @charges==nil %>
+<%= "There are no proposals yet" %>
+<%else%>
  <% @charges.each do |x| %>
 
 <ul class="list-group" id="form">
@@ -38,7 +40,7 @@
  
 </ul>
  <%end%>
- 
+ <%end%>
  
 
 	<% elsif branduser_logged_in? && !instauser_logged_in? %>
