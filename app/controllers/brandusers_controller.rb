@@ -32,6 +32,7 @@ before_action :correct_branduser , only: [:edit, :update, :dashboard]
   @instausers=Instauser.all 
  end
 
+
 def edit
 @branduser=Branduser.find_by_id(params[:id]) 
 end
@@ -58,22 +59,24 @@ end
 
 
   private
+
   def branduser_params
     params.require(:branduser).permit(:coname, :country, :phone, :fullname, :cowebsite, :email, :password, :username, :image)
   end
 
+  
   def logged_in_branduser
         unless branduser_logged_in?
           flash!(:notloggedin)
           redirect_to root_path
-       end
-       end
+  end
+  end
 
-      def correct_branduser
+  
+def correct_branduser
       @branduser = Branduser.find_by_id(params[:id])
-
       redirect_to root_path unless @branduser==current_branduser 
-      end
+end
        
 
 
