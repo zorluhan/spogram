@@ -15,6 +15,7 @@
         sizeaitdegil: "Bu işlemi gerçekleştirmeye yetkiniz yoktur!"
         recurring: "Daha önce bu işlem yapıldı!"
         couldntgetbilled: "Kredi kartı işlemi gerçekleşemedi"
+        youarenotauser: "Kullanıcı değilsiniz...Lütfen tekrar deneyin!"
     brandusers: 
         new:
             success: "Başarıyla gönderildi!"

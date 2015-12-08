@@ -20,9 +20,8 @@ before_action :correct_branduser , only: [:edit, :update, :dashboard]
    			 session[:buser_id] = @branduser.id 
     		redirect_to '/bdashboard'
   			else 
-         flash!(:error)
-
-   			 redirect_to '/bsignup'
+        # flash!(:error)
+   			 render 'new'
  			 end 
 	end 
 
