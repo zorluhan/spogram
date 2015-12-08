@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		if @branduser && @branduser.authenticate(params[:session][:password])
 			branduser_log_in(@branduser) 
 			
-			redirect_to '/bdashboard'
+			redirect_to bdashboard_path(id: @branduser.id)
 		else
 			redirect_to '/blogin'
 		end

@@ -1,28 +1,38 @@
 
 <% if @messages.nil? %>
+
+
 <%= there is no message %>
+
+
+
 <% else %>
 
 <!-- insta user !--> 
 
 <% if current_instauser %>
+
 <% @messages.each do |z| %>
 
 <% if z.sender==0 && z.message!="" %>
 <br>
 <div class="panel-body" id="mm">
 	<% unless !z.branduser.image.nil? %>
-	
 	<%= image_tag(z.branduser.image, width: "40", class: "margin") %><%end%>
-<%= link_to z.message, new_message_path(branduser_param: z.branduser.id)%><br><span   id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
-<% elsif z.sender==1 && z.message!="" %>
-<br><div class="panel-body">
+<%= link_to z.message, new_message_path(branduser_param: z.branduser.id)%><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
 
+<% elsif z.sender==1 && z.message!="" %>
+<br>
+<div class="panel-body">
 <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %><%= z.message %><br>
-<span  class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
-<%end%></div><br>
+<span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
+</div>
+
 
 <%end%>
+
+<%end%>
+
 <%end%>
 
 <!-- brand user !--> 
@@ -32,15 +42,19 @@
 <% @messages.each do |z| %>
 
 <% if z.sender==1 && z.message!="" %>
- 
+<br>
 <div class="panel-body"> 
-<%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %> <%= link_to z.message, new_message_path(instauser_param: z.instauser.id)%><br><span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div><br>
+<%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %> <%= link_to z.message, new_message_path(instauser_param: z.instauser.id)%><br><span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
+
+
 
 <% elsif z.sender==0 && z.message!="" %>
-
+<br>
 <div class="panel-body" id="mm">
-<% unless !z.branduser.image.nil? %><%= image_tag(z.branduser.image, width: "40") %><%end%><%= "   "%><%= z.message %><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span><br>
-</div><br>
+<% unless !z.branduser.image.nil? %><%= image_tag(z.branduser.image, width: "40") %><%end%><%= z.message %><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span> 
+</div>
+
+
 
 <%end%> 
 

@@ -38,26 +38,19 @@
 				<% @instausers.each do |x| %>
 
 				
-					
+			
 				<li class="list-group-item">
 			    <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font><span class="pull-right"><%= image_tag(x.profile_picture, width: "30") %></span> </h4></li>
-			    <%end%> 
-			    </ul>
-				</div>
-
 			    
-			    		 
-			    <div  id="publish">
+			    <%end%> 
+			    	 
+			 </ul></div>
+
 			 
-				  
+			     <%end%>
+ 				<div  id="publish">
+			
 			   </div> 
-
-				 
-
-			   <%end%>
-			 
-
-
 
 
 		<%end%>
