@@ -8,7 +8,7 @@ MONEY: <%= @earned/100 %>
 
 	 <font face="Lobster">
 	 	<li class="list-group-item"><h4>
-<%= link_to "Kabul", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %> </h4></li>
+<%= link_to "Kabul", publish_proposal_path, status: "accepted", :method => :patch, remote: true %> </h4></li>
  <li class="list-group-item"><h4>
 <%= link_to "Bekliyor", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
  </h4></li></font>

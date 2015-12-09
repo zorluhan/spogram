@@ -25,8 +25,7 @@ module Spogram
 
 
 
-config.serve_static_assets = true
-
+ 
 
   end
 end
