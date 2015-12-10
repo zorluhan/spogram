@@ -18,7 +18,7 @@ resources :messages
   get '/charges/bill' => 'charges#bill'
   get 'charges/billed' => 'charges#billed'
   patch '/publish' => 'messages#publish'
-  put '/charges/publish_proposal/:id' => 'charges#publish_proposal', as: :publish_proposal
+  patch '/charges/publish_proposal/:id' => 'charges#publish_proposal', as: :publish_proposal
   get '/charges' => 'charges#index'
   get 'charges/:id'=>'charges#show', :as => 'charge'
   post 'charges/bill' => 'charges#bill'
