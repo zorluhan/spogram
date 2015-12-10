@@ -10,7 +10,7 @@
 <font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font></li>
 <li class="list-group-item">
 	<%= "Miktar:" %>
-<%= "$ "%><%= x.amount/100 %></li>
+<%= "$ "%><%= current_instauser.postprice unless current_instauser.nil? %></li>
 <li class="list-group-item">
 	<%= "Ürün:" %>
 <%= x.productname %></li>
