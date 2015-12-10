@@ -63,10 +63,10 @@ MONEY: <%= @earned/100 %>
 <ul class="list-group" id="form">
 	<li class="list-group-item">
  <h4><font face="Lobster">
-<%= link_to "Accepted", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %> </h4></li>
+<%= link_to "Accepted", publish_proposal_path("accepted"), method: :patch, remote: true %> </h4></li>
 <li class="list-group-item">
  <h4>
-<%= link_to "Unaccepted", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
+<%= link_to "Unaccepted", publish_proposal_path("unaccepted"), method: :patch, remote: true %>
  </h4></font></li>
   </div> 
 
