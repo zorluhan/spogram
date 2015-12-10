@@ -3,7 +3,7 @@
   <% if @instausers.first.nil? %>
 
 <img src="http://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-monkey-free.png", width="400"> 
-<%= link_to "No users found, search again", bdashboard_path %></font>
+<%= link_to "No users found, search again", bdashboard_path(current_branduser) %></font>
 
  <%end%>
 
