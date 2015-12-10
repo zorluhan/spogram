@@ -52,7 +52,7 @@ def publish_proposal
 
 elsif instauser_logged_in?
 	id=current_instauser.id 
-	status=params[:id]
+	status=params[:status]
 	@charges=Charge.where(:instauser_id => id).where(:status => status)
 
 else
