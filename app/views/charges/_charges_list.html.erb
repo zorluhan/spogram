@@ -33,8 +33,8 @@
 <h4><span class="label label-warning"><%= x.status %></span></h4></li>
 
 <li class="list-group-item" align="center">
-	<span class="btn-group"><button type="button" class="btn btn-default"><%= link_to "Accept the Proposal", charges_bill_path(charge: x.id),  data: {disable_with: "Accepting..."}  %>
- </button> </span></li>
+	<span class="btn-group"><%= link_to "Accept the Proposal", charges_bill_path(charge: x.id),  class: "btn btn-default", data: {disable_with: "Accepting..."}  %>
+ </span></li>
  
 <%end%>
  
