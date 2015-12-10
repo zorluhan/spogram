@@ -1,17 +1,25 @@
 
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
-MONEY: <%= @earned/100 %>
+
 <!-- buraya unaccepted accepted search tool gelecek !-->
 <div id="leftbar">
 	<ul class="list-group" id="form">
 
 	 <font face="Lobster">
-	 	<li class="list-group-item"><h4>
-<%= link_to "Kabul", publish_proposal_path(:status=> "accepted"), method: :patch, remote: true %> </h4></li>
+
  <li class="list-group-item"><h4>
+ 	My Earnings: <%= @earned %></h4>
+ </li>
+
+ <li class="list-group-item"><h4>
+<%= link_to "Kabul", publish_proposal_path(:status=> "accepted"), method: :patch, remote: true %> </h4></li>
+
+<li class="list-group-item"><h4>
 <%= link_to "Bekliyor", publish_proposal_path(:status=> "unaccepted"), method: :patch, remote: true %>
  </h4></li></font>
+
+
  </div>
  
  <div id="publishproposal">
