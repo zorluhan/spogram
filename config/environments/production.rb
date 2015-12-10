@@ -27,7 +27,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -66,10 +66,7 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
-  config.assets.precompile += %w( application.css )
-   config.assets.precompile += %w( application.js )
-   config.assets.precompile += %w(bootstrap_and_customization.css.scss)
+  config.i18n.fallbacks = true 
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
