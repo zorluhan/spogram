@@ -29,7 +29,7 @@ elsif instauser_logged_in?
 	@earned=0
 	@charges.each do |x|
 		if x.status=="accepted" 
-			@earned=@earned+curent_instauser.postprice 
+			@earned=@earned+(x.amount/100*1.15).round
 		end
 	end 
 
