@@ -7,7 +7,7 @@ gem 'rails', '4.1.4'
 gem 'stripe'
 
 gem "bootstrap_flash_messages", "~> 1.0.1"
-gem 'spinjs-rails'
+
  gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'fancybox-rails'
