@@ -10,7 +10,7 @@
 <font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font></li>
 <li class="list-group-item">
 	<%= "Miktar:" %>
-<%= "$ "%><%= (x.amount/1.15*100).round %></li>
+<%= "$ "%><%= (x.amount/(1.15*100)).round %></li>
 <li class="list-group-item">
 	<%= "Ürün:" %>
 <%= x.productname %></li>
@@ -33,7 +33,7 @@
 <h4><span class="label label-warning"><%= x.status %></span></h4></li>
 
 <li class="list-group-item" align="center">
-	<span class="btn-group"><button type="button" class="btn btn-default"><%= link_to "Accept the Proposal", {:controller=> "charges", :action=>"bill", :charge => "#{x.id}"},  data: {disable_with: "Accepting..."}  %>
+	<span class="btn-group"><button type="button" class="btn btn-default"><%= link_to "Accept the Proposal", charges_bill_path(:charge => "#{x.id}"),  data: {disable_with: "Accepting..."}  %>
  </button> </span></li>
  
 <%end%>
