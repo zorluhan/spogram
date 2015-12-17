@@ -22,6 +22,7 @@ def index
 	if branduser_logged_in? 
 	id=current_branduser.id 
 	@charges=Charge.where(:branduser_id => id)
+	  
 
 elsif instauser_logged_in?
 	id=current_instauser.id 
@@ -84,8 +85,9 @@ customer=Stripe::Customer.create(
 
 
  if @charge.save
- 	flash!(:payment_notify_branduser)
+ 	flash!(:success => I18n.t("flash_messages.defaults.payment_notify_branduser"))
    	redirect_to charge_path(@charge)
+
    	end 
 
 end 
@@ -100,7 +102,7 @@ useremail=@charge.useremail
 explanation=@charge.explanation 
 
 if @charge.status=="accepted"
-	flash!(:recurring)
+	 flash!(:error => I18n.t("flash_messages.defaults.recurring"))
 	redirect_to root_path 
 else 
 
@@ -116,12 +118,12 @@ charge=Stripe::Charge.create(
  if charge["paid"] == true
  	@charge.status= "accepted"
  	 if @charge.save
- 	   	flash!(:payment_notify_instauser)
+ 	   	 flash!(:error => I18n.t("flash_messages.defaults.payment_notify_instauser")) 
 	    redirect_to charges_path
 	  
 
  	 else 
- 			flash!(:couldntgetbilled)
+ 			 flash!(:error => I18n.t("flash_messages.defaults.couldntgetbilled"))
  			redirect_to root_path
 
      end 
@@ -165,14 +167,14 @@ def charge_params
  	if instauser_logged_in?
       @charge = current_instauser.charges.find_by_id(params[:charge])
        if @charge.nil?
-        flash!(:sizeaitdegil)
+        flash!(:error => I18n.t("flash_messages.defaults.sizeaitdegil"))
        	redirect_to root_path
 
     	end
   elsif branduser_logged_in?
   	@charge = current_branduser.charges.find_by_id(params[:charge])
   	 if @charge.nil?
-  	  flash!(:sizeaitdegil)
+  	  flash!(:error => I18n.t("flash_messages.defaults.sizeaitdegil"))
   	  redirect_to root_path
   	  end
 
@@ -186,7 +188,7 @@ def correct_user_for_show
 	if branduser_logged_in?
 		@charge=current_branduser.charges.find_by_id(params[:id])
 		if @charge.nil?
-			flash!(:sizeaitdegil)
+			flash!(:error => I18n.t("flash_messages.defaults.sizeaitdegil"))
 			redirect_to root_path
 		end
 	end

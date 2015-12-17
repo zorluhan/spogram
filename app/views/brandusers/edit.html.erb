@@ -24,7 +24,10 @@
 
      <%= f.label :website %> <br>
     <%= f.text_field :cowebsite, class: "form-control"  %> <br>
-     
+        <%= "Number of Employees:" %> <br>
+   <%= f.select :comsize, 
+    options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
+    {}, { :class => 'form-control' }  %> <br>
      <!-- 
      <%= f.label :image %> <br>
      <%= f.file_field :image, class: "form-control" %> <br> !-->

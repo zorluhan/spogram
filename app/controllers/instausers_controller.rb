@@ -102,7 +102,7 @@ end
 def update
   @instauser=Instauser.find_by_id(params[:id])
   if @instauser.update_attributes(instauser_params)
-      flash!(:success)
+      flash!(:success => I18n.t("flash_messages.defaults.success"))  
       redirect_to '/dashboard'
   else
     render 'edit'

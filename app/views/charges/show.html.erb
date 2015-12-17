@@ -1,8 +1,6 @@
-<h2>Thanks, you paid <strong><%= @charge.amount/100 %><strong>! Your message was sent to the instagrammer.</h2>
-<%= "charge saved thanks." %>
-
-<%= @charge.id %>
+<h2>Thanks, your payment of <strong><%= @charge.amount/100 %> was received. Your card will be charged after Instagramer accepts your proposal. Once accepted, you will be able to send messages directly to each other. <strong> </h2>
  
-<%= @charge.status %>
-<%= @charge.productname %>
-<%= @charge.explanation %>
+
+<div class="row">
+Charge ID: <%= @charge.id %>
+ </div>

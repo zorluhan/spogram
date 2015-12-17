@@ -65,8 +65,8 @@
 
                   <ul class="nav navbar-nav navbar-right">
                     <li><a><%= current_branduser.fullname %></a></li>
-                    <li><%= link_to "Settings", edit_branduser_path(current_branduser) %></li> 
-                     <li><%= link_to "Brand Logout", blogout_path(current_branduser), :method => :delete %></li>
+                    <li><%= link_to "<span class=\"glyphicon glyphicon-cog\"></span>".html_safe, edit_branduser_path(current_branduser) %></li> 
+                     <li><%= link_to "<span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, blogout_path(current_branduser), :method => :delete %></li>
 
                   </ul>
 

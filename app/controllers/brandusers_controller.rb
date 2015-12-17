@@ -20,7 +20,7 @@ before_action :correct_branduser , only: [:edit, :update, :dashboard]
    			 session[:buser_id] = @branduser.id 
     		redirect_to '/bdashboard'
   			else 
-        # flash!(:error)
+        flash!(:error => I18n.t("flash_messages.defaults.hata"))
    			 render 'new'
  			 end 
 	end 
@@ -39,9 +39,10 @@ end
 def update
   @branduser=Branduser.find_by_id(params[:id])
   if @branduser.update_attributes(branduser_params)
-      flash!(:success)
+      flash!(:success => I18n.t("flash_messages.defaults.success"))
       redirect_to '/bdashboard'
   else
+    flash!(:error => I18n.t("flash_messages.defaults.hata"))
     render 'edit'
   end
 end
@@ -60,13 +61,13 @@ end
   private
 
   def branduser_params
-    params.require(:branduser).permit(:coname, :country, :phone, :fullname, :cowebsite, :email, :password, :username, :image)
+    params.require(:branduser).permit(:coname, :comsize, :country, :phone, :fullname, :cowebsite, :email, :password, :username, :image)
   end
 
   
   def logged_in_branduser
         unless branduser_logged_in?
-          flash!(:notloggedin)
+          flash!(:error => I18n.t("flash_messages.defaults.notloggedin"))
           redirect_to root_path
   end
   end

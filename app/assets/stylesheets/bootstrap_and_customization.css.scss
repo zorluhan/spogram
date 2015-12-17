@@ -2,6 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Oxygen:300,700);
 @import url(https://fonts.googleapis.com/css?family=Lobster); 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+ 
 
 $body-bg:                           #ecf0f1;
 $navbar-default-bg: 				#2c3e50;
@@ -150,6 +151,15 @@ background-color: #bdc3c7;}
     border-left: thick solid #ff0000;
 }
 
-#form{
+#form
+{
     box-shadow: 4px 4px 15px #888888;
+}
+
+#boxy
+{
+ width: 200 px;
+ height: 100 px;
+ background-color: #bdc3c7; 
+ 
 }

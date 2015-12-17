@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			
 			redirect_to bdashboard_path(id: @branduser.id)
 		else
-			flash!(:youarenotauser)
+			flash!(:error => I18n.t("flash_messages.defaults.youarenotauser"))
 			render 'new'
 		end
 	end 
@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
 			session[:user_id]=nil
 			session[:buser_id]=nil
 			@current_branduser=nil
+			flash!(:success => I18n.t("flash_messages.defaults.Loggedout"))
 			redirect_to '/pages/logout'
   
 

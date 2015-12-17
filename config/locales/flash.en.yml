@@ -16,8 +16,13 @@
         recurring: "Daha önce bu işlem yapıldı!"
         couldntgetbilled: "Kredi kartı işlemi gerçekleşemedi"
         youarenotauser: "Kullanıcı değilsiniz...Lütfen tekrar deneyin!"
-    brandusers: 
-        new:
+        Loggedout: "Logged out Successfully!"
+        hata: "İşlemde bir hata oldu yeniden deneyin!"
+
+
+
+    sessions: 
+        destroy:
             success: "Başarıyla gönderildi!"
             info: "Info!"
             warning: "Warning!"
