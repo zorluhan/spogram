@@ -9,10 +9,9 @@ class SessionsController < ApplicationController
 		@branduser=Branduser.find_by_email([params[:session][:email]])
 		if @branduser && @branduser.authenticate(params[:session][:password])
 			branduser_log_in(@branduser) 
-			
 			redirect_to bdashboard_path(id: @branduser.id)
 		else
-			flash!(:error => I18n.t("flash_messages.defaults.youarenotauser"))
+			flash_now!(:error => I18n.t("flash_messages.defaults.youarenotauser"))
 			render 'new'
 		end
 	end 
