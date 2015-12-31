@@ -15,11 +15,11 @@
     
 
   <% if !@current_instauser.nil? %>
-  <%= link_to "Rekking.com", root_path(@current_instauser), class: "navbar-brand" %></div>
+  <%= link_to "Rekking", root_path(@current_instauser), class: "navbar-brand" %></div>
  <% elsif !@current_branduser.nil? %>
-  <%= link_to "Rekking.com", root_path(@current_branduser), class: "navbar-brand" %></div>
+  <%= link_to "Rekking", root_path(@current_branduser), class: "navbar-brand" %></div>
   <%else %>
-  <%= link_to "Rekking.com", root_path, class: "navbar-brand" %></div>
+  <%= link_to "Rekking", root_path, class: "navbar-brand" %></div>
   <%end%>
 
  <!-- <form class="navbar-form navbar-left" role="search">
