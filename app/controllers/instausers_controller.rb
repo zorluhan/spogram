@@ -90,8 +90,8 @@ end
 def search
 
 
-@instausers=Instauser.where(:gender => params[:instauser][:gender]).where(:theme => params[:instauser][:theme]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >?", params[:instauser][:averagelikes])  if !params[:instauser].nil?
- 
+@instausers=Instauser.where(:gender => params[:instauser][:gender]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >?", params[:instauser][:averagelikes])  if !params[:instauser].nil?
+ #where(:theme => params[:instauser][:theme]).
  end 
 
 
