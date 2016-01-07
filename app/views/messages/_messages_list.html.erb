@@ -11,6 +11,7 @@
 <!-- insta user !--> 
 
 <% if current_instauser %>
+ 
 
 <% @messages.each do |z| %>
 
@@ -24,6 +25,7 @@
 <% elsif z.sender==1 && z.message!="" %>
 <br>
 <div class="panel-body">
+ 
 <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %><%= z.message %><br>
 <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
 </div>
@@ -44,9 +46,7 @@
 <% if z.sender==1 && z.message!="" %>
 <br>
 <div class="panel-body"> 
-<%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %> <%= link_to z.message, new_message_path(instauser_param: z.instauser.id)%><br><span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
-
-
+<img src="<%= z.instauser.profile_picture %>"  width= "40" class="margin" onerror="imgError(this);"> <%= link_to z.message, new_message_path(instauser_param: z.instauser.id)%><br><span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
 
 <% elsif z.sender==0 && z.message!="" %>
 <br>

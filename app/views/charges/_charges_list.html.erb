@@ -48,12 +48,15 @@
  <% if @charges.empty? %>
 <%= "There are no proposals yet" %>
 <%end%>
+
+ 
 <% @charges.each do |x| %>
  
 <ul class="list-group" id="form">
 <li class="list-group-item">
- <%= image_tag(src=x.instauser.profile_picture, :width=>"20") %>
-<font face="lobster"><%= x.instauser.username %></font> </li>
+ 
+<h4><img src="<%= x.instauser.profile_picture%>" width="28" onerror="imgError(this);" class="margin"> 
+<font face="lobster"><%= x.instauser.username %></font> </h4></li>
 <li class="list-group-item">
 	<%= "Miktar:" %>
 <%= "$ "%><%= x.amount/100 %></li>

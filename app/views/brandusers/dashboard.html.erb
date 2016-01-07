@@ -10,37 +10,37 @@
 
 <%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>  
 
- <font size="2"> <%= "Yaş" %><%= ":" %>
+ <font size="2"> <%= "Age" %><%= ":" %>
  
   <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18', :class=> "form-group"}%><%= "-" %> 
 
   <%= f.number_field :age2 , :placeholder=>"24", :input_html => { :value => '24' } %> <br>
 
-  <%= "Cinsiyet:" %>
+  <%= "Gender:" %>
     <%= f.select :location,
     options_for_select([['Erkek','Erkek'],['Kadın','Kadın']] ,2),{}%>   
-  <%= "Şehir:" %>
+  <%= "City:" %>
     <%= f.select :location,
     options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin']] ,2),{}%>   
-      <%= "Konu:" %>
+      <%= "Theme:" %>
      <%= f.select :theme, 
-    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım'], ['Cinsel','Cinsel']], 2), {}%> 
+    options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}%> 
  
- <%= "Max Fiyat:" %>
+ <%= "Max. Price:" %>
      <%= f.select :postprice, 
     options_for_select([['100','100'],['200','200'], ['300','300'], ['400','400'],['500','500'],['1000','1000'],['2000','2000']],2),{} %> 
    
 
- <%= "Min. Followers:" %> 
+ <%= "Min # of Followers:" %> 
      <%= f.select :followed_by, 
     options_for_select([['0','0'],['15000','15000'],['30000','30000'], ['50000','50000'], ['100k','100000']],2),{} %> 
  
-   <%= "Min. Average Likes:" %>
+   <%= "Min # of Average Likes:" %>
      <%= f.select :averagelikes, 
     options_for_select([['0','0'],['5','5'], ['10','10'], ['100','100']],2),{}, :placeholder=>"average likes" %> 
  
  
-    <%= f.submit "Ara", class: "btn btn-xs btn-success" , data: {disable_with: "Arıyor..."} %> </font>
+    <%= f.submit "Search", class: "btn btn-xs btn-success" , data: {disable_with: "Searching.."} %> </font>
   
 <%end%>
  </div></div>

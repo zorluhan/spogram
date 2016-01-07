@@ -41,15 +41,15 @@
     <%= f.number_field :age, class: "form-control" %> <br>
     <%= "Gender:" %><br>
     <%= f.select :gender, 
-    options_for_select([['Erkek','Erkek'],['Kadın','Kadın']] ,2),{}, { :class => 'form-control' } %><br>
+    options_for_select([['Male','Male'],['Female','Female']] ,2),{}, { :class => 'form-control' } %><br>
       
     <%= f.label :location %><br> 
     <%= f.select :location, 
     options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br><br>
       <%= "Select one theme that defines your timeline the most" %><br>
      <%= f.select :theme, 
-    options_for_select([['Genel','Genel'],['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}, { :class => 'form-control' } %> <br><br>
-     <%= "Gönderi Başına İstediğiniz Minimum Fiyat: (min. $100)"  %> <br>
+    options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, { :class => 'form-control' } %> <br><br>
+     <%= "Price Per Post (min. $100)"  %> <br>
      <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
      <%= f.hidden_field :followed_by, :value => @client.user.counts.followed_by %>
      <%=  f.hidden_field :username, :value => @client.user.username %>

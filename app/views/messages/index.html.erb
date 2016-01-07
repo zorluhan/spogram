@@ -10,7 +10,7 @@
 						<% @brandusers.each do |x| %>
 				
 						<li class="list-group-item">
-						<font face="Lobster"><h4><%= link_to x.coname, publish_path(:branduser_id => x.id) , method: :patch, remote: true %></font> <span class="pull-right"><% unless !x.image.nil? %><%= image_tag(x.image) %><%end%></span></h4></li>
+						<font face="Lobster"><h4><%= link_to x.coname, publish_path(:branduser_id => x.id) , method: :patch, remote: true %></font> <span class="pull-right"><% unless !x.image.nil? %><img src="<%=x.image %>" onerror="imgError(this);" width="28" %><%end%></span></h4></li>
 					 
 					 
 
@@ -40,7 +40,9 @@
 				
 			
 				<li class="list-group-item">
-			    <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font><span class="pull-right"><%= image_tag(x.profile_picture, width: "30") %></span> </h4></li>
+			    <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font>
+ 
+			    <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4></li>
 			    
 			    <%end%> 
 			    	 

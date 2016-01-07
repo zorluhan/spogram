@@ -21,7 +21,7 @@
     options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara']] ,2),{}, { :class => 'form-control' } %><br>
       
      <%= f.select :theme, 
-    options_for_select([['Yemek','Yemek'],['Gezi','Gezi'], ['Sanat','Sanat'], ['Güzellik','Güzellik'], ['Moda','Moda'],['Dans','Dans'],['Motorsiklet','Motorsiklet'],['Müzik','Müzik'],['Doğa','Doğa'],['Spor','Spor'], ['Şehir Hayatı','Şehir Hayatı'],['Fitness','Fitness'], ['Tasarım','Tasarım']], 2), {}, { :class => 'form-control' } %> <br>
+    options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, { :class => 'form-control' } %> <br>
      <%= f.label :fiyat  %> <br>
      <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
    
