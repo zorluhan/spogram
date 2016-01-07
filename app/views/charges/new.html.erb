@@ -4,7 +4,7 @@
 <div class="col-md-4" %>
  <div class="list-group">
 <li class="list-group-item list-group-item-disabled" id="textcenter">
-  <h3><strong><font face="Lobster"> <%= "Teklif" %></font></strong></h3>
+  <h3><strong><font face="Lobster"> <%= "Proposal" %></font></strong></h3>
 </li>
  
 <%= form_tag charges_path do  %>
@@ -28,10 +28,10 @@
   <li class="list-group-item">
    <%= "Link:" %><br> <%= text_field_tag 'charge[instalink]', nil, size:40 %> </li>
     <li class="list-group-item">
-     <%= "Instagrammer Post Fiyatı:   "%><%= @amount/100 %><br>
-  <%= "Hizmet Bedeli:  "%><%= (@amount*0.15/100).round %><br><hr>
+     <%= "Instagramer Post Price:   "%><%= "$" %><%= @amount/100 %><br>
+  <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.15/100).round %><br><hr>
 
- <strong> <%= "TOPLAM TUTAR:   " %><%= (@amount*1.15/100).round %></strong></li>
+ <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.15/100).round %></strong></li>
  <li class="list-group-item" align="center">
     <%= hidden_field_tag 'charge[amount]', (@amount*1.15).round %> 
     <%= hidden_field_tag :amount, (@amount*1.15).round %> 
@@ -47,7 +47,7 @@
           data-description=<%= @message %>
                     data-amount= <%= (@amount*1.15).round %>
           data-locale="auto"
-          data-label="Gönder"
+          data-label="Submit"
           data-email= <%=@branduser.email%>  
           data-allow-remember-me= "false" 
 
