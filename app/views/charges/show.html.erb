@@ -1,6 +1,15 @@
-<h2>Thanks, your payment of <strong><%= @charge.amount/100 %> was received. Your card will be charged after Instagramer accepts your proposal. Once accepted, you will be able to send messages directly to each other. <strong> </h2>
+
+
+
+
+<div class="container">
+
+<h2>YAY! Success!  Your payment of <strong><%= @charge.amount/100 %> was received. Once the instagramer accepts your proposal, you will be able to send direct messages back and forth. Please go to <%= link_to "proposals", charges_path(current_branduser) %>  to check out the status of your proposal. <strong> </h2>
  
 
 <div class="row">
-Charge ID: <%= @charge.id %>
+Transaction ID: <%= @charge.id %>
  </div>
+
+
+</div>
