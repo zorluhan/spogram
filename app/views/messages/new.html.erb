@@ -45,7 +45,7 @@ sender: <%= @sender %>  !-->
       <br>
      <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
        <div class="actions"> 
-    <%= f.submit "Gönder", data: {disable_with: "Uploading Now..."} %> 
+    <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
    </div>
      <%=  f.hidden_field :instauser_id, :value => @instauser_id %>
      <%= f.hidden_field :branduser_id, :value => @branduser_id %>

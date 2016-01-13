@@ -8,6 +8,9 @@
 
   <%  if @client.user.counts.followed_by<5000 %>
    <font color="red">Başvurunuz Reddedilmiştir.</font>
+   <% elsif @client.user.counts.followed_by>5000 %>
+    <font color="red">Tebrikler! Başvurunuz Kabul Edilmiştir.</font>
+
   <%end%>
 
  	<div class="row">
