@@ -1,6 +1,6 @@
  
  
- 
+ <div class="container">
  
  <% a=0 %>
  <% counter=0 %>
@@ -24,6 +24,7 @@
     <% @averagecomments=b/(counter.nonzero? || 1)%>
     <% @averagelikes=a/(counter.nonzero? || 1) %>
     <% @profile_picture_url= @client.user.profile_picture %>
+
 
 <div class="row">
 
@@ -96,5 +97,5 @@ trusted payment platform.
   </div>
  </div>
 
- 
+ </div>
  
