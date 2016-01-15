@@ -5,19 +5,19 @@
   
 
     defaults:
-        email_success: "Email başarıyla gönderilmiştir."
-        payment_notify_instauser: "İşlem başarıyla gerçekleşti. Marka ile iletişime geçebilirsiniz."
-        payment_notify_branduser: "Instagramer onayladıktan sonra kredi kartınız işlem görecektir."
+        email_success: "Message sent successfuly!"
+        payment_notify_instauser: "Success! You can send a direct message to the instagramer."
+        payment_notify_branduser: "Your credit card will be charged once the instagramer approves."
         refused: "Hesabınız 10 bin takipçiden az olduğu için kabul edilmemiştir"
-        notloggedin: "Lütfen giriş yapın!"
+        notloggedin: "Please login!"
         wronguser: "Başka bir kullanıcının bilgilerine ulaşmaya çalışıyorsunuz! Çok ayıp! "
-        success: "Başarıyla tamamlandı!"
-        sizeaitdegil: "Bu işlemi gerçekleştirmeye yetkiniz yoktur!"
-        recurring: "Daha önce bu işlem yapıldı!"
+        success: "Success!"
+        sizeaitdegil: "You are not authorized to perform this action!"
+        recurring: "This has been submitted before!"
         couldntgetbilled: "Kredi kartı işlemi gerçekleşemedi"
-        youarenotauser: "Kullanıcı değilsiniz...Lütfen tekrar deneyin!"
+        youarenotauser: "This username or password is not registered! Please try again. "
         Loggedout: "Logged out Successfully!"
-        hata: "İşlemde bir hata oldu yeniden deneyin!"
+        hata: "There is an error! Please try again."
 
 
 
@@ -40,7 +40,7 @@ activerecord:
             attributes:
             email:
             taken: 
-                error: 'Bu email adresi alınmış! Üzgünüz!'
+                error: 'Email taken!'
 
 
   
