@@ -3,8 +3,9 @@
 
 
 <div class="container">
+Success! Your payment of 287 was received. Once the Instagrammer accepts your proposal, you will be able to send direct messages to discuss the campaign in further detail. To check the status of your proposal, go to Proposals. 
 
-<h2>YAY! Success!  Your payment of <strong><%= @charge.amount/100 %> was received. Once the instagramer accepts your proposal, you will be able to send direct messages back and forth. Please go to <%= link_to "proposals", charges_path(current_branduser) %>  to check out the status of your proposal. <strong> </h2>
+<h2>Success! Your payment of<strong><%= @charge.amount/100 %> was received. Once the Instagrammer accepts your proposal, you will be able to send direct messages to discuss the campaign in further detail. To check the status of your proposal, go to <%= link_to "Proposals.", charges_path(current_branduser) %> <strong> </h2>
  
 
 <div class="row">
