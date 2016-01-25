@@ -3,7 +3,7 @@ require 'elasticsearch/model'
 
 
 class Instauser < ActiveRecord::Base
-	has_secure_password
+	 
     has_many :messages
 	has_many :charges 
     has_many :brandusers, through: :charges
@@ -13,6 +13,8 @@ class Instauser < ActiveRecord::Base
 	 
  
 	      serialize :recent_media_urls
+
+ 
 	end
 
 
