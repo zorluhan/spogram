@@ -113,7 +113,7 @@ end
 
 private
   def instauser_params
-    params.require(:instauser).permit(:gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :password, :username, :postprice, :theme, :averagelikes, :averagecomments )
+    params.require(:instauser).permit(:gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :username, :postprice, :theme, :averagelikes, :averagecomments )
   end 
        
        def logged_in_instauser
