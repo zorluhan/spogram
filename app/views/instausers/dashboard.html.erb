@@ -6,9 +6,9 @@
  <div class="container">
 
   <%  if @client.user.counts.followed_by<5000 %>
-   <font color="red">Başvurunuz Reddedilmiştir.</font>
+   <font color="red">Application rejected.</font>
    <% elsif @client.user.counts.followed_by>5000 %>
-    <font color="red">Tebrikler! Başvurunuz Kabul Edilmiştir.</font>
+    <font color="red">Congratulations! Welcome to capish! </font>
 
   <%end%>
 

@@ -8,7 +8,7 @@
 
 
 						<% @brandusers.each do |x| %>
-				
+				         
 						<li class="list-group-item">
 						<font face="Lobster"><h4><%= link_to x.coname, publish_path(:branduser_id => x.id) , method: :patch, remote: true %></font> <span class="pull-right"><% unless !x.image.nil? %><img src="<%=x.image %>" onerror="imgError(this);" width="28" %><%end%></span></h4></li>
 					 
@@ -18,6 +18,9 @@
 							</ul>
 						</div>
 
+					<%else%>
+
+					<%= "There are no messages." %>
 					<%end%>
 			 
 
@@ -49,7 +52,11 @@
 			 </ul></div>
 
 			 
+			     <%else%>
+			     <%= "There are no messages" %>
 			     <%end%>
+
+
  				<div  id="publish">
 			
 			   </div> 

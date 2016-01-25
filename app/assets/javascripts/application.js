@@ -23,3 +23,11 @@ function imgError(image) {
     image.src = "/assets/missing2.png";
     return true;
 }
+
+
+
+function imgError2(image) {
+    image.onerror = "";
+    image.src = "/assets/missing3.png";
+    return true;
+}
