@@ -7,7 +7,9 @@
 
 <ul class="list-group" id="form">
 <li class="list-group-item list-group-item-disabled">
-<font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font></li>
+<font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font>
+ <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
+ </li>
 <li class="list-group-item">
 	<%= "Amount:" %>
 <%= "$ "%><%= (x.amount/(1.15*100)).round %></li>
@@ -29,9 +31,7 @@
 <li class="list-group-item" align="center">
 <h4><span class="label label-success"><%= x.status %></span></h4>
 </li>
-<li class="list-group-item">
- <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
- </li>
+
 	 
 <% elsif x.status=="unaccepted" %>
  
