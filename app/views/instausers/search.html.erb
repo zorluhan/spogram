@@ -60,7 +60,7 @@ Price </li>
 <p>
 <% array.each do |s| %> 
 
-<a href='<%=s%>' target="_blank"><img src='<%=s%>', width="50" ></a>
+<a href='<%=s%>' target="_blank"><img src='<%=s%>', width="50", onerror="imgError2(this);" ></a>
 <%end%> 
 </p>
 </li>
