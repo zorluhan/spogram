@@ -17,6 +17,12 @@
 <li class="list-group-item">
 	<%= "Explanation:"%>
 	<%= x.explanation %></li>
+		<li class="list-group-item">
+	<%= "URL:"%>
+	<%= x.instalink %></li>
+	<li class="list-group-item">
+	<%= "Post:"%>
+	<%= x.instapost %></li>
 
 <% if x.status=="accepted" %>
 
@@ -56,7 +62,8 @@
 <li class="list-group-item">
  
 <h4><img src="<%= x.instauser.profile_picture%>" width="28" onerror="imgError(this);" class="margin"> 
-<font face="lobster"><%= x.instauser.username %></font> </h4></li>
+<font face="lobster"><%= x.instauser.username %></font> </h4><br>,
+<%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
 <li class="list-group-item">
 	<%= "Amount:" %>
 <%= "$ "%><%= x.amount/100 %></li>
@@ -67,7 +74,7 @@
 	<%= "Explanation:"%>
 	<%= x.explanation %></li>
 	<li class="list-group-item">
-	<%= "URL to be placed:"%>
+	<%= "URL:"%>
 	<%= x.instalink %></li>
 	<li class="list-group-item">
 	<%= "Post:"%>
@@ -77,9 +84,8 @@
 <li class="list-group-item">
 	<%= "Status:" %>
 <span class="label label-success"><%= x.status %></span></li>
-<li class="list-group-item">
+ 
 
-<%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %></li>
 <%elsif x.status=="unaccepted" %>
 <li class="list-group-item">
 	<%= "Status:" %>
