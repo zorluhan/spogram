@@ -32,7 +32,7 @@ resources :messages
    
 
   get '/auth' => 'instausers#auth'
-  get '/signup' => 'instausers#signup'
+ # get '/signup' => 'instausers#signup'
   get '/newuser' => 'instausers#new'  
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
