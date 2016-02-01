@@ -55,11 +55,11 @@ def new
 
 end 
 
-def signup
-@instauser=Instauser.new 
-@client = Instagram.client(:access_token => session[:access_token])
+#def signup
+#@instauser=Instauser.new 
+#@client = Instagram.client(:access_token => session[:access_token])
 
-end 
+#end 
 
 
   			def create

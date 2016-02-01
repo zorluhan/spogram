@@ -8,9 +8,9 @@ before_action :correct_branduser , only: [:edit, :update, :dashboard]
 
 
 
-	def new
-    @branduser=Branduser.new 
-	end
+	#def new
+ #   @branduser=Branduser.new 
+#	end
 
 
 	def create 
