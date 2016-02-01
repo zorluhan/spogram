@@ -19,7 +19,23 @@ end
  def form
  end
   
-	 
+ def instagrammers
+
+ 	end
+
+ def instagramers
+
+
+ 	redirect_to '/instagrammers' 
+
+ end 
+
+ def myinstagram
+ 	redirect_to '/instagrammers'
+
+ end 
+
+
  
 def results
 	sleep 1

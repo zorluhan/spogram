@@ -6,6 +6,9 @@ resources :messages
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
+  get '/instagrammers' => 'pages#instagrammers'
+  get '/instagramers' => 'pages#instagramers'
+  get '/myinstagram' => 'pages#myinstagram'
   get '/pages/contact' => 'pages#contact'
   get '/pages/logout' => 'pages#logout'
   post '/pages/search' => 'pages#search'
