@@ -1,7 +1,8 @@
  
   <!-- Brand and toggle get grouped for better mobile display -->
 
-  <nav class="navbar navbar-inverse navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
+ 
   <div class="navbar-header">
     
 
@@ -14,13 +15,14 @@
 
     
 
-  <% if !@current_instauser.nil? %>
-  <%= link_to "capish", root_path(@current_instauser), class: "navbar-brand" %></div>
- <% elsif !@current_branduser.nil? %>
-  <%= link_to "capish", root_path(@current_branduser), class: "navbar-brand" %></div>
-  <%else %>
-  <%= link_to "capish", root_path, class: "navbar-brand" %></div>
-  <%end%>
+  <%- if !@current_instauser.nil? -%>
+  <%= link_to "capish", root_path(@current_instauser), class: "navbar-brand" %>  
+ <%- elsif !@current_branduser.nil? -%>
+  <%= link_to "capish", root_path(@current_branduser), class: "navbar-brand" %> 
+  <%- else -%>
+  <%= link_to "capish", root_path, class: "navbar-brand" %>
+  <%-end-%>
+</div>
 
  <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
@@ -32,14 +34,10 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-
- 
       
       <% if instauser_logged_in?  %>
               <ul class="nav navbar-nav navbar-left">
              
-              
               <li><%= link_to "User Dashboard", dashboard_path(current_instauser), data: {disable_with: "Loading Now..."} %></li> 
               <li><%= link_to "Proposals", charges_path , data: {disable_with: "Loading Now..."} %></li> 
               <li><%= link_to "Messages", messages_path , data: {disable_with: "Loading Now..."} %></li> 
@@ -71,20 +69,23 @@
                   </ul>
 
 
-      <% else %> 
-                <ul class="nav navbar-nav navbar-left">
+      <%- else -%> 
+                <!-- <ul class="nav navbar-nav navbar-left">
                 <li><%= link_to "About", pages_about_path %></li>
-                <li><%= link_to "Login as Instagramer", login_path, data: {disable_with: "Loading Now..."} %></li> 
+                <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
                 <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
 
-              </ul>
-      <%end%>
+              </ul>  !--> 
+      <%-end-%>
        
-  
+  </div>
  
-</div>
  
-</div>
+ 
 
   <!-- /.navbar-collapse -->
 </nav>
+
+
+
+

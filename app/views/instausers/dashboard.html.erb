@@ -1,59 +1,93 @@
 
+  <div class="container">
 
- <% a=0 %>
- <% counter=0 %>
- <% b=0 %>
- <div class="container">
-
-  <%  if @client.user.counts.followed_by<5000 %>
-   <font color="red">Application rejected.</font>
-   <% elsif @client.user.counts.followed_by>5000 %>
-    <font color="red">Congratulations! Welcome to capish! </font>
-
-  <%end%>
 
  	<div class="row">
 
+   
+
+
+
+<!-- get all the media  !-->
+
+
+<!-- display all media 
+
+    <% @album.each do |x| %>
+    <%= image_tag(x.images.thumbnail.url, width: "30") %>
+    <% end %>  !--> 
+
+
+<!-- count all likes !--> 
+
+
+
+<!-- count comments !--> 
+
+   
+
+
  <div class="col-md-8">
-		<% for x in @client.user_recent_media %>
+
+  <%if @client.user.counts.followed_by<5000 %>
+   Unfortunately your application has been declined. 
+   <% elsif @client.user.counts.followed_by>5000 %>
+    <font color="red">Congratulations! Welcome to capish! </font>
+
+    <%end%>
+  <div class="row">
+  <h3><font face="Lobster">Most Recent Posts</font></h3>
+		<% @client.user_recent_media.each do |x| %>
   		<div style='float:left;'>
-  		<%= link_to image_tag(x.images.thumbnail.url), x.images.standard_resolution.url, target: "_blank" %><br/>
+  		<%= link_to image_tag(x.images.thumbnail.url, width: "80"), x.images.standard_resolution.url, target: "_blank" %><br/>
       
   		<span class="glyphicon glyphicon-heart-empty"></span> <%= x.likes[:count] %><br> 
-  	 	<% a=a+x.likes[:count] %>
- 	 	 <% counter=counter+1 %>
-  		</div>
+    
+  
+  		</div>  <%end%>
+    </div>
+
+	
+
+<div class="row"> 
+      <h3><font face="Lobster">Most Liked Posts</font></h3>
  
-		<%end%>
+      <%  @album_sorted= @album.sort! { |a,b| a.likes[:count] <=> b.likes[:count] } %>
+      <% @album_sorted.last(20).reverse!.each do |x| %> 
+          <div style='float:left;'>
+      <%= link_to image_tag(x.images.thumbnail.url, width: "80"), x.images.standard_resolution.url, target: "_blank" %><br/>
+      <span class="glyphicon glyphicon-heart-empty"></span> <%= x.likes[:count] %><br>  </div>
+       <% end %>
+    </div>
+ 
 
-		<% for t in @client.user_recent_media %>
-  		<div style='float:left;'>
-     
-   		<% b=b+t.comments[:count] %>
-
-  		</div>
- 		<%end%>
 </div>
 
 
-<div class="col-md-3">
+<div class="col-md-3"> 
+ <br>
+  
  <% profile=@client.user.profile_picture %>
 	 <ul class="list-group">
+    <h4>
 	 	<li class="list-group-item">
-<p><span class="username" id="any"> <%= @client.user.full_name %></span>
+<p><span class="username" id="any"><%= @client.user.full_name %></span>
 <span class="pull-right" id="any"> <%= image_tag(src=profile, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
 </li>
+<li class="list-group-item">
+  <span class="badge badge-info"> <%= @engagementscore %> </span>  E.Score:  
+ </li>
   
  <li class="list-group-item">
     <span class="badge"><%= @client.user.counts.followed_by %></span>
 Followers  </li>
 
 <li class="list-group-item">
-    <span class="badge"><%= a/(counter.nonzero? || 1)%> </span>
+    <span class="badge"><%= @averagelikes %> </span>
 Likes on avg. </li>
 
 <li class="list-group-item">
-    <span class="badge"><%= b/(counter.nonzero? || 1) %></span>
+    <span class="badge"><%= @averagecomments %></span>
 Comments on avg. </li>
 
 <li class="list-group-item">
@@ -64,13 +98,10 @@ Age  </li><li class="list-group-item">
     <span class="badge badge-success">$<%= @instauser.postprice %></span>
 Post Price </li>
 
-
+</h4>
 
 </ul>
 	
-	 	
-	  
-  
  
 </div>
  </div>

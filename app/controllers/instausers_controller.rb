@@ -15,15 +15,15 @@ before_action :correct_instauser , only: [:edit, :update]
       end 
       
 
-      redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+     # redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")  
  
-  		
+  		redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")  
  		  end 
 
   					def callback 
              
-   					response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-
+   				#	response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+          response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
             session[:access_token] = response.access_token
   					@client = Instagram.client(:access_token => session[:access_token])
               
@@ -33,6 +33,10 @@ before_action :correct_instauser , only: [:edit, :update]
   					 	else
                 @instauser=Instauser.find_by_username(@client.user.username)
                 @instauser.profile_picture=@client.user.profile_picture
+                
+
+
+
                  if @instauser.save
                     session[:user_id]=@instauser.id
                 end
@@ -73,19 +77,47 @@ end
         end
 
 def dashboard
-  @client = Instagram.client(:access_token => session[:access_token])
+@client = Instagram.client(:access_token => session[:access_token])
+ 
+username=@client.user.username 
+@instauser=Instauser.find_by_username(username)
 
-  # if @client.user.counts.followed_by<10000 
-  #  redirect_to root_path
- #   flash!(:refused)
-#  else
+response = @client.user_recent_media  
+album = [].concat(response)  
+max_id = response.pagination.next_max_id  
 
-	username=@client.user.username 
-	@instauser=Instauser.find_by_username(username)
+       while !(max_id.to_s.empty?) do  
+         response = @client.user_recent_media(:max_id => max_id)  
+          max_id = response.pagination.next_max_id 
+           album.concat(response) 
+         end  
 
-# end
+  @album = album  
+  
+#average likes and comments#
+
+  a=0
+  counter=0
+  b=0 
+ 
+ @album.each do |z|
+ a=a+z.likes[:count] 
+ b=b+z.comments[:count]
+ counter=counter+1 
+ end 
+ 
+
+@averagelikes= a/(counter.nonzero? || 1)
+@averagecomments=b/(counter.nonzero? || 1)
+@engagementscore='%.2f' % ((a+b)/(@client.user.counts.followed_by * counter*0.5)).to_f 
 
 end 
+
+
+
+
+
+
 
 def search
 

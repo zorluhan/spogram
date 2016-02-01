@@ -1,34 +1,59 @@
  
-
- <div class="container">
-
+ 
+ 
+ 
+<style>
+  *{margin:0;padding:0;}
+  html{overflow:hidden;}
+  #full_kickoffpage{position:absolute;width:100%;height:100%;}
+  iframe{height:100%;width:100%;border:none;}
+</style>
+ 
+ 
+  <!-- BEGIN KICKOFFLABS EMBED CODE -->        
+  <div id='full_kickoffpage'></div>
+  <script type="text/javascript">
+  (function(doc, el) {
+  var script_is_loaded = false;
+  var s = doc.createElement(el);
+  s.src = 'https://kickoffpages-kickofflabs.netdna-ssl.com/pages/1.7.0/kol_embed_page.js';
+  s.onload = s.onreadystatechange = function() { 
+  var rs = this.readyState; if (script_is_loaded) return; if (rs) if (rs != 'complete') if (rs != 'loaded')  return;
+  script_is_loaded = true;
+  try { KOL_Embed_Page.makeFrame({container_id: 'full_kickoffpage', height: '100%', width: '100%', page_id: 81442}); } catch (e) {}};
+  var scr = doc.getElementsByTagName(el)[0], par = scr.parentNode; par.insertBefore(s, scr);
+  })(document, 'script');</script>
+  <!-- END KICKOFFLABS EMBED CODE -->  
+ 
+ 
+<!-- 
 <div class="jumbotron" id="form">
 	 
 <% if !instauser_logged_in? and !branduser_logged_in? %> 
 
 <p><div class="row" align="center">
- <h1> Work with Instagramers. <%= link_to "Signup", '/bsignup', class: "btn btn-primary" %></h1><hr>
-		<h1>I am an Instagramer.  <%= link_to "Signup", new_instauser_path, class: "btn btn-primary" %></h1>
-	</div></p><br>
-
- 
-
+<h1> Work with Instagrammers. <%= link_to "Invitation Only", '#', class: "btn btn-primary" , id: "btn-invitation" %></h1><hr>
+		<h1>I am an Instagrammer.  <%= link_to "Signup", new_instauser_path, class: "btn btn-primary" %></h1>
+	</div></p>
 <%else%>
-
 <div class="row" align="center">
  <h1>Collaboration is awesome</h1>
- <h4> capish is where brands and instagramers meet to work together for a common cause.</h4>
+ <h4> capish is where brands and instagrammers meet to work together for a common cause.</h4>
 </div>
-
 <%end%>
- 
+
+  <font face="Andale Mono" id="jumbotrontext">(c) @nikkiminaj</font>
+
  </div>
 
-<div class="row">
-	
+ 
+<div class="jumbotron2">
 	<div class="row" align="center">
- <img src="/assets/starbucks.png" width="80"><span id="space"></span><img src="/assets/armani.png" width="100"><span id="space"></span><img src="/assets/lufthansa.png" width="80"><span id="space"></span><img src="/assets/chase.png" width="100"><span id="space"></span><img src="/assets/clash.png" width="80"><span id="space"></span><img src="/assets/KFC.png" width="80"><span id="space"></span><img src="/assets/tollbrothers.png" width="100"><span id="space"></span><img src="/assets/Warner_Bros.png" width="80"><span id="space"></span><img src="/assets/aflac2.jpg" width="80"><span id="space"></span><img src="/assets/tmobile.png" width="100">
-	</div>
+	 
+ <img src="/assets/starbucks.png" width="80"><span id="space"></span><img src="/assets/armani.png" width="100"><span id="space"></span><img src="/assets/lufthansa.png" width="80"><span id="space"></span><img src="/assets/chase.png" width="100"><span id="space"></span><img src="/assets/clash.png" width="80"><span id="space"></span><img src="/assets/KFC.png" width="80"><span id="space"></span><img src="/assets/tollbrothers.png" width="100"><span id="space"></span><img src="/assets/Warner_Bros.png" width="80"><span id="space"></span><img src="/assets/tmobile.png" width="100"> 
+	<img src="/assets/pixel.png" ></div>
+
+</div>
  
  	<div style="height: 30px;"></div>
  </div>
@@ -36,20 +61,22 @@
 <div class="row">
 	
 	<div class="row" align="center">
-	<h2>Collaboration platform between brands and influencers.</h2>
+	<h2>DELIVER ORIGINAL CONTENT.</h2>
 	</div>
+
+	<div class="container">
 	
-	<div class="row" >
+ 
 	
 	<div style="height: 30px;"></div>
 	
 
-	</div>
+ 
 
 	<div class="row">
 	<div class="col-md-4">
 		<div align="center"><img src="/assets/connect.png" width="75"><br><strong>CONNECT</strong> </div>
-	<br>Connect with influential content creators and influencers based on your target market.<br> 
+	<br><div id="hometext">Connect with influential content creators and influencers based on your target market.</div><br> 
 
  	 
 	
@@ -60,7 +87,7 @@
 
 	<div class="col-md-4">
 	<div align="center">	<img src="/assets/easytouse.png" width="90"><br><strong>EASY TO USE</strong> </div>
-	<br>Use our streamlined platform to create campaigns quickly and efficiently.<br>
+	<br><div id="hometext">Use our streamlined platform to create campaigns quickly and efficiently.</div><br>
 
 	 
 	
@@ -70,7 +97,7 @@
  
 	<div class="col-md-4">
 	<div align="center">	<img src="/assets/engage.png" width="90"><br> <strong>DRIVE ACTION</strong> </div>
-	<br>Engage your customers with authentic content to increase your conversion rates.<br>
+	<br><div id="hometext">Engage your customers with authentic content to increase your conversion rates.</div><br>
 	
 	 
 	
@@ -87,11 +114,11 @@
 		 
 
 
+ </div> !-->
+
+
+
  
-
-
-
-</div>
  
 
  
