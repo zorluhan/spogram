@@ -35,6 +35,9 @@ end
 
  end 
 
+def influencers
+	redirect_to '/instagrammers'
+end 
 
  
 def results

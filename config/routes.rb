@@ -8,6 +8,7 @@ resources :messages
   get '/pages/about' => 'pages#about'
   get '/instagrammers' => 'pages#instagrammers'
   get '/instagramers' => 'pages#instagramers'
+  get '/influencers' => 'pages#influencers'
   get '/myinstagram' => 'pages#myinstagram'
   get '/pages/contact' => 'pages#contact'
   get '/pages/logout' => 'pages#logout'
