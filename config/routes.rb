@@ -32,11 +32,11 @@ resources :messages
    
 
   get '/auth' => 'instausers#auth'
- # get '/signup' => 'instausers#signup'
+  # get '/signup' => 'instausers#signup'
   get '/newuser' => 'instausers#new'  
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
-  # get 'login' => 'instausers#auth'
+  get 'login' => 'instausers#auth'
   
   delete '/logout' => 'sessions#destroy'
   get '/checkin' => 'instausers#checkin'
