@@ -24,7 +24,7 @@ resources :messages
   post 'charges/bill' => 'charges#bill'
   post '/charges' => 'charges#create'
  
-   get '/bsignup' => 'brandusers#new'
+   # get '/bsignup' => 'brandusers#new'
    get '/blogin' => 'sessions#new' 
    post '/blogin' => 'sessions#create'
    delete '/blogout' => 'sessions#destroy'
