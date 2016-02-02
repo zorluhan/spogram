@@ -1,36 +1,38 @@
  
   <!-- Brand and toggle get grouped for better mobile display -->
- <!-- 
-<nav class="navbar navbar-inverse" role="navigation">
  
-  <div class="navbar-header">
+<!-- <nav class="navbar navbar-inverse" role="navigation">
+ 
+  <div class="navbar-header"> --> 
     
 
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+   <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
-    </button>
+    </button> --> 
 
-  
-
-  <%- if !@current_instauser.nil? -%>
+ 
+<!-- 
+  <% if !@current_instauser.nil? -%>
   <%= link_to "capish", root_path(@current_instauser), class: "navbar-brand" %>  
- <%- elsif !@current_branduser.nil? -%>
+ <% elsif !@current_branduser.nil? -%>
   <%= link_to "capish", root_path(@current_branduser), class: "navbar-brand" %> 
-  <%- else -%> 
+  <% else %> 
   <%= link_to "capish", root_path, class: "navbar-brand" %>
-  <%-end-%>
+  <% end %>
 </div>
 
-  <form class="navbar-form navbar-left" role="search">
+--> 
+
+<!--   <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="REKLOGRAM">
         </div>
         <button type="submit" class="btn btn-default"> </button> 
       </form>  
- -->
+ --> 
 
   <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -71,14 +73,14 @@
                   </ul>
 
 
-      <%- else -%> 
+      <% else  %> 
                 <ul class="nav navbar-nav navbar-left">
                 <li><%= link_to "About", pages_about_path %></li>
                 <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
                 <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
 
               </ul>   
-      <%-end-%>
+      <% end %>
        
   </div>
  
@@ -86,6 +88,6 @@
  
 
   
-</nav> -->
+</nav>  
 
  
