@@ -15,6 +15,7 @@ resources :messages
   post '/pages/search' => 'pages#search'
   get '/pages/search' => 'pages#search'
   get '/pages/age'=>'pages#age'
+  get '/secondhome/' => 'pages#secondhome'
   patch '/pages/results' => 'pages#results'
   get '/pages/form' => 'pages#form'
   get 'charges/new' => 'charges#new'
