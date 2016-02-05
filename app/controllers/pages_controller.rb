@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
 
- 
+def secondhome
+
+end 
+
+def privacy
+end
+
 
 def home 
  

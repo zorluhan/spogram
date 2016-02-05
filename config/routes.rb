@@ -28,6 +28,7 @@ resources :messages
   get 'charges/:id'=>'charges#show', :as => 'charge'
   post 'charges/bill' => 'charges#bill'
   post '/charges' => 'charges#create'
+  get '/privacy' => 'pages#privacy'
  
    get '/bsignup' => 'brandusers#new'
    get '/blogin' => 'sessions#new' 
