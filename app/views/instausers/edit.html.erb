@@ -1,10 +1,10 @@
 
  <%= render 'layouts/header2' %>
 
-<div class="col-md-5">
-<div class="container">
+<div class="col-md-5" id="form">
+ 
 <%= form_for(@instauser) do |f| %>  
-  <div class="input-group-lg" id="form"> 
+  <div class="input-group"> 
   	<div class="form-group">
 
     <%= f.label :fullname %><br> 
@@ -33,5 +33,6 @@
     <%= f.submit "Save", data: {disable_with: "Saving..."} %> 
    </div>
 <% end %>
- </div>
+ 
+</div>
 </div>
