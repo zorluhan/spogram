@@ -1,5 +1,5 @@
 class Charge < ActiveRecord::Base
+  belongs_to :instauser
+  belongs_to :branduser
 
-	belongs_to :instauser
-belongs_to :branduser
 end
