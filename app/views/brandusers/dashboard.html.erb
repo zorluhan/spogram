@@ -1,107 +1,84 @@
 <!-- search !-->
 
- 
- 
- <div class="panel" id="search">
+<div class="panel" id="search">
   <div align="center">
- 
+    <%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>  
 
-<%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>  
+      <font size="2"> <%= "Age" %><%= ":" %>
 
- <font size="2"> <%= "Age" %><%= ":" %>
- 
-  <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18', :class=> "form-group"}%><%= "-" %> 
+      <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18', :class=> "form-group"}%><%= "-" %> 
 
-  <%= f.number_field :age2 , :placeholder=>"24", :input_html => { :value => '24' } %> <br>
+      <%= f.number_field :age2 , :placeholder=>"24", :input_html => { :value => '24' } %> <br>
 
-  <%= "Gender:" %>
-    <%= f.select :gender,
-    options_for_select([['Male','Male'],['Female','Female']] ,2),{}%>   
-  <%= "City:" %>
-    <%= f.select :location,
-    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin'], ['DC','DC'],['London','London']] ,2),{}%>   
+      <%= "Gender:" %>
+      <%= f.select :gender,
+      options_for_select([['Male','Male'],['Female','Female']] ,2),{}%>   
+      <%= "City:" %>
+      <%= f.select :location,
+      options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin'], ['DC','DC'],['London','London']] ,2),{}%>   
       <%= "Theme:" %>
-     <%= f.select :theme, 
-    options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}%> 
- 
- <%= "Max. Price:" %>
-     <%= f.select :postprice, 
-    options_for_select([['100','100'],['200','200'], ['300','300'], ['400','400'],['500','500'],['1000','1000'],['5000','5000']],2),{} %> 
-   
+      <%= f.select :theme, 
+      options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}%> 
 
- <%= "Min # of Followers:" %> 
-     <%= f.select :followed_by, 
-    options_for_select([['0','0'], ['5000','5000'],['10000','10000'],['15000','15000'],['30000','30000'], ['50000','50000'], ['100k','100000']],2),{} %> 
- 
-   <%= "Min # of Average Likes:" %>
-     <%= f.select :averagelikes, 
-    options_for_select([['0','0'],['5','5'], ['10','10'], ['100','100'], ['200','200'], ['500','500']],2),{}, :placeholder=>"average likes" %> 
- 
- 
-    <%= f.submit "Search", class: "btn btn-xs btn-success" , data: {disable_with: "Searching.."} %> </font>
-  
-<%end%>
- </div></div>
- 
+      <%= "Max. Price:" %>
+      <%= f.select :postprice, 
+      options_for_select([['100','100'],['200','200'], ['300','300'], ['400','400'],['500','500'],['1000','1000'],['5000','5000']],2),{} %> 
+
+
+      <%= "Min # of Followers:" %> 
+      <%= f.select :followed_by, 
+      options_for_select([['0','0'], ['5000','5000'],['10000','10000'],['15000','15000'],['30000','30000'], ['50000','50000'], ['100k','100000']],2),{} %> 
+
+      <%= "Min # of Average Likes:" %>
+      <%= f.select :averagelikes, 
+      options_for_select([['0','0'],['5','5'], ['10','10'], ['100','100'], ['200','200'], ['500','500']],2),{}, :placeholder=>"average likes" %> 
+
+
+      <%= f.submit "Search", class: "btn btn-xs btn-success" , data: {disable_with: "Searching.."} %> </font>
+
+    <%end%>
+  </div>
+</div>
 
 <!-- LISTING INSTAUSERS !-->
 <div class="container">
-
-<% @instausers.each do |x| %>
- 
- 
-
-  <div class="col-md-3">
-   <ul class="list-group" id="form">
-    <li class="list-group-item">
-<p><span class="username" id="any"> <%= x.fullname %></span>
-<span class="pull-right" id="any"><img src='<%= x.profile_picture %>', width="40", height= "40", class= "no-wrap", onerror="imgError(this);" > </span></p>
-</li>
- 
-  
- <li class="list-group-item">
-    <span class="badge"><%= x.followed_by %></span>
-Followers  </li>
-
- <li class="list-group-item">
-    <span class="label label-info pull-right"><%= x.theme %></span>
-Theme </li>
-
-
-<li class="list-group-item">
-    <span class="badge"><%= x.averagelikes %></span>
-Likes on avg. </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.averagecomments %></span>
-Comments on avg. </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.location %></span>
-Location  </li><li class="list-group-item">
-    <span class="badge"><%= x.age %></span>
-Age  </li><li class="list-group-item">
-    <span class="badge badge-success">$<%= x.postprice %></span>
-Post Price </li>
-
-<li class="list-group-item">
-<% c= x.recent_media_urls %>
-<% a= c.tr("[]","") %>
-<% b= a.tr('"',"") %>
-<% array= b.split(",") %>
-<p>
-<% array.each do |s| %> 
-<img src='<%=s%>', width="50", height="50", onerror="imgError2(this);" ></a>
-<%end%> 
-</p>
-</li>
-
-
-
-</ul>
-  
-    
-  </div>  
-  
- 
-<%end %>
+  <% @instausers.each do |x| %>
+    <div class="col-md-3">
+      <ul class="list-group" id="form">
+        <li class="list-group-item">
+          <p><span class="username" id="any"> <%= x.fullname %></span>
+          <span class="pull-right" id="any"><img src='<%= x.profile_picture %>', width="40", height= "40", class= "no-wrap", onerror="imgError(this);" > </span></p>
+        </li>
+        <li class="list-group-item">
+          <span class="badge"><%= x.followed_by %></span>
+          Followers  </li>
+        <li class="list-group-item">
+          <span class="label label-info pull-right"><%= x.theme %></span>
+          Theme </li>
+        <li class="list-group-item">
+          <span class="badge"><%= x.averagelikes %></span>
+          Likes on avg. </li>
+        <li class="list-group-item">
+          <span class="badge"><%= x.averagecomments %></span>
+          Comments on avg. </li>
+        <li class="list-group-item">
+          <span class="badge"><%= x.location %></span>
+          Location  </li><li class="list-group-item">
+          <span class="badge"><%= x.age %></span>
+          Age  </li><li class="list-group-item">
+          <span class="badge badge-success">$<%= x.postprice %></span>
+          Post Price </li>
+        <li class="list-group-item">
+          <% c= x.recent_media_urls %>
+          <% a= c.tr("[]","") %>
+          <% b= a.tr('"',"") %>
+          <% array= b.split(",") %>
+          <p>
+            <% array.each do |s| %> 
+            <img src='<%=s%>', width="50", height="50", onerror="imgError2(this);" ></a>
+            <%end%> 
+          </p>
+        </li>
+      </ul>
+    </div>  
+  <% end %>
