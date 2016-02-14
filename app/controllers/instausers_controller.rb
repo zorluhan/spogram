@@ -122,7 +122,7 @@ class InstausersController < ApplicationController
   private
     def instauser_params
       params.require(:instauser).permit(
-        :gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :country, :city, 
+        :gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :location, 
         :date_of_birth, :email, :username, :postprice, :theme, :averagelikes, :averagecomments )
     end 
 
