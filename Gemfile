@@ -8,7 +8,7 @@ gem 'stripe'
 
 gem "bootstrap_flash_messages", "~> 1.0.1"
 
- gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'fancybox-rails'
 
@@ -23,7 +23,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'instagram' 
 gem 'validates_email_format_of'
-gem  'bcrypt'
+gem 'bcrypt'
 gem 'sinatra'
 gem 'json'
 gem 'paperclip', '~> 4.2'
@@ -36,19 +36,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
-gem 'sinatra'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
  
 
 
 group :development, :test do
-     gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :production do 
-gem 'pg' 
-gem 'rails_12factor' 
+  gem 'pg' 
+  gem 'rails_12factor' 
 end 
 
 ruby "2.0.0"

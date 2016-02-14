@@ -1,5 +1,2 @@
 module InstausersHelper
-
-
-
 end

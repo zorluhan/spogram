@@ -1,17 +1,10 @@
- 
- 
- 
+
 <div class="jumbotron" id="form">
 	<font face="Montserrat" color="black">
- <%= form_for(:session, url: '/blogin') do |f| %> 
- 
-  <%= f.email_field :email, :placeholder => "Email" %> 
-  <%= f.password_field :password, :placeholder => "Password" %> 
-  <%= f.submit "Log in", class: "btn btn-primary" %>
-<% end %></font>
- 
-
+    <%= form_for(:session, url: '/blogin') do |f| %>  
+      <%= f.email_field :email, :placeholder => "Email" %> 
+      <%= f.password_field :password, :placeholder => "Password" %> 
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+  </font>
 </div>
- 
-
-

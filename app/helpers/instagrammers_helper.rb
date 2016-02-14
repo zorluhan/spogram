@@ -1,7 +1,3 @@
-module InstagrammersHelper
-  
-
+module InstagrammersHelper 
+end
  
-  
- 
-  end 

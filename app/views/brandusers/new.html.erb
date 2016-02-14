@@ -1,86 +1,63 @@
 <div class="container">
+  <div class="row">
+    <div class="col-xs-5" id="form">
+      <br>  
+      <%= form_for(@branduser)  do |f| %>
+        <%= render 'shared/error_messages' %>
+        <div class="input-group"> 
+          <div class="form-group"> 
+            <%= f.label :fullname %> <br> 
+            <%= f.text_field :fullname, class: "form-control", size: "50" %> <br>
+          </div>
+          <%= f.label :email  %> <br>
+          <%= f.text_field :email, class: "form-control" %> <br>
+          <%= f.label :password %><br> 
+          <%= f.password_field :password, class: "form-control" %> <br>
+          <%= f.label :phone %><br> 
+          <%= f.number_field :phone, class: "form-control" %> <br>
+          <%= f.label :company %><br> 
+          <%= f.text_field :coname, class: "form-control" %> <br>
+          <%= f.label :country %><br> 
+          <%= f.select :country, 
+          options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
+          {}, { :class => 'form-control' }  %>
 
-  
-    <div class="row">
-      <div class="col-xs-5" id="form">
-        <br>  
-  <%= form_for(@branduser)  do |f| %>  
-  
-    <%= render 'shared/error_messages' %>
- 
-  <div class="input-group"> 
-  	<div class="form-group"> 
-    <%= f.label :fullname %> <br> 
-    <%= f.text_field :fullname, class: "form-control", size: "50" %> <br>
-   </div>
-   <%= f.label :email  %> <br>
-     <%= f.text_field :email, class: "form-control" %> <br>
-   <%= f.label :password %><br> 
-    <%= f.password_field :password, class: "form-control" %> <br>
-    <%= f.label :phone %><br> 
-    <%= f.number_field :phone, class: "form-control" %> <br>
-    <%= f.label :company %><br> 
-    <%= f.text_field :coname, class: "form-control" %> <br>
-    <%= f.label :country %><br> 
-    <%= f.select :country, 
-    options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
-    {}, { :class => 'form-control' }  %>
+          <%= f.label :website %> <br>
+          <%= f.text_field :cowebsite, class: "form-control"  %> <br>
+          <%= "Number of Employees:" %> <br>
+          <%= f.select :comsize, 
+          options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
+          {}, { :class => 'form-control' }  %> <br>
 
-     <%= f.label :website %> <br>
-    <%= f.text_field :cowebsite, class: "form-control"  %> <br>
-    <%= "Number of Employees:" %> <br>
-  <%= f.select :comsize, 
-    options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
-    {}, { :class => 'form-control' }  %> <br>
-     
-     <!-- 
-     <%= f.label :image %> <br>
-     <%= f.file_field :image, class: "form-control" %> <br> !-->
-     
-     
-  </div> <br>
-  <div class="actions"> 
-    <%= f.submit "Create"  %> 
-  </div> 
-  <br>
-<% end %>
-</div>
-<div class="col-xs-1">
+          <!-- 
+          <%= f.label :image %> <br>
+          <%= f.file_field :image, class: "form-control" %> <br> !-->
+        </div> <br>
+        <div class="actions"> 
+          <%= f.submit "Create"  %> 
+        </div> 
+        <br>
+      <% end %>
+    </div>
+    
+    <div class="col-xs-1">
+    </div>
+    
+    <div class="col-xs-5">
+      <h3>We are looking to work with a select
+        group of brands as part of our early 
+        access program.  </h3><br>
+      <h4><font color="gray">
+        Access our platform and connect with 
+        Instagrammers prior to general release. Set up 
+        campaigns based on your budget. <br><br>
+        No hassle payment using one of the world’s 
+        most secure and trusted payment platforms. <br><br>
+        Provide feedback directly to our team to 
+        ensure the current and future platform features 
+        reflect market needs. <br><br>
+        One on one access to our Marketing team to 
+        ensure the success of your campaign. </h4><br><br>
+    </div>
   </div>
-<div class="col-xs-5">
-
-<h3>We are looking to work with a select
-
-group of brands as part of our early 
-
-access program.  </h3><br>
-<h4><font color="gray">
-
-Access our platform and connect with 
-
-Instagrammers prior to general release. Set up 
-
-campaigns based on your budget. <br><br>
-
-No hassle payment using one of the world’s 
-
-most secure and trusted payment platforms. <br><br>
-
-
-Provide feedback directly to our team to 
-
-ensure the current and future platform features 
-
-reflect market needs. <br><br>
-
-
-One on one access to our Marketing team to 
-
-ensure the success of your campaign. </h4><br><br>
- 
-  </div>
-
- 
 </div>
-</div>
- 
