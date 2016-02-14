@@ -69,7 +69,7 @@
           <span class="badge badge-success">$<%= x.postprice %></span>
           Post Price </li>
         <li class="list-group-item">
-          <% if x.any? %>
+          <% unless x.recent_media_urls="[]" %>
           <% c= x.recent_media_urls %>
           <% a= c.tr("[]","") %>
           <% b= a.tr('"',"") %>

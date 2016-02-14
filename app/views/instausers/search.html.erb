@@ -18,12 +18,10 @@
 	 <ul class="list-group" id="form">
 	 	<li class="list-group-item">
 <p><span class="username" id="any"> <%= x.fullname %></span>
+ 
 
 
-   <% res = Net::HTTP.get_response(URI.parse(@profile_picture_url)) %>
-   <% if res.code.to_i >= 200 && res.code.to_i < 400 %>  
-  <span class="pull-right" id="any"> <%= image_tag(src=@profile_picture_url, :width=>"40", :height=>"40", :class=>"no-wrap")%></span>
- <%end%></p>
+
    <%= link_to "Collaborate", {:controller=> "charges", :action=>"new", :instauser => "#{x.id}"}, :class=> "btn btn-warning btn-xs" %>
 
   </li>
@@ -52,8 +50,9 @@ Location  </li><li class="list-group-item">
 Age  </li><li class="list-group-item">
     <span class="badge badge-success">$<%= x.postprice %></span>
 Price </li>
-
+  <% unless x.recent_media_urls="[]" %>
 <li class="list-group-item">
+
 <% c= x.recent_media_urls %>
 <% a= c.tr("[]","") %>
 <% b= a.tr('"',"") %>
@@ -65,7 +64,7 @@ Price </li>
 <%end%> 
 </p>
 </li>
-
+<%end%>
 </ul>
  
 </div>

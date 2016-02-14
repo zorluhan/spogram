@@ -6,6 +6,6 @@ class Charge < ActiveRecord::Base
 
   private
     def send_new_proposal_email
-      UserMailer.send_new_proposal_email(instauser_id, branduser_id, id).deliver!
+# UserMailer.send_new_proposal_email(instauser_id, branduser_id, id).deliver!
     end
 end
