@@ -83,14 +83,23 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'capish.co', port: 3000 }
 
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address:              'smtp.gmail.com',
+  #   port:                 587,
+  #   domain:               'gmail.com',
+  #   user_name:            'mail@capish.co',
+  #   password:             '9uG<Ta9C',
+  #   authentication:       'plain',
+  #   enable_starttls_auto: true,
+  #   openssl_verify_mode: 'none' }
+
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'mail@capish.co',
-    password:             '8uG<Ta9C',
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    openssl_verify_mode: 'none' }
+    address:        'smtp.gmail.com',
+    port:           465,
+    domain:         'gmail.com',
+    user_name:      'mail@capish.co',
+    password:       'gjlpatqzqfjvnjsg',
+    authentication: :login,
+    ssl:            true }
 
 end
