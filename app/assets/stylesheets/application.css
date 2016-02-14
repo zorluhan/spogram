@@ -17,3 +17,23 @@
 
  */
 
+/* hide date field spinners */
+input[type=date]::-o-outer-spin-button,
+input[type=date]::-o-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -o-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=date]::-moz-outer-spin-button,
+input[type=date]::-moz-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -moz-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=date]::-webkit-outer-spin-button,
+input[type=date]::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/* hide date field spinners */

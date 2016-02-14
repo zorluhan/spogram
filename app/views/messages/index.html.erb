@@ -1,70 +1,50 @@
- <%= render 'layouts/header2' %>
+<%= render 'layouts/header2' %>
 
+<% if (instauser_logged_in? && !branduser_logged_in?) %>
 
-	<% if (instauser_logged_in? && !branduser_logged_in?) %>
+  <% if @brandusers.present? %>
+    <div  id="leftbar">
+      <ul class="list-group" id="form">
+        <% @brandusers.each do |x| %>
+          <li class="list-group-item">
+            <font face="Lobster">
+              <h4><%= link_to x.coname, publish_path(:branduser_id => x.id) , method: :patch, remote: true %></h4>
+            </font>
+            <span class="pull-right">
+              <% unless !x.image.nil? %>
+                <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
+              <%end%>
+            </span>
+            
+            <%= "#{unread_messages_count(current_instauser, x)} unread" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-				<% if @brandusers.present? %>
-						<div  id="leftbar">
-								<ul class="list-group" id="form">
+    <div id="publish">
+    </div>
+  <%else%>
+    <%= "There are no messages." %>
+  <%end%>
 
+<% elsif branduser_logged_in? && !instauser_logged_in? %>
+  <% if @instausers.present? %>
 
-						<% @brandusers.each do |x| %>
-				         
-						<li class="list-group-item">
-						<font face="Lobster"><h4><%= link_to x.coname, publish_path(:branduser_id => x.id) , method: :patch, remote: true %></font> <span class="pull-right"><% unless !x.image.nil? %><img src="<%=x.image %>" onerror="imgError(this);" width="28" %><%end%></span></h4></li>
-					 
-					 
+    <div  id="leftbar">
+      <ul class="list-group" id="form">
+        <% @instausers.each do |x| %>
+          <li class="list-group-item">
+            <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font>
+            <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4>
+          </li>
+        <%end%> 
+      </ul>
+    </div>
 
-						<% end %>
-							</ul>
-						</div>
-
-							<div id="publish">
-					 
-						  
-				            </div>
-
-					<%else%>
-
-					<%= "There are no messages." %>
-					<%end%>
-			 
-
-			
-					 
-				 
-
-	<% elsif branduser_logged_in? && !instauser_logged_in? %>
-
-				<% if @instausers.present? %>
-
-				<div  id="leftbar">
-					<ul class="list-group" id="form">
-				
-				<% @instausers.each do |x| %>
-
-				
-			
-				<li class="list-group-item">
-			    <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font>
- 
-			    <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4></li>
-			    
-			    <%end%> 
-			    	 
-			 </ul>
-			</div>
-					
-				<div  id="publish">
-			
-			   </div> 
-			 
-			     <%else%>
-			     <%= "There are no messages" %>
-			     <%end%>
-
-
- 				
-
-
-		<%end%>
+    <div  id="publish">
+    </div> 
+  <%else%>
+    <%= "There are no messages" %>
+  <%end%>
+<%end%>

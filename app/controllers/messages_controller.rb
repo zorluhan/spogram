@@ -61,6 +61,7 @@ class MessagesController < ApplicationController
   def publish 
     if current_instauser 
       @messages=Message.where(:branduser_id => params[:branduser_id], :instauser_id => current_instauser.id)
+      @messages.where(is_read: false).update_all(is_read: true);
     elsif current_branduser 
       @messages=Message.where(:instauser_id => params[:instauser_id], :branduser_id => current_branduser.id)
     end

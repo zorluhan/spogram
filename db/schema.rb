@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214093733) do
+ActiveRecord::Schema.define(version: 20160214123044) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160214093733) do
     t.integer  "amount"
     t.string   "customer"
     t.string   "useremail"
+    t.boolean  "is_read",      default: false
   end
 
   add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160214093733) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "message"
+    t.boolean  "is_read",      default: false
   end
 
   create_table "users", force: true do |t|

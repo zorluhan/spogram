@@ -28,6 +28,8 @@ class ChargesController < ApplicationController
           @earned=@earned+(x.amount/115).round
         end
       end
+      # mark the un-read charges as read
+      @charges.where(is_read: false).update_all(is_read: true)
     else
       redirect_to root_path
     end
