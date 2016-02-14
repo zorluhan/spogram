@@ -11,7 +11,11 @@
       <li class="list-group-item"><h4>
         <%= link_to "Accepted", publish_proposal_path(:status=> "accepted"), method: :patch, remote: true %> </h4></li>
       <li class="list-group-item"><h4>
-        <%= link_to "Waiting", publish_proposal_path(:status=> "unaccepted"), method: :patch, remote: true %>
+        <%= link_to publish_proposal_path(:status=> "unaccepted"), method: :patch, remote: true do %>
+          Waiting 
+          <% count = unread_charges_count(current_instauser) %> 
+          <%= "(#{count})" if count > 0 %>
+        <% end %>
       </h4></li></font>
   </div>
 

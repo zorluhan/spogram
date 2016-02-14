@@ -28,8 +28,6 @@ class ChargesController < ApplicationController
           @earned=@earned+(x.amount/115).round
         end
       end
-      # mark the un-read charges as read
-      @charges.where(is_read: false).update_all(is_read: true)
     else
       redirect_to root_path
     end
@@ -44,6 +42,8 @@ class ChargesController < ApplicationController
       id=current_instauser.id 
       status=params[:status]
       @charges=Charge.where(:instauser_id => id).where(:status => status)
+      # mark the un-read charges as read
+      @charges.where(is_read: false).update_all(is_read: true)
     else
      redirect_to root_path
     end

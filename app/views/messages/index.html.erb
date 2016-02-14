@@ -16,7 +16,8 @@
               <%end%>
             </span>
             
-            <%= "#{unread_messages_count(current_instauser, x)} unread" %>
+            <% count = unread_messages_count(current_instauser, x) %>
+            <%= "#{count} unread".html_safe if count > 0 %>
           </li>
         <% end %>
       </ul>
