@@ -69,6 +69,7 @@
           <span class="badge badge-success">$<%= x.postprice %></span>
           Post Price </li>
         <li class="list-group-item">
+          <% if x.any? %>
           <% c= x.recent_media_urls %>
           <% a= c.tr("[]","") %>
           <% b= a.tr('"',"") %>
@@ -78,6 +79,7 @@
             <img src='<%=s%>', width="50", height="50", onerror="imgError2(this);" ></a>
             <%end%> 
           </p>
+          <%end%>
         </li>
       </ul>
     </div>  
