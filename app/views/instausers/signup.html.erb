@@ -1,90 +1,75 @@
 
- 
- <%= render 'layouts/header2' %>
- 
- <div class="container">
- 
- <% a=0 %>
- <% counter=0 %>
- <% b=0 %>
- <% c=Array.new %>
+<%= render 'layouts/header2' %>
 
-     <% for x in @client.user_recent_media %>
-       <% c.push(x.images.thumbnail.url) %> 
-       <% x.likes[:count] %> 
-       <% a=a+x.likes[:count] %>
-       <% counter=counter+1 %>
-      <%end%>
+<div class="container">
+  <% a=0 %>
+  <% counter=0 %>
+  <% b=0 %>
+  <% c=Array.new %>
 
+  <% for x in @client.user_recent_media %>
+    <% c.push(x.images.thumbnail.url) %> 
+    <% x.likes[:count] %> 
+    <% a=a+x.likes[:count] %>
+    <% counter=counter+1 %>
+  <%end%>
 
-    <% for t in @client.user_recent_media %>
+  <% for t in @client.user_recent_media %>
     <% b=b+t.comments[:count] %>
-    <%end%>
+  <%end%>
 
+  <% @averagecomments=b/(counter.nonzero? || 1)%>
+  <% @averagelikes=a/(counter.nonzero? || 1) %>
+  <% @profile_picture_url= @client.user.profile_picture %>
 
+  <div class="row">
+    <div class="col-md-5" id="form">
+      <br>
+      <%= form_for(@instauser) do |f| %>  
 
-    <% @averagecomments=b/(counter.nonzero? || 1)%>
-    <% @averagelikes=a/(counter.nonzero? || 1) %>
-    <% @profile_picture_url= @client.user.profile_picture %>
+        <div class="input-group"> 
+          <div class="form-group">
+            <%= f.label :fullname %><br> 
+            <%= f.text_field :fullname, class: "form-control" %> <br>
+            <%= f.label :email %><br> 
+            <%= f.text_field :email, class: "form-control" %> <br>
 
+            <%= f.label :country %><br>
+            <%= country_select("instauser", "country", { priority_countries: ["TR", "GB", "US"], include_blank: true }, { class: 'form-control' }) %><br>
 
-<div class="row">
+            <%= f.label :city %><br>
+            <%= f.select :city, options_for_select([]),{}, { :class => 'form-control' } %><br>
 
+            <%= f.label :date_of_birth %><br> 
+            <%= f.date_field :date_of_birth, class: "form-control" %> <br>
+            <%= "Gender:" %><br>
+            <%= f.select :gender, options_for_select([['Male','Male'],['Female','Female']] ,2),{}, { :class => 'form-control' } %><br>
+            <br>
+            <%= "Select one theme that defines your timeline the most" %><br>
+            <%= f.select :theme, 
+            options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, { :class => 'form-control' } %> <br><br>
+            <%= "Min. Price Per Post (min. $100)"  %> <br>
+            <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
+            <%= f.hidden_field :followed_by, :value => @client.user.counts.followed_by %>
+            <%=  f.hidden_field :username, :value => @client.user.username %>
+            <%= f.hidden_field :averagelikes, :value => @averagelikes %>
+            <%= f.hidden_field :averagecomments, :value => @averagecomments %>
+            <%= f.hidden_field :profile_picture,  :value => @profile_picture_url %>
+            <%= f.hidden_field :recent_media_urls, :value => c %>
 
- <div class="col-md-5" id="form">
-<br>
+          </div> <br>
+          <div class="actions"> 
+            <%= f.submit "Create", data: {disable_with: "Uploading Now (Be Patient)..."} %> 
+          </div> 
+        </div>
+      <% end %><br>
+    </div>
+    <div class="col-md-5">
+      <h3><strong>Your influence is an asset. </strong></h3><br>
+      Capish helps you leverage your talents to get paid what you deserve. Partner with brands that need the power of your social following. Create organic content for our brand partners and spread their message to your followers.<br>
 
- 
-
-
-<%= form_for(@instauser) do |f| %>  
-
-  <div class="input-group"> 
-  	<div class="form-group">
-
-    <%= f.label :fullname %><br> 
-    <%= f.text_field :fullname, class: "form-control" %> <br>
-    <%= f.label :email %><br> 
-    <%= f.text_field :email, class: "form-control" %> <br>
- 
-    <%= f.label :age %><br> 
-    <%= f.number_field :age, class: "form-control" %> <br>
-    <%= "Gender:" %><br>
-    <%= f.select :gender, 
-    options_for_select([['Male','Male'],['Female','Female']] ,2),{}, { :class => 'form-control' } %><br>
-      
-    <%= f.label :location %><br> 
-    <%= f.select :location, 
-    options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin'], ['DC','DC'],['London','London']] ,2),{}, { :class => 'form-control' } %><br><br>
-      <%= "Select one theme that defines your timeline the most" %><br>
-     <%= f.select :theme, 
-    options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, { :class => 'form-control' } %> <br><br>
-     <%= "Min. Price Per Post (min. $100)"  %> <br>
-     <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
-     <%= f.hidden_field :followed_by, :value => @client.user.counts.followed_by %>
-     <%=  f.hidden_field :username, :value => @client.user.username %>
-     <%= f.hidden_field :averagelikes, :value => @averagelikes %>
-     <%= f.hidden_field :averagecomments, :value => @averagecomments %>
-     <%= f.hidden_field :profile_picture,  :value => @profile_picture_url %>
-     <%= f.hidden_field :recent_media_urls, :value => c %>
-
-  </div> <br>
-  <div class="actions"> 
-    <%= f.submit "Create", data: {disable_with: "Uploading Now (Be Patient)..."} %> 
-   </div> </div>
-<% end %><br>
-
-</div>
-
-<div class="col-md-5">
-
-<h3><strong>Your influence is an asset. </strong></h3><br>
-Capish helps you leverage your talents to get paid what you deserve. Partner with brands that need the power of your social following. Create organic content for our brand partners and spread their message to your followers.<br>
-
-<h3><strong>Set your price. </strong></h3><br>
-Set your price and get paid instantly via our secure and worldwide trusted payment platform.
+      <h3><strong>Set your price. </strong></h3><br>
+      Set your price and get paid instantly via our secure and worldwide trusted payment platform.
+    </div>
   </div>
- </div>
-
- </div>
- 
+</div>

@@ -39,10 +39,12 @@ gem 'bootstrap-sass'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
  
-
+gem 'country_select'
+gem 'city-state'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'pry'
 end
 
 group :production do 
