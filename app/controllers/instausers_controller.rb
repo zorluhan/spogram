@@ -13,13 +13,13 @@ class InstausersController < ApplicationController
       config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
     end 
 
-    redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    # redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
+    # redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
   end 
 
   def callback 
-    response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    # response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
+    # response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
     session[:access_token] = response.access_token
     @client = Instagram.client(:access_token => session[:access_token])
 
@@ -42,10 +42,10 @@ class InstausersController < ApplicationController
     redirect_to '/auth'
   end 
 
-  # def signup
-  #   @instauser=Instauser.new 
-  #   @client = Instagram.client(:access_token => session[:access_token])
-  # end 
+  def signup
+    @instauser=Instauser.new 
+    @client = Instagram.client(:access_token => session[:access_token])
+  end 
 
   def create
     @instauser= Instauser.new(instauser_params) 
@@ -99,6 +99,13 @@ class InstausersController < ApplicationController
 
   def edit
     @instauser=Instauser.find_by_id(params[:id]) 
+
+    states = CS.get(@instauser.country)
+    @cities = []
+    states.each do |state|
+      @cities += CS.get(@instauser.country, state[0])
+    end
+    @cities = @cities.uniq.sort
   end
 
   def update
@@ -114,7 +121,9 @@ class InstausersController < ApplicationController
 
   private
     def instauser_params
-      params.require(:instauser).permit(:gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :age, :location, :email, :username, :postprice, :theme, :averagelikes, :averagecomments )
+      params.require(:instauser).permit(
+        :gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :country, :city, 
+        :date_of_birth, :email, :username, :postprice, :theme, :averagelikes, :averagecomments )
     end 
 
     def logged_in_instauser

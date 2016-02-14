@@ -58,4 +58,17 @@ class ApplicationController < ActionController::Base
     !current_branduser.nil?
   end
 
+  def cities
+    states = CS.get(params[:country])
+    cities = []
+    states.each do |state|
+      cities += CS.get(params[:country], state[0])
+    end
+    cities = cities.uniq.sort
+
+    respond_to do |format|
+      format.json{ render json: cities.as_json, status: :ok }
+    end
+  end
+
 end
