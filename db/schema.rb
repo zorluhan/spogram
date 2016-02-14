@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214123044) do
+ActiveRecord::Schema.define(version: 20160214132743) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -65,8 +65,6 @@ ActiveRecord::Schema.define(version: 20160214123044) do
     t.text     "profile_picture"
     t.text     "recent_media_urls"
     t.string   "gender"
-    t.string   "country"
-    t.string   "city"
     t.date     "date_of_birth"
   end
 

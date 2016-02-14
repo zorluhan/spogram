@@ -98,14 +98,7 @@ class InstausersController < ApplicationController
   end 
 
   def edit
-    @instauser=Instauser.find_by_id(params[:id]) 
-
-    states = CS.get(@instauser.country)
-    @cities = []
-    states.each do |state|
-      @cities += CS.get(@instauser.country, state[0])
-    end
-    @cities = @cities.uniq.sort
+    @instauser=Instauser.find_by_id(params[:id])
   end
 
   def update
