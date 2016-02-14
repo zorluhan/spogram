@@ -35,7 +35,7 @@
         </li>
         <li>
           <%= link_to messages_path , data: {disable_with: "Loading Now..."} do %>
-            Messages <sup><%= unread_conversation_count(current_instauser) %></sup>
+            Messages <sup><%= total_unread_messages_count(current_instauser) %></sup>
           <% end %>
         </li>
       </ul>
