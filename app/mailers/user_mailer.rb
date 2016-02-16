@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "mail@capish.co"
+  default from: "Capish <mail@capish.co>"
 
   # welcome email to instauser after signup
   def instauser_welcome_email(user_id)
