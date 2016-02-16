@@ -31,3 +31,16 @@ function imgError2(image) {
     image.src = "/assets/missing3.png";
     return true;
 }
+
+
+$(document).ready(function() {
+
+  var clickOnPopupLink = function(){
+    $('body').on('click', '.static-popup-link', function(){
+      $('#myModal').modal('brands_contact_form');
+    });
+  }
+
+  clickOnPopupLink();
+
+});

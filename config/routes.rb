@@ -29,7 +29,8 @@ resources :messages
   post 'charges/bill' => 'charges#bill'
   post '/charges' => 'charges#create'
   get '/privacy' => 'pages#privacy'
- 
+  get '/brands'=> 'instausers#brands'
+  get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form
    get '/bsignup' => 'brandusers#new'
    get '/blogin' => 'sessions#new' 
    post '/blogin' => 'sessions#create'

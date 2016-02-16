@@ -4,7 +4,7 @@ class InstausersController < ApplicationController
 
   before_action :require_user, only: [:dashboard]
   before_action :require_buser, only: [:search]
-  before_action :logged_in_instauser , only: [:edit, :update]
+  before_action :logged_in_instauser , only: [:edit, :update, :brands, :brands_contact_form]
   before_action :correct_instauser , only: [:edit, :update]
 
   def auth   
@@ -13,13 +13,13 @@ class InstausersController < ApplicationController
       config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
     end 
 
-    redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    #redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
+    #redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
   end 
 
   def callback 
-    response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    #response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
+    #response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
     session[:access_token] = response.access_token
     @client = Instagram.client(:access_token => session[:access_token])
 
@@ -113,6 +113,21 @@ class InstausersController < ApplicationController
       render 'edit'
     end
   end
+
+
+
+def brands 
+
+end 
+
+
+def brands_contact_form
+  respond_to do |format|
+      format.html
+      format.js
+end
+end
+
 
 
   private

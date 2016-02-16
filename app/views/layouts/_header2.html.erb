@@ -42,6 +42,15 @@
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %>
         </li>
+
+          <li>
+          <%= link_to brands_path , data: {disable_with: "Loading Now..."} do %>
+            Brands
+       
+          <% end %>
+        </li>
+
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li><a><%= current_instauser.username %></a></li>
