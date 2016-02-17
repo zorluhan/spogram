@@ -46,7 +46,7 @@ Comments on avg. </li>
 <li class="list-group-item">
     <span class="badge"><%= x.location %></span>
 Location  </li><li class="list-group-item">
-    <span class="badge"><%= x.age %></span>
+    <span class="badge"><%= Time.now.year-x.date_of_birth.year unless x.date_of_birth.nil? %></span>
 Age  </li><li class="list-group-item">
     <span class="badge badge-success">$<%= x.postprice %></span>
 Price </li>

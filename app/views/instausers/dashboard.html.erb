@@ -94,7 +94,7 @@ Comments on avg. </li>
 <li class="list-group-item">
     <span class="badge"><%= @instauser.location %></span>
 Location  </li><li class="list-group-item">
-    <span class="badge"><%= @instauser.age %></span>
+    <span class="badge"><%= Time.now.year-@instauser.date_of_birth.year unless @instauser.date_of_birth.nil?  %></span>
 Age  </li><li class="list-group-item">
     <span class="badge badge-success">$<%= @instauser.postprice %></span>
 Post Price </li>

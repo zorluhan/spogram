@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214132743) do
+ActiveRecord::Schema.define(version: 20160217070921) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 20160214132743) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "comsize"
+    t.string   "title"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   create_table "charges", force: true do |t|

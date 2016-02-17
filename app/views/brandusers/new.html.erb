@@ -6,9 +6,11 @@
         <%= render 'shared/error_messages' %>
         <div class="input-group"> 
           <div class="form-group"> 
-            <%= f.label :fullname %> <br> 
-            <%= f.text_field :fullname, class: "form-control", size: "50" %> <br>
+            <%= f.label :firstname %> <br> 
+            <%= f.text_field :firstname, class: "form-control", size: "50" %> <br>
           </div>
+           <%= f.label :lastname %> <br> 
+            <%= f.text_field :lastname, class: "form-control", size: "50" %> <br>
           <%= f.label :email  %> <br>
           <%= f.text_field :email, class: "form-control" %> <br>
           <%= f.label :password %><br> 
@@ -17,6 +19,8 @@
           <%= f.number_field :phone, class: "form-control" %> <br>
           <%= f.label :company %><br> 
           <%= f.text_field :coname, class: "form-control" %> <br>
+             <%= "Your Title" %><br> 
+          <%= f.text_field :title, class: "form-control" %> <br>
           <%= f.label :country %><br> 
           <%= f.select :country, 
           options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),

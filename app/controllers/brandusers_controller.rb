@@ -6,9 +6,9 @@ class BrandusersController < ApplicationController
   before_action :logged_in_branduser , only: [:edit, :update, :dashboard]
   before_action :correct_branduser , only: [:edit, :update, :dashboard]
 
-  #def new
-  #   @branduser=Branduser.new 
-  #	end
+  def new
+     @branduser=Branduser.new 
+  	end
 
   def create 
     @branduser= Branduser.new(branduser_params) 
@@ -44,7 +44,7 @@ class BrandusersController < ApplicationController
 
   private
     def branduser_params
-      params.require(:branduser).permit(:coname, :comsize, :country, :phone, :fullname, :cowebsite, :email, :password, :username, :image)
+      params.require(:branduser).permit(:coname, :title, :comsize, :country, :phone, :firstname, :lastname, :cowebsite, :email, :password, :username, :image)
     end
 
     def logged_in_branduser
