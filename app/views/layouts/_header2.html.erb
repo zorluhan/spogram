@@ -64,7 +64,7 @@
         <li><%= link_to "Messages", messages_path , data: {disable_with: "Loading Now..."} %></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a><%= "Hello "+ current_branduser.firstname + "!" %></a></li>
+        <li><a><%= "Hello "+ current_branduser.firstname + "!" unless current_branduser.firstname.nil? %></a></li>
         <li><%= link_to "<span class=\"glyphicon glyphicon-cog\"></span>".html_safe, edit_branduser_path(current_branduser) %></li> 
         <li><%= link_to "<span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, blogout_path(current_branduser), :method => :delete %></li>
       </ul>
