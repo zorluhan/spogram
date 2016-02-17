@@ -44,7 +44,7 @@ class BrandusersController < ApplicationController
 
   private
     def branduser_params
-      params.require(:branduser).permit(:coname, :title, :comsize, :country, :phone, :firstname, :lastname, :cowebsite, :email, :password, :username, :image)
+      params.require(:branduser).permit(:coname, :title, :comsize, :country, :phone, :firstname, :lastname, :cowebsite, :email, :password,  :image)
     end
 
     def logged_in_branduser
