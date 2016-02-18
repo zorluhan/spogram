@@ -46,7 +46,9 @@
     <div class="col-md-3">
       <ul class="list-group" id="form">
         <li class="list-group-item">
-          <p><span class="username" id="any"> <%= x.fullname %></span>
+          <p><span class="username" id="any">
+          <% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></span>
+
           <span class="pull-right" id="any"><img src='<%= x.profile_picture %>', width="40", height= "40", class= "no-wrap", onerror="imgError(this);" > </span></p>
         </li>
         <li class="list-group-item">

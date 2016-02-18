@@ -72,7 +72,7 @@
 	 <ul class="list-group">
     <h4>
 	 	<li class="list-group-item">
-<p><span class="username" id="any"><%= @client.user.full_name %></span>
+<p><span class="username" id="any"><%= @client.user.full_name.split(" ").first %></span>
 <span class="pull-right" id="any"> <%= image_tag(src=profile, :width=>"40", :height=>"40", :class=>"no-wrap")%></span></p>
 </li>
 <li class="list-group-item">

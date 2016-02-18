@@ -53,7 +53,8 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <li><a><%= "Hello " + current_instauser.username + "!" %></a></li>
+        <% unless current_instauser.firstname.nil? %>
+       <li><a><%= "Hello " + current_instauser.firstname + "!" %></a></li><%end%>
        <li><%= link_to "Settings", edit_instauser_path(current_instauser) %></li> 
        <li><%= link_to "Logout", logout_path(current_instauser) , :method => :delete %></li>
       </ul>

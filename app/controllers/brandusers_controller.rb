@@ -34,8 +34,8 @@ class BrandusersController < ApplicationController
   def update
     @branduser=Branduser.find_by_id(params[:id])
     if @branduser.update_attributes(branduser_params)
-      flash!(:success => I18n.t("flash_messages.defaults.success"))
-      redirect_to '/bdashboard'
+      flash!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))
+      render 'edit'
     else
       flash!(:error => I18n.t("flash_messages.defaults.hata"))
       render 'edit'

@@ -31,11 +31,14 @@
     <div class="col-md-5" id="form">
       <br>
       <%= form_for(@instauser) do |f| %>  
-
+<%= render 'shared/error_messages' %>
         <div class="input-group"> 
           <div class="form-group">
-            <%= f.label :fullname %><br> 
-            <%= f.text_field :fullname, class: "form-control" %> <br>
+            
+            <%= f.label :firstname %><br> 
+            <%= f.text_field :firstname, class: "form-control" %> <br>
+            <%= f.label :lastname %><br> 
+            <%= f.text_field :lastname, class: "form-control" %> <br>
             <%= f.label :email %><br> 
             <%= f.text_field :email, class: "form-control" %> <br>
 

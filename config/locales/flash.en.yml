@@ -18,7 +18,7 @@
         youarenotauser: "This username or password is not registered! Please try again. "
         Loggedout: "Logged out Successfully!"
         hata: "There is an error! Please try again."
-
+        youraccountupdated: "Your account has  been successfully updated!"
 
 
     sessions: 

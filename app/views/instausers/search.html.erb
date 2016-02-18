@@ -17,7 +17,7 @@
 <div class="col-md-3">
 	 <ul class="list-group" id="form">
 	 	<li class="list-group-item">
-<p><span class="username" id="any"> <%= x.fullname %></span>
+<p><span class="username" id="any"> <% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></span></span>
  
 
 

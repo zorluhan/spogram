@@ -13,13 +13,13 @@ class InstausersController < ApplicationController
       config.client_secret= "ce4fb9cd068c477d8fda40fc651b4449"
     end 
 
-    redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    #redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
+    #redirect_to Instagram.authorize_url(:redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    redirect_to Instagram.authorize_url(:redirect_uri => "http://localhost:3000/callback")
   end 
 
   def callback 
-    response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
-    #response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
+    #response = Instagram.get_access_token(params[:code], :redirect_uri => "https://cryptic-mountain-3688.herokuapp.com/callback")
+    response = Instagram.get_access_token(params[:code], :redirect_uri => "http://localhost:3000/callback")
     session[:access_token] = response.access_token
     @client = Instagram.client(:access_token => session[:access_token])
 
@@ -107,8 +107,8 @@ class InstausersController < ApplicationController
   def update
     @instauser=Instauser.find_by_id(params[:id])
     if @instauser.update_attributes(instauser_params)
-      flash!(:success => I18n.t("flash_messages.defaults.success"))  
-      redirect_to '/dashboard'
+      flash!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))  
+      render 'edit'
     else
       render 'edit'
     end
@@ -133,8 +133,8 @@ end
   private
     def instauser_params
       params.require(:instauser).permit(
-        :gender, :profile_picture, :recent_media_urls, :followed_by, :fullname, :location, 
-        :date_of_birth, :email, :username, :postprice, :theme, :averagelikes, :averagecomments )
+        :gender, :profile_picture, :recent_media_urls, :followed_by, :location, 
+        :date_of_birth, :email, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments )
     end 
 
     def logged_in_instauser
