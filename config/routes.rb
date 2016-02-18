@@ -17,7 +17,7 @@ resources :messages
   get '/pages/age'=>'pages#age'
   get '/secondhome/' => 'pages#secondhome'
   patch '/pages/results' => 'pages#results'
-  get '/pages/form' => 'pages#form'
+ 
   get 'charges/new' => 'charges#new'
   post '/charges/new' => 'charges#create'
   get '/charges/bill' => 'charges#bill'
