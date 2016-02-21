@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218070856) do
+ActiveRecord::Schema.define(version: 20160221085836) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20160218070856) do
   add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"
   add_index "charges", ["instauser_id"], name: "index_charges_on_instauser_id"
 
+  create_table "instaposts", force: true do |t|
+    t.integer  "instauser_id",                       null: false
+    t.string   "media_thumb_url"
+    t.string   "media_standard_url"
+    t.date     "media_date"
+    t.boolean  "most_liked",         default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "instausers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,6 +81,9 @@ ActiveRecord::Schema.define(version: 20160218070856) do
     t.date     "date_of_birth"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "access_token"
+    t.integer  "engagementscore",   default: 0
+    t.datetime "last_updated"
   end
 
   create_table "messages", force: true do |t|

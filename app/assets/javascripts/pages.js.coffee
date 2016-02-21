@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$.ajax(url: "/form").done (html) ->
-  $("#results").append html
+#$.ajax(url: "/form").done (html) ->
+#  $("#results").append html
  

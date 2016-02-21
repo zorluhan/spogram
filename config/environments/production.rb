@@ -101,5 +101,6 @@ Rails.application.configure do
     password:       'gjlpatqzqfjvnjsg',
     authentication: :login,
     ssl:            true }
-
+    
+  INSTAGRAM_CALLBACK_URL = "https://cryptic-mountain-3688.herokuapp.com/callback"
 end

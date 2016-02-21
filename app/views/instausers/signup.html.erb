@@ -7,30 +7,11 @@
 <%= render 'layouts/header2' %>
 
 <div class="container">
-  <% a=0 %>
-  <% counter=0 %>
-  <% b=0 %>
-  <% c=Array.new %>
-
-  <% for x in @client.user_recent_media %>
-    <% c.push(x.images.thumbnail.url) %> 
-    <% x.likes[:count] %> 
-    <% a=a+x.likes[:count] %>
-    <% counter=counter+1 %>
-  <%end%>
-
-  <% for t in @client.user_recent_media %>
-    <% b=b+t.comments[:count] %>
-  <%end%>
-
-  <% @averagecomments=b/(counter.nonzero? || 1)%>
-  <% @averagelikes=a/(counter.nonzero? || 1) %>
-  <% @profile_picture_url= @client.user.profile_picture %>
 
   <div class="row">
     <div class="col-md-5" id="form">
       <br>
-      <%= form_for(@instauser) do |f| %>  
+      <%= form_for(Instauser.new) do |f| %>  
  
         <div class="input-group"> 
           <div class="form-group">
@@ -57,12 +38,7 @@
             options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, { :class => 'form-control' } %> <br><br>
             <%= "Min. Price Per Post (min. $100)"  %> <br>
             <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
-            <%= f.hidden_field :followed_by, :value => @client.user.counts.followed_by %>
-            <%=  f.hidden_field :username, :value => @client.user.username %>
-            <%= f.hidden_field :averagelikes, :value => @averagelikes %>
-            <%= f.hidden_field :averagecomments, :value => @averagecomments %>
-            <%= f.hidden_field :profile_picture,  :value => @profile_picture_url %>
-            <%= f.hidden_field :recent_media_urls, :value => c %>
+            <%= f.hidden_field :id, :value => session[:instauser_id] %>
 
           </div> <br>
           <div class="actions"> 

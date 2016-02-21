@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
+  if Rails.env.development?
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+  end
   
-resources :brandusers
-resources :instausers 
-resources :messages 
+  resources :brandusers
+  resources :instausers 
+  resources :messages 
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
