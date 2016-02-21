@@ -13,18 +13,18 @@
           <h3><font face="Lobster">Most Recent Posts</font></h3>
       	  <% @instauser_recent_posts.each do |x| %>
       		  <div style='float:left;'>
-      		    <%= link_to image_tag(x.media_thumb_url, width: "80"), x.media_standard_url, target: "_blank" %>    
-        		    <span class="glyphicon glyphicon-heart-empty"></span>          
+      		    <%= link_to image_tag(x.media_thumb_url, width: "80"), x.media_standard_url, target: "_blank" %><br/>
+        		    <span class="glyphicon glyphicon-heart-empty"> <%= x.likes_counts %><br> </span>
       		  </div>  
           <%end%>
         </div>
 
       	<div class="row">
           <h3><font face="Lobster">Most Liked Posts</font></h3>
-          <% @instauser_recent_posts.each do |x| %>
+          <% @instauser_most_liked_posts.each do |x| %>
             <div style='float:left;'>
-              <%= link_to image_tag(x.media_thumb_url, width: "80"), x.media_standard_url, target: "_blank" %>    
-                <span class="glyphicon glyphicon-heart-empty"></span>          
+              <%= link_to image_tag(x.media_thumb_url, width: "80"), x.media_standard_url, target: "_blank" %><br/>
+                <span class="glyphicon glyphicon-heart-empty"> <%= x.likes_counts %><br> </span>
             </div>  
           <%end%>
         </div>

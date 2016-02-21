@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221085836) do
+ActiveRecord::Schema.define(version: 20160221154632) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160221085836) do
     t.boolean  "most_liked",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_counts",       default: 0
   end
 
   create_table "instausers", force: true do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160221085836) do
     t.string   "access_token"
     t.integer  "engagementscore",   default: 0
     t.datetime "last_updated"
+    t.boolean  "disabled",          default: true
   end
 
   create_table "messages", force: true do |t|

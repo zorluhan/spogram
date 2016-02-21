@@ -66,13 +66,15 @@ class Instauser < ActiveRecord::Base
         user_recent_media.first(8).each do |media|
           Instapost.create(:media_thumb_url => media.images.thumbnail.url, 
                            :media_standard_url => media.images.standard_resolution.url, 
-                           :instauser_id => id)
+                           :instauser_id => id,
+                           :likes_counts => media.likes[:count])
         end
 
-        media_popular.first(8).each do |media|
+        media_popular.last(8).reverse!.each do |media|
           Instapost.create(:media_thumb_url => media.images.thumbnail.url, 
                            :media_standard_url => media.images.standard_resolution.url, 
                            :instauser_id => id,
+                           :likes_counts => media.likes[:count],
                            :most_liked => true)
         end
       end

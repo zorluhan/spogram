@@ -20,11 +20,13 @@ class InstausersController < ApplicationController
 
     instauser = Instauser.find_by_username(client.user.username)
 
-    if instauser.nil?
-      instauser = Instauser.create(:access_token => response.access_token, 
+    if instauser.nil? or instauser.disabled
+      if instauser.nil?
+        instauser = Instauser.create(:access_token => response.access_token, 
                        :username => client.user.username,
                        :profile_picture => client.user.profile_picture,
-                       :followed_by => 0)      
+                       :followed_by => 0)
+      end
       session[:instauser_id] = instauser.id
       redirect_to '/signup'
     else
@@ -99,7 +101,7 @@ class InstausersController < ApplicationController
   def instauser_params
     params.require(:instauser).permit(
       :gender, :profile_picture, :recent_media_urls, :followed_by, :location, 
-      :date_of_birth, :email, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments )
+      :date_of_birth, :email, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled )
   end 
 
   def logged_in_instauser

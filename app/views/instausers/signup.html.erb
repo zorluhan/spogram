@@ -39,6 +39,7 @@
             <%= "Min. Price Per Post (min. $100)"  %> <br>
             <%= f.number_field :postprice, class: "form-control", :placeholder=> "$" %> <br>
             <%= f.hidden_field :id, :value => session[:instauser_id] %>
+            <%= f.hidden_field :disabled, :value => false %>
 
           </div> <br>
           <div class="actions"> 
