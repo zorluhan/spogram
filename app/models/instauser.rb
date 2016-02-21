@@ -24,21 +24,13 @@ class Instauser < ActiveRecord::Base
         response = client.user_recent_media  
         user_recent_media = [].concat(response)  
         max_id = response.pagination.next_max_id  
-        while !(max_id.to_s.empty?) do  
+        i = 0
+        while !(max_id.to_s.empty?) and i < 3 do  
           response = client.user_recent_media(:max_id => max_id)  
           max_id = response.pagination.next_max_id 
           user_recent_media.concat(response) 
+          i = i + 1
         end
-
-        # response = client.media_popular
-        # media_popular = [].concat(response)  
-        # max_id = response.pagination.next_max_id  
-        # while !(max_id.to_s.empty?) do  
-        #   response = client.media_popular(:max_id => max_id)  
-        #   max_id = response.pagination.next_max_id 
-        #   media_popular.concat(response) 
-        # end        
-        
 
         #average likes and comments#
         a=0
@@ -54,6 +46,9 @@ class Instauser < ActiveRecord::Base
 
         engagementscore ='%.2f' % ((a+b)/(client.user.counts.followed_by * counter*0.5)).to_f 
 
+        
+        media_popular = user_recent_media.sort! { |a,b| a.likes[:count] <=> b.likes[:count] }
+
 
 
         #save user details
@@ -66,7 +61,7 @@ class Instauser < ActiveRecord::Base
         
 
         # save user posts
-        instaposts.delete_all
+        Instapost.where(:instauser_id => id).delete_all
 
         user_recent_media.first(8).each do |media|
           Instapost.create(:media_thumb_url => media.images.thumbnail.url, 
@@ -74,7 +69,7 @@ class Instauser < ActiveRecord::Base
                            :instauser_id => id)
         end
 
-        user_recent_media.first(8).each do |media|
+        media_popular.first(8).each do |media|
           Instapost.create(:media_thumb_url => media.images.thumbnail.url, 
                            :media_standard_url => media.images.standard_resolution.url, 
                            :instauser_id => id,
