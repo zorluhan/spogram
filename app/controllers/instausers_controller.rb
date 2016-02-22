@@ -32,7 +32,7 @@ class InstausersController < ApplicationController
     else
       instauser.update_attributes(:access_token => response.access_token,
                                   :profile_picture => client.user.profile_picture)
-      session[:instauser_id] = instauser.id
+      instauser_log_in(instauser)
       redirect_to "/dashboard"
     end
   end
@@ -51,6 +51,7 @@ class InstausersController < ApplicationController
   def create
     instauser= Instauser.find_by_id(session[:instauser_id])
     if instauser.update_attributes(instauser_params)
+      session[:instauser_id] = nil
       instauser_log_in(instauser)
       instauser.send_welcome_mail
       redirect_to '/dashboard' 
