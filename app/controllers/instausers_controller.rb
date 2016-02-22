@@ -54,7 +54,7 @@ class InstausersController < ApplicationController
     if instauser.update_attributes(instauser_params)
       session[:instauser_id] = nil
       instauser_log_in(instauser)
-      instauser.send_welcome_mail
+      instauser.send_welcome_email
       redirect_to '/dashboard' 
     else
       redirect_to '/signup'

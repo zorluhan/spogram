@@ -27,7 +27,7 @@ class Instauser < ActiveRecord::Base
       end
       end      
     end
-    
+
 
   def fetch_instagram_timeline
     if access_token.present?
@@ -97,7 +97,6 @@ class Instauser < ActiveRecord::Base
     end
   end
 
-
-  private
+ 
     
 end
