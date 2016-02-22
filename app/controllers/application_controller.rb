@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_instauser
-    if session[:instauser_id]  
-      @current_instauser ||= Instauser.find_by_id(session[:instauser_id]) 
+    if session[:user_id]  
+      @current_instauser ||= Instauser.find_by_id(session[:user_id]) 
     end
   end 
 
@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def instauser_log_in(user)
-    session[:instauser_id] = user.id
+    session[:user_id] = user.id
   end
 
   def branduser_log_in(buser)
