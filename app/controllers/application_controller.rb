@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   helper_method :require_buser
   helper_method :current_instauser
   helper_method :current_branduser
+ 
 
   before_filter :set_cache_buster
 
@@ -26,12 +27,14 @@ class ApplicationController < ActionController::Base
     end
   end 
 
+ 
+
   def require_anyuser
     redirect_to root_path unless current_instauser or current_branduser 
   end 
 
   def require_user 
-  	redirect_to login_path unless current_instauser 
+  	redirect_to login_path unless current_instauser  
   end
 
   def current_branduser 
