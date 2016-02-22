@@ -61,4 +61,9 @@ class ApplicationController < ActionController::Base
     !current_branduser.nil?
   end
 
+  def reset_session
+    session[:buser_id] = nil
+    session[:user_id] = nil
+  end
+
 end

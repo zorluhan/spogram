@@ -16,9 +16,9 @@ class SessionsController < ApplicationController
 
   def destroy
     @current_instauser=nil
-    session.delete(:instauser_id)
+    session.delete(:user_id)
     session.delete(:buser_id)
-    session[:instauser_id]=nil
+    session[:user_id]=nil
     session[:buser_id]=nil
     @current_branduser=nil
     flash!(:success => I18n.t("flash_messages.defaults.Loggedout"))

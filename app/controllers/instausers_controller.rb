@@ -27,6 +27,7 @@ class InstausersController < ApplicationController
                        :profile_picture => client.user.profile_picture,
                        :followed_by => 0)
       end
+      reset_session
       session[:instauser_id] = instauser.id
       redirect_to '/signup'
     else
