@@ -17,11 +17,12 @@ class Instauser < ActiveRecord::Base
   def fetch_instagram_timeline
     if access_token.present?
 
-      if last_updated.nil? or (Time.now - 15.minutes) > last_updated
+      if last_updated.nil? or (Time.now - 2.minutes) > last_updated
 
 
         client = Instagram.client(:access_token => access_token)
         response = client.user_recent_media  
+        recent_media = [].concat(response) 
         user_recent_media = [].concat(response)  
         max_id = response.pagination.next_max_id  
         i = 0
@@ -63,7 +64,7 @@ class Instauser < ActiveRecord::Base
         # save user posts
         Instapost.where(:instauser_id => id).delete_all
 
-        user_recent_media.first(8).each do |media|
+         recent_media.first(8).each do |media|
           Instapost.create(:media_thumb_url => media.images.thumbnail.url, 
                            :media_standard_url => media.images.standard_resolution.url, 
                            :instauser_id => id,
