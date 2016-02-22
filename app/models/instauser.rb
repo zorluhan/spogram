@@ -12,7 +12,7 @@ class Instauser < ActiveRecord::Base
 
   #serialize :recent_media_urls
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
   def fetch_instagram_timeline
     if access_token.present?
