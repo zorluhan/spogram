@@ -17,9 +17,7 @@ class PagesController < ApplicationController
 
   def search
   end
-
-  def form
-  end
+ 
   
   def instagrammers
   end

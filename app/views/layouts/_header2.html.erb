@@ -27,16 +27,16 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <% if instauser_logged_in?  %>
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "User Dashboard", dashboard_path(current_instauser), data: {disable_with: "Loading Now..."} %></li> 
+        <li><%= link_to "User Dashboard", dashboard_path(current_instauser)   %></li> 
         <li>
-          <%= link_to charges_path , data: {disable_with: "Loading Now..."} do %>
+          <%= link_to charges_path   do %>
             Proposals 
             <% count = unread_charges_count(current_instauser) %> 
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %>
         </li>
         <li>
-          <%= link_to messages_path , data: {disable_with: "Loading Now..."} do %>
+          <%= link_to messages_path   do %>
             Messages 
             <% count = total_unread_messages_count(current_instauser) %>
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
@@ -44,7 +44,7 @@
         </li>
 
           <li>
-          <%= link_to brands_path , data: {disable_with: "Loading Now..."} do %>
+          <%= link_to brands_path   do %>
             Brands
        
           <% end %>

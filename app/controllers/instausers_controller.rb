@@ -99,12 +99,16 @@ class InstausersController < ApplicationController
   end
 
 
+def formmessage
+end
+
+
   private
 
   def instauser_params
     params.require(:instauser).permit(
       :gender, :profile_picture, :recent_media_urls, :followed_by, :location, 
-      :date_of_birth, :email, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled )
+      :date_of_birth, :email, :media_date, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled )
   end 
 
   def logged_in_instauser

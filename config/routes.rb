@@ -41,7 +41,7 @@ Rails.application.routes.draw do
    post '/blogin' => 'sessions#create'
    delete '/blogout' => 'sessions#destroy'
    get '/bdashboard' => 'brandusers#dashboard'
-   
+   get '/message-brands' => 'instausers#formmessage' , as: :formmessage
 
   get '/auth' => 'instausers#auth'
   get '/signup' => 'instausers#signup'

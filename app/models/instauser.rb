@@ -92,6 +92,7 @@ class Instauser < ActiveRecord::Base
                            :instauser_id => id,
                            :likes_counts => media.likes[:count],
                            :most_liked => true)
+                            
         end
       end
     end
