@@ -3,7 +3,7 @@
 
   <% if @charges.empty? %>
     <%= "There are no proposals yet" %>
-  <%else%>
+  <% else %>
     <% @charges.each do |x| %>
       <ul class="list-group" id="form">
         <li class="list-group-item list-group-item-disabled">
@@ -26,33 +26,45 @@
           <%= "Post:"%>
           <%= x.instapost %></li>
 
-        <% if x.status=="accepted" %>
-          <li class="list-group-item" align="center">
-            <h4><span class="label label-success"><%= x.status %></span></h4>
-          </li>
-        <% elsif x.status=="unaccepted" %>
+        <% if x.pending? %>
           <li class="list-group-item list-group-item-disabled">
-            <h4><span class="label label-warning"><%= x.status %></span></h4></li>
+            <h4><span class="label label-warning"><%= x.state.titleize %></span></h4></li>
           <li class="list-group-item" align="center">
-            <span class="btn-group"><%= link_to "Accept the Proposal", charges_bill_path(charge: x.id),  class: "btn btn-default", data: {disable_with: "Accepting..."}  %>
+            <span class="btn-group">
+              <%= link_to "Accept", accept_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Accepting..."}  %>
+              <%= link_to "Decline", decline_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Declining..."}  %>
             </span></li>
-        <%end%>
+        <% elsif x.accepted? %>
+          <li class="list-group-item" align="center">
+            <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
+          </li>
+          <li class="list-group-item" align="center">
+            <span class="btn-group">
+              <%= link_to "Request Release", release_request_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Requesting Release..."}  %>
+            </span></li>
+        <% else %>
+          <li class="list-group-item" align="center">
+            <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
+          </li>
+        <% end %>
       </ul>
-    <%end%>
-  <%end%>
+    <% end %>
+  <% end %>
 
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
 
   <% if @charges.empty? %>
     <%= "There are no proposals yet" %>
-  <%end%>
+  <% end %>
 
   <% @charges.each do |x| %>
     <ul class="list-group" id="form">
       <li class="list-group-item">
-        <h4><img src="<%= x.instauser.profile_picture%>" width="28" onerror="imgError(this);" class="margin"> 
-          <font face="lobster"><%= x.instauser.username %></font> </h4>
-          <%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
+        <h4>
+          <img src="<%= x.instauser.profile_picture%>" width="28" onerror="imgError(this);" class="margin"> 
+          <font face="lobster"><%= x.instauser.username %></font> 
+        </h4>
+        <%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
       <li class="list-group-item">
         <%= "Amount:" %>
         <%= "$ "%><%= x.amount/100 %></li>
@@ -68,19 +80,22 @@
       <li class="list-group-item">
         <%= "Post:"%>
         <%= x.instapost %></li>
+      <li class="list-group-item">
+        <%= "Status:" %>
+        <span class="label label-success"><%= x.state.titleize %></span></li>
 
-      <% if x.status=="accepted" %>
-        <li class="list-group-item">
-          <%= "Status:" %>
-          <span class="label label-success"><%= x.status %></span></li>
-      <% elsif x.status=="unaccepted" %>
-        <li class="list-group-item">
-          <%= "Status:" %>
-          <span class="label label-default"><%= x.status %></span></li>
+      <% if x.release_requested? %>
+        <li class="list-group-item" align="center">
+          <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
+        </li>
+        <li class="list-group-item" align="center">
+          <span class="btn-group">
+            <%= link_to "Mark Complete", complete_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Marking Complete..."}  %>
+          </span></li>
       <% end %>
     </ul>
-  <%end%>
+  <% end %>
 
 <% else %>
   <% redirect_to root_path %>
-<%end%>
+<% end %>

@@ -22,17 +22,31 @@ Rails.application.routes.draw do
   get '/pages/age'=>'pages#age'
   get '/secondhome/' => 'pages#secondhome'
   patch '/pages/results' => 'pages#results'
+
+  resources :charges do
+    collection do
+      get 'list'
+    end
+    member do
+      patch 'accept'
+      patch 'decline'
+      patch 'release_request'
+      patch 'complete'
+      post 'bill'
+    end
+  end
  
-  get 'charges/new' => 'charges#new'
-  post '/charges/new' => 'charges#create'
-  get '/charges/bill' => 'charges#bill'
-  get 'charges/billed' => 'charges#billed'
+  # get 'charges/new' => 'charges#new'
+  # post '/charges/new' => 'charges#create'
+  # get '/charges/bill' => 'charges#bill'
+  # get 'charges/billed' => 'charges#billed'
+  # get '/charges/publish_proposal' => 'charges#publish_proposal', as: :publish_proposal
+  # get '/charges' => 'charges#index'
+  # get 'charges/:id'=>'charges#show', :as => 'charge'
+  # post 'charges/bill' => 'charges#bill'
+  # post '/charges' => 'charges#create'
+
   patch '/publish' => 'messages#publish'
-  patch '/charges/publish_proposal' => 'charges#publish_proposal', as: :publish_proposal
-  get '/charges' => 'charges#index'
-  get 'charges/:id'=>'charges#show', :as => 'charge'
-  post 'charges/bill' => 'charges#bill'
-  post '/charges' => 'charges#create'
   get '/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'
   get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form

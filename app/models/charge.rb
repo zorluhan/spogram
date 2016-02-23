@@ -10,6 +10,7 @@ class Charge < ActiveRecord::Base
     state :pending # first one is initial state
     state :accepted
     state :declined
+    state :release_requested
     state :completed
 
     event :accepted, success: :notify_accepted_email do
@@ -18,8 +19,11 @@ class Charge < ActiveRecord::Base
     event :declined, success: :notify_declined_email do
       transitions to: :declined, from: [:pending]
     end
+    event :release_requested, success: :notify_release_requested_email do
+      transitions to: :release_requested, from: [:accepted]
+    end
     event :completed, success: :notify_completed_email do
-      transitions to: :accepted, from: [:accepted]#, guard: lambda { |charge| charge.complet? }
+      transitions to: :completed, from: [:release_requested]#, guard: lambda { |charge| charge.complet? }
     end
   end
 
@@ -37,6 +41,11 @@ class Charge < ActiveRecord::Base
     def notify_declined_email
       puts 'sending declined email'
       ChargeMailer.declined_email(instauser_id, branduser_id, id).deliver!
+    end
+
+    def notify_release_requested_email
+      puts 'sending release requested email'
+      ChargeMailer.release_requested_email(instauser_id, branduser_id, id).deliver!
     end
 
     def notify_completed_email

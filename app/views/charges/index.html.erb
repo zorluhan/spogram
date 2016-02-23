@@ -8,35 +8,59 @@
       <li class="list-group-item"><h4>
         My Earnings: <%= @earned %></h4>
       </li>
-      <li class="list-group-item"><h4>
-        <%= link_to "Accepted", publish_proposal_path(:status=> "accepted"), method: :patch, remote: true %> </h4></li>
-      <li class="list-group-item"><h4>
-        <%= link_to publish_proposal_path(:status=> "unaccepted"), method: :patch, remote: true do %>
-          Waiting 
-          <% count = unread_charges_count(current_instauser) %> 
-          <%= "(#{count})" if count > 0 %>
-        <% end %>
-      </h4></li></font>
+      <li class="list-group-item">
+        <h4><%= link_to "Accepted", list_charges_path(state: :accepted), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to list_charges_path(state: :pending), remote: true do %>
+            Pending
+            <% count = unread_charges_count(current_instauser) %> 
+            <%= "(#{count})" if count > 0 %>
+          <% end %>
+        </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Declined", list_charges_path(state: :declined), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Completed", list_charges_path(state: :completed), remote: true %> </h4>
+      </li>
+      </font>
+    </ul>
   </div>
 
   <div id="publishproposal">
-
   </div>
 
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
   <div id="leftbar">
     <ul class="list-group" id="form">
+      <font face="Lobster">
       <li class="list-group-item">
         <h4><font face="Lobster">
-        <%= link_to "Accepted", publish_proposal_path(:status => "accepted"), method: :patch, remote: true %> </h4></li>
+        <%= link_to "Accepted", list_charges_path(state: :accepted), remote: true %> </h4>
+      </li>
       <li class="list-group-item">
-        <h4>
-        <%= link_to "Unaccepted", publish_proposal_path(:status => "unaccepted"), method: :patch, remote: true %>
-        </h4></font></li>
+        <h4><%= link_to "Pending", list_charges_path(state: :pending), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Declined", list_charges_path(state: :declined), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested), remote: true %> </h4>
+      </li>
+      <li class="list-group-item">
+        <h4><%= link_to "Completed", list_charges_path(state: :completed), remote: true %> </h4>
+      </li>
+      </font>
+    </ul>
   </div> 
 
   <div id="publishproposal">
-
   </div>
 
 <% else %>
