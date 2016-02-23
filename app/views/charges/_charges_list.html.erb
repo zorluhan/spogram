@@ -61,7 +61,7 @@
     <ul class="list-group" id="form">
       <li class="list-group-item">
         <h4>
-          <img src="<%= x.instauser.profile_picture%>" width="28" onerror="imgError(this);" class="margin"> 
+          <img src="<%= x.instauser.profile_picture %>" width="28" onerror="imgError(this);" class="margin"> 
           <font face="lobster"><%= x.instauser.username %></font> 
         </h4>
         <%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
