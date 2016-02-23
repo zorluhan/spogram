@@ -1,6 +1,6 @@
 class Charge < ActiveRecord::Base
-  belongs_to :instauser
-  belongs_to :branduser
+  belongs_to :instauser, dependent: :destroy
+  belongs_to :branduser, dependent: :destroy
 
   after_create :send_new_proposal_email
 
