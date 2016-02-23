@@ -6,8 +6,13 @@
   <body>
     <h1>Hello, <%= @insta_user.firstname %></h1>
     <p>
-      <%= @brand_user.fullname %> has send you a new proposal with ID# <%= @charge.id %>.<br>
-      To check the please login to the website.
-    </p>
+
+
+Aren't you popular! You have a new proposal waiting for you from <%= @brand_user.coname %>. <br> 
+To reply, log in to your <a href="http://www.capish.co/dashboard">account</a>  and click on Proposals.  
+<br>    
+<br>
+Proposal ID# <%= @charge.id %>.<br>
+      </p>
   </body>
 </html>
