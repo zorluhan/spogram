@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221163621) do
+ActiveRecord::Schema.define(version: 20160223122932) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -47,10 +47,12 @@ ActiveRecord::Schema.define(version: 20160221163621) do
     t.string   "customer"
     t.string   "useremail"
     t.boolean  "is_read",      default: false
+    t.string   "state"
   end
 
   add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"
   add_index "charges", ["instauser_id"], name: "index_charges_on_instauser_id"
+  add_index "charges", ["state"], name: "index_charges_on_state"
 
   create_table "instaposts", force: true do |t|
     t.integer  "instauser_id",                       null: false

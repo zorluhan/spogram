@@ -41,6 +41,7 @@ gem 'bootstrap-sass'
 gem 'spring',        group: :development
 
 gem 'sidekiq', '~> 2.17.7'
+gem "transitions", '~> 1.0.1', require: ["transitions", "active_model/transitions"]
  
 group :development, :test do
   gem 'sqlite3'
