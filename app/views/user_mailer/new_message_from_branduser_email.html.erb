@@ -6,8 +6,11 @@
   <body>
     <h1>Hello, <%= @insta_user.firstname %></h1>
     <p>
-      <%= @brand_user.fullname %> has sent you a new message.<br>
-    </p>
+    <%= "You have a new message waiting for you from" + @brand_user.fullname + "from" + @brand_user.coname  %> <br>
+    To reply, log in to your <a href="http://www.capish.co/dashboard">account</a> and click on Messages. 
+    </p><br>
+    MESSAGE:<br>
+
     <p>"<%= @message.message %>"</p>
   </body>
 </html>
