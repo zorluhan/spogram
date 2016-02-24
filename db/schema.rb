@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223122932) do
+ActiveRecord::Schema.define(version: 20160224000124) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -36,18 +36,24 @@ ActiveRecord::Schema.define(version: 20160223122932) do
   create_table "charges", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "explanation"
-    t.string   "instapost"
-    t.string   "instalink"
-    t.string   "productname"
     t.string   "status"
     t.integer  "instauser_id"
     t.integer  "branduser_id"
     t.integer  "amount"
     t.string   "customer"
     t.string   "useremail"
-    t.boolean  "is_read",      default: false
+    t.boolean  "is_read",             default: false
     t.string   "state"
+    t.string   "product_name",        default: ""
+    t.string   "product_link",        default: ""
+    t.text     "product_description"
+    t.text     "post_description"
+    t.text     "suggested_caption"
+    t.text     "hash_tags"
+    t.text     "user_names"
+    t.date     "earliest_post_date"
+    t.date     "last_post_date"
+    t.string   "instagram_link",      default: ""
   end
 
   add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"

@@ -17,4 +17,14 @@ class Branduser < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  after_create :send_welcome_email
+
+  def send_welcome_email
+    if Rails.env.production?
+      if email.present?
+        UserMailer.branduser_welcome_email(id).deliver!
+      end
+    end
+  end
+
 end

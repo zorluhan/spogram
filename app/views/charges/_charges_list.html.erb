@@ -11,20 +11,30 @@
           <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
         </li>
         <li class="list-group-item">
-          <%= "Amount:" %>
-          <%= "$ "%><%= (x.amount/(1.15*100)).round %></li>
+          Amount: <%= "$ "%><%= (x.amount/(1.15*100)).round %></li>
+
         <li class="list-group-item">
-          <%= "Product:" %>
-          <%= x.productname %></li>
+          Product Name: <%= x.product_name %></li>
         <li class="list-group-item">
-          <%= "Explanation:"%>
-          <%= x.explanation %></li>
+          Product Description: <%= x.product_description %></li>
         <li class="list-group-item">
-          <%= "URL:"%>
-          <%= x.instalink %></li>
+          Product Link: <%= x.product_link %></li>
         <li class="list-group-item">
-          <%= "Post:"%>
-          <%= x.instapost %></li>
+          Instagram Link: <%= x.instagram_link %></li>
+
+        <li class="list-group-item">
+          Post Description: <%= x.post_description %></li>
+        <li class="list-group-item">
+          Suggested Caption: <%= x.suggested_caption %></li>
+        <li class="list-group-item">
+          Hash Tags to Include: <%= x.hash_tags %></li>
+        <li class="list-group-item">
+          Usernames to include: <%= x.user_names %></li>
+
+        <li class="list-group-item">
+          Earliest Post Date: <%= x.earliest_post_date %></li>
+        <li class="list-group-item">
+          Last Post Date: <%= x.last_post_date %></li>
 
         <% if x.pending? %>
           <li class="list-group-item list-group-item-disabled">
@@ -66,28 +76,40 @@
         </h4>
         <%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
       <li class="list-group-item">
-        <%= "Amount:" %>
-        <%= "$ "%><%= x.amount/100 %></li>
+        Amount: <%= "$ "%><%= x.amount/100 %></li>
+      
       <li class="list-group-item">
-        <%= "Product:" %>
-        <%= x.productname %></li>
+        Product Name: <%= x.product_name %></li>
       <li class="list-group-item">
-        <%= "Explanation:"%>
-        <%= x.explanation %></li>
+        Product Description: <%= x.product_description %></li>
       <li class="list-group-item">
-        <%= "URL:"%>
-        <%= x.instalink %></li>
+        Product Link: <%= x.product_link %></li>
       <li class="list-group-item">
-        <%= "Post:"%>
-        <%= x.instapost %></li>
-      <li class="list-group-item">
-        <%= "Status:" %>
-        <span class="label label-success"><%= x.state.titleize %></span></li>
+        Instagram Link: <%= x.instagram_link %></li>
 
-      <% if x.release_requested? %>
+      <li class="list-group-item">
+        Post Description: <%= x.post_description %></li>
+      <li class="list-group-item">
+        Suggested Caption: <%= x.suggested_caption %></li>
+      <li class="list-group-item">
+        Hash Tags to Include: <%= x.hash_tags %></li>
+      <li class="list-group-item">
+        Usernames to include: <%= x.user_names %></li>
+
+      <li class="list-group-item">
+        Earliest Post Date: <%= x.earliest_post_date %></li>
+      <li class="list-group-item">
+        Last Post Date: <%= x.last_post_date %></li>
+
+      <li class="list-group-item">
+        Status: <span class="label label-success"><%= x.state.titleize %></span></li>
+
+      <% if x.pending? %>
         <li class="list-group-item" align="center">
-          <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
-        </li>
+          <span class="btn-group">
+            <%= link_to "Edit", edit_charge_path(x.id), class: "btn btn-default"  %>
+          </span></li>
+      <% elsif x.release_requested? %>
         <li class="list-group-item" align="center">
           <span class="btn-group">
             <%= link_to "Mark Complete", complete_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Marking Complete..."}  %>

@@ -15,6 +15,17 @@ class ChargesController < ApplicationController
     @message   = @instauser.email 
   end 
 
+  def edit
+    @charge    = Charge.find_by_id(params[:id])
+    @instauser = @charge.instauser
+    @amount    = @instauser.postprice*100
+    @branduser = current_branduser
+
+    unless @charge.pending? && branduser_logged_in? 
+      redirect_to charges_path
+    end
+  end
+
   def index
     if branduser_logged_in? 
       id = current_branduser.id 
@@ -69,6 +80,17 @@ class ChargesController < ApplicationController
     end 
   end 
 
+  def update
+    @charge = Charge.find_by_id(params[:id])
+    if @charge.pending? && branduser_logged_in? 
+      if @charge.update(charge_params)
+        flash!(:success => "Proposal updated")
+      else
+        flash!(:error => "Error updating")
+      end
+    end
+    redirect_to charges_path
+  end
 
   def accept
     @charge     = Charge.find_by_id(params[:id])
@@ -106,7 +128,7 @@ class ChargesController < ApplicationController
     @charge = Charge.find_by_id(params[:id])
 
     if @charge.declined!
-      flash!(:error => "Proposal Declined") 
+      flash!(:success => "Proposal Declined") 
     else
       flash!(:error => "Cannot Decline Proposal") 
     end
@@ -117,7 +139,7 @@ class ChargesController < ApplicationController
     @charge = Charge.find_by_id(params[:id])
 
     if @charge.release_requested!
-      flash!(:error => "Release Request sent") 
+      flash!(:success => "Release Request sent") 
     else
       flash!(:error => "Cannot send release request") 
     end
@@ -129,7 +151,7 @@ class ChargesController < ApplicationController
 
     # pay instauser here
     if @charge.completed!
-      flash!(:error => "Marked Complete") 
+      flash!(:success => "Marked Complete") 
     else
       flash!(:error => "Cannot send mark complete") 
     end
@@ -145,7 +167,8 @@ class ChargesController < ApplicationController
 
   private 
     def charge_params
-      params.require(:charge).permit(:productname, :instalink, :instapost, :explanation, :amount, :message, :branduser_id, :instauser_id)
+      params.require(:charge).permit(:product_name, :product_link, :product_description, :post_description, :suggested_caption, :hash_tags, 
+        :user_names, :earliest_post_date, :last_post_date, :instagram_link, :amount, :message, :branduser_id, :instauser_id)
     end 
 
     def correct_user
