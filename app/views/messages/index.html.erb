@@ -36,7 +36,7 @@
       <ul class="list-group" id="form">
         <% @instausers.each do |x| %>
           <li class="list-group-item">
-            <font face="Lobster"><h4> <%= link_to x.fullname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font>
+            <font face="Lobster"><h4> <%= link_to x.firstname, publish_path(:instauser_id => x.id) , method: :patch, remote: true %></font>
             <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4>
           </li>
         <%end%> 

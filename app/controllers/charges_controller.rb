@@ -97,8 +97,7 @@ class ChargesController < ApplicationController
     amount      = @charge.amount
     customerid  = @charge.customer  
     useremail   = @charge.useremail
-    explanation = @charge.explanation 
-
+ 
     if @charge.accepted?
       flash!(:error => I18n.t("flash_messages.defaults.recurring"))
       redirect_to root_path 

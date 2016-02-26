@@ -20,7 +20,7 @@ sender: <%= @sender %>  !-->
 <% res = Net::HTTP.get_response(URI.parse(@profile_picture)) %>
 <% if res.code.to_i >= 200 && res.code.to_i < 400 %>    
  
-<%= image_tag(src=@profile_picture, width: "50", class: "margin") %><%end%> To: <%= @instauser.fullname %></h4> </div>
+<%= image_tag(src=@profile_picture, width: "50", class: "margin") %><%end%> To: <%= @instauser.firstname %></h4> </div>
       <br> 
       <br>
 
