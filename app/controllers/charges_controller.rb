@@ -85,6 +85,7 @@ class ChargesController < ApplicationController
     if @charge.pending? && branduser_logged_in? 
       if @charge.update(charge_params)
         flash!(:success => "Proposal updated")
+        ChargeMailer.edited_proposal_email(@charge.instauser.id, @charge.branduser.id, @charge.id).deliver! 
       else
         flash!(:error => "Error updating")
       end

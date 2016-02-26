@@ -98,15 +98,12 @@
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
 
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-description=<%= @message %>
-            data-amount= <%= (@amount*1.15).round %>
-            data-locale="auto"
-            data-label="Submit"
-            data-email= <%=@branduser.email%>  
-            data-allow-remember-me= "false" ></script></li>
+              </li>
           <br>
+
+          <div class="actions"> 
+          <%= f.submit "Edit"  %> 
+        </div> 
         </div>
       </div>
     <% end %>
