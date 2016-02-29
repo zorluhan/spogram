@@ -8,20 +8,33 @@
     <% @messages.each do |z| %>
       <% if z.sender==0 && z.message!="" %>
         <br>
-        <div class="panel-body" id="mm">
+        <div class="panel-body left-message" id="mm">
         	<% unless !z.branduser.image.nil? %>
         	<%= image_tag(z.branduser.image, width: "40", class: "margin") %><%end%>
         <%= link_to z.message, new_message_path(branduser_param: z.branduser.id)%><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
 
         <% elsif z.sender==1 && z.message!="" %>
         <br>
-        <div class="panel-body">
+        <div class="panel-body right-message">
          
         <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %><%= z.message %><br>
         <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
         </div>
       <%end%>
     <%end%>
+
+    <br>
+    <div>
+      <%= form_for(Message.new()) do |f| %>
+        <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
+        <div class="actions"> 
+          <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
+        </div>
+        <%= f.hidden_field :instauser_id, value: current_instauser.id %>
+        <%= f.hidden_field :branduser_id, value: @branduser.id %>
+        <%= f.hidden_field :sender, value: 1 %>
+      <% end %>
+    </div>
   <%end%>
 
   <!-- brand user !--> 
@@ -41,6 +54,20 @@
         </div>
       <%end%> 
     <%end%>
+
+    <br>
+    <div>
+      <%= form_for(Message.new()) do |f| %>
+        <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
+        <div class="actions"> 
+          <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
+        </div>
+        <%= f.hidden_field :branduser_id, value: current_branduser.id %>
+        <%= f.hidden_field :instauser_id, value: @instauser.id %>
+        <%= f.hidden_field :sender, value: 0 %>
+      <% end %>
+    </div>
+
   <%end%>
 
 <%end%>

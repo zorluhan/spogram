@@ -81,7 +81,8 @@ class ChargesController < ApplicationController
   end 
 
   def update
-    params[:charge][:amount] = params[:charge][:amount].to_i * 100
+    amount = params[:charge][:amount].to_i
+    params[:charge][:amount] = amount * 1.20 * 100
     @charge = Charge.find_by_id(params[:id])
     if @charge.pending? && branduser_logged_in? 
       if @charge.update(charge_params)
