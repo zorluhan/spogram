@@ -1,8 +1,8 @@
 class ChargesController < ApplicationController
 
   before_action :require_buser, only: [:new, :create, :show] 
-  before_action :require_user, only: [:bill]
-  before_action :correct_user, only: [:bill]
+  before_action :require_user, only: [:accept]
+  before_action :correct_user, only: [:accept]
   before_action :correct_user_for_show, only: [:show]
 
   def new
@@ -36,7 +36,7 @@ class ChargesController < ApplicationController
       @earned  = 0
       @charges.each do |x|
         if x.accepted? 
-          @earned = @earned + (x.amount/115).round
+          @earned = @earned + (x.amount/120).round
         end
       end
     else
@@ -81,6 +81,7 @@ class ChargesController < ApplicationController
   end 
 
   def update
+    params[:charge][:amount] = params[:charge][:amount].to_i * 100
     @charge = Charge.find_by_id(params[:id])
     if @charge.pending? && branduser_logged_in? 
       if @charge.update(charge_params)

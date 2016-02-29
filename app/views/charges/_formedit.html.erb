@@ -86,25 +86,43 @@
           </div>
         </div>
 
-        <li class="list-group-item">
-          <%= "Instagramer Post Price:   "%><%= "$" %><%= @amount/100 %><br>
-          <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.15/100).round %><br><hr>
-          <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.15/100).round %></strong></li>
-        <li class="list-group-item" align="center">
-          <%= hidden_field_tag 'charge[amount]', (@amount*1.15).round %> 
-          <%= hidden_field_tag :amount, (@amount*1.15).round %> 
+        <h2>Price</h2>
+        <div class="row form-group">
+          <label class="col-sm-4">Post Price: </label>
+          <div class="col-sm-8">
+            <%= f.number_field :amount, class: "form-control", value: (@charge.amount/100*0.8) %>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label class="col-sm-4">Service Charge: </label>
+          <div class="col-sm-8">
+            <span>20%</span>
+          </div>
+        </div><div class="row form-group">
+          <label class="col-sm-4">Total: </label>
+          <div class="col-sm-8">
+            <span id="total_updated_price">$<%= (@charge.amount/100).round  %></span>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          $('#charge_amount').on('change', function(e){
+            $('#total_updated_price').html(($(this).val()*1.20).toFixed(2));
+          });
+        </script>
+
+        <br>
+
+          <%= hidden_field_tag :amount, (@amount*1.20).round %> 
           <%= hidden_field_tag :useremail, @instauser.email %>
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
 
-              </li>
-          <br>
-
-          <div class="actions"> 
+        <div class="actions"> 
           <%= f.submit "Edit"  %> 
         </div> 
         </div>
       </div>
     <% end %>
-  </div> 
+  </div>

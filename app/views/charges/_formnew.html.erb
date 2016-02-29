@@ -88,21 +88,26 @@
 
         <li class="list-group-item">
           <%= "Instagramer Post Price:   "%><%= "$" %><%= @amount/100 %><br>
-          <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.15/100).round %><br><hr>
-          <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.15/100).round %></strong></li>
+          <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.20/100).round %><br><hr>
+          <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.20/100).round %></strong></li>
         <li class="list-group-item" align="center">
-          <%= hidden_field_tag 'charge[amount]', (@amount*1.15).round %> 
-          <%= hidden_field_tag :amount, (@amount*1.15).round %> 
+          <%= hidden_field_tag 'charge[amount]', (@amount*1.20).round %> 
+          <%= hidden_field_tag :amount, (@amount*1.20).round %> 
           <%= hidden_field_tag :useremail, @instauser.email %>
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
-
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description=<%= @message %>
+            data-amount= <%= (@amount*1.20).round %>
+            data-locale="auto"
+            data-label="Submit"
+            data-email= <%=@branduser.email%>  
+            data-allow-remember-me= "false" ></script>
           </li>
           <br>
-          <div class="actions"> 
-          <%= f.submit "Submit"  %> 
-        </div> 
+
         </div>
       </div>
     <% end %>
