@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   
   resources :brandusers
   resources :instausers 
-  resources :messages 
+  resources :messages do
+    collection do 
+      get 'list'
+    end
+  end
+  # patch '/publish' => 'messages#publish'
 
   root 'pages#home'
   get '/pages/about' => 'pages#about'
@@ -46,7 +51,6 @@ Rails.application.routes.draw do
   # post 'charges/bill' => 'charges#bill'
   # post '/charges' => 'charges#create'
 
-  patch '/publish' => 'messages#publish'
   get '/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'
   get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form

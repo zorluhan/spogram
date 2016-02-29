@@ -5,29 +5,29 @@ class MessagesController < ApplicationController
 
   def new 
     if branduser_logged_in? 
-      @instauser_id= params[:instauser_param]  unless params[:instauser_param].nil? 
-      @instauser=Instauser.find_by_id(@instauser_id)
-      @profile_picture=@instauser.profile_picture
-      @branduser_id= current_branduser.id
-      @sender=0
+      @instauser_id = params[:instauser_param]  unless params[:instauser_param].nil? 
+      @instauser = Instauser.find_by_id(@instauser_id)
+      @profile_picture = @instauser.profile_picture
+      @branduser_id = current_branduser.id
+      @sender = 0
     elsif instauser_logged_in?
-      @branduser_id=params[:branduser_param]  unless params[:branduser_param].nil? 
-      @instauser_id=current_instauser.id 
-      @branduser=Branduser.find_by_id(@branduser_id)
-      @sender=1
+      @branduser_id = params[:branduser_param]  unless params[:branduser_param].nil? 
+      @instauser_id = current_instauser.id 
+      @branduser = Branduser.find_by_id(@branduser_id)
+      @sender = 1
     else 
       redirect_to root_path 
     end 
-    @message=Message.new 
+    @message = Message.new 
   end
 
   def create
-    @message=Message.new(message_params)
+    @message = Message.new(message_params)
 
     if current_branduser
-      @message.sender=0
+      @message.sender = 0
     elsif current_instauser
-      @message.sender=1
+      @message.sender = 1
     else 
       redirect_to root_path
     end 
@@ -58,12 +58,12 @@ class MessagesController < ApplicationController
     end
   end 
 
-  def publish 
+  def list 
     if current_instauser 
-      @messages=Message.where(:branduser_id => params[:branduser_id], :instauser_id => current_instauser.id)
+      @messages = Message.where(:branduser_id => params[:branduser_id], :instauser_id => current_instauser.id)
       @messages.where(is_read: false, sender: 0).update_all(is_read: true);
     elsif current_branduser 
-      @messages=Message.where(:instauser_id => params[:instauser_id], :branduser_id => current_branduser.id)
+      @messages = Message.where(:instauser_id => params[:instauser_id], :branduser_id => current_branduser.id)
     end
   end
 

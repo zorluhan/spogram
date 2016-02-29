@@ -174,13 +174,13 @@ class ChargesController < ApplicationController
 
     def correct_user
       if instauser_logged_in?
-        @charge = current_instauser.charges.find_by_id(params[:charge])
+        @charge = current_instauser.charges.find_by_id(params[:id])
         if @charge.nil?
           flash!(:error => I18n.t("flash_messages.defaults.sizeaitdegil"))
           redirect_to root_path
         end
       elsif branduser_logged_in?
-      	@charge = current_branduser.charges.find_by_id(params[:charge])
+      	@charge = current_branduser.charges.find_by_id(params[:id])
         if @charge.nil?
           flash!(:error => I18n.t("flash_messages.defaults.sizeaitdegil"))
           redirect_to root_path
