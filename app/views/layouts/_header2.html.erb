@@ -36,9 +36,9 @@
           <% end %>
         </li>
         <li>
-          <%= link_to messages_path   do %>
+          <%= link_to messages_path do %>
             Messages 
-            <% count = total_unread_messages_count(current_instauser) %>
+            <% count = instauser_unread_total_messages_count(current_instauser) %>
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %>
         </li>
@@ -62,7 +62,13 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
         <li><%= link_to "Proposals", charges_path , data: {disable_with: "Loading Now..."} %></li> 
-        <li><%= link_to "Messages", messages_path , data: {disable_with: "Loading Now..."} %></li> 
+        <li>
+          <%= link_to messages_path, data: {disable_with: "Loading Now..."} do %>
+            Messages
+            <% count = branduser_unread_total_messages_count(current_branduser) %>
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+          <% end %>
+        </li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a><%= "Hello "+ current_branduser.firstname + "!" unless current_branduser.firstname.nil? %></a></li>

@@ -15,8 +15,8 @@
                 <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
               <%end%>
             </span>
-            
-            <% count = unread_messages_count(current_instauser, x) %>
+
+            <% count = unread_instauser_messages_count(current_instauser, x) %>
             <%= "#{count} unread".html_safe if count > 0 %>
           </li>
         <% end %>
@@ -38,6 +38,9 @@
           <li class="list-group-item">
             <font face="Lobster"><h4> <%= link_to x.firstname, list_messages_path(instauser_id: x.id), remote: true %></font>
             <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4>
+
+            <% count = unread_branduser_messages_count(current_branduser, x) %>
+            <%= "#{count} unread".html_safe if count > 0 %>            
           </li>
         <%end%> 
       </ul>

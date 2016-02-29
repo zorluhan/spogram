@@ -76,23 +76,23 @@
         <div class="row form-group">
           <label class="col-sm-4">Earliest Post Date: </label>
           <div class="col-sm-8">
-            <%= f.date_field :earliest_post_date, class: "form-control" %>
+            <%= f.text_field :earliest_post_date, class: "form-control date-field" %>
           </div>
         </div>
         <div class="row form-group">
           <label class="col-sm-4">Last Post Date: </label>
           <div class="col-sm-8">
-            <%= f.date_field :last_post_date, class: "form-control" %>
+            <%= f.text_field :last_post_date, class: "form-control date-field" %>
           </div>
         </div>
 
         <li class="list-group-item">
           <%= "Instagramer Post Price:   "%><%= "$" %><%= @amount/100 %><br>
-          <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.20/100).round %><br><hr>
-          <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.20/100).round %></strong></li>
+          <%= "Service Charge:  "%><%= "$" %><%= (@amount*0.20/100).round(2) %><br><hr>
+          <strong> <%= "TOTAL:  " %><%= "$" %><%= (@amount*1.20/100).round(2) %></strong></li>
         <li class="list-group-item" align="center">
-          <%= hidden_field_tag 'charge[amount]', (@amount*1.20).round %> 
-          <%= hidden_field_tag :amount, (@amount*1.20).round %> 
+          <%= hidden_field_tag 'charge[amount]', (@amount*1.20).round(2) %> 
+          <%= hidden_field_tag :amount, (@amount*1.20).round(2) %> 
           <%= hidden_field_tag :useremail, @instauser.email %>
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
@@ -100,7 +100,7 @@
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description=<%= @message %>
-            data-amount= <%= (@amount*1.20).round %>
+            data-amount= <%= (@amount*1.20).round(2) %>
             data-locale="auto"
             data-label="Submit"
             data-email= <%=@branduser.email%>  

@@ -1,6 +1,4 @@
-<link rel="stylesheet" type="text/css" media="screen" title="User Defined Style" href="/js/jquery-ui-1.8.16.custom.css"> 
-<script type="text/javascript" src="/js/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+
 <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="/js/gmaps.js"></script>
 
@@ -30,7 +28,7 @@
              
 
             <%= f.label :date_of_birth %><br> 
-            <%= f.date_field :date_of_birth, class: "form-control" %> <br>
+            <%= f.text_field :date_of_birth, class: "form-control date-field" %> <br>
             <%= "Gender:" %><br>
             <%= f.select :gender, options_for_select([['Male','Male'],['Female','Female']] ,2),{}, { :class => 'form-control' } %><br>
             <br>

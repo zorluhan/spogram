@@ -18,8 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
- 
-
 
 function imgError(image) {
     image.onerror = "";
@@ -27,23 +25,27 @@ function imgError(image) {
     return true;
 }
 
-
-
 function imgError2(image) {
     image.onerror = "";
     image.src = "/assets/missing3.png";
     return true;
 }
 
-
 $(document).ready(function() {
-
   var clickOnPopupLink = function(){
     $('body').on('click', '.static-popup-link', function(){
       $('#myModal').modal('brands_contact_form');
     });
   }
-
   clickOnPopupLink();
+});
 
+
+$(function() {
+  $("input.date-field").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'yy-mm-dd'
+  });
+  $.datepicker.formatDate( "ATOM" )
 });

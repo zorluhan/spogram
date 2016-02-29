@@ -76,13 +76,13 @@
         <div class="row form-group">
           <label class="col-sm-4">Earliest Post Date: </label>
           <div class="col-sm-8">
-            <%= f.date_field :earliest_post_date, class: "form-control" %>
+            <%= f.text_field :earliest_post_date, class: "form-control date-field" %>
           </div>
         </div>
         <div class="row form-group">
           <label class="col-sm-4">Last Post Date: </label>
           <div class="col-sm-8">
-            <%= f.date_field :last_post_date, class: "form-control" %>
+            <%= f.text_field :last_post_date, class: "form-control date-field" %>
           </div>
         </div>
 
@@ -101,7 +101,7 @@
         </div><div class="row form-group">
           <label class="col-sm-4">Total: </label>
           <div class="col-sm-8">
-            <span id="total_updated_price">$<%= (@charge.amount/100).round  %></span>
+            <span id="total_updated_price">$<%= (@charge.amount/100).round(2)  %></span>
           </div>
         </div>
 
@@ -113,7 +113,7 @@
 
         <br>
 
-          <%= hidden_field_tag :amount, (@amount*1.20).round %> 
+          <%= hidden_field_tag :amount, (@amount*1.20).round(2) %> 
           <%= hidden_field_tag :useremail, @instauser.email %>
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>

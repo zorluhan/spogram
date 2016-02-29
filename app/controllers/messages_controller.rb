@@ -61,9 +61,10 @@ class MessagesController < ApplicationController
   def list 
     if current_instauser 
       @messages = Message.where(:branduser_id => params[:branduser_id], :instauser_id => current_instauser.id)
-      @messages.where(is_read: false, sender: 0).update_all(is_read: true);
+      @messages.where(is_read: false, sender: 0).update_all(is_read: true)
     elsif current_branduser 
       @messages = Message.where(:instauser_id => params[:instauser_id], :branduser_id => current_branduser.id)
+      @messages.where(is_read: false, sender: 1).update_all(is_read: true)
     end
   end
 

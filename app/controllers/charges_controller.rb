@@ -36,7 +36,7 @@ class ChargesController < ApplicationController
       @earned  = 0
       @charges.each do |x|
         if x.accepted? 
-          @earned = @earned + (x.amount/120).round
+          @earned = @earned + (x.amount/120).round(2)
         end
       end
     else
