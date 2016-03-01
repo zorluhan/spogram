@@ -4,7 +4,7 @@ module ChargesHelper
     current_instauser.charges.where(is_read: false, state: :pending).count
   end
 
-  def unread_charges_count current_instauser
+  def completed_charges_count current_instauser
     current_instauser.charges.where(is_read: false, state: :completed).count
   end
 
