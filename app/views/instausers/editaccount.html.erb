@@ -30,8 +30,12 @@
   </div>
 
 <%= f.check_box :send_email, {:class => "myclass", :style => "mystyle"}, "checked-value", "unchecked-value" %>
-
-
+---css for echeckbox----
+  <div class="enotif">Email Notification  
+    <label><input type="checkbox" value="" checked /> Yes</label>
+    <label><input type="checkbox" value="" /> No</label>
+  </div>
+--------
 
  
 
@@ -48,11 +52,7 @@
   
  
 
-  
-  <div class="enotif">Email Notification  
-    <label><input type="checkbox" value="" checked /> Yes</label>
-    <label><input type="checkbox" value="" /> No</label>
-  </div>
+   
   
   <div class="row row0 text-right"><button type="submit" class="btn btn-send">SAVE</button></div>
   <div class="row row0 text-right terms">By clicking save, you agree to our <a href="#">terms of use</a></div>
