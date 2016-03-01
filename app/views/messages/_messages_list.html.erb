@@ -2,72 +2,78 @@
 <% if @messages.nil? %>
   <%= there is no message %>
 <% else %>
-
   <!-- insta user !--> 
   <% if current_instauser %>
     <% @messages.each do |z| %>
-      <% if z.sender==0 && z.message!="" %>
-        <br>
-        <div class="panel-body left-message" id="mm">
-        	<% unless !z.branduser.image.nil? %>
-        	<%= image_tag(z.branduser.image, width: "40", class: "margin") %><%end%>
-        <%= link_to z.message, new_message_path(branduser_param: z.branduser.id)%><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
-
+      <div class="single-message">
+        <% if z.sender==0 && z.message!="" %>
+          <div class="panel-body left-message" id="mm">
+            <% unless !z.branduser.image.nil? %>
+              <%= image_tag(z.branduser.image, width: "40", class: "margin") %>
+            <% end %>
+            <%= z.message %><br>
+            <span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
+          </div>
         <% elsif z.sender==1 && z.message!="" %>
-        <br>
-        <div class="panel-body right-message">
-         
-        <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %><%= z.message %><br>
-        <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
-        </div>
-      <%end%>
-    <%end%>
+          <div class="panel-body right-message">
+            <%= z.message %>
+            <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %>
+            <br>
+            <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-    <br>
     <div>
-      <%= form_for(Message.new()) do |f| %>
-        <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
+      <%= form_for Message.new(), remote: true do |f| %>
+        <%= f.text_area :message, class: "form-control", rows: "5" %><br> 
         <div class="actions"> 
-          <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
+          <%= f.submit "Send", class: 'btn btn-default btn-lg', data: {disable_with: "Sending..."} %> 
         </div>
         <%= f.hidden_field :instauser_id, value: current_instauser.id %>
         <%= f.hidden_field :branduser_id, value: @branduser.id %>
         <%= f.hidden_field :sender, value: 1 %>
       <% end %>
     </div>
-  <%end%>
+  <% end %>
 
   <!-- brand user !--> 
   <% if current_branduser %>
     <% @messages.each do |z| %>
-      <% if z.sender==1 && z.message!="" %>
-        <br>
-        <div class="panel-body"> 
-        <img src="<%= z.instauser.profile_picture %>"  width= "40" class="margin" onerror="imgError(this);"> <%= link_to z.message, new_message_path(instauser_param: z.instauser.id)%><br><span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span></div>
-      <% elsif z.sender==0 && z.message!="" %>
-        <br>
-        <div class="panel-body" id="mm">
-        <% unless !z.branduser.image.nil? %>
-          <%= image_tag(z.branduser.image, width: "40") %>
-        <%end%>
-        <%= z.message %><br><span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span> 
-        </div>
-      <%end%> 
-    <%end%>
+      <div class="single-message">
+        <% if z.sender==1 && z.message!="" %>
+          <div class="panel-body left-message">
+            <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin", onerror: "imgError(this);") %>
+            <%= z.message %>
+            <br>
+            <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
+          </div>
+        <% elsif z.sender==0 && z.message!="" %>
+          <div class="panel-body right-message" id="mm">
+            <% unless !z.branduser.image.nil? %>
+              <%= image_tag(z.branduser.image, width: "40") %>
+            <%end%>
+            <%= z.message %><br>
+            <span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span> 
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
-    <br>
     <div>
-      <%= form_for(Message.new()) do |f| %>
-        <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
+      <%= form_for Message.new(), remote: true do |f| %>
+        <%= f.text_area :message, class: "form-control", rows: "5" %><br> 
         <div class="actions"> 
-          <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
+          <%= f.submit "Send", class: 'btn btn-default btn-lg', data: {disable_with: "Sending..."} %> 
         </div>
         <%= f.hidden_field :branduser_id, value: current_branduser.id %>
         <%= f.hidden_field :instauser_id, value: @instauser.id %>
         <%= f.hidden_field :sender, value: 0 %>
       <% end %>
     </div>
+  <% end %>
+<% end %>
 
-  <%end%>
-
-<%end%>
+<br>
+<br>

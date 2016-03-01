@@ -13,43 +13,42 @@ class Charge < ActiveRecord::Base
     state :release_requested
     state :completed
 
-    event :accepted, success: :notify_accepted_email do
-      transitions to: :accepted, from: [:pending]#, on_transition: :do_something
+    event :accepted, success: :charge_accept_callback do
+      transitions to: :accepted, from: [:pending]
     end
-    event :declined, success: :notify_declined_email do
+    event :declined, success: :charge_decline_callback do
       transitions to: :declined, from: [:pending]
     end
-    event :release_requested, success: :notify_release_requested_email do
+    event :release_requested, success: :charge_release_request_callback do
       transitions to: :release_requested, from: [:accepted]
     end
-    event :completed, success: :notify_completed_email do
-      transitions to: :completed, from: [:release_requested]#, guard: lambda { |charge| charge.complet? }
+    event :completed, success: :charge_complete_callback do
+      transitions to: :completed, from: [:release_requested]
     end
   end
 
   private
     def send_new_proposal_email
-      puts 'sending new proposal email'
-      ChargeMailer.new_proposal_email(instauser_id, branduser_id, id).deliver!
+      ChargeMailer.delay.new_proposal_email(instauser_id, branduser_id, id)
     end
 
-    def notify_accepted_email
-      puts 'sending accepted email'
-      ChargeMailer.accepted_email(instauser_id, branduser_id, id).deliver!
+    def charge_accept_callback
+      update_column(:is_read, false)
+      ChargeMailer.delay.accepted_email(instauser_id, branduser_id, id)
     end
 
-    def notify_declined_email
-      puts 'sending declined email'
-      ChargeMailer.declined_email(instauser_id, branduser_id, id).deliver!
+    def charge_decline_callback
+      update_column(:is_read, false)
+      ChargeMailer.delay.declined_email(instauser_id, branduser_id, id)
     end
 
-    def notify_release_requested_email
-      puts 'sending release requested email'
-      ChargeMailer.release_requested_email(instauser_id, branduser_id, id).deliver!
+    def charge_release_request_callback
+      update_column(:is_read, false)
+      ChargeMailer.delay.release_requested_email(instauser_id, branduser_id, id)
     end
 
-    def notify_completed_email
-      puts 'sending completed email'
-      ChargeMailer.completed_email(instauser_id, branduser_id, id).deliver!
+    def charge_complete_callback
+      update_column(:is_read, false)
+      ChargeMailer.delay.completed_email(instauser_id, branduser_id, id)
     end
 end

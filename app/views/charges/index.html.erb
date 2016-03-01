@@ -27,7 +27,13 @@
         <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested), remote: true %> </h4>
       </li>
       <li class="list-group-item">
-        <h4><%= link_to "Completed", list_charges_path(state: :completed), remote: true %> </h4>
+        <h4>
+          <%= link_to list_charges_path(state: :completed), remote: true do %>
+            Completed
+            <% count = completed_charges_count(current_instauser) %> 
+            <%= "(#{count})" if count > 0 %>
+          <% end %>
+        </h4>
       </li>
       </font>
     </ul>
@@ -42,19 +48,34 @@
       <font face="Lobster">
       <li class="list-group-item">
         <h4><font face="Lobster">
-        <%= link_to "Accepted", list_charges_path(state: :accepted), remote: true %> </h4>
+          <%= link_to list_charges_path(state: :accepted), remote: true do %>
+            Accepted <%= unread_branduser_charges_count(current_branduser, :accepted) %>
+          <% end %>
+        </h4>
       </li>
       <li class="list-group-item">
-        <h4><%= link_to "Pending", list_charges_path(state: :pending), remote: true %> </h4>
+        <h4>
+          <%= link_to 'Pending', list_charges_path(state: :pending), remote: true %>
+        </h4>
       </li>
       <li class="list-group-item">
-        <h4><%= link_to "Declined", list_charges_path(state: :declined), remote: true %> </h4>
+        <h4>
+          <%= link_to list_charges_path(state: :declined), remote: true do %>
+            Declined <%= unread_branduser_charges_count(current_branduser, :declined) %>
+          <% end %>
+        </h4>
       </li>
       <li class="list-group-item">
-        <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested), remote: true %> </h4>
+        <h4>
+          <%= link_to list_charges_path(state: :release_requested), remote: true do %>
+            Release Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
+          <% end %>
+        </h4>
       </li>
       <li class="list-group-item">
-        <h4><%= link_to "Completed", list_charges_path(state: :completed), remote: true %> </h4>
+        <h4>
+          <%= link_to 'Completed', list_charges_path(state: :completed), remote: true %>
+        </h4>
       </li>
       </font>
     </ul>

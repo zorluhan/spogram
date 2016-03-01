@@ -5,13 +5,13 @@ class MessagesController < ApplicationController
 
   def new 
     if branduser_logged_in? 
-      @instauser_id = params[:instauser_param]  unless params[:instauser_param].nil? 
+      @instauser_id = params[:instauser_param] unless params[:instauser_param].nil? 
       @instauser = Instauser.find_by_id(@instauser_id)
       @profile_picture = @instauser.profile_picture
       @branduser_id = current_branduser.id
       @sender = 0
     elsif instauser_logged_in?
-      @branduser_id = params[:branduser_param]  unless params[:branduser_param].nil? 
+      @branduser_id = params[:branduser_param] unless params[:branduser_param].nil? 
       @instauser_id = current_instauser.id 
       @branduser = Branduser.find_by_id(@branduser_id)
       @sender = 1
@@ -32,10 +32,17 @@ class MessagesController < ApplicationController
       redirect_to root_path
     end 
 
-    if @message.save 
-      redirect_to messages_path
-      flash!(:email_success)
-    end 
+    respond_to do |format|
+      if @message.save 
+        format.html{
+          flash!(:email_success)
+          redirect_to messages_path
+        }
+        format.js{
+          redirect_to list_messages_path(branduser_id: params[:message][:branduser_id], instauser_id: params[:message][:instauser_id])
+        }
+      end 
+    end
   end 
 
   def show
@@ -46,26 +53,26 @@ class MessagesController < ApplicationController
 
   def index
     if current_branduser
-      @id=current_branduser.id 
-      @messages=Message.where(:branduser_id => @id)
-      instauserids= Message.where(:branduser_id => @id).uniq.pluck(:instauser_id)
-      @instausers=Instauser.where(:id => instauserids)
+      @id = current_branduser.id 
+      @messages = Message.where(branduser_id: @id)
+      instauserids = Message.where(branduser_id: @id).uniq.pluck(:instauser_id)
+      @instausers = Instauser.where(id: instauserids)
     elsif current_instauser 
-      @id=current_instauser.id
-      @messages=Message.where(:instauser_id => @id)
-      branduserids= Message.where(:instauser_id => @id).uniq.pluck(:branduser_id)
-      @brandusers=Branduser.where(:id => branduserids)
+      @id = current_instauser.id
+      @messages = Message.where(instauser_id: @id)
+      branduserids = Message.where(instauser_id: @id).uniq.pluck(:branduser_id)
+      @brandusers = Branduser.where(id: branduserids)
     end
   end 
 
   def list 
     if current_instauser 
       @branduser = Branduser.find_by_id(params[:branduser_id])
-      @messages = Message.where(branduser_id: @branduser.id, instauser_id: current_instauser.id)
+      @messages  = Message.where(branduser_id: @branduser.id, instauser_id: current_instauser.id)
       @messages.where(is_read: false, sender: 0).update_all(is_read: true)
     elsif current_branduser 
       @instauser = Instauser.find_by_id(params[:instauser_id])
-      @messages = Message.where(instauser_id: @instauser.id, branduser_id: current_branduser.id)
+      @messages  = Message.where(instauser_id: @instauser.id, branduser_id: current_branduser.id)
       @messages.where(is_read: false, sender: 1).update_all(is_read: true)
     end
   end

@@ -1,54 +1,70 @@
 <%= render 'layouts/header2' %>
 
-<% if (instauser_logged_in? && !branduser_logged_in?) %>
+<div class="col-xs-6 col-xs-offset-3">
+  <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
-  <% if @brandusers.present? %>
-    <div  id="leftbar">
-      <ul class="list-group" id="form">
-        <% @brandusers.each do |x| %>
-          <li class="list-group-item">
-            <font face="Lobster">
-              <h4><%= link_to x.coname, list_messages_path(branduser_id: x.id), remote: true %></h4>
-            </font>
-            <span class="pull-right">
-              <% unless !x.image.nil? %>
-                <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
-              <%end%>
-            </span>
+    <% if @brandusers.present? %>
+      <div class="row">
+        <div class="col-xs-4">
+          <div id="leftbar" class="messages-leftbar">
+            <ul class="list-group" id="form">
+              <% @brandusers.each do |x| %>
+                <li class="list-group-item">
+                  <font face="Lobster">
+                    <h4><%= link_to x.coname, list_messages_path(branduser_id: x.id), remote: true %></h4>
+                  </font>
+                  <span class="pull-right">
+                    <% unless !x.image.nil? %>
+                      <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
+                    <% end %>
+                  </span>
 
-            <% count = unread_instauser_messages_count(current_instauser, x) %>
-            <%= "#{count} unread".html_safe if count > 0 %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+                  <% count = unread_instauser_messages_count(current_instauser, x) %>
+                  <%= "#{count} unread".html_safe if count > 0 %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div id="publish" class="messages-list">
+        </div>
+      </div>
 
-    <div id="publish">
-    </div>
-  <%else%>
-    <%= "There are no messages." %>
-  <%end%>
+      </div>
+    <% else %>
+      <%= "There are no messages." %>
+    <% end %>
 
-<% elsif branduser_logged_in? && !instauser_logged_in? %>
-  <% if @instausers.present? %>
+  <% elsif branduser_logged_in? && !instauser_logged_in? %>
+    <% if @instausers.present? %>
+      <div class="row">
+        <div class="col-xs-4">
+          <div id="leftbar" class="messages-leftbar">
+            <ul class="list-group" id="form">
+              <% @instausers.each do |x| %>
+                <li class="list-group-item">
+                  <font face="Lobster">
+                    <h4>
+                    <%= link_to x.firstname, list_messages_path(instauser_id: x.id), remote: true %>
+                    <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span>
+                    </h4>
+                  </font>
 
-    <div  id="leftbar">
-      <ul class="list-group" id="form">
-        <% @instausers.each do |x| %>
-          <li class="list-group-item">
-            <font face="Lobster"><h4> <%= link_to x.firstname, list_messages_path(instauser_id: x.id), remote: true %></font>
-            <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span></h4>
-
-            <% count = unread_branduser_messages_count(current_branduser, x) %>
-            <%= "#{count} unread".html_safe if count > 0 %>            
-          </li>
-        <%end%> 
-      </ul>
-    </div>
-
-    <div  id="publish">
-    </div> 
-  <%else%>
-    <%= "There are no messages" %>
-  <%end%>
-<%end%>
+                  <% count = unread_branduser_messages_count(current_branduser, x) %>
+                  <%= "#{count} unread".html_safe if count > 0 %>            
+                </li>
+              <% end %> 
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div id="publish" class="messages-list">
+          </div> 
+        </div>
+      </div>
+    <% else %>
+      <%= "There are no messages" %>
+    <% end %>
+  <% end %>
+</div>
