@@ -1,6 +1,6 @@
 <%= render 'layouts/header2' %>
-
-<div class="col-xs-6 col-xs-offset-3">
+<div class="txtpage">
+<div class="container">
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @brandusers.present? %>
@@ -33,7 +33,12 @@
 
       </div>
     <% else %>
-      <%= "There are no messages." %>
+ 
+<h2 class="text-center">MESSAGES</h2>
+This is where you will receive messages from brands you are communicating with. You will be able to send messages to a brand as soon as you receive a proposal from them. 
+<br /><br />
+You currently have no messages. 
+ 
     <% end %>
 
   <% elsif branduser_logged_in? && !instauser_logged_in? %>
@@ -64,7 +69,13 @@
         </div>
       </div>
     <% else %>
-      <%= "There are no messages" %>
+  
+<h2 class="text-center">MESSAGES</h2>
+This is where you will receive messages from brands you are communicating with. You will be able to send messages to a brand as soon as you receive a proposal from them. 
+<br /><br />
+You currently have no messages. 
+ 
+ 
     <% end %>
   <% end %>
-</div>
+</div></div>

@@ -78,6 +78,10 @@ class InstausersController < ApplicationController
     @instauser=Instauser.find_by_id(params[:id])
   end
 
+    def editaccount
+    @instauser=Instauser.find_by_id(params[:id])
+  end
+
   def update
     @instauser=Instauser.find_by_id(params[:id])
     if @instauser.update(instauser_params)

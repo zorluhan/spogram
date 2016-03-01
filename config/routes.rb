@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # patch '/publish' => 'messages#publish'
 
   root 'pages#home'
+  get '/faq' => 'pages#faq'
   get '/pages/about' => 'pages#about'
   get '/instagrammers' => 'pages#instagrammers'
   get '/instagramers' => 'pages#instagramers'
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
       patch 'decline'
       patch 'release_request'
       patch 'complete'
-      post 'bill'
+      post 'gbill'
     end
   end
  
@@ -50,7 +51,7 @@ Rails.application.routes.draw do
   # get 'charges/:id'=>'charges#show', :as => 'charge'
   # post 'charges/bill' => 'charges#bill'
   # post '/charges' => 'charges#create'
-
+ 
   get '/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'
   get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form
