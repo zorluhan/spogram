@@ -14,7 +14,7 @@ class ChargeMailer < ActionMailer::Base
     @branduser = Branduser.find_by(id: branduser_id)
     @charge    = Charge.find_by(id: charge_id)
 
-    mail(to: @branduser.email, subject: "Proposal Accepted by #{@instauser.firstname}")
+    mail(to: @branduser.email, subject: "Proposal Accepted by #{@instauser.fullname}")
   end
 
   def declined_email(instauser_id, branduser_id, charge_id)
@@ -22,7 +22,7 @@ class ChargeMailer < ActionMailer::Base
     @branduser = Branduser.find_by(id: branduser_id)
     @charge    = Charge.find_by(id: charge_id)
 
-    mail(to: @branduser.email, subject: "Proposal Declined by #{@instauser.firstname}")
+    mail(to: @branduser.email, subject: "Proposal Declined by #{@instauser.fullname}")
   end
 
 
@@ -40,7 +40,7 @@ end
     @branduser = Branduser.find_by(id: branduser_id)
     @charge    = Charge.find_by(id: charge_id)
 
-    mail(to: @branduser.email, subject: "Release Requested by #{@instauser.firstname}")
+    mail(to: @branduser.email, subject: "Release Requested by #{@instauser.fullname}")
   end
 
   def completed_email(instauser_id, branduser_id, charge_id)

@@ -8,7 +8,9 @@ class Message < ActiveRecord::Base
   private
     def send_email
       if sender == 0
-        UserMailer.new_message_from_branduser_email(instauser_id, branduser_id, id).deliver!
+        UserMailer.delay.new_message_from_branduser_email(instauser_id, branduser_id, id)
+      elsif sender == 1
+        UserMailer.delay.new_message_from_instauser_email(branduser_id, instauser_id, id)
       end
     end
 end
