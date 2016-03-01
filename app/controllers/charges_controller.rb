@@ -28,11 +28,9 @@ class ChargesController < ApplicationController
 
   def index
     if branduser_logged_in? 
-      id = current_branduser.id 
-      @charges = Charge.where(:branduser_id => id)
+      @charges = Charge.where(branduser_id: current_branduser.id )
     elsif instauser_logged_in?
-      id = current_instauser.id 
-      @charges = Charge.where(:instauser_id => id)
+      @charges = Charge.where(instauser_id: current_instauser.id )
       @earned  = 0
       @charges.each do |x|
         if x.accepted? 
@@ -47,14 +45,15 @@ class ChargesController < ApplicationController
   def list
     state = params[:state]
     if branduser_logged_in? 
-      id = current_branduser.id 
-      @charges = Charge.where(branduser_id: id).where(state: state)
+      @charges = Charge.where(branduser_id: current_branduser.id, state: state)
+      if ['accepted', 'declined', 'release_requested'].include? state
+        @charges.where(state: state, is_read: false).update_all(is_read: true)
+      end
     elsif instauser_logged_in?
-      id = current_instauser.id 
-      @charges = Charge.where(instauser_id: id).where(state: state)
-
-      # mark the un-read charges as read
-      @charges.where(is_read: false).update_all(is_read: true)
+      @charges = Charge.where(instauser_id: current_instauser.id, state: state)
+      if ['pending', 'completed'].include? state
+        @charges.where(state: state, is_read: false).update_all(is_read: true)
+      end
     else
      redirect_to root_path
     end

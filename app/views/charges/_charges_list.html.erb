@@ -11,7 +11,7 @@
           <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
         </li>
         <li class="list-group-item">
-          Amount: <%= "$ "%><%= (x.amount.to_f/(1.20*100)).round(2) %></li>
+          Amount: <%= "$ "%><%= (x.amount.to_f/(120)).round(2) %></li>
 
         <li class="list-group-item">
           Product Name: <%= x.product_name %></li>
