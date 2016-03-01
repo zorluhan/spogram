@@ -82,8 +82,11 @@ class InstausersController < ApplicationController
     @instauser=Instauser.find_by_id(params[:id])
   end
 
-  def update
+  def update    
     @instauser=Instauser.find_by_id(params[:id])
+    if instauser_params[:send_email].present?
+      params[:instauser][:send_email] = instauser_params[:send_email].to_s == 'checked-value' ? true : false
+    end
     if @instauser.update(instauser_params)
       flash_now!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))  
       render 'edit'
@@ -112,7 +115,7 @@ end
   def instauser_params
     params.require(:instauser).permit(
       :gender, :profile_picture, :recent_media_urls, :followed_by, :location, 
-      :date_of_birth, :email, :media_date, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled )
+      :date_of_birth, :email, :media_date, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled, :paypal_email, :send_email )
   end 
 
   def logged_in_instauser

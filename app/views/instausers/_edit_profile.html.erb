@@ -1,0 +1,44 @@
+<%= form_for(@instauser, :html => {:role => 'form'}) do |f| %>  
+   <input type="hidden" name="edit" value="<%= params[:edit] %>">
+   <div class="form-group form-groupname1 pull-left">
+   <%= f.text_field :firstname, :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First Name", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='First Name'" %> <br>
+  </div>
+  <div class="form-group form-groupname2 pull-right">
+   <%= f.text_field :lastname, :type=> "lastname", :class=> "form-control formcapish", :id => "usr", :placeholder => "Last Name", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Last Name'" %> <br>
+  </div>
+   <div class="form-group form-grouploc">
+   
+   <%= f.text_field :location, :type=> "fullname", :class=> "gmapsinput form-control" , :id => "usr", :placeholder => "Start typing a city", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Start typing a city'" %> 
+    <div id="gmaps-error" style="display: none;"></div>
+              <div id="gmaps-canvas" style="display: none;"></div>
+  </div>
+  <div class="form-group form-groupcake">
+   <%= f.text_field :date_of_birth, :type=> "fullname", :class=> "form-control formcapish date_of_birth", :placeholder => "DOB", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='DOB'" %> <br>
+  </div>
+
+
+  <div class="form-group form-selectfull form-noborder">
+  <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "selectpicker"} %>
+  </div>
+
+   <div class="form-group form-selectfull form-noborder"><label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
+    <%= f.select :theme, 
+              options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']],@instauser.theme),{}, {class: 'selectpicker'} %>
+            </div>
+
+  <label class="lblpaypal">This is what brands will see on your profile.</label>
+    <div class="form-group form-groupmoney">
+      <%= f.number_field :postprice, class: "form-control formcapish", :id=>"usr", :placeholder=> "$" , :onfocus=>"this.placeholder = '$'", :onblur=>"this.placeholder='$'" %>
+
+    </div>
+
+    <div class="row row0 text-right">
+
+  <%= button_tag(type: 'submit', class: "btn btn-send") do %>
+    Save
+  <% end %>
+
+
+   </div>
+    <div class="row row0 text-right terms">By clicking save, you agree to our <a href="#">terms of use</a></div>
+<% end %>
