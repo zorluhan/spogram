@@ -11,9 +11,11 @@
  * file per style scope.
  *
  *= require fancybox
+ *= require bootstrap
+ *= require bootstrap-select.min
+ *= require jquery-ui-1.8.16.custom.css
+ *= require style
  *= require_tree .
  *= require_self
-
-
  */
 

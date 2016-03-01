@@ -4,39 +4,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deliver Original Content, Share Your Passions, Get Paid! </title>
 
-  <!-- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %> !-->
- 
- <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'style', media: 'all', 'data-turbolinks-track' => true %>
-   
-    <%= javascript_include_tag 'jquery-1.12.0.min', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
- 
- <%= stylesheet_link_tag 'bootstrap-select.min', media: 'all', 'data-turbolinks-track' => true %>
- <%= javascript_include_tag 'bootstrap-select', 'data-turbolinks-track' => true %>
-         
- 
- 
   <%= csrf_meta_tags %>
-
 
   <meta name="google-site-verification" content="6xS_MBEN55X3TgaStpjJ6SdN0sbArVSLlrHciRYVvHc" />
   <meta name="description" content="It is a simple way for Instagrammers to share their passions and get paid!">
   <meta name="keywords" content="instagram, collaboration, brands, instagrammers">
   <meta name="author" content="capish">
   <meta name='og:image' content='/assets/capish2.png'>
-  <link rel="stylesheet" type="text/css" media="screen" title="User Defined Style" href="/js/jquery-ui-1.8.16.custom.css"> 
-  <script type="text/javascript" src="/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
 </head>
 <body>
-
-   
 
   <%= yield %>
 
   <%= render 'layouts/footer' %>
+
 </body>
 </html>
