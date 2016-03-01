@@ -11,7 +11,11 @@
 // about supported directives.require jquery.spin
 // require spin
 
-
+//= require bootstrap-select.js
+//= require bootstrap.js
+//= require bootstrap.min.js
+//= require jquery-1.12.0.min.js
+//= require npm.js
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
@@ -41,11 +45,26 @@ $(document).ready(function() {
 });
 
 
+ 
+
+
 $(function() {
   $("input.date-field").datepicker({
     changeMonth: true,
     changeYear: true,
     dateFormat: 'yy-mm-dd'
   });
-  $.datepicker.formatDate( "ATOM" )
+
+  $(".date_of_birth").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'dd-mm-yy',
+    yearRange: "1950:2015"
+  });
 });
+
+ 
+// Setter
+
+
+

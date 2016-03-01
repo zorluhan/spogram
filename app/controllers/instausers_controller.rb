@@ -81,7 +81,7 @@ class InstausersController < ApplicationController
   def update
     @instauser=Instauser.find_by_id(params[:id])
     if @instauser.update(instauser_params)
-      flash!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))  
+      flash_now!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))  
       render 'edit'
     else
       render 'edit'

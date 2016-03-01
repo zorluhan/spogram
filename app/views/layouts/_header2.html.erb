@@ -1,21 +1,19 @@
- 
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="navbar-header">  
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>  
+  
+<div class="row row0">
+  <nav class="navbar navbar-default">
 
-    <% if !@current_instauser.nil? -%>
-      <%= link_to "capish", root_path(@current_instauser), class: "navbar-brand" %>  
-    <% elsif !@current_branduser.nil? -%>
-      <%= link_to "capish", root_path(@current_branduser), class: "navbar-brand" %> 
-    <% else %> 
-      <%= link_to "capish", root_path, class: "navbar-brand" %>
-    <% end %>
-  </div>
+<div class="container-fluid">
+  <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" title="capish">capish</a>
+    </div>
+
+
 
   <!-- <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
@@ -24,16 +22,17 @@
     <button type="submit" class="btn btn-default"> </button> 
   </form>  --> 
 
-  <div class="collapse navbar-collapse navbar-ex1-collapse">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
     <% if instauser_logged_in?  %>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "User Dashboard", dashboard_path(current_instauser)   %></li> 
-        <li>
+  
+          
+         <li class="active"> 
           <%= link_to charges_path   do %>
-            Proposals 
-            <% count = unread_charges_count(current_instauser) %> 
-            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
-          <% end %>
+            Proposals  <% count = unread_charges_count(current_instauser) %>  
+            
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
+          <% end %> 
         </li>
         <li>
           <%= link_to messages_path do %>
@@ -54,10 +53,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% unless current_instauser.firstname.nil? %>
-       <li><a><%= "Hello " + current_instauser.firstname + "!" %></a></li><%end%>
-       <li><%= link_to "Settings", edit_instauser_path(current_instauser) %></li> 
-       <li><%= link_to "Logout", logout_path(current_instauser) , :method => :delete %></li>
+       <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4"><%=  current_instauser.firstname %></a></li><%end%>
+
+        <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
+      <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
+      <li><a href="#" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
+        
+       <li><%= link_to raw("<i class='fa fa-sign-out'></i>"), logout_path(current_instauser), :method => :delete %></li>
       </ul>
+
+    </div>
     <% elsif branduser_logged_in? %>
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
@@ -84,3 +89,4 @@
     <% end %>
   </div>
 </nav>  
+<div id="flash_messages"><%= flash_messages(:close, :fade)  %></div>  

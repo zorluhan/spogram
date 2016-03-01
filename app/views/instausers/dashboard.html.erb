@@ -1,13 +1,188 @@
  <%= render 'layouts/header2' %> 
   <div class="container">
- 	  <div class="row">
-
-     <div class="col-md-8">
+ 
+<!--
+ <div class="row">
         <%if @instauser.followed_by < 5000 %>
           Unfortunately your application has been declined. 
         <% elsif @instauser.followed_by>5000 %>
           <font color="red">Congratulations! Welcome to capish! </font>
         <%end%>
+</div>
+    !-->
+
+<div class="col-sm-3 page-sidebar col-thin-left text-center">
+<a href="#" class="avatar"><img src="<%= @instauser.profile_picture %>"/></a>
+</div>
+
+<div class="col-sm-9 page-content col-thin-right">
+
+  <div class="row"><h1 class="text-center-xs"><%= @instauser.firstname + " "+ @instauser.lastname %></h1></div>
+
+<div class="row info">
+<div class="col-md-3 col-sm-3 text-center-xs">
+<i class="fa fa-user"></i><%= @instauser.age %>, <%= @instauser.gender %></div>
+
+<div class="col-md-3 col-sm-3 text-center-xs">
+<i class="fa fa-map-marker"></i><%= @instauser.location.split(',')[-2] + "," + @instauser.location.split(',').last %>
+</div>
+</div>
+<br>
+<div class="row bio text-center-xs">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et nibh vitae est elementum vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laoreet eget diam ut vestibulum. Donec interdum suscipit nunc eget posuere. Cras egestas feugiat commodo.
+
+ </div> 
+<br>
+<div class="row">
+  <h2>General Info</h2>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Passion</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-asterisk"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.theme %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Price Per Post</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-money"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.postprice %> </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<h2>Most Liked Posts</h2>
+ <% @instauser_most_liked_posts.each do |x| %>
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i><%= x.likes_counts %></span></a></div> 
+   <%end%>
+</div>
+
+<div class="row">
+  <h2>Stats</h2>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Engagement Score <i class="fa fa-info-circle btn5"></i></div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-line-chart"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.engagementscore %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Average Likes</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-heart"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.averagelikes %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Number of Followers</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-users"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.followed_by %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Average Comments</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-comment"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.averagecomments %> </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+<h2>Most Recent Posts</h2>
+  <% @instauser_recent_posts.each do |x| %>
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /></a></div> <%end%>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="footer-wrapper">
+<div class="container text-center">
+  <footer>
+    <a href="#">Contact</a>
+    <a href="#">FAQ</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </footer>
+</div>
+</div>
+      
+      
+
+   
+<script type="text/javascript">$(document).ready(function(){
+    $('.btn1').tooltip({title: "Edit Profile", placement: "bottom"}); 
+    $('.btn2').tooltip({title: "FAQ", placement: "bottom"}); 
+    $('.btn3').tooltip({title: "Sign-out", placement: "bottom"}); 
+    $('.btn4').tooltip({title: "Sign-in", placement: "bottom"}); 
+    $('.btn5').tooltip({title: "Engagement Score çok iyi bişeydir. Şöyle de güzel bişeydir.", placement: "bottom"}); 
+});</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
 
         <div class="row">
           <h3><font face="Lobster">Most Recent Posts</font></h3>
@@ -66,4 +241,4 @@
     </ul>     
   </div>
  </div>
-</div>
+</div> !-->

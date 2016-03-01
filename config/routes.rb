@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get '/pages/age'=>'pages#age'
   get '/secondhome/' => 'pages#secondhome'
   patch '/pages/results' => 'pages#results'
-
+  get '/welcome' => 'pages#welcome'
   resources :charges do
     collection do
       get 'list'
