@@ -16,7 +16,7 @@
 //= require jquery.min.js
 //= require jquery-ui.min.js
 //= require bootstrap.js
-//= require bootstrap-sprockets
+// require bootstrap-sprockets
 //= require bootstrap-select.js
 //  require npm.js
 //  require turbolinks
