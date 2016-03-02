@@ -70,7 +70,6 @@ $(document).ready(function() {
     yearRange: "1950:2015"
   });
 });
-
  
 // Setter
 
