@@ -31,7 +31,7 @@
       </div>
 
       <div class="form-group form-groupcake">
-        <%= f.text_field :date_of_birth, class: "form-control formcapish date-field", id: "date_of_birth", placeholder: "Date of birth", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Date of birth'" %>      
+        <%= f.text_field :date_of_birth, class: "form-control formcapish date_of_birth", placeholder: "Date of birth", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Date of birth'" %>      
       </div>
 
       <div class="form-group form-selectfull form-noborder">
@@ -41,7 +41,7 @@
 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
-        <%= f.select :passion, options_for_select([['Lifestyle','Lifestyle'],['Cars','Cars']], 2),{:include_blank => 'Select'}, { :class => 'selectpicker' } %>
+        <%= f.select :theme, options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2),{:include_blank => 'Select'}, { :class => 'selectpicker' } %>
       </div>
       
       <label class="lblpaypal">This is the price per post brands will see on your profile.</label>
