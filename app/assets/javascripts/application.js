@@ -13,15 +13,15 @@
 
 // require jquery
 //= require jquery_ujs
-//= require bootstrap.js
 //= require jquery.min.js
 //= require jquery-ui.min.js
+//= require bootstrap.js
 //= require bootstrap-select.js
 //= require bootstrap-sprockets
 //= require bootstrap.min.js
 //  require npm.js
 //= require turbolinks
-//= require_tree .
+ 
 
 
 function imgError(image) {
