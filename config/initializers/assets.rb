@@ -18,6 +18,13 @@ Rails.application.config.assets.precompile += %w( jquery.min.js )
 Rails.application.config.assets.precompile += %w( jquery-1.12.0.min.js )
 Rails.application.config.assets.precompile += %w( gmaps.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap-select.min.css)
+Rails.application.config.assets.precompile += %w( bootstrap-theme.css)
+Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
+Rails.application.config.assets.precompile += %w( jquery-ui-1.8.16.custom.css )
+
+
+
 
 
 
