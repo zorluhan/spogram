@@ -15,10 +15,10 @@
 //= require jquery_ujs
 //= require jquery.min.js
 //= require jquery-ui.min.js
-//= require bootstrap.js
 //= require bootstrap-select.js
 //= require bootstrap-sprockets
 //= require bootstrap.min.js
+//= require bootstrap.js
 //  require npm.js
 //= require turbolinks
  
