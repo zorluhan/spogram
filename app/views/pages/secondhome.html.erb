@@ -2,13 +2,13 @@
  
 
 <div class="jumbotron" id="form">
-	 
+   
 <% if !instauser_logged_in? and !branduser_logged_in? %> 
 
 <p><div class="row" align="center">
 <h1> Work with Instagrammers. <%= link_to "Invitation Only", '#', class: "btn btn-primary" , id: "btn-invitation" %></h1><hr>
-		<h1>I am an Instagrammer.  <%= link_to "Signup", new_instauser_path, class: "btn btn-primary" %></h1>
-	</div></p>
+    <h1>I am an Instagrammer.  <%= link_to "Signup", new_instauser_path, class: "btn btn-primary" %></h1>
+  </div></p>
 <%else%>
 <div class="row" align="center">
  <h1>Collaboration is awesome</h1>
@@ -22,61 +22,69 @@
 
  
 <div class="jumbotron2">
-	<div class="row" align="center">
-	 
- <img src="/assets/starbucks.png" width="80"><span id="space"></span><img src="/assets/armani.png" width="100"><span id="space"></span><img src="/assets/lufthansa.png" width="80"><span id="space"></span><img src="/assets/chase.png" width="100"><span id="space"></span><img src="/assets/clash.png" width="80"><span id="space"></span><img src="/assets/KFC.png" width="80"><span id="space"></span><img src="/assets/tollbrothers.png" width="100"><span id="space"></span><img src="/assets/Warner_Bros.png" width="80"><span id="space"></span><img src="/assets/tmobile.png" width="100"> 
-	<img src="/assets/pixel.png" ></div>
+  <div class="row" align="center">
+    <%= image_tag "starbucks.png",  width: "80" %><span id="space"></span>
+    <%= image_tag "armani.png",  width: "100" %><span id="space"></span>
+    <%= image_tag "lufthansa.png",  width: "80" %><span id="space"></span>
+    <%= image_tag "chase.png",  width: "100" %><span id="space"></span>
+    <%= image_tag "clash.png",  width: "80" %><span id="space"></span>
+    <%= image_tag "KFC.png",  width: "80" %><span id="space"></span>
+    <%= image_tag "tollbrothers.png",  width: "100" %><span id="space"></span>
+    <%= image_tag "Warner_Bros.png",  width: "80" %><span id="space"></span>
+    <%= image_tag "tmobile.png",  width: "100" %> 
+    <%= image_tag "pixel.png" %>
+  </div>
 
 </div>
  
- 	<div style="height: 30px;"></div>
+  <div style="height: 30px;"></div>
  </div>
 
 <div class="row">
-	
-	<div class="row" align="center">
-	<h2>DELIVER ORIGINAL CONTENT.</h2>
-	</div>
+  
+  <div class="row" align="center">
+  <h2>DELIVER ORIGINAL CONTENT.</h2>
+  </div>
 
-	<div class="container">
-	
+  <div class="container">
+  
  
-	
-	<div style="height: 30px;"></div>
-	
-
- 
-
-	<div class="row">
-	<div class="col-md-4">
-		<div align="center"><img src="/assets/connect.png" width="75"><br><strong>CONNECT</strong> </div>
-	<br><div id="hometext">Connect with influential content creators and influencers based on your target market.</div><br> 
-
- 	 
-	
-	<div style="height: 30px;"></div>
-	
-	</div>
-	 
-
-	<div class="col-md-4">
-	<div align="center">	<img src="/assets/easytouse.png" width="90"><br><strong>EASY TO USE</strong> </div>
-	<br><div id="hometext">Use our streamlined platform to create campaigns quickly and efficiently.</div><br>
-
-	 
-	
-	<div style="height: 30px;"></div>
- 	</div>
+  
+  <div style="height: 30px;"></div>
+  
 
  
-	<div class="col-md-4">
-	<div align="center">	<img src="/assets/engage.png" width="90"><br> <strong>DRIVE ACTION</strong> </div>
-	<br><div id="hometext">Engage your customers with authentic content to increase your conversion rates.</div><br>
-	
-	 
-	
-	<div style="height: 30px;"></div>
-	
+
+  <div class="row">
+  <div class="col-md-4">
+    <div align="center"><%= image_tag "connect.png", width: "75" %><br><strong>CONNECT</strong> </div>
+  <br><div id="hometext">Connect with influential content creators and influencers based on your target market.</div><br> 
+
+   
+  
+  <div style="height: 30px;"></div>
+  
+  </div>
+   
+
+  <div class="col-md-4">
+  <div align="center">  <%= image_tag "easytouse.png", width: "90" %><br><strong>EASY TO USE</strong> </div>
+  <br><div id="hometext">Use our streamlined platform to create campaigns quickly and efficiently.</div><br>
+
+   
+  
+  <div style="height: 30px;"></div>
+  </div>
+
+ 
+  <div class="col-md-4">
+  <div align="center">  <%= image_tag "engage.png", width: "90" %><br> <strong>DRIVE ACTION</strong> </div>
+  <br><div id="hometext">Engage your customers with authentic content to increase your conversion rates.</div><br>
+  
+   
+  
+  <div style="height: 30px;"></div>
+  
 </div>
 
  
@@ -85,7 +93,7 @@
 <hr>
 <hr>
  
-		 
+     
 
 
  </div>  
