@@ -20,7 +20,7 @@
 //= require bootstrap.js
 //= require jquery-ui.min.js
 // require npm.js
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 function imgError(image) {
