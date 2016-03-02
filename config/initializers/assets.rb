@@ -20,13 +20,10 @@ Rails.application.config.assets.precompile += %w( bootstrap-select.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap-select.min.css)
 Rails.application.config.assets.precompile += %w( bootstrap-theme.css)
 Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
+Rails.application.config.assets.precompile += %w( *.eot *.svg *.ttf *.woff *.woff2 *.otf )
 
 
-
-
-
-
-
+ 
  
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
