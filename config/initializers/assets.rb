@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
 # Version of your assets, change this if you want to expire all your assets.
-Rails.application.config.assets.version = '1.1'
+Rails.application.config.assets.version = '1.0'
 
 
 Rails.application.config.assets.precompile += %w( jquery.min.js )
@@ -14,6 +14,12 @@ Rails.application.config.assets.precompile += %w( bootstrap-theme.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
 Rails.application.config.assets.precompile += %w( bootstrap-select.min.css )
+Rails.application.config.assets.precompile += %w( jquery.min.js )
+Rails.application.config.assets.precompile += %w( jquery-1.12.0.min.js )
+Rails.application.config.assets.precompile += %w( gmaps.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+
+
 
  
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
