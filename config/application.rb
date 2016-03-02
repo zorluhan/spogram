@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
  
+ 
 
 module Spogram
   class Application < Rails::Application

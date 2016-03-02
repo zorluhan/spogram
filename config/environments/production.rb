@@ -92,6 +92,8 @@ Rails.application.configure do
   #   authentication:       'plain',
   #   enable_starttls_auto: true,
   #   openssl_verify_mode: 'none' }
+  
+  config.assets.precompile = ['*.jpg', '*.png', '*.jpeg', '*.eot', '*.svg', '*.woff', '*.ttf', '*.woff2', '*.otf']
 
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
