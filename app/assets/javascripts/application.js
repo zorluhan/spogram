@@ -11,7 +11,7 @@
 // about supported directives.require jquery.spin
 // require spin
 
-//= require jquery
+// require jquery
 //= require jquery_ujs
 //= require jquery.min.js
 //= require jquery-ui.min.js
