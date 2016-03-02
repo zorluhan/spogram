@@ -32,7 +32,7 @@
 //= require jquery-ui.min.js
 //= require bootstrap-select.js
 // require npm.js
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 function imgError(image) {
