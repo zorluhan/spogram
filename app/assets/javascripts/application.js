@@ -13,8 +13,8 @@
 
 //= require jquery.min.js
 //= require jquery_ujs
-//= require bootstrap.js
 //= require bootstrap-sprockets
+//= require bootstrap.js
 //= require jquery-ui.min.js
 //= require bootstrap-select.js
 //  require npm.js
