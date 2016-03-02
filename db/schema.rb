@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160302074308) do
     t.boolean  "disabled",          default: true
     t.string   "paypal_email"
     t.boolean  "send_email",        default: true
+    t.string   "passion"
   end
 
   create_table "messages", force: true do |t|
