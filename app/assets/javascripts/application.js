@@ -12,7 +12,6 @@
 // require spin
 
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.min.js
 //= require bootstrap.js
