@@ -15,12 +15,11 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.min.js
-// require jquery-1.12.0.min.js
-//= require bootstrap-sprockets
 //= require bootstrap.js
+//= require bootstrap-sprockets
 //= require jquery-ui.min.js
 //= require bootstrap-select.js
-// require npm.js
+//  require npm.js
 //  require turbolinks
 //= require_tree .
 
