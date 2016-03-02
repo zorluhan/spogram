@@ -42,12 +42,7 @@ Rails.application.config.assets.precompile += %w( glyphicons-halflings-regular.w
 
 
  
- 
-Rails.application.config.assets.precompile += %w(*.png) 
-Rails.application.config.assets.precompile += %w(*.jpg) 
-Rails.application.config.assets.precompile += %w(*.jpeg) 
-Rails.application.config.assets.precompile += %w(*.gif) 
-
+  
  
 
 Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /vendor\/assets/ && !%w(.js .css).include?(File.extname(path)) }

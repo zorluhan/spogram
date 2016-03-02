@@ -26,7 +26,7 @@ module Spogram
 
 
 config.assets.paths << Rails.root.join( 'vendor', 'assets' )
-config.assets.precompile << %w( *.gif *.png )
+config.assets.precompile << %w( *.gif *.png *.jpg *.ttf *.eot *.svg *.woff *.woff2 *.otf)
  
 
   end
