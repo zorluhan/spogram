@@ -26,7 +26,7 @@
               options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']],@instauser.theme),{}, {class: 'form-control'} %>
             </div>
 
-  <label class="lblpaypal">This is what brands will see on your profile.</label>
+<label for="name" class="gender"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
     <div class="form-group form-groupmoney">
       <%= f.number_field :postprice, class: "form-control formcapish", :id=>"usr", :placeholder=> "$" , :onfocus=>"this.placeholder = '$'", :onblur=>"this.placeholder='$'" %>
 

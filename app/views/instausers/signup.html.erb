@@ -42,11 +42,12 @@
         <%= f.select :theme, options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2),{:include_blank => 'Select'}, { :class => 'form-control' } %>
       </div>
       
-      <label class="lblpaypal">This is the price per post brands will see on your profile.</label>
+      <label for="name" class="gender"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post (min)</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
       <div class="form-group form-groupmoney">
-        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "Price per post ($). This can be changed at anytime.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Price per post ($). This can be changed at anytime.'" %>
+        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "Price per post ($). This can be changed at anytime.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>
       </div>
       
+      <label class="gender"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal</span><a href="#" class="lblright pull-left">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
         <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Email address associated with Paypal account", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email address associated with Paypal account'" %>      
       </div>
