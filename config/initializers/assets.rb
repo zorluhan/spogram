@@ -4,25 +4,22 @@
 Rails.application.config.assets.version = '1.0'
 
 
-Rails.application.config.assets.precompile += %w( bootstrap.css)
 
-Rails.application.config.assets.precompile += %w( style.css )
+# Rails.application.config.assets.precompile += %w( jquery.min.js )
+# Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
+# Rails.application.config.assets.precompile += %w( bootstrap.min.js )
+# Rails.application.config.assets.precompile += %w( bootstrap-select.js )
+# Rails.application.config.assets.precompile += %w( bootstrap.js )
+# Rails.application.config.assets.precompile += %w( npm.js )
+      
+     
 
- Rails.application.config.assets.precompile += %w( bootstrap-select.js )
-  Rails.application.config.assets.precompile += %w( bootstrap.js )
-   Rails.application.config.assets.precompile += %w( npm.js )
-    Rails.application.config.assets.precompile += %w( bootstrap.min.js )
-     Rails.application.config.assets.precompile += %w( jquery-1.12.0.min.js )
-          Rails.application.config.assets.precompile += %w( jquery.min.js )
-     Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
-
-
-Rails.application.config.assets.precompile += %w( bootstrap-theme.css )
-Rails.application.config.assets.precompile += %w( bootstrap.min.css )
-Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
-Rails.application.config.assets.precompile += %w( bootstrap-select.min.css )
-
-
+# Rails.application.config.assets.precompile += %w( bootstrap.css)
+# Rails.application.config.assets.precompile += %w( style.css )
+# Rails.application.config.assets.precompile += %w( bootstrap-theme.css )
+# Rails.application.config.assets.precompile += %w( bootstrap.min.css )
+# Rails.application.config.assets.precompile += %w( bootstrap-theme.min.css )
+# Rails.application.config.assets.precompile += %w( bootstrap-select.min.css )
 
 
  
