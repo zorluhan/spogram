@@ -11,8 +11,9 @@
 // about supported directives.require jquery.spin
 // require spin
 
-//= require jquery.min.js
+//= require jquery
 //= require jquery_ujs
+//= require jquery.min.js
 //= require bootstrap-sprockets
 //= require bootstrap.js
 //= require jquery-ui.min.js
