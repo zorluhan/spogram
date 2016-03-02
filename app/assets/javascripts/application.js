@@ -11,14 +11,13 @@
 // about supported directives.require jquery.spin
 // require spin
 
-//= require jquery
+//= require jquery.min.js
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery.min.js
+//= require bootstrap-select.js
 //= require bootstrap.js
 //= require bootstrap-sprockets
 //= require jquery-ui.min.js
-//= require bootstrap-select.js
 //  require npm.js
 //  require turbolinks
 //= require_tree .
