@@ -6,9 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
- 
- 
-
 module Spogram
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,11 +20,7 @@ module Spogram
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   
-
-
-config.assets.paths << Rails.root.join( 'vendor', 'assets' )
-config.assets.precompile << %w( *.gif *.png *.jpg *.ttf *.eot *.svg *.woff *.woff2 *.otf)
- 
-
+    # config.assets.paths << Rails.root.join( 'vendor', 'assets' )
+    # config.assets.precompile << %w( *.gif *.png *.jpg *.ttf *.eot *.svg *.woff *.woff2 *.otf)
   end
 end

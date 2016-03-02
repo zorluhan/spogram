@@ -21,8 +21,7 @@
 //= require bootstrap.js
 //  require npm.js
 //= require turbolinks
- 
-
+//= require_tree .
 
 function imgError(image) {
     image.onerror = "";
