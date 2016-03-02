@@ -34,12 +34,12 @@
 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>
-        <%= f.select :gender, options_for_select([['Madam','Madam'],['Adam','Adam']] ,2),{:include_blank => 'Select your gender'}, { :class => 'selectpicker' } %>        
+        <%= f.select :gender, options_for_select([['Madam','Madam'],['Adam','Adam']] ,2),{:include_blank => 'Select your gender'}, { :class => 'form-control' } %>        
       </div>
 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
-        <%= f.select :theme, options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2),{:include_blank => 'Select'}, { :class => 'selectpicker' } %>
+        <%= f.select :theme, options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2),{:include_blank => 'Select'}, { :class => 'form-control' } %>
       </div>
       
       <label class="lblpaypal">This is the price per post brands will see on your profile.</label>
@@ -60,11 +60,3 @@
     <% end %>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.selectpicker').selectpicker({
-      size: 4
-    });
-  });   
-</script>
