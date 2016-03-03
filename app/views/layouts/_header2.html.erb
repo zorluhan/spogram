@@ -59,7 +59,7 @@
       <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
       <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
         
-       <li><%= link_to raw("<i class='fa fa-sign-out'></i>"), logout_path(current_instauser), :method => :delete %></li>
+       <li><%= link_to "Logout", logout_path(current_instauser), :method => :delete %></li>
       </ul>
 
     </div>
