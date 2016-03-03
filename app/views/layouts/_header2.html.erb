@@ -48,12 +48,12 @@
        
           <% end %>
         </li>
-
+ 
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% unless current_instauser.firstname.nil? %>
-       <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4"><%=  current_instauser.firstname %></a></li><%end%>
+       <li><a data-toggle="collapse" data-target=".navbar-collapse" href="<%= dashboard_path(current_instauser) %>" class="btn4"><%=  current_instauser.firstname %></a></li><%end%>
 
         <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
       <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
