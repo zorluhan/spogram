@@ -50,10 +50,8 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function () {
-$(".navbar-nav li a").click(function(event) {
-$(".navbar-collapse").collapse('hide');
-});
+$(".navbar-toggle").click(function(event) {
+$(".navbar-collapse").toggle('in');
 });
 
 
