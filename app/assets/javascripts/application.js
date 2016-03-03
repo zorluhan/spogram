@@ -51,7 +51,7 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.navbar-collapse.collapse.in a', function(e) {
-$("#.navbar-collapse.collapse.in").removeClass("in");//.addClass("collapse");
+$(".navbar-collapse.collapse.in").removeClass("in");//.addClass("collapse");
 });
 
 
