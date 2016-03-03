@@ -7,14 +7,29 @@
 
 <div class="signup signup2">
   <div class="container">
+    <%if params[:edit].nil? or params[:edit]=="profile" %>
     <ul class="nav nav-pills nav-justified">
-      <li>
+      
+        <li class="active">
         <%= link_to "EDIT PROFILE", edit_instauser_path(@instauser, :edit => "profile") %>
-      </li>
+      </li> 
       <li>
         <%= link_to "EDIT ACCOUNT", edit_instauser_path(@instauser, :edit => "account") %>
       </li>
     </ul>
+    <%elsif params[:edit] == 'account'%>
+    <ul class="nav nav-pills nav-justified">
+      
+        <li>
+        <%= link_to "EDIT PROFILE", edit_instauser_path(@instauser, :edit => "profile") %>
+      </li> 
+      <li class="active">
+        <%= link_to "EDIT ACCOUNT", edit_instauser_path(@instauser, :edit => "account") %>
+      </li>
+    </ul>
+    <%end%>
+
+
     <% if params[:edit] == 'account' %>
       <%= render :partial => "edit_account" %>
     <% else %>
