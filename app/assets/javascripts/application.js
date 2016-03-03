@@ -50,7 +50,15 @@ $(document).ready(function() {
   });
 });
 
-$(document).on('click', '#bs-example-navbar-collapse-1.in a', function(e) {
-$("#bs-example-navbar-collapse-1").removeClass("in").addClass("collapse");
-});
+$(document).on('click.bs.collapse.data-api', '[data-hide=collapse]', function (e) {
+  var $this   = $(this), href
+  var target  = $this.attr('data-target')
+      || e.preventDefault()
+      || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+  var $target = $(target)
+
+  if ($target.hasClass('in')) {
+    $target.collapse('hide');
+  }
+})
 
