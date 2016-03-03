@@ -1,5 +1,6 @@
   
 <div class="row row0">
+  <div id="flash_messages"><%= flash_messages(:close, :fade)  %></div> 
   <nav class="navbar navbar-default">
 
 <div class="container-fluid">
@@ -25,7 +26,6 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
     <% if instauser_logged_in?  %>
-  
           
          <li class="active"> 
           <%= link_to charges_path   do %>
@@ -89,4 +89,4 @@
     <% end %>
   </div>
 </nav>  
-<div id="flash_messages"><%= flash_messages(:close, :fade)  %></div>  
+ </div>
