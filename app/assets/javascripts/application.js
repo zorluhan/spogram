@@ -12,7 +12,7 @@
 // require spin
 
 // require jquery
-//= require jquery.min.js
+// require jquery.min.js
 // require jquery-1.12.0.min.js
 //= require jquery_ujs
 //= require bootstrap-sprockets
@@ -34,20 +34,12 @@ function imgError2(image) {
     return true;
 }
 
-$(document).ready(function() {
-  var clickOnPopupLink = function(){
-    $('body').on('click', '.static-popup-link', function(){
-      $('#myModal').modal('brands_contact_form');
-    });
-  }
-  clickOnPopupLink();
-});
-
+ 
 $(document).ready(function() {
   $("input.date-field").datepicker({
     changeMonth: true,
     changeYear: true,
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'dd-mm-yy'
   });
 
   $(".date_of_birth").datepicker({

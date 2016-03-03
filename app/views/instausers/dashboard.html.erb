@@ -81,7 +81,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et nibh vitae est 
          <i class="fa fa-money"></i>
       </div>
       <div class="col-xs-8 pv-lg">
-         <div class="widget-text mt0"><%= @instauser.postprice %> </div>
+         <div class="widget-text mt0">$<%= @instauser.postprice %> </div>
       </div>
      </div>
     </div>
@@ -91,7 +91,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et nibh vitae est 
 <div class="row">
 <h2>Most Liked Posts</h2>
  <% @instauser_most_liked_posts.each do |x| %>
-<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i><%= x.likes_counts %></span></a></div> 
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i>&nbsp;<%= x.likes_counts %></span></a></div> 
    <%end%>
 </div>
 
@@ -99,7 +99,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et nibh vitae est 
   <h2>Stats</h2>
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
-    <div class="widget-title">Engagement Score <a><i class="fa fa-info-circle btn5"></i></a></div>
+    <div class="widget-title">Engagement Score<i class="fa fa-info-circle btn5"></i></div>
      <div class="row row-table">
       <div class="col-xs-4 text-center pv-lg">
          <i class="fa fa-line-chart"></i>
