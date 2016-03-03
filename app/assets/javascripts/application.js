@@ -50,9 +50,7 @@ $(document).ready(function() {
   });
 });
 
-$(document).on('click.nav','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') ) {
-        $(this).removeClass('in').addClass('collapse');
-    }
+$(document).on('click', '#bs-example-navbar-collapse-1.in a', function(e) {
+$("#bs-example-navbar-collapse-1").removeClass("in").addClass("collapse");
 });
 
