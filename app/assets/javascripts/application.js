@@ -50,7 +50,7 @@ $(document).ready(function() {
   });
 });
 
-$(document).on('click', '#bs-example-navbar-collapse-1.navbar-collapse.collapse.in a', function(e) {
+$(document).on('click', '.navbar-collapse.collapse.in a', function(e) {
 $("#bs-example-navbar-collapse-1").removeClass("in");//.addClass("collapse");
 });
 
