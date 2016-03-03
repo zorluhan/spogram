@@ -50,15 +50,8 @@ $(document).ready(function() {
   });
 });
 
-$(document).on('click.bs.collapse.data-api', '[data-hide=collapse]', function (e) {
-  var $this   = $(this), href
-  var target  = $this.attr('data-target')
-      || e.preventDefault()
-      || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-  var $target = $(target)
-
-  if ($target.hasClass('in')) {
-    $target.collapse('hide');
-  }
-})
-
+$(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+        $(this).collapse('hide');
+    }
+});
