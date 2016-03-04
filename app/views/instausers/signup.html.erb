@@ -13,8 +13,8 @@
  <%= render 'shared/instauser_signup_error_messages' %> 
 
 
- 
-     <%= form_for(@user) do |f| %>
+
+     <%= form_for(Instauser.new) do |f| %>
        
       <div class="form-group form-groupemail">
         <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email'" %>

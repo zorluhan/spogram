@@ -45,17 +45,17 @@ class InstausersController < ApplicationController
 
   def signup
     instauser = Instauser.find_by_id(session[:instauser_id])
-    @user=Instauser.new
+   
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
     SnsFeedsWorker.perform_in(2.seconds, instauser.id)
   end 
 
   def create
-    instauser= Instauser.find_by_id(session[:instauser_id])
-    if instauser.update_attributes(instauser_params)
+    @instauser= Instauser.find_by_id(session[:instauser_id])
+    if @instauser.update_attributes(instauser_params)
       session[:instauser_id] = nil
-      instauser_log_in(instauser)
-      instauser.send_welcome_email
+      instauser_log_in(@instauser)
+      @instauser.send_welcome_email
       redirect_to '/dashboard' 
     else
       redirect_to '/signup'
