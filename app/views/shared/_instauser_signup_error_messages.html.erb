@@ -1,16 +1,16 @@
  
-
+<% unless @instauser.nil? %>
  
-<% if @user.errors.any? %>
+<% if @instauser.errors.any? %>
  
-      The form contains <%= pluralize(@user.errors.count, "error") %>  
+      The form contains <%= pluralize(@instauser.errors.count, "error") %>  
  
     <ul>
-    <% @auser.errors.full_messages.each do |msg| %>
+    <% @instauser.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
  
 <% end %>
  
- 
+ <%end%>
