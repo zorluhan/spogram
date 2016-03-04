@@ -1,23 +1,20 @@
   
+ 
+  
+ 
+ 
 <div class="row row0">
-  <span id="flash_messages"><%= flash_messages(:close)  %></span> 
-  <nav class="navbar navbar-default">
-<script type="text/javascript">
-$( document ).ready(function() {
-    $(".navbar-collapse").click(function(){
-        $(".navbar-collapse").removeClass(".navbar-collapsse.in").addClass(".navbar-collapse");
-    });
-});
-</script>
-<div class="container-fluid">
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"  aria-expanded="false">
+<header>
+<span id="flash_messages"><%= flash_messages(:close)  %></span> 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
       <a class="navbar-brand" href="#" title="capish">capish</a>
     </div>
 
@@ -31,9 +28,8 @@ $( document ).ready(function() {
     </div>
     <button type="submit" class="btn btn-default"> </button> 
   </form>  --> 
-
-  <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
     <% if instauser_logged_in?  %>
           
          <li class="active"> 
@@ -60,6 +56,7 @@ $( document ).ready(function() {
  
 
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <% unless current_instauser.firstname.nil? %>
        <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4"><%=  current_instauser.firstname %></a></li><%end%>
@@ -72,6 +69,56 @@ $( document ).ready(function() {
       </ul>
 
     </div>
+
+<nav class="mobilenav">
+  <a class="navbar-brand" href="#" title="capish">capish</a>
+  <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
+  <ul class="mainNavDropDown clearfix">
+<li class="active"> 
+          <%= link_to charges_path   do %>
+            Proposals  <% count = unread_charges_count(current_instauser) %>  
+            
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
+          <% end %> 
+        </li>
+        <li>
+          <%= link_to messages_path do %>
+            Messages 
+            <% count = instauser_unread_total_messages_count(current_instauser) %>
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+          <% end %>
+        </li>
+
+          <li>
+          <%= link_to brands_path   do %>
+            Brands
+       
+          <% end %>
+        </li>
+ 
+ <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4"><%=  current_instauser.firstname %></a></li><%end%>
+
+        <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
+      <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
+      <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
+        
+       <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :method => :delete %></li>
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <% elsif branduser_logged_in? %>
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
@@ -96,6 +143,8 @@ $( document ).ready(function() {
         <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
       </ul>   
     <% end %>
+
+
   </div>
 </nav>  
  </div>

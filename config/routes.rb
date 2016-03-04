@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
   # patch '/publish' => 'messages#publish'
-
+  get '/menudeneme' => 'pages#menudeneme'
   root 'pages#home'
   get '/faq' => 'pages#faq'
   get '/pages/about' => 'pages#about'
