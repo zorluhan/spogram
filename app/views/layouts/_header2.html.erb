@@ -2,7 +2,13 @@
 <div class="row row0">
   <span id="flash_messages"><%= flash_messages(:close)  %></span> 
   <nav class="navbar navbar-default">
-
+<script type="text/javascript">
+$( document ).ready(function() {
+    $("button.navbar-toggle").click(function(){
+        $("button.navbar-toggle").toggleClass("collapse");
+    });
+});
+</script>
 <div class="container-fluid">
   <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"  aria-expanded="false">
@@ -11,8 +17,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
       <a class="navbar-brand" href="#" title="capish">capish</a>
     </div>
+
+    
 
 <!-- data-target="#bs-example-navbar-collapse-1" !-->
 

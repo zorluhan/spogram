@@ -50,14 +50,5 @@ $(document).ready(function() {
   });
 });
 
-var navbar = $('#bs-example-navbar-collapse-1');
-
-$('button.navbar-toggle').click(function() {
-    navbar.toggleClass('in');
-});
-
-$('ul.nav li').click(function() {
-    navbar.removeClass('in');
-});
-                                                                                                                                                                                                                                                                                                                                
-.collapse()
+ 
+ 
