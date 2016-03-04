@@ -24,6 +24,7 @@ class Instauser < ActiveRecord::Base
   #serialize :recent_media_urls
 
   #after_create :send_welcome_email
+ 
 
   def send_welcome_email
     if Rails.env.production?

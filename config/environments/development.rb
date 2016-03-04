@@ -57,6 +57,8 @@ Rails.application.configure do
     authentication: :login,
     ssl:            true }
 
+ 
+
   INSTAGRAM_CALLBACK_URL = "http://localhost:3000/callback"
 
 end

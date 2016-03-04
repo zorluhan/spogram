@@ -19,9 +19,9 @@
               <div id="gmaps-canvas" style="display: none;"></div>
   </div>
   <div class="form-group form-groupcake">
-   <%= f.text_field :date_of_birth, :type=> "fullname", :class=> "form-control formcapish date_of_birth", :placeholder => "DOB", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='DOB'" %> <br>
+   <%= f.text_field :date_of_birth, :type=> "fullname", :class=> "form-control formcapish date_of_birth", :placeholder => @instauser.date_of_birth.to_formatted_s(:rfc822) , :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='DOB'" %> <br>
   </div>
-
+ 
 
   <div class="form-group form-selectfull form-noborder">
   <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "form-control"} %>
@@ -35,7 +35,7 @@
             <div class="form-group form-noborder form-groupbio">
     <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right" id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span></label>
 
-    <%= f.text_area :bio, maxlength: @maximum_length, :id => "review_text", :placeholder=>"Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
+    <%= f.text_area :bio, maxlength: @maximum_length, :id => "review_text", :placeholder=>"Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 300 characters or less.'" %>
 
  
 
