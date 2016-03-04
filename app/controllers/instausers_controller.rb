@@ -58,7 +58,7 @@ class InstausersController < ApplicationController
       instauser.send_welcome_email
       redirect_to '/dashboard' 
     else
-      render :signup
+      render "signup"
     end
   end
 
