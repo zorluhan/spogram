@@ -45,9 +45,10 @@
 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
-        <%= f.select :theme, options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'], ['Parenting','Parenting'],['Fitness','Fitness'], ['Design','Design']], 2),{:include_blank => 'Select'}, { :class => 'form-control' } %>
+        <%= f.select :theme, options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']], 2),{:include_blank => 'Select'}, { :class => 'form-control' } %>
       </div>
       
+ 
       <label for="name" class="gender"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post (min)</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
       <div class="form-group form-groupmoney">
         <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "Price per post ($). This can be changed at anytime.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>
