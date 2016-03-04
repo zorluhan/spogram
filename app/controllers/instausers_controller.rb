@@ -76,6 +76,8 @@ class InstausersController < ApplicationController
 
   def edit
     @instauser=Instauser.find_by_id(params[:id])
+@maximum_length = Instauser.validators_on( :bio ).first.options[:maximum]
+
   end
 
     def editaccount

@@ -24,7 +24,13 @@
         <div class="col-md-3 col-sm-3 text-center-xs">
         <i class="fa fa-user"></i><%= Date.today.year - @instauser.date_of_birth.to_date.year %>, <%= @instauser.gender %></div>
         <div class="col-md-3 col-sm-3 text-center-xs">
-        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %></div>
+         <%if @instauser.location.split(',').count==2 %>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %>
+        <%elsif @instauser.location.split(',').count==3 or @instauser.location.split(',').count>3 %>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-3]},#{@instauser.location.split(',').last}" %>
+        <%else%>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',').last}" %><%end%>
+      </div>
         </div>
 
          <div class="row bio text-center-xs"> <% if @instauser.bio.nil? %>

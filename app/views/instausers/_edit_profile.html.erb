@@ -33,8 +33,12 @@
             </div>
 
             <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right" id="textarea_feedback"></span></label>
-    <%= f.text_area :bio, :placeholder=>"Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
+    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right" id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span></label>
+
+    <%= f.text_area :bio, maxlength: @maximum_length, :id => "review_text", :placeholder=>"Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
+
+ 
+
   </div>
 
   <label for="name" class="gender"><span class="moneyicon pull-left"></span><i class ="fa fa-money"></i>Price Per Post (min)</label>
@@ -54,3 +58,18 @@
    </div>
     <div class="row row0 text-right terms">By clicking save, you agree to our <a href="#">terms of use</a></div>
 <% end %>
+
+
+
+<script>
+    $(document).ready(function() {
+      var review_text = $("#review_text");
+      var counter     = $("#counter");
+      var max_length  = counter.data("maximum-length");
+
+      review_text.keyup(function() {
+          counter.text(max_length - $(this).val().length);
+      });
+
+    });
+</script>

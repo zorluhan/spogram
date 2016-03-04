@@ -15,6 +15,8 @@ class Instauser < ActiveRecord::Base
   validates :lastname, presence: :true 
   validates :theme , presence: true 
   validates :gender, presence: true 
+  validates :bio, length: { maximum: 300 }
+
 
   #include Elasticsearch::Model
   #include Elasticsearch::Model::Callbacks
