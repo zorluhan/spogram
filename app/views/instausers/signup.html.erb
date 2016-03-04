@@ -8,7 +8,7 @@
   <div class="container">
     <a class="logo" href="#" title="capish">capish</a>
     <h2 class="text-center">ALMOST THERE!</h2>
-     <%= form_for(Instauser.new) do |f| %>
+     <%= form_for(@user) do |f| %>
         <%= render 'shared/instauser_signup_error_messages' %>  
       <div class="form-group form-groupemail">
         <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email'" %>
