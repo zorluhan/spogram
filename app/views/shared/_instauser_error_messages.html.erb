@@ -1,0 +1,17 @@
+
+
+ 
+<% if @instauser.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@instauser.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @instauser.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+ 
+<hr>

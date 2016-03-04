@@ -1,4 +1,10 @@
+
+
+
+
 <%= form_for(@instauser, :html => {:role => 'form'}) do |f| %>  
+ <%= render 'shared/instauser_error_messages'  %>   
+ 
    <input type="hidden" name="edit" value="<%= params[:edit] %>">
    <div class="form-group form-groupname1 pull-left">
    <%= f.text_field :firstname, :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First Name", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='First Name'" %> <br>
@@ -28,7 +34,7 @@
 
             <div class="form-group form-noborder form-groupbio">
     <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right">300</span></label>
-    <textarea placeholder="Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less." onfocus="this.placeholder = ''" onblur="this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'"></textarea>
+    <%= f.text_area :bio, :placeholder=>"Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
   </div>
 
   <label for="name" class="gender"><span class="moneyicon pull-left"></span><i class ="fa fa-money"></i>Price Per Post (min)</label>

@@ -7,6 +7,15 @@ class Instauser < ActiveRecord::Base
   has_many :brandusers, through: :charges
   has_many :instaposts
 
+  validates :location , presence: true 
+  validates :date_of_birth, presence: true
+  validates :email, presence: true 
+  validates :email, :email_format => {:message => 'is not looking good'}
+  validates :firstname, presence: :true 
+  validates :lastname, presence: :true 
+  validates :theme , presence: true 
+  validates :gender, presence: true 
+
   #include Elasticsearch::Model
   #include Elasticsearch::Model::Callbacks
 

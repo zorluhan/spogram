@@ -27,7 +27,8 @@
         <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %></div>
         </div>
 
-         <div class="row bio text-center-xs"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et nibh vitae est elementum vulputate. Lorem ipsum dolor sit amet, consectetur adipiscin
+         <div class="row bio text-center-xs"> <% if @instauser.bio.nil? %>
+          Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. <%elsif @instauser.bio.present? %> <%= @instauser.bio %> <%end%>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302074308) do
+ActiveRecord::Schema.define(version: 20160304124038) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160302074308) do
     t.string   "paypal_email"
     t.boolean  "send_email",        default: true
     t.string   "passion"
+    t.string   "bio"
   end
 
   create_table "messages", force: true do |t|
