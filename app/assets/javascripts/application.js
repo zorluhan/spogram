@@ -50,8 +50,14 @@ $(document).ready(function() {
   });
 });
 
-$(document).on('click','navbar.collapse.in',function(e) {
-    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
-        $(this).collapse('hide');
-    }
+var navbar = $('#bs-example-navbar-collapse-1');
+
+$('button.navbar-toggle').click(function() {
+    navbar.toggleClass('in');
 });
+
+$('ul.nav li').click(function() {
+    navbar.removeClass('in');
+});
+                                                                                                                                                                                                                                                                                                                                
+.collapse()
