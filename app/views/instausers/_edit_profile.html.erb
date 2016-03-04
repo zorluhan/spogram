@@ -33,8 +33,8 @@
             </div>
 
             <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right">300</span></label>
-    <%= f.text_area :bio, :placeholder=>"Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
+    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right" id="textarea_feedback"></span></label>
+    <%= f.text_area :bio, :placeholder=>"Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less.'" %>
   </div>
 
   <label for="name" class="gender"><span class="moneyicon pull-left"></span><i class ="fa fa-money"></i>Price Per Post (min)</label>
