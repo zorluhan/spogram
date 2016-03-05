@@ -72,6 +72,12 @@ class InstausersController < ApplicationController
     end
   end
 
+def brands_contact_form
+
+end 
+
+
+
   def dashboard
     @instauser = current_instauser
     @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false)

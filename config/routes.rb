@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
   # patch '/publish' => 'messages#publish'
+  get '/brands-contact-form' => "instausers#brands_contact_form"
   get '/menudeneme' => 'pages#menudeneme'
   root 'pages#home'
    get '/pages/terms' => 'pages#terms'
