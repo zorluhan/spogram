@@ -41,10 +41,11 @@
 
   </div>
 
-  <label for="name" class="gender"><span class="moneyicon pull-left"></span><i class ="fa fa-money"></i>Price Per Post (min)</label>
+  <label for="name" class="gender"><span class="moneyicon pull-left"></span><i class ="fa fa-money"></i>Price Per Post ($)</label>
     <div class="form-group">
 
-      <%= f.number_field :postprice, class: "form-control formcapish", :id=>"usr", :placeholder=> "$" , :onfocus=>"this.placeholder = '$'", :onblur=>"this.placeholder='$'" %>
+      <%= f.number_field :postprice, class: "form-control formcapish", :id=>"usr", :placeholder=> "$" , :onfocus=>"this.placeholder = 'This is the price per post brands will see on your profile. You can change this at any time.
+'", :onblur=>"this.placeholder='$'" %>
 
     </div>
 
