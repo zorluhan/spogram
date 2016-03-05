@@ -41,7 +41,7 @@ class InstausersController < ApplicationController
   end
 
   def new 
-    @instauser=Instauser.new
+    
     redirect_to '/auth'
   end 
 
