@@ -18,12 +18,9 @@ class PagesController < ApplicationController
 def faq
 end
 
-def menudeneme
+ def terms
+ end
  
-
-  
-end
-
   def search
   end
  

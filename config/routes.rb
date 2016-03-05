@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # patch '/publish' => 'messages#publish'
   get '/menudeneme' => 'pages#menudeneme'
   root 'pages#home'
+   get '/pages/terms' => 'pages#terms'
   get '/faq' => 'pages#faq'
   get '/pages/about' => 'pages#about'
   get '/instagrammers' => 'pages#instagrammers'
