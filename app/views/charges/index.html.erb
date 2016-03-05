@@ -15,7 +15,7 @@ There are currently no proposals in your inbox.
 
 
 
-  <%end%>
+  <%else%>
   <div id="leftbar">
     <ul class="list-group" id="form">
       <font face="Lobster">
@@ -55,7 +55,7 @@ There are currently no proposals in your inbox.
 
   <div id="publishproposal">
   </div>
-
+<%end%>
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
   <div id="leftbar">
     <ul class="list-group" id="form">
@@ -102,4 +102,5 @@ There are currently no proposals in your inbox.
   <script type="text/javascript">
     window.location.href="/"  // put your correct path in a string here
   </script>
+
 <%end%>
