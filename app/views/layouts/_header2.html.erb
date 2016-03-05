@@ -42,6 +42,9 @@
 
           <ul class="nav navbar-nav">
             <li class="active"> 
+             <a href="<%= root_path %>">Home</a> 
+             </li>
+            <li class="active"> 
               <%= link_to charges_path  do %>
                     Proposals  <% count = unread_charges_count(current_instauser) %>  
             
