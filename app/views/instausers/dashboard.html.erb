@@ -41,7 +41,7 @@
 </div>
 
 <div class="row">
-  <h2>General Info</h2>
+  <h2>THE SCOOP</h2>
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
     <div class="widget-title">Passion</div>
@@ -73,17 +73,17 @@
 </div>
 
 <div class="row">
-<h2>Most Liked Posts</h2>
+<h2>MOST LIKED</h2>
  <% @instauser_most_liked_posts.each do |x| %>
 <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i>&nbsp;<%= x.likes_counts %></span></a></div> 
    <%end%>
 </div>
 
 <div class="row">
-  <h2>Stats</h2>
+  <h2>STATS</h2>
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
-    <div class="widget-title">Engagement Score<i class="fa fa-info-circle btn5"></i></div>
+    <div class="widget-title">Engagement score<i class="fa fa-info-circle btn5"></i></div>
      <div class="row row-table">
       <div class="col-xs-4 text-center pv-lg">
          <i class="fa fa-line-chart"></i>
@@ -97,7 +97,7 @@
 
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
-    <div class="widget-title">Average Likes</div>
+    <div class="widget-title">Average likes</div>
      <div class="row row-table">
       <div class="col-xs-4 text-center pv-lg">
          <i class="fa fa-heart"></i>
@@ -113,7 +113,7 @@
 <div class="row">
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
-    <div class="widget-title">Number of Followers</div>
+    <div class="widget-title">Number of followers</div>
      <div class="row row-table">
       <div class="col-xs-4 text-center pv-lg">
          <i class="fa fa-users"></i>
@@ -126,7 +126,7 @@
   </div>
   <div class="col-lg-6 col-sm-6 col-xs-12 col0">
     <div class="panel widget">
-    <div class="widget-title">Average Comments</div>
+    <div class="widget-title">Average comments</div>
      <div class="row row-table">
       <div class="col-xs-4 text-center pv-lg">
          <i class="fa fa-comment"></i>
@@ -141,7 +141,7 @@
 
 
 <div class="row">
-<h2>Most Recent Posts</h2>
+<h2>MOST RECENT</h2>
   <% @instauser_recent_posts.each do |x| %>
 <div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /></a></div> <%end%>
 </div>
