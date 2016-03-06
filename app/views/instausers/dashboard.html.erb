@@ -22,7 +22,7 @@
 
          <div class="row info">
         <div class="col-md-3 col-sm-3 text-center-xs">
-          <% unless !@instauser.date_of_birth.nil? %>
+          <% unless @instauser.date_of_birth.nil? %>
         <i class="fa fa-user"></i><%= Date.today.year - @instauser.date_of_birth.to_date.year %><%end%>, <%= @instauser.gender %></div>
         <div class="col-md-3 col-sm-3 text-center-xs">
          <%if @instauser.location.split(',').count==2 %>

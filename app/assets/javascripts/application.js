@@ -46,7 +46,7 @@ $(document).ready(function() {
     changeMonth: true,
     changeYear: true,
     dateFormat: 'dd-mm-yy',
-    yearRange: "1950:2015"
+    yearRange: "1950:2005"
   });
 });
 
