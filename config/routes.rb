@@ -62,7 +62,7 @@ Rails.application.routes.draw do
    delete '/blogout' => 'sessions#destroy'
    get '/bdashboard' => 'brandusers#dashboard'
    get '/message-brands' => 'instausers#formmessage' , as: :formmessage
-
+    get '/index2' => 'pages#index2'
   get '/auth' => 'instausers#auth'
   get '/signup' => 'instausers#signup'
   get '/newuser' => 'instausers#new'  
