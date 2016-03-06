@@ -108,7 +108,7 @@ end
     end
     if @instauser.update(instauser_params)
       flash_now!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))  
-      redirect_to 'dashboard'
+      redirect_to '/dashboard'
     else
       render 'edit'
     end
