@@ -50,6 +50,7 @@ class InstausersController < ApplicationController
     if instauser.nil?
         session[:instauser_id]= nil
         reset_session
+        flash_now!(:error => I18n.t("flash_messages.defaults.testlimitreached"))  
         redirect_to root_path
     else
 
