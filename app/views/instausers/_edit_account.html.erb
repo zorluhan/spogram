@@ -8,12 +8,16 @@
    <%= f.email_field :email, :type=> "email", :class=> "form-control formcapish", :id => "email", :placeholder => "", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Email'" %> <br>
   </div>
 
-    
-    <label class="lblpaypal">We have partnered with PayPal for global bank transfers. <a href="http://www.paypal.com.tr" target="_blank">Don't have a PayPal account?</a></label>
-    <div class="form-group form-grouppaypal">
-    <%= f.email_field :paypal_email, :type=> "email", :class=> "form-control formcapish", :id => "email", :placeholder => "Paypal Email Address, this can be changed later.", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Paypal email address. This can be changed later'" %> <br>
-   
-    </div>
+  
+
+
+ <label class="gender"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal Email</span><a href="#" class="lblright pull-left">Don't have a PayPal account?</a></label>
+      <div class="form-group form-grouppaypal">
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>      
+      </div>
+
+
+
 
     <div class="form-group">
       <div class="enotif">Email Notification&nbsp;  
@@ -29,16 +33,7 @@
 <% end %>
 
 
-<div class="footer-wrapper">
-<div class="container text-center">
-  <footer>
-    <a href="#">Contact</a>
-    <a href="#">FAQ</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-  </footer>
-</div>
-</div>
+
 
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -59,3 +54,17 @@
     </div>
   </div>
 </script>
+
+
+
+
+<div class="footer-wrapper">
+<div class="container text-center">
+  <footer>
+    <a href="#">Contact</a>
+    <a href="#">FAQ</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </footer>
+</div>
+</div>
