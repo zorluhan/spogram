@@ -17,39 +17,39 @@
      <%= form_for(Instauser.new) do |f| %>
         <%= render 'shared/instauser_signup_error_messages' %> 
       <div class="form-group form-groupemail">
-        <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email'" %>
+        <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email'" %>
       </div>
 
       <div class="form-group form-groupname1 pull-left">
-        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First Name", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First Name'" %>
+        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First Name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First Name'" %>
       </div>
 
       <div class="form-group form-groupname2 pull-right">
-        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last Name", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last Name'" %>
+        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last Name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last Name'" %>
       </div>
       
       <div class="form-group form-grouploc">
-        <%= f.text_field :location, class: "gmapsinput form-control formcapish", placeholder: "Start typing a city", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Start typing a city'" %>
+        <%= f.text_field :location, class: "gmapsinput form-control formcapish", placeholder: "Start typing a city *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Start typing a city'" %>
         <div id="gmaps-error" style="display: none;"></div>
         <div id="gmaps-canvas" style="display: none;"></div>        
       </div>
 
       <div class="form-group form-groupcake">
-        <%= f.text_field :date_of_birth, class: "form-control formcapish date_of_birth", placeholder: "Date of birth", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Date of birth'" %>      
+        <%= f.text_field :date_of_birth, class: "form-control formcapish date_of_birth", placeholder: "Date of birth *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Date of birth'" %>      
       </div>
 
       <div class="form-group form-selectfull form-noborder">
-        <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>
+        <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>
         <%= f.select :gender, options_for_select([['Female','Female'],['Male','Male']] ,2), {},{ :class => 'form-control' } %>        
       </div>
 
       <div class="form-group form-selectfull form-noborder">
-        <label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
+        <label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed? *</label>
         <%= f.select :theme, options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']], 2),{:include_blank => 'Select'}, { :class => 'form-control' } %>
       </div>
       
  
-      <label for="name" class="gender"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post ($)</span><span class="lblright pull-left">This is the price per post brands will see on your profile. You can change this at any time.
+      <label for="name" class="gender"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post ($) *</span><span class="lblright pull-left">This is the price per post brands will see on your profile. You can change this at any time.
 </span></label>
       <div class="form-group form-groupmoney">
         <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
