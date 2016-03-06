@@ -65,7 +65,7 @@ class InstausersController < ApplicationController
       session[:instauser_id] = nil
       instauser_log_in(@instauser)
       @instauser.send_welcome_email
-      redirect_to '/dashboard' 
+      redirect_to "/dashboard"
     else
 
       render "signup"
