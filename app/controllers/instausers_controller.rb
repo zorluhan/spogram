@@ -51,7 +51,7 @@ class InstausersController < ApplicationController
         session[:instauser_id]= nil
         reset_session
         flash_now!(:error => I18n.t("flash_messages.defaults.testlimitreached"))  
-        redirect_to root_path
+        redirect_to "/pages/logout"
     else
 
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
