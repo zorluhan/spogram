@@ -237,7 +237,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 
 
 .fullimg {
-    background: image-url("background.jpg") no-repeat top center;
+    background: url(background3.jpg) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -321,6 +321,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
   color: #fff;
 }
 .btn-send2{margin-top:10px;}
+.btn a{color:#fff;}
 
 .txtpage .container{max-width:465px;min-height:500px;}
 .txtpage h2{font-weight:300;font-size:30px;color:#666;line-height:32px;margin-bottom:40px;}
@@ -351,7 +352,7 @@ a.lblright{color:#555;}
 .form-groupemail:before {font-family:'FontAwesome';  content: "\f0e0";color:#ccc;font-size:18px;}
 /*.form-groupname1:before {font-family:'FontAwesome';  content: "\f007";color:#ccc;font-size:21px;padding-right:1px;}*/
 .form-grouploc:before {font-family:'FontAwesome';  content: "\f041";color:#ccc;font-size:21px;padding:0 2px 0 2px;}
-/*.form-groupmoney:before {font-family:'FontAwesome';  content: "\f0d6";color:#ccc;font-size:18px;}*/
+.form-groupmoney:before {font-family:'FontAwesome';  content: "\f155";color:#ccc;font-size:18px;}
 .moneyicon i{font-size:18px !important;}
 /*.form-grouppaypal:before {font-family:'FontAwesome';  content: "\f1ed";color:#ccc;font-size:18px;padding:0 2px 0 1px;}*/
 .form-groupcake:before {font-family:'FontAwesome';  content: "\f1fd";color:#ccc;font-size:16px;padding:0 2px 0 0;}
@@ -439,6 +440,7 @@ top: 10px;
 border-radius: 10px;}
 
 
+.mobilenav{margin-bottom:20px;}
 .mobilenav .navbar-brand{margin:11px 10px 0;}
 .mainNav{
   width: 100%;
@@ -463,23 +465,36 @@ border-radius: 10px;}
  }
 .mainNavDropDown li{
   font-size:14px;
-  padding:12px 0 12px 25px;
   width: 100%;
-  border-bottom:1px solid #DA4A3A;
+  border-top:1px solid #DA4A3A;
   color: #fff;
  }
  .mainNavDropDown li a{
   color: #fff;
   font-size:14px;
   font-weight:700;
+  display:block;
+  padding:12px 0 12px 25px;
  }
-.mainNavDropDown li:last-child{
-  border-bottom: none;
+.mainNavDropDown li:last-child a{
+  padding-bottom:14px;
  }
 .mainNavDropDown li:hover{
   color: fff;
  }
 @media (min-width: 767px) {.navbar-default{display:block;}.mobilenav{display:none;}}
+
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
+.red-tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#f00; }
+
+.welcomeinput{max-width:340px;margin:0 auto;}
+.welcomeinput input{font-size:16px;margin-bottom:10px;}
+.btn-welcome2{margin-top:10px;}
+.welcomelogin{font-size:16px;}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
