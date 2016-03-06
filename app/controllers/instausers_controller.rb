@@ -94,7 +94,7 @@ end
 
   def edit
     @instauser=Instauser.find_by_id(params[:id])
-@maximum_length = Instauser.validators_on( :bio ).first.options[:maximum]
+     @maximum_length = 300
 
   end
 
