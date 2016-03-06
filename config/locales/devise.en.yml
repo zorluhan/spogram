@@ -66,4 +66,13 @@ en:
         cowebsite: "Website"
         coname: "Company Name"
         comsize: "Company Size"
+      instauser:
+        firstname: "First Name"
+        lastname: "Last Name"
+        theme: "Passion"
+        location: "Location"
+        date_of_birth: "Date of Birth"
+        gender: "Gender"
+        postprice: "Price Per Post"
+        
                
