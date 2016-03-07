@@ -7,7 +7,8 @@ class Instauser < ActiveRecord::Base
   has_many :brandusers, through: :charges
   has_many :instaposts
 
-skip_callback :validate, :before, :create, if: -> { self.username == nil }
+skip_callback :validate, :before, :create, if: -> { self.username == nil or  self.disabled == true}
+ 
  # validates :location , presence: true 
  # validates :date_of_birth, presence: true
   #validates :email, presence: true 
