@@ -35,8 +35,8 @@
       </div>
 
        <div class="form-groupcake">
-  <%= f.date_select :dob, {order: [:day, :month, :year], :selected => @instauser.dob , :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
-  </div>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }, :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
+  </div><br>
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>
         <%= f.select :gender, options_for_select([['Female','Female'],['Male','Male']] ,2), {},{ :class => 'form-control' } %>        
