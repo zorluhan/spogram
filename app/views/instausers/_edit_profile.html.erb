@@ -19,7 +19,7 @@
               <div id="gmaps-canvas" style="display: none;"></div>
   </div>
   <div class="form-groupcake">
-  <%= f.date_select :dob, {order: [:month, :day, :year], :selected => @instauser.dob , :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :selected => @instauser.dob , :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
   </div>
  <br>
   <div class="form-group form-selectfull form-noborder">
