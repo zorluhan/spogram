@@ -11,7 +11,7 @@
 // about supported directives.require jquery.spin
 // require spin
 
- 
+//= require rails.validations
 // require jquery
 //= require jquery.min.js
 // require jquery-1.12.0.min.js
@@ -21,7 +21,6 @@
 //= require jquery-ui.min.js
 // require npm.js
 // require turbolinks
-//= require rails.validations
 //= require_tree .
 
 function imgError(image) {
