@@ -12,7 +12,7 @@ class Instauser < ActiveRecord::Base
  # validates :date_of_birth, presence: true
   #validates :email, presence: true 
  # validates :email, :email_format => {:message => 'is not looking good'}
- validates :firstname, presence: :true, :if => :username_not_nil? or :disabled_false?
+ validates :firstname, presence: :true, :if => :username_is_present  
  #validates :lastname, presence: :true,  :if => :first_time_user?   
   #validates :theme , presence: true 
   #validates :gender, presence: true 
@@ -26,16 +26,14 @@ class Instauser < ActiveRecord::Base
 
   #after_create :send_welcome_email
  
- def username_not_nil?
+ def username_is_present
 
- username != nil  
+ username.present? 
 
  end 
 
 
- def disabled_false? 
-  disabled == false
-end 
+ 
 
 
   def send_welcome_email
