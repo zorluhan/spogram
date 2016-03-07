@@ -28,7 +28,7 @@ class Instauser < ActiveRecord::Base
  
  def first_time_user?
 
- username == nil or disabled==true 
+ self.username != nil or self.disabled==false
 
  end 
 
