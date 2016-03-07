@@ -12,8 +12,8 @@ class Instauser < ActiveRecord::Base
  # validates :date_of_birth, presence: true
   #validates :email, presence: true 
  # validates :email, :email_format => {:message => 'is not looking good'}
- validates :firstname, presence: :true, if: -> { self.username == nil or  self.disabled == true}
- validates :lastname, presence: :true, if: -> { self.username == nil or  self.disabled == true}
+ validates :firstname, presence: :true, if: -> { self.username != nil or  self.disabled == false}
+ validates :lastname, presence: :true, if: -> { self.username != nil or  self.disabled == false}
   #validates :theme , presence: true 
   #validates :gender, presence: true 
   #validates :bio, length: { maximum: 300 }
