@@ -18,11 +18,10 @@
     <div id="gmaps-error" style="display: none;"></div>
               <div id="gmaps-canvas" style="display: none;"></div>
   </div>
-  <div class="form-group form-groupcake">
-   <%= f.text_field :date_of_birth, :value => (@instauser.date_of_birth.present? ? @instauser.date_of_birth.to_datetime.to_s(:default_date) : ''), :type=> "fullname", :class=> "form-control formcapish date_of_birth", :placeholder => @instauser.date_of_birth, :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='DOB'" %> <br>
+  <div class="form-groupcake">
+  <%= f.date_select :dob, {order: [:month, :day, :year], :selected => @instauser.dob , :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
   </div>
- 
-
+ <br>
   <div class="form-group form-selectfull form-noborder">
   <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "form-control"} %>
   </div>
@@ -41,7 +40,7 @@
 
   </div>
 
-   <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post *</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
+   <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
       <div class="form-group form-groupmoney">
         <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
       </div>

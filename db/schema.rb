@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304124038) do
+ActiveRecord::Schema.define(version: 20160306194057) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160304124038) do
     t.boolean  "send_email",        default: true
     t.string   "passion"
     t.string   "bio"
+    t.date     "dob"
   end
 
   create_table "messages", force: true do |t|

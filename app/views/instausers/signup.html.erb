@@ -34,10 +34,9 @@
         <div id="gmaps-canvas" style="display: none;"></div>        
       </div>
 
-      <div class="form-group form-groupcake">
-        <%= f.text_field :date_of_birth, class: "form-control formcapish date_of_birth", placeholder: "Date of birth *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Date of birth *'" %>      
-      </div>
-
+       <div class="form-groupcake">
+  <%= f.date_select :dob, {order: [:month, :day, :year], :selected => @instauser.dob , :start_year => Date.today.year - 80, :end_year => Date.today.year - 18 }, {:class=> "date-select"} %><br>
+  </div>
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>
         <%= f.select :gender, options_for_select([['Female','Female'],['Male','Male']] ,2), {},{ :class => 'form-control' } %>        

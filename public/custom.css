@@ -1,17 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300&subset=latin,latin-ext);
 body{font-family: "Roboto",sans-serif;}
-input.text, textarea.textarea{background:#FFFFFF url(/images/fieldbg.gif) repeat-x top}
-.info{border-bottom:0;padding:0;}
-.info{border-bottom:0;padding:0;}
+input.text, textarea.textarea{background:#FFFFFF none;}
+.info{border-bottom:0 !important;padding:0;}
 .instruct{border:1px solid #e6e6e6}
-.info h2{color: #333 !important;display: block;font-size: 14px !important;font-weight: 700 !important;font-family: "Roboto",sans-serif !important;}
-.info div{font-size:95%;font-family:inherit;color:#444444}
+.info h2{color: #333 !important;display: block;font-size: 14px !important;font-weight: 700 !important;font-family:"Roboto",sans-serif !important;}
+.info div{font-size:95%;font-family:inherit;color:#666 !important;}
 .section h3{font-size:110%;font-family:inherit;background:#FFFFFF;color:#000000}
 .section div{font-size:85%;font-family:inherit;color:#444444}
-label.desc, legend.desc{font-size:95%;font-family:inherit;color:#444444}
+label.desc, legend.desc{font-size:14px !important;font-family:inherit;color:#666 !important;font-family: "Roboto",sans-serif !important;}
 li div, li div label, li span label{font-family:inherit;color:#777}
 input.text, textarea.textarea, select.select, label.choice{font-size:13px;color:#333;border:1px solid #ccc;padding:0 0 0 5px;}
-textarea.textarea{padding:5px 0 0 5px;}
+select.select{height:32px;}
+input.medium{width:90% !important;}
+select.medium{width:91% !important;}
+textarea.textarea{padding:5px 0 0 5px;max-width: 90% !important;min-width: 90% !important;}
+span.symbol{margin-top:5px !important;color:#666 !important;}
 input.text{height:28px !important;line-height:28px !important;}
 label.choice{color:#444444}
 .instruct{font-size:80%;font-family:inherit;color:#444444}

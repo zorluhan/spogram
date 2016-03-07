@@ -22,8 +22,8 @@
 
          <div class="row info">
         <div class="col-md-3 col-sm-3 text-center-xs">
-          <% if @instauser.date_of_birth.present? %>
-        <i class="fa fa-user"></i><%= Date.today.year - @instauser.date_of_birth.to_date.year %><%end%>, <%= @instauser.gender %></div>
+          <% if @instauser.dob.present? %>
+        <i class="fa fa-user"></i><%= Date.today.year - @instauser.dob.year %><%end%>, <%= @instauser.gender %></div>
         <div class="col-md-3 col-sm-3 text-center-xs">
          <%if @instauser.location.split(',').count==2 %>
         <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %>
@@ -165,17 +165,7 @@
 </div>
 </div>
       
-      
-
    
-<script type="text/javascript">$(document).ready(function(){
-    $('.btn1').tooltip({title: "Edit Profile", placement: "bottom"}); 
-    $('.btn2').tooltip({title: "FAQ", placement: "bottom"}); 
-    $('.btn3').tooltip({title: "Sign-out", placement: "bottom"}); 
-    $('.btn4').tooltip({title: "Sign-in", placement: "bottom"}); 
-    $('.btn5').tooltip({title: "Your engagement score is a single number used to measure how engaged your followers are. The score is based on an algorithm we developed that we are in the process of trademarking. The higher the number, the more engaged your followers are!", placement: "bottom"}); 
-});</script>
-
 
 
 

@@ -9,6 +9,14 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
+select.date-select {
+    width:auto;
+    height: 34px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    margin-left:3px;
+}
 body {
   margin: 0;
 }
@@ -27,6 +35,7 @@ section,
 summary {
   display: block;
 }
+
 audio,
 canvas,
 progress,
