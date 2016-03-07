@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
 gem 'puma'
- 
+gem 'client_side_validations'
 gem 'instagram' 
 gem 'validates_email_format_of'
 gem 'bcrypt'
