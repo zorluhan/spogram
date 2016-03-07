@@ -14,9 +14,9 @@
  
 // require jquery
 //= require jquery.min.js
-//= require rails.validations 
 // require jquery-1.12.0.min.js
 //= require jquery_ujs
+//= require rails.validations 
 //= require bootstrap-sprockets
 // require bootstrap.js
 //= require jquery-ui.min.js
