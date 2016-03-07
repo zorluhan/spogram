@@ -12,8 +12,8 @@ class Instauser < ActiveRecord::Base
  # validates :date_of_birth, presence: true
   #validates :email, presence: true 
  # validates :email, :email_format => {:message => 'is not looking good'}
- validates :firstname, presence: :true, if: -> { self.username != nil or  self.disabled == false}
- validates :lastname, presence: :true, if: -> { self.username != nil or  self.disabled == false}
+ validates :firstname, presence: :true, :if => :first_time_user?   
+ validates :lastname, presence: :true,  :if => :first_time_user?   
   #validates :theme , presence: true 
   #validates :gender, presence: true 
   #validates :bio, length: { maximum: 300 }
@@ -26,6 +26,11 @@ class Instauser < ActiveRecord::Base
 
   #after_create :send_welcome_email
  
+ def first_time_user?
+
+ username == nil or disabled==true 
+
+ end 
 
   def send_welcome_email
     if Rails.env.production?
