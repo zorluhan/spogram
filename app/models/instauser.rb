@@ -7,14 +7,13 @@ class Instauser < ActiveRecord::Base
   has_many :brandusers, through: :charges
   has_many :instaposts
 
-skip_callback :validate, :before, :create, if: -> { self.username == nil or  self.disabled == true}
  
  # validates :location , presence: true 
  # validates :date_of_birth, presence: true
   #validates :email, presence: true 
  # validates :email, :email_format => {:message => 'is not looking good'}
- validates :firstname, presence: :true 
- validates :lastname, presence: :true 
+ validates :firstname, presence: :true, if: -> { self.username == nil or  self.disabled == true}
+ validates :lastname, presence: :true, if: -> { self.username == nil or  self.disabled == true}
   #validates :theme , presence: true 
   #validates :gender, presence: true 
   #validates :bio, length: { maximum: 300 }
