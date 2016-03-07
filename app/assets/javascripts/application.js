@@ -23,6 +23,8 @@
 // require turbolinks
 //= require_tree .
 
+ 
+
 function imgError(image) {
     image.onerror = "";
     image.src = "/assets/missing2.png";
