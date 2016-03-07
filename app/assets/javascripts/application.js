@@ -21,7 +21,6 @@
 //= require jquery-ui.min.js
 // require npm.js
 // require turbolinks
-//= require rails.validations 
 //= require_tree .
 
  

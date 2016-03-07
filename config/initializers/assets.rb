@@ -3,7 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-# Rails.application.config.assets.precompile += %w( jquery-ui-1.8.16.custom.css )
+ Rails.application.config.assets.precompile += %w( rails.validations.js )
 # Rails.application.config.assets.precompile += %w( jquery.min.js )
 # Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
 # Rails.application.config.assets.precompile += %w( jquery.min.js )
