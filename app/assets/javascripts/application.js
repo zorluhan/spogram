@@ -13,7 +13,6 @@
 
  
 // require jquery
-//= require rails.validations.js
 //= require jquery.min.js
 // require jquery-1.12.0.min.js
 //= require jquery_ujs
@@ -22,6 +21,7 @@
 //= require jquery-ui.min.js
 // require npm.js
 // require turbolinks
+//= require rails.validations 
 //= require_tree .
 
  
