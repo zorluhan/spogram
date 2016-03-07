@@ -11,7 +11,7 @@
 // about supported directives.require jquery.spin
 // require spin
 
-//= require rails.validations
+ 
 // require jquery
 //= require jquery.min.js
 // require jquery-1.12.0.min.js
@@ -19,6 +19,7 @@
 //= require bootstrap-sprockets
 // require bootstrap.js
 //= require jquery-ui.min.js
+//= require jquery.validate.min.js
 // require npm.js
 // require turbolinks
 //= require_tree .
@@ -62,4 +63,5 @@ $(document).ready(function() {
         $('#textarea_feedback').html(text_remaining);
     });
 });
+
  

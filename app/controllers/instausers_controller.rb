@@ -47,22 +47,24 @@ class InstausersController < ApplicationController
 
   def signup
     instauser = Instauser.find_by_id(session[:instauser_id])
-    if instauser.nil?
+     
+    if  instauser.nil?
         session[:instauser_id]= nil
         reset_session
         flash!(:error => I18n.t("flash_messages.defaults.testlimitreached"))  
         redirect_to "/pages/logout"
-    else
+    end 
 
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
     SnsFeedsWorker.perform_in(2.seconds, instauser.id)
-  end
+
+  
 
   end 
 
   def create
     @instauser= Instauser.find_by_id(session[:instauser_id])
-    if @instauser.update_attributes(instauser_params)
+    if @instauser.update(instauser_params)
       session[:instauser_id] = nil
       instauser_log_in(@instauser)
       @instauser.send_welcome_email
@@ -135,7 +137,7 @@ end
   def instauser_params
     params.require(:instauser).permit(
       :gender, :profile_picture, :recent_media_urls, :followed_by, :location, :dob,
-      :date_of_birth, :email, :media_date, :bio, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled, :paypal_email, :send_email )
+      :date_of_birth, :email, :media_date, :bio, :checkvalidation, :username, :postprice, :firstname, :lastname, :theme, :averagelikes, :averagecomments, :disabled, :paypal_email, :send_email )
   end 
 
   def logged_in_instauser
