@@ -7,10 +7,13 @@ class BrandusersController < ApplicationController
   before_action :correct_branduser , only: [:edit, :update, :dashboard]
 
   def new
+     reset_session
      @branduser=Branduser.new 
-  	end
+
+  end
 
   def create 
+
     @branduser= Branduser.new(branduser_params) 
 
     if @branduser.save 

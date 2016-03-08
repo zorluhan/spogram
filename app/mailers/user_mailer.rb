@@ -36,7 +36,7 @@ class UserMailer < ActionMailer::Base
     @insta_user = Instauser.find_by(id: instauser_id)
     @message    = Message.find_by(id: message_id)
 
-    mail(to: @brand_user.email, subject: "New Message from #{@insta_user.fullname}" )
+    mail(to: @brand_user.email, subject: "New Message from #{@insta_user.firstname}" )
   end
 
 end
