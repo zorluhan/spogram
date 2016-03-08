@@ -28,7 +28,7 @@ gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'sinatra'
 gem 'json'
-gem 'judge'
+ 
 gem 'paperclip', '~> 4.2'
 # gem 'jquery-turbolinks' 
 # Use jquery as the JavaScript library

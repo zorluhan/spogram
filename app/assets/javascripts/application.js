@@ -11,9 +11,7 @@
 // about supported directives.require jquery.spin
 // require spin
 
-//= require underscore
-//= require json2
-//= require judge
+ 
 // require jquery
 //= require jquery.min.js
 // require jquery-1.12.0.min.js
