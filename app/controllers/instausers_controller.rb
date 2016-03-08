@@ -22,7 +22,7 @@ class InstausersController < ApplicationController
 
     if instauser.nil? or instauser.disabled
       if instauser.nil?
-        instauser = Instauser.skip_callback(:validate).create(:access_token => response.access_token, 
+        instauser = Instauser.create(:access_token => response.access_token, 
                        :username => client.user.username,
                        :profile_picture => client.user.profile_picture,
                        :followed_by => 0)
