@@ -35,6 +35,7 @@ class InstausersController < ApplicationController
     else
       instauser.update_attributes(:access_token => response.access_token,
                                   :profile_picture => client.user.profile_picture)
+      reset_session
       instauser_log_in(instauser)
       redirect_to "/dashboard"
     end

@@ -4,7 +4,7 @@ class BrandusersController < ApplicationController
 
   before_action :require_buser, only: [:dashboard]
   before_action :logged_in_branduser , only: [:edit, :update, :dashboard]
-  before_action :correct_branduser , only: [:edit, :update, :dashboard]
+  before_action :correct_branduser , only: [:edit, :update]
 
   def new
      reset_session
@@ -17,7 +17,7 @@ class BrandusersController < ApplicationController
     @branduser= Branduser.create(branduser_params) 
 
     if @branduser.save 
-      session[:buser_id] = @branduser.id 
+      branduser_log_in(@branduser)
       redirect_to "/bdashboard"
     else 
       flash!(:error => I18n.t("flash_messages.defaults.hata"))
