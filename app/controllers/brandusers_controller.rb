@@ -14,7 +14,7 @@ class BrandusersController < ApplicationController
 
   def create 
 
-    @branduser= Branduser.new(branduser_params) 
+    @branduser= Branduser.create(branduser_params) 
 
     if @branduser.save 
       session[:buser_id] = @branduser.id 

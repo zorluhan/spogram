@@ -27,10 +27,17 @@ class Charge < ActiveRecord::Base
     end
   end
 
+
+  def edited_proposal_email
+    ChargeMailer.delay.new_proposal_email(instauser_id, branduser_id, id)
+    end 
+
   private
     def send_new_proposal_email
       ChargeMailer.delay.new_proposal_email(instauser_id, branduser_id, id)
     end
+    
+
 
     def charge_accept_callback
       update_column(:is_read, false)
