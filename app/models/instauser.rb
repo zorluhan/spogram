@@ -11,7 +11,7 @@ class Instauser < ActiveRecord::Base
 
 
   
-validates :firstname, :presence => true 
+#validates :firstname, :presence => true 
 #validates :lastname, :presence => true 
  
   #include Elasticsearch::Model
