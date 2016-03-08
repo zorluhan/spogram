@@ -15,7 +15,7 @@ class BrandusersController < ApplicationController
 
     if @branduser.save 
       session[:buser_id] = @branduser.id 
-      redirect_to '/bdashboard'
+      redirect_to "/bdashboard"
     else 
       flash!(:error => I18n.t("flash_messages.defaults.hata"))
       render 'new'

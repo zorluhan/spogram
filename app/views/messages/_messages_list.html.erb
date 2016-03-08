@@ -4,39 +4,49 @@
 <% else %>
   <!-- insta user !--> 
   <% if current_instauser %>
+<div class="msgpage">
+<div class="container">
+  <h2 class="text-center">MESSAGES</h2>
+
+
+    <ul class="messageul">
     <% @messages.each do |z| %>
-      <div class="single-message">
-        <% if z.sender==0 && z.message!="" %>
-          <div class="panel-body left-message" id="mm">
-            <% unless !z.branduser.image.nil? %>
-              <%= image_tag(z.branduser.image, width: "40", class: "margin") %>
-            <% end %>
-            <%= z.message %><br>
-            <span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
-          </div>
+    <% if z.sender==0 && z.message!="" %>
+       <li class="clearfix">
+        <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
+       </li>
+
+         
         <% elsif z.sender==1 && z.message!="" %>
-          <div class="panel-body right-message">
-            <%= z.message %>
-            <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin") %>
-            <br>
-            <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
-          </div>
+        <li class="clearfix">
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
+        </li> 
+        
         <% end %>
-      </div>
+      </ul>
     <% end %>
 
-    <div>
+     
+      
       <%= form_for Message.new(), remote: true do |f| %>
-        <%= f.text_area :message, class: "form-control", rows: "5" %><br> 
-        <div class="actions"> 
-          <%= f.submit "Send", class: 'btn btn-default btn-lg', data: {disable_with: "Sending..."} %> 
-        </div>
+       <div class="form-group form-noborder form-message">
+        <%= f.text_area :message, :placeholder=> "write a message...", :onfocus=>"this.placeholder = ''",:onblur=> "this.placeholder='write a message...'" , rows: "5" %><br> 
+      </div>
+      
+      <div class="action row row0 text-right">  <%= f.submit "Send", data: {disable_with: "Sending..."} %>  
+      </div>
+          
+         
         <%= f.hidden_field :instauser_id, value: current_instauser.id %>
         <%= f.hidden_field :branduser_id, value: @branduser.id %>
         <%= f.hidden_field :sender, value: 1 %>
+      
+
       <% end %>
-    </div>
+  
   <% end %>
+    </div>
+  </div>
 
   <!-- brand user !--> 
   <% if current_branduser %>
