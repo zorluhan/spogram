@@ -68,10 +68,7 @@
 </div>
 
 
-<script>
-
-
-$(function () {
+<script>$(function () {
     var valid = {
         email: true,
         firstname: true,
@@ -91,7 +88,11 @@ $(function () {
         for (var item in valid) {
             var $c = $('#' + item);
             valid[item] = !!($c.val().trim());
-            $c[valid[item] ? 'removeClass' : 'addClass']('error');
+            var isDdl = $c[0].tagName == 'SELECT';
+            if(isDdl)
+              $c[valid[item] ? 'removeClass' : 'addClass']('error');
+            else
+              $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
             if (!valid[item])
                 isValid = false;
         }
@@ -103,9 +104,12 @@ $(function () {
         var $c = $('#' + item);
         var handler = function (e) {
             var isValid = !!($(this).val().trim());
-            console.log($(this), 'changed');
-            console.log($(this).val().trim(), isValid);
-            $(this)[isValid ? 'removeClass' : 'addClass']('error');
+            var isDdl = $(this)[0].tagName == 'SELECT';
+            if(isDdl)
+              $(this)[isValid ? 'removeClass' : 'addClass']('error');
+            else
+              $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+
             if (!isValid) {
                 $submitBtn.addClass('disabled');
             } else {
