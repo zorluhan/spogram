@@ -10,6 +10,13 @@ html {
       -ms-text-size-adjust: 100%;
 }
 
+select.date-select {
+    width:auto;
+    height: 34px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    margin-left:3px;
+}
 
 body {
   margin: 0;

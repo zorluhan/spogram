@@ -35,7 +35,7 @@
 
 <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender"><i class="fa fa-birthday-cake"></i>Date of birth *</label>
-  <%= f.date_select :dob, {order: [:month, :day, :year], start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname" %>
+  <%= f.date_select :dob, {order: [:month, :day, :year], start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname", :class=> "date-select" %>
   </div> 
 
 
