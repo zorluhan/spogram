@@ -97,7 +97,7 @@ end
 
   def edit
     @instauser=Instauser.find_by_id(params[:id])
-     @maximum_length = 300
+     @maximum_length = 150
 
   end
 

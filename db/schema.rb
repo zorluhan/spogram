@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307125904) do
+ActiveRecord::Schema.define(version: 20160309210355) do
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
@@ -91,13 +91,13 @@ ActiveRecord::Schema.define(version: 20160307125904) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "access_token"
-    t.float    "engagementscore",   default: 0.0
+    t.float    "engagementscore",               default: 0.0
     t.datetime "last_updated"
-    t.boolean  "disabled",          default: true
+    t.boolean  "disabled",                      default: true
     t.string   "paypal_email"
-    t.boolean  "send_email",        default: true
+    t.boolean  "send_email",                    default: true
     t.string   "passion"
-    t.string   "bio"
+    t.text     "bio",               limit: 255
     t.date     "dob"
     t.string   "checkvalidation"
   end
