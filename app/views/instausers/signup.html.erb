@@ -51,14 +51,14 @@
       </div>
       
  
-      <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post *</span><span class="lblright pull-left">(This is the price per post brands will see on your profile.)</span></label>
+      <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post *</span><span class="lblright pull-left"></span></label>
       <div class="form-group form-groupmoney">
-        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
+        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "Enter a dollar amount. You can change at any time.", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
       </div>
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal Email</span><a href="http://www.paypal.com" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter email connected with PayPal account.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>      
       </div>
 
       <div class="row row0 text-right">
