@@ -4,14 +4,19 @@
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @brandusers.present? %>
-      <div class="row">
-        <div class="col-xs-4">
+<h2 class="text-center">MESSAGES</h2>
+  <div id="publish" class="messages-list">
+    <div class="msgpage">
+<div class="container">
+ 
+    
+        <div class="col-xs-12">
           <div id="leftbar" class="messages-leftbar">
             <ul class="list-group" id="form">
               <% @brandusers.each do |x| %>
-                <li class="list-group-item">
-                  <font face="Lobster">
-                    <h4><%= link_to x.coname, list_messages_path(branduser_id: x.id), remote: true %></h4>
+                <li class="list-group-item" align="center">
+                  <font face="Roboto">
+                    <%= link_to x.coname, list_messages_path(branduser_id: x.id), remote: true %>
                   </font>
                   <span class="pull-right">
                     <% unless !x.image.nil? %>
@@ -26,12 +31,11 @@
             </ul>
           </div>
         </div>
-        <div class="col-xs-8">
-          <div id="publish" class="messages-list">
-        </div>
+        
       </div>
 
       </div>
+    </div>
     <% else %>
  
 <h2 class="text-center">MESSAGES</h2>
@@ -79,3 +83,4 @@ You currently have no messages.
     <% end %>
   <% end %>
 </div></div>
+ 

@@ -10,28 +10,6 @@ html {
       -ms-text-size-adjust: 100%;
 }
 
-select.date-select {
-    width:auto;
-    height: 34px;
-    border: 1px solid #cccccc;
-    background-color: #ffffff;
-    margin-left:3px;
-}
-
-
-.message {
-
- background:transparent;box-shadow:none;border-radius:0;margin: 0 0 0 -0px;padding: 0 0 0 0px;display:inline-block;font-size:12px;color:red;border-bottom:0;
-}
-
-div.field_with_errors div.ui-effects-wrapper {
-  display: inline !important;
-  float:left;
-   position: relative;
-}
-
-
-
 
 body {
   margin: 0;

@@ -4,11 +4,9 @@
 <% else %>
   <!-- insta user !--> 
   <% if current_instauser %>
-<div class="msgpage">
-<div class="container">
-  <h2 class="text-center">MESSAGES</h2>
+ 
 
-
+ <a href="/messages">< BACK</a> 
     <ul class="messageul">
     <% @messages.each do |z| %>
     <% if z.sender==0 && z.message!="" %>
@@ -33,7 +31,7 @@
         <%= f.text_area :message, :placeholder=> "write a message...", :onfocus=>"this.placeholder = ''",:onblur=> "this.placeholder='write a message...'" , rows: "5" %><br> 
       </div>
       
-      <div class="action row row0 text-right">  <%= f.submit "Send", data: {disable_with: "Sending..."} %>  
+      <div class="row row0 text-right">  <%= f.submit "Send", class: "btn btn-send btn-send2", data: {disable_with: "Sending..."} %>  
       </div>
           
          
@@ -45,8 +43,7 @@
       <% end %>
   
   <% end %>
-    </div>
-  </div>
+   
 
   <!-- brand user !--> 
   <% if current_branduser %>
