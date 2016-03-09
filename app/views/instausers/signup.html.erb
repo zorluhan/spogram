@@ -74,7 +74,8 @@
 </div>
 
 
-<script>$(function () {
+<script>$(function() {
+
     var valid = {
         email: true,
         firstname: true,
@@ -86,19 +87,30 @@
         instauser_theme: true,
         postprice: true
     };
+
     var $submitBtn = $('input[type=submit]');
     $submitBtn.addClass('disabled');
+
+    var mailRegex = /^\w+([\.\-\']?\w+)*@\w+([\.\-\']?\w+)*(\.\w{2,8})/;
+    var numericRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
 
     function check() {
         var isValid = true;
         for (var item in valid) {
             var $c = $('#' + item);
             valid[item] = !!($c.val().trim());
+            if (valid[item] && item == 'email') {
+                valid[item] = mailRegex.test($c.val());
+            }
+            if (valid[item] && item == 'postprice') {
+                valid[item] = numericRegex.test($c.val());
+            }
+
             var isDdl = $c[0].tagName == 'SELECT';
-            if(isDdl)
-              $c[valid[item] ? 'removeClass' : 'addClass']('error');
+            if (isDdl)
+                $c[valid[item] ? 'removeClass' : 'addClass']('error');
             else
-              $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
+                $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
             if (!valid[item])
                 isValid = false;
         }
@@ -107,26 +119,36 @@
 
 
     for (var item in valid) {
-        var $c = $('#' + item);
-        var handler = function (e) {
-            var isValid = !!($(this).val().trim());
-            var isDdl = $(this)[0].tagName == 'SELECT';
-            if(isDdl)
-              $(this)[isValid ? 'removeClass' : 'addClass']('error');
-            else
-              $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+        (function(item) {
+            var handler = function(e) {
+                var isValid = !!($(this).val().trim());
+                if (isValid && item == 'email') {
+                    isValid = mailRegex.test($(this).val());
+                }
+                if (isValid && item == 'postprice') {
+                    isValid = numericRegex.test($(this).val());
+                }
 
-            if (!isValid) {
-                $submitBtn.addClass('disabled');
-            } else {
-                $submitBtn.removeClass('disabled');
-            }
-        };
-        $c.change(handler);
-        $c.blur(handler);
+                var isDdl = $(this)[0].tagName == 'SELECT';
+                if (isDdl)
+                    $(this)[isValid ? 'removeClass' : 'addClass']('error');
+                else
+                    $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+
+                if (!isValid) {
+                    $submitBtn.addClass('disabled');
+                } else {
+                    $submitBtn.removeClass('disabled');
+                }
+            };
+
+            var $c = $('#' + item);
+            $c.change(handler);
+            $c.blur(handler);
+        })(item);
     }
 
-    $('input[type=submit]').click(function (e) {
+    $('input[type=submit]').click(function(e) {
         e.preventDefault();
         e.stopPropagation;
 
@@ -136,6 +158,7 @@
             $('form').submit();
         }
     });
+
 });
 
  </script>
