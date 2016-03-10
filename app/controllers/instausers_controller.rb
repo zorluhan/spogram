@@ -52,14 +52,14 @@ class InstausersController < ApplicationController
     if  instauser.nil?
         session[:instauser_id]= nil
         reset_session
-        flash!(:error => I18n.t("flash_messages.defaults.testlimitreached"))  
+        flash!(:error => "You are not allowed to do that!")  
         redirect_to "/pages/logout"
-    end 
+    else
 
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
     SnsFeedsWorker.perform_in(2.seconds, instauser.id)
 
-  
+  end
 
   end 
 
