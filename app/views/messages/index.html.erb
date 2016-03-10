@@ -4,44 +4,41 @@
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @brandusers.present? %>
-<h2 class="text-center">MESSAGES</h2>
-  <div id="publish" class="messages-list">
-    <div class="msgpage">
-<div class="container">
- 
-    
-        <div class="col-xs-12">
-          <div id="leftbar" class="messages-leftbar">
-            <ul class="list-group" id="form">
-              <% @brandusers.each do |x| %>
-                <li class="list-group-item" align="center">
-                  <font face="Roboto">
-                    <%= link_to x.coname, list_messages_path(branduser_id: x.id), remote: true %>
-                  </font>
-                  <span class="pull-right">
-                    <% unless !x.image.nil? %>
-                      <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
-                    <% end %>
-                  </span>
+      <h2 class="text-center">MESSAGES</h2>
+      <div id="publish" class="messages-list">
+        <div class="msgpage">
+          <div class="container">
 
-                  <% count = unread_instauser_messages_count(current_instauser, x) %>
-                  <%= "#{count} unread".html_safe if count > 0 %>
-                </li>
-              <% end %>
-            </ul>
+            <div class="col-xs-12">
+              <div id="leftbar" class="messages-leftbar">
+                <ul class="list-group" id="form">
+                  <% @brandusers.each do |x| %>
+                    <li class="list-group-item" align="center">
+                      <font face="Roboto">
+                        <%= link_to x.coname, list_messages_path(branduser_id: x.id) %>
+                      </font>
+                      <span class="pull-right">
+                        <% unless !x.image.nil? %>
+                          <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
+                        <% end %>
+                      </span>
+
+                      <% count = unread_instauser_messages_count(current_instauser, x) %>
+                      <%= "#{count} unread".html_safe if count > 0 %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        
       </div>
-
-      </div>
-    </div>
     <% else %>
  
-<h2 class="text-center">MESSAGES</h2>
-This is where you will receive messages from brands you are communicating with. You will be able to send messages as soon as you receive a proposal. 
-<br /><br />
-You currently have no messages. 
+      <h2 class="text-center">MESSAGES</h2>
+      This is where you will receive messages from brands you are communicating with. You will be able to send messages as soon as you receive a proposal. 
+      <br /><br />
+      You currently have no messages. 
  
     <% end %>
 
@@ -55,7 +52,7 @@ You currently have no messages.
                 <li class="list-group-item">
                   <font face="Lobster">
                     <h4>
-                    <%= link_to x.firstname, list_messages_path(instauser_id: x.id), remote: true %>
+                    <%= link_to x.firstname, list_messages_path(instauser_id: x.id) %>
                     <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span>
                     </h4>
                   </font>
@@ -73,12 +70,11 @@ You currently have no messages.
         </div>
       </div>
     <% else %>
-  
-<h2 class="text-center">MESSAGES</h2>
-This is where you will receive messages from brands you are communicating with. You will be able to send messages to a brand as soon as you receive a proposal from them. 
-<br /><br />
-You currently have no messages. 
- 
+
+      <h2 class="text-center">MESSAGES</h2>
+      This is where you will receive messages from brands you are communicating with. You will be able to send messages to a brand as soon as you receive a proposal from them. 
+      <br /><br />
+      You currently have no messages. 
  
     <% end %>
   <% end %>

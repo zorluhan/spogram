@@ -62,7 +62,6 @@ class MessagesController < ApplicationController
       @messages = Message.where(instauser_id: @id)
       branduserids = Message.where(instauser_id: @id).uniq.pluck(:branduser_id)
       @brandusers = Branduser.where(id: branduserids)
-
     end
   end 
 

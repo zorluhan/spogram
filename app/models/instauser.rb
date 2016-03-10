@@ -2,17 +2,14 @@ require 'elasticsearch/model'
 
 class Instauser < ActiveRecord::Base
 
-  has_many :messages
-  has_many :charges 
+  has_many :messages, dependent: :destroy
+  has_many :charges,  dependent: :destroy
   has_many :brandusers, through: :charges
   has_many :instaposts
  
  
-
-
-  
-#validates :firstname, :presence => true 
-#validates :lastname, :presence => true 
+  #validates :firstname, :presence => true 
+  #validates :lastname, :presence => true 
  
   #include Elasticsearch::Model
   #include Elasticsearch::Model::Callbacks
@@ -20,9 +17,6 @@ class Instauser < ActiveRecord::Base
   #serialize :recent_media_urls
 
   #after_create :send_welcome_email
- 
-  
- 
 
 
   def send_welcome_email

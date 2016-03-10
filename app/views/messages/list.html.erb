@@ -1,0 +1,10 @@
+<%= render 'layouts/header2' %>
+<div class="txtpage">
+  <div class="container">
+    <h2 class="text-center">MESSAGES</h2>
+
+    <div id="publish" class="messages-list">
+      <%= render partial: "messages_list", object: @messages %>
+    </div>
+  </div>
+</div>

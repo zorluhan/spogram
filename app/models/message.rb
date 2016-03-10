@@ -1,7 +1,7 @@
 class Message < ActiveRecord::Base
 
-  belongs_to :instauser, dependent: :destroy
-  belongs_to :branduser, dependent: :destroy
+  belongs_to :instauser
+  belongs_to :branduser
 
   after_create :send_email
 
