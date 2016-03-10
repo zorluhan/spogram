@@ -112,7 +112,7 @@ class ChargesController < ApplicationController
 
       if charge["paid"] == true
         if @charge.accepted!
-          flash!(:error => I18n.t("flash_messages.defaults.payment_notify_instauser")) 
+          flash!(:alert => I18n.t("flash_messages.defaults.payment_notify_instauser")) 
           redirect_to charges_path
         else 
           flash!(:error => I18n.t("flash_messages.defaults.couldntgetbilled"))

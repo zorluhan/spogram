@@ -1,5 +1,9 @@
 module ChargesHelper
 
+  def total_unread_charges_count current_instauser
+    current_instauser.charges.where(is_read: false).count
+  end
+
   def unread_charges_count current_instauser
     current_instauser.charges.where(is_read: false, state: :pending).count
   end

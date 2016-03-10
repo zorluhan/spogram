@@ -44,7 +44,7 @@
           
             <li class="active"> 
               <%= link_to charges_path  do %>
-                    Proposals  <% count = unread_charges_count(current_instauser) %>  
+                    Proposals  <% count = total_unread_charges_count(current_instauser) %>  
             
                   <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
                 <% end %> 

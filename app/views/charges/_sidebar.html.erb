@@ -1,0 +1,91 @@
+<% if (instauser_logged_in? && !branduser_logged_in?) %>
+  <% if !@charges.present? and params[:action] == 'index' %>
+    <div class="txtpage">
+      <div class="container">
+        <h2 class="text-center">PROPOSALS</h2>
+        This is where you will manage the proposals you receive from brands who want to work with you. You will receive an email as soon as a brand is interested.
+        <br><br>
+        There are currently no proposals in your inbox.
+      </div>
+    </div>
+  <% else %>
+    <div id="leftbar">
+      <ul class="list-group" id="form">
+        <font face="Lobster">
+        <li class="list-group-item"><h4>
+          My Earnings: <%= @earned %></h4>
+        </li>
+        <li class="list-group-item">
+          <h4><%= link_to "Accepted", list_charges_path(state: :accepted) %> </h4>
+        </li>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to list_charges_path(state: :pending) do %>
+              Pending
+              <% count = unread_charges_count(current_instauser) %> 
+              <%= "(#{count})" if count > 0 %>
+            <% end %>
+          </h4>
+        </li>
+        <li class="list-group-item">
+          <h4><%= link_to "Declined", list_charges_path(state: :declined) %> </h4>
+        </li>
+        <li class="list-group-item">
+          <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested) %> </h4>
+        </li>
+        <li class="list-group-item">
+          <h4>
+            <%= link_to list_charges_path(state: :completed) do %>
+              Completed
+              <% count = completed_charges_count(current_instauser) %> 
+              <%= "(#{count})" if count > 0 %>
+            <% end %>
+          </h4>
+        </li>
+        </font>
+      </ul>
+    </div>
+  <% end %>
+<% elsif branduser_logged_in? && !instauser_logged_in? %>
+  <div id="leftbar">
+    <ul class="list-group" id="form">
+      <font face="Lobster">
+      <li class="list-group-item">
+        <h4><font face="Lobster">
+          <%= link_to list_charges_path(state: :accepted) do %>
+            Accepted <%= unread_branduser_charges_count(current_branduser, :accepted) %>
+          <% end %>
+        </h4>
+      </li>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to 'Pending', list_charges_path(state: :pending) %>
+        </h4>
+      </li>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to list_charges_path(state: :declined) do %>
+            Declined <%= unread_branduser_charges_count(current_branduser, :declined) %>
+          <% end %>
+        </h4>
+      </li>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to list_charges_path(state: :release_requested) do %>
+            Release Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
+          <% end %>
+        </h4>
+      </li>
+      <li class="list-group-item">
+        <h4>
+          <%= link_to 'Completed', list_charges_path(state: :completed) %>
+        </h4>
+      </li>
+      </font>
+    </ul>
+  </div>
+<% else %>
+  <script type="text/javascript">
+    window.location.href="/"  // put your correct path in a string here
+  </script>
+<% end %>
