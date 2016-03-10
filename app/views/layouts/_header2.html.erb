@@ -1,106 +1,63 @@
-  
- 
-  
- 
- 
+
 <div class="row row0">
- <header>
+<header>
+  <span id="flash_messages"><%= flash_messages(:close)  %></span> 
 
-
-
-   <span id="flash_messages"><%= flash_messages(:close)  %></span> 
-
-    <% if instauser_logged_in?  %>
-
-
-<nav class="navbar navbar-default">
-
-  <div class="container-fluid">
-
-
-
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#" title="capish">capish</a>
-    </div>
-
- 
- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-    
-
-
-
-
-
-
+  <% if instauser_logged_in?  %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" title="capish">capish</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-          
             <li class="active"> 
               <%= link_to charges_path  do %>
-                    Proposals  <% count = total_unread_charges_count(current_instauser) %>  
-            
-                  <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
-                <% end %> 
-             </li>
-             <li>
-                <%= link_to messages_path do %>
-                 Messages 
-                 <% count = instauser_unread_total_messages_count(current_instauser) %>
-                  <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
-                 <% end %>
-               </li>
+                Proposals
+                <% count = instauser_total_unread_charges_count(current_instauser) %>  
+                <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+              <% end %> 
+            </li>
+            <li>
+              <%= link_to messages_path do %>
+                Messages 
+                <% count = instauser_unread_total_messages_count(current_instauser) %>
+                <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+              <% end %>
+            </li>
+            <li>
+             <%= link_to 'Brands', brands_path %>
+           </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% unless current_instauser.firstname.nil? %>
+              <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4" title="Profile"><%=  current_instauser.firstname %></a></li>
+            <% end %>
 
-                <li>
-                 <%= link_to brands_path do %>
-                 Brands
-       
-                  <% end %>
-                 </li>
- 
+            <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1" title="Settings"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
+            <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
+            <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle" title="FAQ"></i>&nbsp;FAQ</a></li>
 
-               </ul>
+            <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :title=>"Logout", :method => :delete %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-
- 
-
-
-
-      <ul class="nav navbar-nav navbar-right">
-        <% unless current_instauser.firstname.nil? %>
-       <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4" title="Profile"><%=  current_instauser.firstname %></a></li><%end%>
-
-        <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1" title="Settings"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
-      <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
-      <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle" title="FAQ"></i>&nbsp;FAQ</a></li>
-        
-       <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :title=>"Logout", :method => :delete %></li>
-
-      </ul>
-
-</div>
-
-  </div>
-</nav>
-
-<!-- mobil nav !-->
-
-
-
-<nav class="mobilenav">
-  <a class="navbar-brand" href="#" title="capish">capish</a>
-  <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
-  <ul class="mainNavDropDown clearfix">
-      <li class="active"> 
+    <!-- mobil nav !-->
+    <nav class="mobilenav">
+      <a class="navbar-brand" href="#" title="capish">capish</a>
+      <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
+      <ul class="mainNavDropDown clearfix">
+        <li class="active"> 
           <%= link_to charges_path   do %>
             Proposals  <% count = unread_charges_count(current_instauser) %>  
-            
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
           <% end %> 
         </li>
@@ -111,112 +68,92 @@
             <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %>
         </li>
-
-          <li>
-          <%= link_to brands_path   do %>
-            Brands
-       
-          <% end %>
+        <li>
+          <%= link_to 'Brands', brands_path %>
         </li>
- 
- <li><a href="<%= dashboard_path(current_instauser) %>" class="btn4"><% unless current_instauser.firstname.nil? %><%=  current_instauser.firstname %><%end%></a></li>
 
- 
+        <li>
+          <a href="<%= dashboard_path(current_instauser) %>" class="btn4">
+            <% unless current_instauser.firstname.nil? %><%=  current_instauser.firstname %><% end %>
+          </a>
+        </li>
 
         <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Edit Profile</a></li>
-      <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
-      <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
-        
-       <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :method => :delete %></li>
-  </ul>
-</nav>
+        <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
+        <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
 
-<!-- mobil nav end !--> 
-
-    <% elsif branduser_logged_in? %>
-
-
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
-        <li><%= link_to "Proposals", charges_path , data: {disable_with: "Loading Now..."} %></li> 
-        <li>
-          <%= link_to messages_path, data: {disable_with: "Loading Now..."} do %>
-            Messages
-            <% count = branduser_unread_total_messages_count(current_branduser) %>
-            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
-          <% end %>
-        </li> 
+        <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :method => :delete %></li>
       </ul>
+    </nav>
+    <!-- mobil nav end !--> 
 
+  <% elsif branduser_logged_in? %>
+    <ul class="nav navbar-nav navbar-left">
+      <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
+      <li>
+        <%= link_to charges_path , data: {disable_with: "Loading Now..."} do %>
+          Proposals 
+          <% count = branduser_total_unread_charges_count(current_branduser) %>
+          <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+        <% end %>
+      </li> 
+      <li>
+        <%= link_to messages_path, data: {disable_with: "Loading Now..."} do %>
+          Messages
+          <% count = branduser_unread_total_messages_count(current_branduser) %>
+          <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+        <% end %>
+      </li> 
+    </ul>
 
+    <ul class="nav navbar-nav navbar-right">
+      <li><a><%= "Hello "+ current_branduser.firstname + "!" unless current_branduser.firstname.nil? %></a></li>
+      <li><%= link_to "<span class=\"glyphicon glyphicon-cog\"></span>".html_safe, edit_branduser_path(current_branduser) %></li> 
+      <li><%= link_to "<span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, blogout_path(current_branduser), :method => :delete %></li>
+    </ul>
+  <% else  %> 
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" title="capish">capish</a>
+        </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a><%= "Hello "+ current_branduser.firstname + "!" unless current_branduser.firstname.nil? %></a></li>
-        <li><%= link_to "<span class=\"glyphicon glyphicon-cog\"></span>".html_safe, edit_branduser_path(current_branduser) %></li> 
-        <li><%= link_to "<span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, blogout_path(current_branduser), :method => :delete %></li>
-      </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "About", pages_about_path %></li>
+            <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
+            <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
+          </ul>   
 
+        </div>
 
+      </div>
+    </nav>
 
-    <% else  %> 
-
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
- 
-
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+    <nav class="mobilenav">
       <a class="navbar-brand" href="#" title="capish">capish</a>
-    </div>
-
- 
- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-    
-
-
-
-      <ul class="nav navbar-nav navbar-left">
+      <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
+      <ul class="mainNavDropDown clearfix">
         <li><%= link_to "About", pages_about_path %></li>
         <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
         <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
-      </ul>   
+      </ul>
+    </nav>
 
+  <% end %>
+
+
+</header>  
 </div>
 
-  </div>
-</nav>
-
-<nav class="mobilenav">
-  <a class="navbar-brand" href="#" title="capish">capish</a>
-  <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
-  <ul class="mainNavDropDown clearfix">
-       <li><%= link_to "About", pages_about_path %></li>
-        <li><%= link_to "Login as Instagrammer", login_path, data: {disable_with: "Loading Now..."} %></li> 
-        <li><%= link_to "Login as Brand", blogin_path, data: {disable_with: "Loading Now..."} %></li> 
-  </ul>
-</nav>
-
-    <% end %>
-
- 
-</header>  
- </div>
- 
-
- 
-
-
-
- <script type="text/javascript">
-$('.navicon').on('click', function(){
-  $('.mainNavDropDown').slideToggle(600);
- });
+<script type="text/javascript">
+  $('.navicon').on('click', function(){
+    $('.mainNavDropDown').slideToggle(600);
+  });
 </script>
