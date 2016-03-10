@@ -40,7 +40,7 @@ end
     @branduser = Branduser.find_by(id: branduser_id)
     @charge    = Charge.find_by(id: charge_id)
 
-    mail(to: @branduser.email, subject: "Release Requested by #{@instauser.fullname}")
+    mail(to: @branduser.email, subject: "Release Requested by #{@instauser.firstname}")
   end
 
   def completed_email(instauser_id, branduser_id, charge_id)
