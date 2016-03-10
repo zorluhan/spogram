@@ -51,14 +51,15 @@
       </div>
       
  
-      <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post *</span><span class="lblright pull-left"></span></label>
+      <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price Per Post *</span><span class="lblright pull-left">This is the price per post brands will see on your profile. You can change this at any time.
+</span></label>
       <div class="form-group form-groupmoney">
-        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "Brands can contact you if they meet your minimum price.", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
+        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
       </div>
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal Email</span><a href="http://www.paypal.com" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter email connected with PayPal account.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter email connected with PayPal account.'" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter email connected with PayPal account.'" %>      
       </div>
 
       <div class="row row0 text-right">
@@ -66,7 +67,7 @@
         <%= f.hidden_field :disabled, :value => false %>
         <%= f.submit "JOIN", data: {disable_with: "Uploading Now (Be Patient)..."}, class: "btn btn-send" %> 
       </div>
-      <div class="row row0 text-right terms">By clicking join, you agree to our <a href="#">terms of use</a></div>
+      <div class="row row0 text-right terms">By clicking join, you agree to our <a href="/pages/terms" target="_blank">terms of use</a></div>
 
 
     <% end %>
