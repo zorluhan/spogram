@@ -76,5 +76,79 @@
     });
 </script>
 
+<script>
+$(function() {
+
+    var valid = {};
+
+    valid['instauser[firstname]'] = true;
+    valid['instauser[lastname]'] = true;
+    valid['instauser[location]'] = true;
+    valid['instauser[dob(2i)]'] = true;
+    valid['instauser[dob(3i)]'] = true;
+    valid['instauser[dob(1i)]'] = true;
+    valid['instauser[postprice]'] = true;
+
+    var $submitBtn = $('button[type=submit]');
+    var numericRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
+
+    function check() {
+        var isValid = true;
+        for (var item in valid) {
+            var $c = $('[name="' + item + '"]');
+            valid[item] = !!($c.val().trim());
+            if (valid[item] && item == 'instauser[postprice]') {
+                valid[item] = numericRegex.test($c.val());
+            }
+            var isDdl = $c[0].tagName == 'SELECT';
+            if (isDdl)
+                $c[valid[item] ? 'removeClass' : 'addClass']('error');
+            else
+                $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
+            if (!valid[item])
+                isValid = false;
+        }
+        return isValid;
+    }
+
+
+    for (var item in valid) {
+        (function(item) {
+            var handler = function(e) {
+                var isValid = !!($(this).val().trim());
+                if (isValid && item == 'instauser[postprice]') {
+                    isValid = numericRegex.test($(this).val());
+                }
+                var isDdl = $(this)[0].tagName == 'SELECT';
+                if (isDdl)
+                    $(this)[isValid ? 'removeClass' : 'addClass']('error');
+                else
+                    $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+                if (!isValid) {
+                    $submitBtn.addClass('disabled');
+                } else {
+                    $submitBtn.removeClass('disabled');
+                }
+            };
+
+            var $c = $('[name="' + item + '"]');
+            $c.change(handler);
+            $c.blur(handler);
+        })(item);
+    }
+
+    $('button[type=submit]').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation;
+
+        if (!check()) {
+            //todo
+        } else {
+            $('form').submit();
+        }
+    });
+
+});
+</script>
 
 
