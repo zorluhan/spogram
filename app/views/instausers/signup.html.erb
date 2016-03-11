@@ -18,11 +18,11 @@
       </div>
 
       <div class="form-group form-groupname1 pull-left">
-        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First Name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First Name *'" %>
+        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First name *'" %>
       </div>
 
       <div class="form-group form-groupname2 pull-right">
-        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last Name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last Name *'" %>
+        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last name *'" %>
       </div>
       
       <div class="form-group form-grouploc">
@@ -59,7 +59,9 @@
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>PayPal email</span><a href="http://www.paypal.com" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter your PayPal account email.", onfocus: "this.placeholder = 'Enter your PayPal account email.
+'", onblur: "this.placeholder='Enter your PayPal account email.
+'" %>      
       </div>
 
       <div class="row row0 text-right">

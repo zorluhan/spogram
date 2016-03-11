@@ -13,14 +13,14 @@
 
  <label class="gender"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>PayPal email</span><a href="#" class="lblright pull-left">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: " Enter your PayPal account email.", onfocus: "this.placeholder = 'Enter your PayPal account email.'", onblur: "this.placeholder=' Enter your PayPal account email.'" %>      
       </div>
 
 
 
 
     <div class="form-group">
-      <div class="enotif">Email Notification&nbsp;  
+      <div class="enotif">Email notification&nbsp;  
 
         <%= f.check_box :send_email, {:class => "myclass", :style => "mystyle"}, "checked-value", "unchecked-value" %>
       </div>
