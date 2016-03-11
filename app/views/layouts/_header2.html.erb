@@ -135,10 +135,11 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a><%= "Hello "+ current_branduser.firstname + "!" unless current_branduser.firstname.nil? %></a></li>
+      <li><%= link_to do %>
+        <% unless current_branduser.firstname.nil? %>
+       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%><%end%> </li>
       <li><%= link_to edit_branduser_path(current_branduser) do  %>
-
-        <i class="fa fa-cog"></i> 
+        <i class="fa fa-cog"></i>
         <%end%>
       </li> 
       <li><%= link_to blogout_path(current_branduser), :method => :delete do  %>
