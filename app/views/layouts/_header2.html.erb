@@ -44,7 +44,10 @@
             <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
             <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle" title="FAQ"></i>&nbsp;FAQ</a></li>
 
-            <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :title=>"Logout", :method => :delete %></li>
+            <li><%= link_to logout_path(current_instauser),  :class=>"btn4",  :title=>"Logout", :method => :delete do %>
+              <i class="fa fa-sign-out"></i> <%end%>
+
+            </li>
           </ul>
         </div>
       </div>
@@ -82,7 +85,10 @@
         <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
         <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
 
-        <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :method => :delete %></li>
+        <li><%= link_to "Logout", logout_path(current_instauser),  :class=>"btn4",  :method => :delete do %>
+<i class="fa fa-sign-out"></i>&nbsp;Logout
+<%end%>
+        </li>
       </ul>
     </nav>
     <!-- mobil nav end !--> 
@@ -135,7 +141,9 @@
         <i class="fa fa-cog"></i> 
         <%end%>
       </li> 
-      <li><%= link_to "Logout", blogout_path(current_branduser), :method => :delete %></li>
+      <li><%= link_to blogout_path(current_branduser), :method => :delete do  %>
+      <i class="fa fa-sign-out"></i> <%end%>
+      </li>
     </ul>
 
 
