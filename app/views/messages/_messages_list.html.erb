@@ -31,10 +31,14 @@
        <div class="form-group form-noborder form-message">
         <%= f.text_area :message, :placeholder=> "write a message...", :onfocus=>"this.placeholder = ''",:onblur=> "this.placeholder='write a message...'" , rows: "5" %><br> 
       </div>
+     
+      <div class="row row0 text-right">  
+        <%= button_tag(type: 'submit', class: "btn btn-send btn-send2",  data: {disable_with: "Sending..."} ) do %>
+<i class="fa fa-paper-plane"></i>&nbsp;&nbsp;Send
+<% end %>
+</div> 
+
       
-      <div class="row row0 text-right">  <%= f.submit "Send", class: "btn btn-send btn-send2", data: {disable_with: "Sending..."} %>  
-      </div>
-          
          
         <%= f.hidden_field :instauser_id, value: current_instauser.id %>
         <%= f.hidden_field :branduser_id, value: @branduser.id %>

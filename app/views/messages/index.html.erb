@@ -25,7 +25,7 @@
 
                       <% count = unread_instauser_messages_count(current_instauser, x) %>
                       <%= "#{count} unread".html_safe if count > 0 %><br>
-                      <font face="Helvetica" color="grey" size="1"><%= "last seen " + time_ago_in_words(x.messages.last.updated_at)+ " ago" %></font>
+                      <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(x.messages.last.updated_at)+ " ago" %></font>
                     </li>
                   <% end %>
                 </ul>
