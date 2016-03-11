@@ -59,7 +59,7 @@
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal Email</span><a href="http://www.paypal.com" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter email connected with PayPal account.'" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter email connected with PayPal account.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter email connected with PayPal account.'" %>      
       </div>
 
       <div class="row row0 text-right">
@@ -87,6 +87,7 @@
         instauser_dob_1i: true,
         instauser_theme: true,
         postprice: true
+      
     };
 
     var $submitBtn = $('input[type=submit]');
