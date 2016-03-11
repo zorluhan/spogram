@@ -6,14 +6,14 @@
  
  
    <div class="form-group form-groupname1 pull-left">
-   <%= f.text_field :firstname,  :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First name", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='First name'" %> <br>
+   <%= f.text_field :firstname,  :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First name *", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='First name *'" %> <br>
   </div>
   <div class="form-group form-groupname2 pull-right">
-   <%= f.text_field :lastname, :type=> "lastname", :class=> "form-control formcapish", :id => "usr", :placeholder => "Last name", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Last name'" %> <br>
+   <%= f.text_field :lastname, :type=> "lastname", :class=> "form-control formcapish", :id => "usr", :placeholder => "Last name *", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Last name *'" %> <br>
   </div>
    <div class="form-group form-grouploc">
    
-   <%= f.text_field :location, :type=> "fullname", :class=> "gmapsinput form-control formcapish" , :id => "usr", :placeholder => "Start typing a city", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Start typing a city'" %> 
+   <%= f.text_field :location, :type=> "fullname", :class=> "gmapsinput form-control formcapish" , :id => "usr", :placeholder => "Start typing a city", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Start typing a city *'" %> 
     <div id="gmaps-error" style="display: none;"></div>
               <div id="gmaps-canvas" style="display: none;"></div>
   </div>
@@ -28,24 +28,24 @@
 
  <br>
   <div class="form-group form-selectfull form-noborder">
-  <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "form-control"} %>
+  <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "form-control"} %>
   </div>
 
-   <div class="form-group form-selectfull form-noborder"><label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed?</label>
+   <div class="form-group form-selectfull form-noborder"><label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed? *</label>
     <%= f.select :theme, 
               options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']],@instauser.theme),{}, {class: 'form-control'} %>
             </div>
 
             <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio <span class="bioright pull-right" id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span></label>
+    <label for="name" class="gender"><i class="fa fa-file-text"></i>Bio<span class="bioright pull-right" id="counter" data-maximum-length="<%= @maximum_length %>"><%= @maximum_length %></span></label>
 
-    <%= f.text_area :bio, maxlength: @maximum_length, :id => "review_text", :placeholder=>"Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 150 characters or less. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 300 characters or less.'" %>
+    <%= f.text_area :bio, maxlength: @maximum_length, :id => "review_text", :placeholder=>"Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 300 characters or less. ", :onfocus=>"this.placeholder = ''", :onblur=>"this.placeholder='Filling in your bio is a good way for brands to get to know you better. Please limit your bio to 300 characters or less.'" %>
 
  
 
   </div>
 
-   <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price per post</span><span class="lblright pull-left"></span></label>
+   <label for="name" class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-money"></i>Price per post *</span><span class="lblright pull-left"></span></label>
       <div class="form-group form-groupmoney">
         <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
       </div>
