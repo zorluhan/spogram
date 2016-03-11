@@ -75,8 +75,7 @@
 </div>
 
 
-<script>
-$(function() {
+<script>$(function() {
 
     var valid = {
         email: true,
@@ -137,11 +136,6 @@ $(function() {
                 else
                     $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
 
-                if (!isValid) {
-                    $submitBtn.addClass('disabled');
-                } else {
-                    $submitBtn.removeClass('disabled');
-                }
             };
 
             var $c = $('#' + item);
@@ -162,5 +156,4 @@ $(function() {
     });
 
 });
-
  </script>
