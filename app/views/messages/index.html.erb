@@ -4,7 +4,7 @@
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @brandusers.present? %>
-      <h2 class="text-center">MESSAGES</h2>
+      <h2 class="text-center">  MESSAGES</h2>
       <div id="publish" class="messages-list">
         <div class="msgpage">
           <div class="container">
@@ -24,7 +24,8 @@
                       </span>
 
                       <% count = unread_instauser_messages_count(current_instauser, x) %>
-                      <%= "#{count} unread".html_safe if count > 0 %>
+                      <%= "#{count} unread".html_safe if count > 0 %><br>
+                      <font face="Helvetica" color="grey" size="1"><%= "last seen " + time_ago_in_words(x.messages.last.updated_at)+ " ago" %></font>
                     </li>
                   <% end %>
                 </ul>

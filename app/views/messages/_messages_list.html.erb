@@ -6,9 +6,10 @@
   <% if current_instauser %>
  
 
- <a href="/messages">< BACK</a> 
+<a href="/messages"><%= "<" + "   "+ @messages.first.branduser.coname %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
+
     <% if z.sender==0 && z.message!="" %>
        <li class="clearfix">
         <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
@@ -82,5 +83,11 @@
   <% end %>
 <% end %>
 
-<br>
-<br>
+ 
+<hr>
+ 
+ <ul class="list-group" id="form">
+
+ <a href="/messages" class="pull-right">BACK TO MESSAGES</a>  
+<ul>
+  </div>
