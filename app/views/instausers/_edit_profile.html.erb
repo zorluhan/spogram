@@ -76,8 +76,7 @@
     });
 </script>
 
-<script>
-$(function() {
+<script>$(function() {
 
     var valid = {};
 
@@ -124,11 +123,6 @@ $(function() {
                     $(this)[isValid ? 'removeClass' : 'addClass']('error');
                 else
                     $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
-                if (!isValid) {
-                    $submitBtn.addClass('disabled');
-                } else {
-                    $submitBtn.removeClass('disabled');
-                }
             };
 
             var $c = $('[name="' + item + '"]');
