@@ -35,7 +35,7 @@
 
 <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender"><i class="fa fa-birthday-cake"></i>Date of birth *</label>
-  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname", :class=> "date-select" %>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Day', :month => 'Month', :year => 'Year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname", :class=> "date-select" %>
   </div> 
 
 
@@ -59,7 +59,7 @@
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal Email</span><a href="http://www.paypal.com" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter email connected with PayPal account.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter email connected with PayPal account.'" %>      
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>      
       </div>
 
       <div class="row row0 text-right">
