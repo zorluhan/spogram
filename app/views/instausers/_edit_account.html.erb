@@ -5,13 +5,13 @@
  
    <input type="hidden" name="edit" value="<%= params[:edit] %>">
    <div class="form-group form-groupemail">
-   <%= f.email_field :email, :type=> "email", :class=> "form-control formcapish", :id => "email", :placeholder => "", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Email'" %> <br>
+   <%= f.email_field :email, :type=> "email", :class=> "form-control formcapish", :id => "email", :placeholder => "", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Email *'" %> <br>
   </div>
 
   
 
 
- <label class="gender"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>Paypal email</span><a href="#" class="lblright pull-left">Don't have a PayPal account?</a></label>
+ <label class="gender"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>PayPal email</span><a href="#" class="lblright pull-left">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
         <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "You can change later.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='You can change later.'" %>      
       </div>
