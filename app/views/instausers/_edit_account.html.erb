@@ -47,7 +47,7 @@
           <p>Are you sure you want to delete your Capish account?</p>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-default btn-modalyes" data-dismiss="modal">Yes</button>
+          <button type="submit" class="btn btn-default btn-modalyes" data-dismiss="modal"><%= link_to @instauser, method: :delete do %>Yes<%end%></button>
           <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
         </div>
       </div>

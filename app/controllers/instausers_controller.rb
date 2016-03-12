@@ -4,7 +4,7 @@ class InstausersController < ApplicationController
 
   before_action :require_user, only: [:dashboard]
   before_action :require_buser, only: [:search]
-  before_action :logged_in_instauser , only: [:edit, :update, :brands, :brands_contact_form]
+  before_action :logged_in_instauser , only: [:edit, :update, :brands, :brands_contact_form, :destroy]
   before_action :correct_instauser , only: [:edit, :update]
 
   def auth   
@@ -97,7 +97,7 @@ end
 
   def edit
     @instauser=Instauser.find_by_id(params[:id])
-     @maximum_length = 150
+     @maximum_length = 300
 
   end
 
@@ -132,6 +132,12 @@ end
 def formmessage
 end
 
+ def destroy
+    Instauser.find(params[:id]).destroy
+    reset_session
+    flash!(:success => "Account Deleted.")  
+    redirect_to root_path
+  end
 
   private
 
