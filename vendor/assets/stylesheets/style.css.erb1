@@ -237,7 +237,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 
 
 .fullimg {
-    background: url(background3.jpg) no-repeat top center;
+    background: url(<%= image_path("beach.jpg") %>) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -249,6 +249,122 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 	line-height:19px;
 	text-shadow:1px 1px 1px #d6cbd9;
 }
+
+.fullimg3 {
+    background: url(<%= image_path("index3.png") %>) no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  text-align:center;
+  padding-top:65px;
+  color:#333;
+  font-weight:300;
+  font-size:17px;
+  line-height:19px;
+  text-shadow:1px 1px 1px #d6cbd9;
+}
+.fullimg4 {
+    background: url(<%= image_path("index4.jpg") %>) no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  text-align:center;
+  padding-top:65px;
+  color:#333;
+  font-weight:300;
+  font-size:17px;
+  line-height:19px;
+  text-shadow:1px 1px 1px #d6cbd9;
+}
+
+
+.fullimg5 {
+    background: url(<%= image_path("index5.jpg") %>) no-repeat top center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  text-align:center;
+  padding-top:65px;
+  color:#333;
+  font-weight:300;
+  font-size:17px;
+  line-height:19px;
+  text-shadow:1px 1px 1px #d6cbd9;
+}
+
+
+
+@media (min-width:992px){.fullimg3{font-size:23px;line-height:25px;background-position:middle center;}}
+.fullimg3 h2{
+    color:#333;
+  font-weight:300;
+  font-size:33px;
+  margin-bottom:20px;
+}
+@media (min-width:992px){.fullimg3 h2{font-size:36px;}}
+.logo {
+  display:block;
+  width:117px;
+  height:47px;
+  margin:0 auto 30px;
+  color:#666 !important;
+  text-decoration:none !important;
+  font-size:48px;
+  text-shadow:none;
+  font-family: 'Lobster', cursive;
+}
+
+
+@media (min-width:992px){.fullimg4{font-size:23px;line-height:25px;background-position:middle center;}}
+.fullimg4 h2{
+    color:#333;
+  font-weight:300;
+  font-size:33px;
+  margin-bottom:20px;
+}
+@media (min-width:992px){.fullimg4 h2{font-size:36px;}}
+.logo {
+  display:block;
+  width:117px;
+  height:47px;
+  margin:0 auto 30px;
+  color:#666 !important;
+  text-decoration:none !important;
+  font-size:48px;
+  text-shadow:none;
+  font-family: 'Lobster', cursive;
+}
+
+
+
+
+@media (min-width:992px){.fullimg5{font-size:23px;line-height:25px;background-position:middle center;}}
+.fullimg5 h2{
+    color:#333;
+  font-weight:300;
+  font-size:33px;
+  margin-bottom:20px;
+}
+@media (min-width:992px){.fullimg5 h2{font-size:36px;}}
+.logo {
+  display:block;
+  width:117px;
+  height:47px;
+  margin:0 auto 30px;
+  color:#666 !important;
+  text-decoration:none !important;
+  font-size:48px;
+  text-shadow:none;
+  font-family: 'Lobster', cursive;
+}
+
+
+
+
+
+
+
+
 @media (min-width:992px){.fullimg{font-size:23px;line-height:25px;background-position:middle center;}}
 .fullimg h2{
     color:#333;
@@ -262,7 +378,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 	width:117px;
 	height:47px;
 	margin:0 auto 30px;
-	color:#3E4054 !important;
+	color:#666 !important;
 	text-decoration:none !important;
 	font-size:48px;
 	text-shadow:none;
@@ -306,7 +422,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
   font-weight:700;
   font-size:14px;
   padding:9px 46px;
-  margin-top:10px;
+  margin-top:20px;
   text-shadow:none;
 }
 .btn-send:focus,
@@ -359,12 +475,8 @@ a.lblright{color:#555;}
 .form-noborder{border:0;box-shadow:none;}
 .form-groupname1{width:49%;margin-right:2%;}
 .form-groupname2{width:49%;}
-.birth{padding-top:3px;}
-.birth select{width:32%;height: 34px;padding-left:1%;color:#666;margin-right:1%;}
-.birth select:last-child{margin-right:0;}
-@media (max-width: 400px) {.birth select{width:31%;margin-right:2%;}}
-.form-group select{border:1px solid #ccc;}
-.form-control{border-radius:0 !important;}
+.birth .col-xs-4{padding-left:0;}
+.birth .col-xs-4:last-child{padding-right:0;}
 .form-selectfull .bootstrap-select{width:100% !important;}
 .bootstrap-select span{color:#999;font-size:16px;}
 .bootstrap-select .btn{line-height:2;}
@@ -417,8 +529,7 @@ a.lblright{color:#555;}
 .messages-right a:hover{color:#666;background:#EDEDED;text-decoration:none;}
 @media (min-width: 768px) {.messages-left{padding-left:0;padding-right:10px;}.messages-right a{font-size:13px;line-height:15px;padding:8px 10px 10px 10px;}}
 .messages-right .row{font-size:10px;margin-bottom:5px;color:#999;display:block;}
-.alertsmall{ line-height: 16px;    margin: 6px 4px;    padding: 9px 12px;opacity: 0.8;}
-.alertsmall:hover{opacity:1;}
+
 
 
 .bubble
@@ -448,7 +559,6 @@ top: 10px;
 }
 .bubble2{background:#ddd;color:#777;}
 .bubble2:after{border-width: 6px 0 6px 6px;border-color:transparent #ddd;left:auto;right:-6px;}
-.bubble .fa-heart{color:#e74c3c;}
 .messagename{font-size:11px;padding:0 7px 2px 7px;display:block;color:#999;}
 .messagename em{font-size:10px;color:#aaa;font-style:normal;padding-left:5px;display:block;}
 .form-message{margin-bottom:0;}
@@ -501,20 +611,12 @@ border-radius: 10px;}
  }
 @media (min-width: 767px) {.navbar-default{display:block;}.mobilenav{display:none;}}
 
-*:focus {outline: none;}
 input:-webkit-autofill {
 -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-color: #999 !important;
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
 }
 
-.scoreinfo{width:20px;height:18px;position:relative;display:inline-block;cursor:pointer;}
-.scoreinfo span{width:160px;position:absolute;display:none;top:25px;left:-20px;background:#fff;color:#666;border:1px solid #999;border-radius:3px;font-size:11px;line-height:12px;padding:5px 8px 7px;z-index:999;box-shadow:1px 2px 3px #ccc;}
+.scoreinfo{width:20px;height:18px;position:relative;display:inline-block;}
+.scoreinfo span{width:160px;height:115px;position:absolute;display:none;top:25px;left:-20px;background:#fff;color:#666;border:1px solid #999;border-radius:3px;font-size:11px;line-height:12px;padding:5px 8px;z-index:999;box-shadow:1px 2px 3px #ccc;}
 .scoreinfo:hover span{display:inline-block;}
 
 .welcomeinput{max-width:340px;margin:0 auto;}
@@ -522,9 +624,7 @@ input:-webkit-autofill:active {
 .btn-welcome2{margin-top:10px;}
 .welcomelogin{font-size:16px;}
 
-.subtitle{font-size:18px;}
-.subtitle .scoreinfo{font-size:15px;}
-
+.date-select{width:32%;height: 34px;padding-left:2px;}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
