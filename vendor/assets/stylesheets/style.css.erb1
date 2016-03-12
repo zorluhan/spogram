@@ -14,7 +14,7 @@ h3{font-size:20px;margin:0;}
   margin-left:0;
 }
 #header{display:block;}
-.navbar-default {
+.navbar-default {birth
     background-color: #e74c3c;
     border:0;
 	border-radius:0;
