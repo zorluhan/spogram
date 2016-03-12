@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get '/secondhome/' => 'pages#secondhome'
   patch '/pages/results' => 'pages#results'
   get '/welcome' => 'pages#welcome'
+  get '/index3' => 'pages#index3'
+  get '/index4' => 'pages#index4'
+  get '/index5' => 'pages#index5'
+  
   resources :charges do
     collection do
       get 'list'
