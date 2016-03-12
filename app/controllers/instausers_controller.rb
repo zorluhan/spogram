@@ -134,7 +134,6 @@ end
 
  def destroy
     Instauser.find(params[:id]).destroy
-    reset_session
     redirect_to '/pages/logout'
   end
 
