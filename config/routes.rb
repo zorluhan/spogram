@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   end
   
   resources :brandusers
-  resources :instausers 
+  resources :instausers do
+    member do 
+      delete :destoy 
+    end
+  end
+
   resources :messages do
     collection do 
       get 'list'
