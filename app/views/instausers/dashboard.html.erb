@@ -75,7 +75,7 @@
 <div class="row">
 <h2>MOST LIKED</h2>
  <% @instauser_most_liked_posts.each do |x| %>
-<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i>&nbsp;<%= x.likes_counts %></span></a></div> 
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail" target="_blank"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i>&nbsp;<%= x.likes_counts %></span></a></div> 
    <%end%>
 </div>
 <div class="row"><div class="alert alert-info alertsmall"><i class="fa fa-info-circle"></i> "Did you know? Your stats and most liked photos are based on your latest 60 posts.</div></div>
@@ -150,7 +150,7 @@
 <div class="row">
 <h2>MOST RECENT</h2>
   <% @instauser_recent_posts.each do |x| %>
-<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail"><img class="img-responsive" src="<%= x.media_standard_url%>" /></a></div> <%end%>
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail" target="_blank"><img class="img-responsive" src="<%= x.media_standard_url%>" /></a></div> <%end%>
 </div>
 
 </div>
