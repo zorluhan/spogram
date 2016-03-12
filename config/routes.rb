@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
   
   resources :brandusers
-  resources :instausers  
+  resources :instausers 
+ 
+
   resources :messages do
     collection do 
       get 'list'
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
   get '/index3' => 'pages#index3'
   get '/index4' => 'pages#index4'
   get '/index5' => 'pages#index5'
+
   
   resources :charges do
     collection do
@@ -73,11 +76,11 @@ Rails.application.routes.draw do
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
   get 'login' => 'instausers#auth'
-  delete '/destroy/:id' => 'instausers#destroy' , as: :destroy
   delete '/logout' => 'sessions#destroy'
+   
   get '/checkin' => 'instausers#checkin'
   post '/search' => 'instausers#search'
-
+delete '/destroy/:id' => 'instausers#destroy', as: :destroy
   get '/cities' => 'application#cities'
 
  
