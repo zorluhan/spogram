@@ -10,7 +10,7 @@
 
     
 
-     <%= form_for(Instauser.new), :html => {:role => 'form', :autocomplete => 'off'} do |f| %>
+     <%= form_for(Instauser.new, :html => {:role => 'form', :autocomplete => 'off'}) do |f| %>
       <%= render 'shared/instauser_signup_error_messages' %> 
 
       <div class="form-group form-groupemail">
