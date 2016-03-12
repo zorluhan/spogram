@@ -32,7 +32,7 @@
       </div>
 <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender"><i class="fa fa-birthday-cake"></i>Date of birth *</label>
-  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Day', :month => 'Month', :year => 'Year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname", :class=> "date-select" %>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Day', :month => 'Month', :year => 'Year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname" %>
   </div> 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>
