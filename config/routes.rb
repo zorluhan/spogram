@@ -73,7 +73,7 @@ Rails.application.routes.draw do
   get '/callback' => 'instausers#callback'
   get '/dashboard' => 'instausers#dashboard' 
   get 'login' => 'instausers#auth'
-  
+  delete '/destroy/:id' => 'instausers#destroy' , as: :destroy
   delete '/logout' => 'sessions#destroy'
   get '/checkin' => 'instausers#checkin'
   post '/search' => 'instausers#search'

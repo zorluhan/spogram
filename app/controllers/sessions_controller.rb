@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
     session[:buser_id]=nil
     @current_branduser=nil
     flash!(:success => I18n.t("flash_messages.defaults.Loggedout"))
-    redirect_to 'pages/logout'
+    redirect_to "/pages/logout"
   end 
 end
