@@ -136,7 +136,7 @@ end
     Instauser.find(params[:id]).destroy
     reset_session
     flash!(:success => "Account Deleted.")  
-    redirect_to root_path
+    redirect_to logout_path
   end
 
   private
@@ -150,7 +150,7 @@ end
   def logged_in_instauser
     unless instauser_logged_in?
       flash!(:notloggedin)
-      redirect_to root_path
+      redirect_to "/pages/logout"
     end
   end
 
