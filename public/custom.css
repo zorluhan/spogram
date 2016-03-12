@@ -4,7 +4,7 @@ input.text, textarea.textarea{background:#FFFFFF none;}
 *:focus {outline: none;}
 .info{border-bottom:0 !important;padding:0;}
 .instruct{border:1px solid #e6e6e6}
-.info h2{color: #333 !important;display: block;font-size: 14px !important;font-weight: 700 !important;font-family:"Roboto",sans-serif !important;}
+.info h2{color: #333 !important;display: block;font-size: 18px !important;font-weight: 400 !important;font-family:"Roboto",sans-serif !important;text-transform:uppercase;}
 .info div{font-size:95%;font-family:inherit;color:#666 !important;}
 .section h3{font-size:110%;font-family:inherit;background:#FFFFFF;color:#000000}
 .section div{font-size:85%;font-family:inherit;color:#444444}
@@ -19,27 +19,15 @@ span.symbol{margin-top:5px !important;color:#666 !important;}
 input.text{height:28px !important;line-height:28px !important;}
 label.choice{color:#444444}
 .instruct{font-size:80%;font-family:inherit;color:#444444}
-input.btTxt {
-    background-color: #e74c3c;
-    border: 0 none;
-    border-radius: 0;
-    color: #fff;
-    font-size: 14px !important;
-    font-weight: 700;
-    margin-top: 5px;
-    padding: 9px 46px;
-    text-shadow: none;
-	cursor: pointer;
-    display: inline-block;
-	line-height: 1.42857;
-}
-input.btTxt:hover{opacity:0.9;}
+input.btTxt {    background: #e74c3c !important;    border: 0 none !important;    border-radius: 0 !important;    color: #fff !important;    font-size: 14px !important;    font-weight: 700 !important;    margin-top: 5px !important;    padding: 9px 46px !important;    text-shadow: none;  cursor: pointer;    display: inline-block;  line-height: 1.42857;text-transform:uppercase;}
+input.btTxt:hover{opacity:0.9 !important;}
 form li{padding-left:0;}
 form li.buttons{padding-left:0;}
 form li.focused{background-color: transparent !important;}
-
+form p.error {color: #e74c3c !important;font-weight:400 !important;}
 form li.error{background-color:transparent !important;}
-form li.error input, form li.error textarea, form li.error select{background-color:#FBE9E9  !important;}
-#errorLi, .error-container{border-radius:3px !important;background-color: #f2dede;border-color: #ebccd1;color: #a94442;text-align:left;width: 76% !important;padding: 1em !important; margin: 15px 0 !important;}
-#errorMsgLbl{color: #a94442 !important;font-size: 14px;}
-#errorMsg b{border-radius: 10px;color: #a94442 !important;padding:0 !important;background-color:transparent !important;}
+form li.error .desc {color: #e74c3c !important;}
+form li.error input, form li.error textarea, form li.error select{background-color:#FFF1F1 !important;}
+#errorLi, .error-container{border-radius:3px !important;background:transparent !important;border-color:transparent !important;color: #a94442;text-align:left;width: 76% !important;padding: 0 !important; margin: 15px 0 !important;}
+#errorMsgLbl{color:#e74c3c !important;font-size: 14px;padding:0 !important;}
+#errorMsg b{border-radius: 10px;color: #e74c3c !important;padding:0 !important;background-color:transparent !important;}
