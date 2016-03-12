@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
   # reject email to instauser after signup
   def instauser_reject_email(user_id)
     @user = Instauser.find_by(id: user_id)
-    mail(to: @user.email, subject: 'Your Capish application rejected, it is not the end of the world!')
+    mail(to: @user.email, subject: 'Thank you for joining Capish!')
   end
 
   # new message by branuser to instauser
