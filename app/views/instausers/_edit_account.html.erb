@@ -27,8 +27,8 @@
     <div class="btnmodal">
       <div class="btnmodal-back">
         <p>Are you sure you want to do that?</p>
-        <button class="yes"><%=form_for(@instauser, :url=> destroy_path ,:html=> {:method => 'delete'}) do %>
-              YES<%end%></button>
+        <button class="yes"><%=form_for(@instauser, :url=> destroy_path ,:html=> {:method => 'delete'})%>
+            <%= f.submit %><%end%>YES</button>
              
         <button class="no">NO</button>
       </div>
