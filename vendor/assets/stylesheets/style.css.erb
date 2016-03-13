@@ -104,7 +104,7 @@ h3{font-size:20px;margin:0;}
 .thumbnail{border:0; background-color:transparent;margin-bottom: 2px;}
 .thumb span{position:absolute;top:4px;right:4px;display:block;color:#fff;background:#666;background:rgba(102, 102, 102, 0.7);font-size:12px;padding:3px 6px;}
 .thumbnail:hover{text-decoration:none;}
-.avatar img{border:1px solid #e7e7e7;  border-radius: 50%;}
+.avatar img{border:1px solid #e7e7e7;}
 @media (max-width: 767px) {.avatar img{margin-bottom:12px;}}
 h1{font-size:30px;font-weight:300;line-height:30px;margin-top:0;margin-bottom:20px;}
 h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px;margin-top:30px;}
@@ -238,7 +238,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 
 
 .fullimg {
-    background: url(<%= image_url('beach.jpg') %>) no-repeat top center;
+    background: url(background3.jpg) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -393,7 +393,7 @@ a.lblright{color:#555;}
 }*/
 
 .top-buffer70 { margin-top:70px;}
-.enotif {color:#999;}
+.enotif {color:#999;margin-bottom: 20px;}
 .enotif label {padding:0 0 0 15px;}
 .enotif:before{content:"\f0f3";font-family:'FontAwesome';color:#ccc;font-size: 18px;padding:0 5px 0 1px;}
 .brandbox .thumb{margin:40px 0;line-height:17px;}
@@ -537,10 +537,7 @@ input:-webkit-autofill:active {
 .subtitle .scoreinfo{font-size:15px;}
 .imgcenter{margin:0 auto;}
 
-#deleteform
-{
-  display:inline;
-}
+
 
 
 .btnmodal.is-open ~ .description {
@@ -550,7 +547,7 @@ input:-webkit-autofill:active {
   display: block;
   position: relative;
   width: 143px;
-  height: 39px;
+  height: 36px;
   -webkit-transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transform-style: preserve-3d;
@@ -625,8 +622,8 @@ input:-webkit-autofill:active {
           transform: translateZ(-2px) rotateY(180deg); }
 
 .btnmodal.is-open {
-  width: 270px;
-  height: 139px; }
+  width: 255px;
+  height: 127px; }
   .btnmodal.is-open .btnmodal-front {
     pointer-events: none;
     line-height: 160px; }
@@ -649,7 +646,10 @@ input:-webkit-autofill:active {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg); }
 
-
+#deleteform
+{
+  display:inline-block;
+}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
