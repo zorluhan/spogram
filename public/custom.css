@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300&subset=latin,latin-ext);
-body{font-family: "Roboto",sans-serif;}
+body{font-family: "Roboto",sans-serif !important;}
 input.text, textarea.textarea{background:#FFFFFF none;}
 *:focus {outline: none;}
 .info{border-bottom:0 !important;padding:0;}
@@ -19,7 +19,7 @@ span.symbol{margin-top:5px !important;color:#666 !important;}
 input.text{height:28px !important;line-height:28px !important;}
 label.choice{color:#444444}
 .instruct{font-size:80%;font-family:inherit;color:#444444}
-input.btTxt {    background: #e74c3c !important;    border: 0 none !important;    border-radius: 0 !important;    color: #fff !important;    font-size: 14px !important;    font-weight: 700 !important;    margin-top: 5px !important;    padding: 9px 46px !important;    text-shadow: none;  cursor: pointer;    display: inline-block;  line-height: 1.42857;text-transform:uppercase;}
+input.btTxt {font-family: "Roboto",sans-serif !important;background: #e74c3c !important;    border: 0 none !important;    border-radius: 0 !important;    color: #fff !important;    font-size: 14px !important;    font-weight: 700 !important;    margin-top: 5px !important;    padding: 9px 46px !important;    text-shadow: none;  cursor: pointer;    display: inline-block;  line-height: 1.42857;text-transform:uppercase;box-shadow:0 !important;background-image:none !important;-webkit-appearance: none !important;-moz-appearance:none !important;}
 input.btTxt:hover{opacity:0.9 !important;}
 form li{padding-left:0;}
 form li.buttons{padding-left:0;}
