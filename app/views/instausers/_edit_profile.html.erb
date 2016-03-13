@@ -24,9 +24,6 @@
   <%= f.date_select :dob, {order: [:day, :month, :year], :selected => @instauser.dob , start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname"%>
   </div> 
 
-
-
- <br>
   <div class="form-group form-selectfull form-noborder">
   <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>  <%= f.select :gender, options_for_select([['Male','Male'],['Female', 'Female']],@instauser.gender),{}, {:class=> "form-control"} %>
   </div>
