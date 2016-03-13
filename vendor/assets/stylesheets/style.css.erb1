@@ -238,7 +238,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 
 
 .fullimg {
-    background: url(background3.jpg) no-repeat top center;
+    background: url(<%= image_path('background3.jpg') %>) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -536,116 +536,6 @@ input:-webkit-autofill:active {
 .subtitle{font-size:18px;}
 .subtitle .scoreinfo{font-size:15px;}
 .imgcenter{margin:0 auto;}
-
-
-
-
-.btnmodal.is-open ~ .description {
-  opacity: 0; }
-
-.btnmodal {
-  display: block;
-  position: relative;
-  width: 143px;
-  height: 36px;
-  -webkit-transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1), height 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  text-align: center; }
-
-.btnmodal-front {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  line-height: 36px;
-  background-color: #F5F5F5;
-  color: #bbb;
-  cursor: pointer;
-  border:1px solid #ccc;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-          transition: background 0.15s ease, line-height 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
-  .btnmodal-front:hover {
-    background-color: #F7F7F7; }
-
-.btnmodal-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #F1F1F1;
-  color: #333;
-  -webkit-transform: translateZ(-2px) rotateX(180deg);
-          transform: translateZ(-2px) rotateX(180deg);
-  overflow: hidden;
-  -webkit-transition: box-shadow 0.8s ease;
-          transition: box-shadow 0.8s ease; }
-  .btnmodal-back p {
-    margin-top: 22px;
-    margin-bottom: 21px; }
-  .btnmodal-back button {
-    padding: 9px 20px;
-    width: 30%;
-    margin: 0 5px;
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-    font-size: 1em;
-	font-weight:700;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-transition: background 0.15s ease;
-            transition: background 0.15s ease; }
-  .btnmodal-back button:focus {
-    outline: 0; }
-  .btnmodal-back button.yes {
-    background-color: #E74C3C;
-    color: #fff; }
-    .btnmodal-back button.yes:hover {
-      opacity:0.9; }
-  .btnmodal-back button.no {
-    color: #555;
-	background-color: #fff;	}
-    .btnmodal-back button.no:hover {
-      background-color: #f6f6f6; }
-
-.btnmodal[data-direction="left"] .btnmodal-back,
-.btnmodal[data-direction="right"] .btnmodal-back {
-  -webkit-transform: translateZ(-2px) rotateY(180deg);
-          transform: translateZ(-2px) rotateY(180deg); }
-
-.btnmodal.is-open {
-  width: 255px;
-  height: 127px; }
-  .btnmodal.is-open .btnmodal-front {
-    pointer-events: none;
-    line-height: 160px; }
-  .btnmodal.is-open .btnmodal-back {
-    box-shadow:0 1px 8px rgba(0, 0, 0, 0.2); }
-
-.btnmodal[data-direction="top"].is-open {
-  -webkit-transform: rotateX(180deg);
-          transform: rotateX(180deg); }
-
-.btnmodal[data-direction="right"].is-open {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg); }
-
-.btnmodal[data-direction="bottom"].is-open {
-  -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg); }
-
-.btnmodal[data-direction="left"].is-open {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg); }
-
 
 
 /*!
