@@ -18,7 +18,7 @@ class InstausersController < ApplicationController
 
     client = Instagram.client(:access_token => response.access_token)
     
-    if client.user.username == "zorluhan2" or client.user.username == "meikaash" or client.user.username == "zorluhan2017" or client.user.username == "sahikasss" or client.user.username == "melihsahinkaya" or client.user.username == "oprette" 
+    if client.user.username == "zorluhan2" or client.user.username == "meikaash" or client.user.username == "zorluhan2017" or client.user.username == "sahikasss" or client.user.username == "melihsahinkaya" or client.user.username == "opprette" 
 
     instauser = Instauser.find_by_username(client.user.username)
    
