@@ -17,10 +17,7 @@ class InstausersController < ApplicationController
     response = Instagram.get_access_token(params[:code], :redirect_uri => INSTAGRAM_CALLBACK_URL)
 
     client = Instagram.client(:access_token => response.access_token)
-    if client.user.username != ("zorluhan2" or "zorluhan2017" or "oprette2" or "sahikasss" or "melihsahinkaya" or "cagrierdogdu" or "vlad.bomboe" or "anka.bratu" or "meikaash")
-      redirect_to "/pages/logout"
-      flash!(:error => "You are not authorized to login")
-    else 
+  
 
     instauser = Instauser.find_by_username(client.user.username)
 
@@ -46,7 +43,7 @@ class InstausersController < ApplicationController
     end
 
 
-  end
+  
   end
 
   def new 
