@@ -12,40 +12,34 @@
 
   <% else %>
     <div id="leftbar">
-      <ul class="list-group" id="form">
+      
         <font face="Roboto">
-        <li class="list-group-item"><h4>
-          My Earnings: <%= @earned %></h4>
-        </li>
-        <li class="list-group-item">
-          <h4><%= link_to "Accepted", list_charges_path(state: :accepted) %> </h4>
-        </li>
-        <li class="list-group-item">
-          <h4>
+        
+          My Earnings: <%= @earned %> 
+         
+        
+           <%= link_to "Accepted", list_charges_path(state: :accepted) %>  
+       
+       
             <%= link_to list_charges_path(state: :pending) do %>
               Pending
               <% count = unread_charges_count(current_instauser) %> 
               <%= "(#{count})" if count > 0 %>
             <% end %>
-          </h4>
-        </li>
-        <li class="list-group-item">
-          <h4><%= link_to "Declined", list_charges_path(state: :declined) %> </h4>
-        </li>
-        <li class="list-group-item">
-          <h4><%= link_to "Release Requested", list_charges_path(state: :release_requested) %> </h4>
-        </li>
-        <li class="list-group-item">
-          <h4>
+          
+        
+          <%= link_to "Declined", list_charges_path(state: :declined) %>  
+         
+          <%= link_to "Release Requested", list_charges_path(state: :release_requested) %>  
+        
             <%= link_to list_charges_path(state: :completed) do %>
               Completed
               <% count = completed_charges_count(current_instauser) %> 
               <%= "(#{count})" if count > 0 %>
             <% end %>
-          </h4>
-        </li>
+           
         </font>
-      </ul>
+       
     </div>
       
 
