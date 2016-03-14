@@ -14,8 +14,16 @@
     <div id="leftbar">
       
         <font face="Roboto">
-        
-          My Earnings: <%= @earned %> 
+        <div class="panel panel-default">
+          <div class="panel-heading">
+    <h3 class="panel-title">Earnings</h3>
+  </div>
+  <div class="panel-body">
+    <%= @earned %>
+  </div>
+ 
+</div>
+          
          
         
            <%= link_to "Accepted |", list_charges_path(state: :accepted) %>  
