@@ -15,6 +15,9 @@ class PagesController < ApplicationController
   def logout
   end 
 
+  def logout2
+  end 
+
 def index3
 end
 

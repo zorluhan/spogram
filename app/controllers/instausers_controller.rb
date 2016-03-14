@@ -44,7 +44,7 @@ class InstausersController < ApplicationController
       end
 
   else 
-  redirect_to pages_logout_path
+  redirect_to "/pages/logout2"
 end
   
   end

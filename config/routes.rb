@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/index5' => 'pages#index5'
   get '/brandwaitlist' => 'pages#brandwaitlist'
   get'/pages/home' => 'pages#home'
-    
+  get 'pages/logout2'=> 'pages#logout2'  
   resources :charges do
     collection do
       get 'list'
