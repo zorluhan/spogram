@@ -17,10 +17,11 @@ class InstausersController < ApplicationController
     response = Instagram.get_access_token(params[:code], :redirect_uri => INSTAGRAM_CALLBACK_URL)
 
     client = Instagram.client(:access_token => response.access_token)
-  
+    
+    if client.user.username == "zorluhan2" or client.user.username == "meikaash" or client.user.username == "zorluhan2017" or client.user.username == "sahikasss" or client.user.username == "melihsahinkaya" or client.user.username == "oprette" 
 
     instauser = Instauser.find_by_username(client.user.username)
-
+   
 
     if instauser.nil? or instauser.disabled
       if instauser.nil?
@@ -34,15 +35,17 @@ class InstausersController < ApplicationController
       set_cache_buster
       session[:instauser_id] = instauser.id
       redirect_to '/signup'
-    else
+     else
       instauser.update_attributes(:access_token => response.access_token,
                                   :profile_picture => client.user.profile_picture)
       reset_session
       instauser_log_in(instauser)
       redirect_to "/dashboard"
-    end
+      end
 
-
+  else 
+  redirect_to pages_logout_path
+end
   
   end
 
