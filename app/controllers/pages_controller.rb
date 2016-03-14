@@ -21,6 +21,10 @@ end
 def index4 
   end 
 
+
+  def brandwaitlist
+  end
+
 def faq
 end
 
