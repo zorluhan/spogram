@@ -68,11 +68,11 @@ class MessagesController < ApplicationController
   def list 
     if current_instauser 
       @branduser = Branduser.find_by_id(params[:branduser_id])
-      @messages  = Message.where(branduser_id: @branduser.id, instauser_id: current_instauser.id)
+      @messages  = Message.where(branduser_id: @branduser.id, instauser_id: current_instauser.id).sort_by(&:created_at)
       @messages.where(is_read: false, sender: 0).update_all(is_read: true)
     elsif current_branduser 
       @instauser = Instauser.find_by_id(params[:instauser_id])
-      @messages  = Message.where(instauser_id: @instauser.id, branduser_id: current_branduser.id)
+      @messages  = Message.where(instauser_id: @instauser.id, branduser_id: current_branduser.id).sort_by(&:created_at)
       @messages.where(is_read: false, sender: 1).update_all(is_read: true)
     end
   end
