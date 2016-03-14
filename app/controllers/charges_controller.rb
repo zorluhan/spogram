@@ -31,7 +31,7 @@ class ChargesController < ApplicationController
       @charges = Charge.where(branduser_id: current_branduser.id )
     elsif instauser_logged_in?
       @charges = Charge.where(instauser_id: current_instauser.id )
-      @earned  = current_instauser.charges.where(state: :completed).sum(:amount).to_f/120.round(2)
+      @earned  =  number_with_precision(current_instauser.charges.where(state: :completed).sum(:amount).to_f/120.round(2), :precision => 2)
       # @earned  = 0
       # @charges.each do |x|
       #   if x.accepted? 
