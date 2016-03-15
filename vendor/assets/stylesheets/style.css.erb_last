@@ -238,7 +238,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 
 
 .fullimg {
-    background: url(background3.jpg) no-repeat top center;
+    background: url(<%= image_url('beach3.jpg') %>) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -324,7 +324,7 @@ h2{font-size:20px;font-weight:700;line-height:20px;color:#666;margin-bottom:12px
 .btn-send2{margin-top:10px;}
 .btn a{color:#fff;}
 
-.txtpage .container{max-width:465px;min-height:600px;}
+.txtpage .container{max-width:465px;min-height:500px;}
 .txtpage h2{font-weight:300;font-size:30px;color:#666;line-height:32px;margin-bottom:40px;}
 @media (min-width: 1200px) {.txtpage .container{max-width:980px;}}
 .msgpage .container{max-width:550px;min-height:500px;}
@@ -393,7 +393,6 @@ a.lblright{color:#555;}
 }*/
 
 .top-buffer70 { margin-top:70px;}
-.bot-buffer10 { margin-bottom:10px;}
 .enotif {color:#999;margin-bottom: 20px;}
 .enotif label {padding:0 0 0 15px;}
 .enotif:before{content:"\f0f3";font-family:'FontAwesome';color:#ccc;font-size: 18px;padding:0 5px 0 1px;}
@@ -533,7 +532,13 @@ input:-webkit-autofill:active {
 .welcomeinput input{font-size:16px;margin-bottom:10px;}
 .btn-welcome2{margin-top:10px;}
 .welcomelogin{font-size:16px;}
+
+.subtitle{font-size:18px;}
+.subtitle .scoreinfo{font-size:15px;}
 .imgcenter{margin:0 auto;}
+
+
+
 
 .btnmodal.is-open ~ .description {
   opacity: 0; }
@@ -641,37 +646,10 @@ input:-webkit-autofill:active {
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg); }
 
-#deleteform{  display:inline;}
-
-.subtitle{font-size:18px;margin-bottom:15px;color:#333;}
-.subtitle .scoreinfo{font-size:15px;}
-.subtitle2{margin-top:15px;margin-bottom:5px;}
-.lblfilter{font-size:13px;font-weight:400;color:#999;}
-.proposalearn{font-size:23px;font-weight:400;}
-.proposalbox{padding:0;margin-bottom:20px;}
-.proposalbox a{color:#666;display:block;padding:15px;background:#fff;border:1px solid #eee;border-radius:3px;}
-.proposalbox a:hover{text-decoration:none;background:#f9f9f9;border-color:#e7e7e7;}
-.proposalname{color:#333;font-weight:400;font-size:16px;margin-bottom:10px;}
-.proposalstatus{font-size:12px;}
-.proposalstatus i{font-size:13px;}
-.proposalstatus.pending{color:#8a6d3b;padding:1px 7px 2px 6px;border-radius:3px;background-color: #fcf8e3;border:1px solid #faebcc;}
-.proposalstatus.active{color:#3c763d;padding:1px 7px 2px 6px;border-radius:3px;background-color: #dff0d8;border:1px solid #d6e9c6;}
-.proposalstatus.completed{color:#31708f;padding:1px 7px 2px 6px;border-radius:3px;background-color: #d9edf7;border:1px solid #bce8f1;}
-.proposalstatus.declined{color:#a94442;padding:1px 7px 2px 6px;border-radius:3px;background-color: #f2dede;border:1px solid #ebccd1;}
-.proposaldate{color:#999;font-size:10px;margin-top:10px;}
-.proposalinfo{color:#666;font-size:13px;margin-top:15px;background:#fff;border-radius:3px;border:1px solid #eee;padding:15px;}
-.proposalinfo1{margin-bottom:20px;}
-.btnprop{margin-bottom:5px;background:#E74C3C !important;color:#fff;border-radius:0;}
-.btnprop i{font-size:13px;}
-.btnprop:hover{color:#fff;opacity:0.9;}
-.proposalinfo2{background:#fff;border:1px dashed #ccc;margin-bottom:10px;padding:15px;line-height:18px;color:#777;}
-.proposalinfo2 span{color:#333;}
-.form-propbottom{margin-top:25px;margin-bottom:15px;}
-.form-propbottom .gender{color:#666;}
-.subtitle3{margin-top:15px;margin-bottom:5px;color: #333;font-size:26px;font-weight:300;}
-.proposalfrom{font-size:15px;color:#666;display:block;padding-left:2px;line-height:17px;}
-.proptitle{margin-top:35px !important;margin-bottom:25px !important;}
-@media (max-width: 767px) {.subtitle3{font-size:20px;}.proposalfrom{font-size:13px;line-height:15px;}.proptitle{font-size:26px !important;margin-bottom:15px !important;}}
+#deleteform
+{
+  display:inline;
+}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome

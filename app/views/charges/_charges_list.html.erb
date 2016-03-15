@@ -2,10 +2,12 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
   <% if @charges.empty? %>
+  <br>
     <%= "There are no proposals yet" %>
   <% else %>
+  <br>
     <% @charges.each do |x| %>
-      <ul class="list-group" id="form">
+      <ul class="col-xs-5 list-group" id="form">
         <li class="list-group-item list-group-item-disabled">
           <font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font>
           <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>

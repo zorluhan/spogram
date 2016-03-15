@@ -46,10 +46,12 @@ class ApplicationController < ActionController::Base
   end
 
   def instauser_log_in(user)
+    reset_session
     session[:user_id] = user.id
   end
 
   def branduser_log_in(buser)
+    reset_session
     session[:buser_id]= buser.id
   end
 
