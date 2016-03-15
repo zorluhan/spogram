@@ -12,9 +12,9 @@
 
   <% else %>
    
-      <div clas="col-md-12">
-        <font face="Roboto">
-        <div class="panel panel-default">
+     
+         
+        <div class="col-xs-3 panel panel-default pull-right">
           <div class="panel-heading">
     <h3 class="panel-title">Earnings</h3>
   </div>
@@ -22,7 +22,7 @@
     <%= @earned %>
   </div>
  
-</div> </div>
+</div>  
  
           
           <div id="leftbar">
@@ -49,12 +49,13 @@
               <%= "(#{count})" if count > 0 %>
             <% end %>
            
-        </font>
+       
        
     </div>
-      
+     
 
   <% end %>
+
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
   <div id="leftbar">
     <ul class="list-group" id="form">
