@@ -6,7 +6,7 @@
 
     defaults:
         email_success: "Message sent successfuly!"
-        payment_notify_instauser: "Success! You can send a direct message to the instagramer."
+        payment_notify_instauser: "Success! You can send a direct message to the brand to discuss details."
         payment_notify_branduser: "Your credit card will be charged once the instagramer approves."
         refused: "Hesabınız 10 bin takipçiden az olduğu için kabul edilmemiştir"
         notloggedin: "Please login!"
