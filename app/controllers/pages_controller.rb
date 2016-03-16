@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
 
-  def secondhome
-  end 
-
+  
   def privacy
   end
 
@@ -18,11 +16,7 @@ class PagesController < ApplicationController
   def logout2
   end 
 
-def index3
-end
-
-def index4 
-  end 
+ 
 
 
   def brandwaitlist
@@ -33,8 +27,7 @@ end
 
 def index2
 end
-def index5
-  end
+ 
 
  def terms
  end

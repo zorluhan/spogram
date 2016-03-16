@@ -29,12 +29,10 @@ Rails.application.routes.draw do
   post '/pages/search' => 'pages#search'
   get '/pages/search' => 'pages#search'
   get '/pages/age'=>'pages#age'
-  get '/secondhome/' => 'pages#secondhome'
+   
   patch '/pages/results' => 'pages#results'
   get '/welcome' => 'pages#welcome'
-  get '/index3' => 'pages#index3'
-  get '/index4' => 'pages#index4'
-  get '/index5' => 'pages#index5'
+   
   get '/brandwaitlist' => 'pages#brandwaitlist'
   get'/pages/home' => 'pages#home'
   get 'pages/logout2'=> 'pages#logout2'  
