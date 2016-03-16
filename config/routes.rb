@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     end
   end
   # patch '/publish' => 'messages#publish'
-    get '/menudeneme' => 'pages#menudeneme'
+     
   root 'pages#home'
    get '/pages/terms' => 'pages#terms'
   get '/faq' => 'pages#faq'
+   get 'pages/faq' => 'pages#faq'
   get '/pages/about' => 'pages#about'
   get '/instagrammers' => 'pages#instagrammers'
   get '/instagramers' => 'pages#instagramers'
@@ -60,6 +61,7 @@ Rails.application.routes.draw do
   # post '/charges' => 'charges#create'
  
   get '/privacy' => 'pages#privacy'
+  get '/pages/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'
   get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form
    get '/bsignup' => 'brandusers#new'
@@ -68,7 +70,7 @@ Rails.application.routes.draw do
    delete '/blogout' => 'sessions#destroy'
    get '/bdashboard' => 'brandusers#dashboard'
    get '/message-brands' => 'instausers#formmessage' , as: :formmessage
-    get '/index2' => 'pages#index2'
+    
   get '/auth' => 'instausers#auth'
   get '/signup' => 'instausers#signup'
   get '/newuser' => 'instausers#new'  

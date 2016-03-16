@@ -25,8 +25,7 @@ class PagesController < ApplicationController
 def faq
 end
 
-def index2
-end
+ 
  
 
  def terms
