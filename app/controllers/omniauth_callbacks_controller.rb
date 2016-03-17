@@ -19,4 +19,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		end
 	end
 
+	def failure
+		redirect_to "/bsignup"
+	end
+
 end
