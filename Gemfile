@@ -21,6 +21,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-linkedin-oauth2'
 gem 'puma'
  
 gem 'instagram' 

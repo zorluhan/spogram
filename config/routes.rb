@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :brandusers, controllers: { omniauth_callbacks: "omniauth_callbacks" }
+
   if Rails.env.development?
     require 'sidekiq/web'
     mount Sidekiq::Web => '/sidekiq'

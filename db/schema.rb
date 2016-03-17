@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309210355) do
+ActiveRecord::Schema.define(version: 20160316171554) do
+
+  create_table "authorizations", force: true do |t|
+    t.string   "provider"
+    t.string   "username"
+    t.string   "uid"
+    t.integer  "branduser_id"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brandusers", force: true do |t|
     t.datetime "created_at"
