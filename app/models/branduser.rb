@@ -31,23 +31,35 @@ class Branduser < ActiveRecord::Base
     end
   end
 
+  def profile_filled?
+    coname.present? and cowebsite.present? and phone.present? and title.present?
+  end
+
   def self.from_omniauth(auth)
     authorization = Authorization.where(:provider => auth.provider, :uid => auth.uid.to_s).first_or_initialize
     if authorization.branduser.blank?
       user = Branduser.find_by_email(auth["info"]["email"])
       if user.blank?
         user = Branduser.new(:password => Devise.friendly_token, 
-                            :firstname => auth.info.name,
-                            :email => auth.info.email)
-        user.save(:validate => false)
-      end
-     authorization.token = auth.credentials.token
-     authorization.secret = auth.credentials.secret
-     authorization.username = auth.info.nickname
-     authorization.branduser_id = user.id
-     authorization.save
-   end
-   authorization.branduser
+                            :firstname => auth["info"]["first_name"],
+                            :lastname => auth["info"]["last_name"],
+                            :email => auth.info.email)        
+      else
+        user.firstname = auth["info"]["first_name"]
+        user.lastname = auth["info"]["last_name"]
+      end      
+    else
+      user = authorization.branduser
+      user.firstname = auth["info"]["first_name"]
+      user.lastname = auth["info"]["last_name"]      
+    end
+    user.save(:validate => false)
+    authorization.token = auth.credentials.token
+    authorization.secret = auth.credentials.secret
+    authorization.username = auth.info.nickname
+    authorization.branduser_id = user.id
+    authorization.save
+    authorization.branduser
  end
 
 end

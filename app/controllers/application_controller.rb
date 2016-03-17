@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   helper_method :require_buser
   helper_method :current_instauser
   helper_method :current_branduser
- 
+
+  before_filter :branduser_profile_filled?
 
   before_filter :set_cache_buster
 
@@ -19,6 +20,14 @@ class ApplicationController < ActionController::Base
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
+  def branduser_profile_filled?
+    if current_branduser
+      unless current_branduser.profile_filled?
+        redirect_to edit_branduser_path(current_branduser) unless ["edit", "update", "destroy"].include?(action_name) and ["brandusers", "sessions"].include?(controller_name)
+      end
+    end
   end
 
   def current_instauser
