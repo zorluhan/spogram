@@ -2,72 +2,77 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
   <% if @charges.empty? %>
-  <br>
-    <%= "There are no proposals yet" %>
-  <% else %>
-  <br>
-    <% @charges.each do |x| %>
-      <ul class="col-xs-5 list-group" id="form">
-        <li class="list-group-item list-group-item-disabled">
-          <font face="lobster"><h3 align="center"><%= x.branduser.coname %></h3></font>
-          <%= link_to "Message The Company", new_message_path(branduser_param: x.branduser.id) %>
-        </li>
-        <li class="list-group-item">
-          Amount: <%= "$ "%><%= (x.amount.to_f/(120)).round(2) %></li>
+                      <br>
+                       <div class="row row0">
+                       <div class="col-sm-12 col-xs-12 proposalbox">
+                       <a href="#" class="clearfix"><span class="row row0 clearfix"><span class="pull-left proposalname"></span></span>
+                  There are no proposals yet
+                      <span class="pull-right proposaldate"></span></a>
+                     </div>
+                  </div>
+    
+    <% else %>
+               <br>
+             <% @charges.each do |x| %>
 
-        <li class="list-group-item">
-          Product Name: <%= x.product_name %></li>
-        <li class="list-group-item">
-          Product Description: <%= x.product_description %></li>
-        <li class="list-group-item">
-          Product Link: <%= x.product_link %></li>
-        <li class="list-group-item">
-          Instagram Link: <%= x.instagram_link %></li>
+ 
 
-        <li class="list-group-item">
-          Post Description: <%= x.post_description %></li>
-        <li class="list-group-item">
-          Suggested Caption: <%= x.suggested_caption %></li>
-        <li class="list-group-item">
-          Hash Tags to Include: <%= x.hash_tags %></li>
-        <li class="list-group-item">
-          Usernames to include: <%= x.user_names %></li>
+                            <div class="row row0">
+                                <div class="col-sm-12 col-xs-12 proposalbox">
+                                   <%= link_to detail_path(:id => x.id), :class=> "clearfix" do  %>
+                                         <span class="row row0 clearfix"><span class="pull-left proposalname"><%=x.product_name%></span>
 
-        <li class="list-group-item">
-          Earliest Post Date: <%= x.earliest_post_date %></li>
-        <li class="list-group-item">
-          Last Post Date: <%= x.last_post_date %></li>
+                               <% if x.state="pending" %>
+                                     <span class="pull-right proposalstatus pending">
+                                         <i class="fa fa-circle-o"></i> pending</span>
+                            
+                               <% elsif x.state="accepted" %>
+                                     <span class="pull-right proposalstatus active">
+                                      <i class="fa fa-rocket"></i> active</span>
+                          
+                              <% elsif x.state="completed" %>
+                                     <span class="pull-right proposalstatus completed">
+                                      <i class="fa fa-check"></i> completed</span>
 
-        <% if x.pending? %>
-          <li class="list-group-item list-group-item-disabled">
-            <h4><span class="label label-warning"><%= x.state.titleize %></span></h4></li>
-          <li class="list-group-item" align="center">
-            <span class="btn-group">
-              <%= link_to "Accept", accept_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Accepting..."}  %>
-              <%= link_to "Decline", decline_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Declining..."}  %>
-            </span></li>
-        <% elsif x.accepted? %>
-          <li class="list-group-item" align="center">
-            <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
-          </li>
-          <li class="list-group-item" align="center">
-            <span class="btn-group">
-              <%= link_to "Request Release", release_request_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Requesting Release..."}  %>
-            </span></li>
-        <% else %>
-          <li class="list-group-item" align="center">
-            <h4><span class="label label-success"><%= x.state.titleize %></span></h4>
-          </li>
-        <% end %>
-      </ul>
-      
-    <% end %>
-  <% end %>
+                               <% elsif x.state="declined" %>
+                                    <span class="pull-right proposalstatus declined">
+                                    <i class="fa fa-ban"></i> declined</span>
+
+                                <% elsif x.state="release_requested" %>
+                                     <span class="pull-right proposalstatus active">
+                                      <i class="fa fa-ban"></i> release requested </span>
+
+                                 <%end%>
+
+
+                </span>
+                <%= x.post_description %>
+                <span class="pull-right proposaldate"><%= time_ago_in_words(x.created_at) %></span>
+
+                  <%end%>
+
+    
+                  </div>
+                  </div>
+                  <%end%>
+        <%end%>
+
+  </div>
+  </div>
+ 
+ 
  
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
 
   <% if @charges.empty? %>
-    <%= "There are no proposals yet" %>
+     <br>
+                       <div class="row row0">
+                       <div class="col-sm-12 col-xs-12 proposalbox">
+                       <a href="#" class="clearfix"><span class="row row0 clearfix"><span class="pull-left proposalname"></span></span>
+                  There are no proposals yet
+                      <span class="pull-right proposaldate"></span></a>
+                     </div>
+                  </div>
   <% end %>
 
   <% @charges.each do |x| %>
@@ -117,14 +122,15 @@
           <span class="btn-group">
             <%= link_to "Mark Complete", complete_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Marking Complete..."}  %>
           </span></li>
-      <% end %>
+       <% end %>
     </ul>
   <% end %>
 
 <% else %>
   <% redirect_to root_path %>
 <% end %>
-<!-- google analytics code !-->
+ 
+ <!-- google analytics code !-->
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

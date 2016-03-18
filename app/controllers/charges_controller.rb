@@ -2,7 +2,7 @@ class ChargesController < ApplicationController
 
   before_action :require_buser, only: [:new, :create, :show] 
   before_action :require_user, only: [:accept]
-  before_action :correct_user, only: [:accept]
+  before_action :correct_user, only: [:accept, :detail]
   before_action :correct_user_for_show, only: [:show]
 
   def new
@@ -60,6 +60,17 @@ class ChargesController < ApplicationController
      redirect_to root_path
     end
   end
+
+
+def detail
+id= params[:id]
+ @charge = Charge.find_by_id(params[:id])
+ @branduser= Branduser.find_by_id(@charge.branduser_id)
+ 
+
+end 
+
+
 
   def create 
     @charge = Charge.new(charge_params)

@@ -11,28 +11,47 @@
       
 
   <% else %>
-   
+   <div class="msgpage">
+<div class="container">
+  <h2 class="text-center">PROPOSALS</h2> 
+  
+  <div class="subtitle">SNAPSHOT <div class="scoreinfo"><span>Your engagement score is a single number used to measure how engaged your followers are. The score is based on an algorithm we developed that we are in the process of trademarking. The higher the number, the more engaged your followers are!</span><i class="fa fa-question-circle"></i></div></div>
      
          
-        <div class="col-xs-3 panel panel-default pull-right">
-          <div class="panel-heading">
-    <h3 class="panel-title">Earnings</h3>
+          <div class="clearfix">
+    <div class="col-lg-4 col-sm-4 col-xs-12 col0">
+      <div class="panel widget">
+      <div class="widget-title proposalearn">$<%= @earned %></div>
+       <div class="">Possible Earnings</div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-xs-12 col0">
+      <div class="panel widget">
+      <div class="widget-title proposalearn">$0.00</div>
+       <div class="">Upcoming Earnings</div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-xs-12 col0">
+      <div class="panel widget">
+      <div class="widget-title proposalearn">$0.00</div>
+       <div class="">Total Earnings</div>
+      </div>
+    </div>
   </div>
-  <div class="panel-body">
-    <%= @earned %>
-  </div>
+
+  <div class="subtitle subtitle2">MY PROPOSALS <div class="scoreinfo"><span>Your engagement score is a single number used to measure how engaged your followers are. The score is based on an algorithm we developed that we are in the process of trademarking. The higher the number, the more engaged your followers are!</span><i class="fa fa-question-circle"></i></div></div>
+
+
  
-</div>  
- 
-          
-          <div id="leftbar">
+  <label for="name" class="lblfilter">Filter by status</label>
+
+      
         
            <%= link_to "Accepted", list_charges_path(state: :accepted) %>  
            <%= "|" %>
        
             <%= link_to list_charges_path(state: :pending) do %>
-              Pending 
-              <% count = unread_charges_count(current_instauser) %> 
+              Pending<% count = unread_charges_count(current_instauser) %> 
               <%= "(#{count})" if count > 0 %>
             <% end %>
           <%= "|" %>
@@ -50,11 +69,16 @@
             <% end %>
            
        
-       
-    </div>
+    
      
 
   <% end %>
+
+
+
+ 
+
+
 
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
   <div id="leftbar">

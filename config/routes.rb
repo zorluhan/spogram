@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   post '/pages/search' => 'pages#search'
   get '/pages/search' => 'pages#search'
   get '/pages/age'=>'pages#age'
-   
+  get '/detail/:id' => 'charges#detail', as: :detail
   patch '/pages/results' => 'pages#results'
   get '/welcome' => 'pages#welcome'
    
