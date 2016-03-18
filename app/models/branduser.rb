@@ -24,11 +24,11 @@ class Branduser < ActiveRecord::Base
   after_create :send_welcome_email
 
   def send_welcome_email
-    if Rails.env.production?
-      if email.present?
+    # if Rails.env.production?
+      # if email.present? # email needs to be present
         UserMailer.branduser_welcome_email(id).deliver!
-      end
-    end
+      # end
+    # end
   end
 
   def profile_filled?
@@ -41,13 +41,15 @@ class Branduser < ActiveRecord::Base
       user = Branduser.find_by_email(auth["info"]["email"])
       if user.blank?
         user = Branduser.new(:password => Devise.friendly_token,
-                            :email => auth.info.email)        
+                            :email => auth.info.email)
       end
     else
       user = authorization.branduser
     end
     user.firstname = auth["info"]["first_name"] unless user.firstname.present?
     user.lastname = auth["info"]["last_name"] unless user.lastname.present?
+    user.is_authenticated = true
+    user.auth_token = nil
     user.save(:validate => false)
     authorization.token = auth.credentials.token
     authorization.secret = auth.credentials.secret

@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
   # welcome email to branduser after signup
   def branduser_welcome_email(user_id)
     @user = Branduser.find_by(id: user_id)
-    @url  = 'http://example.com/login'
+    @url  = authenticate_brandusers_url(token: @user.auth_token)
     mail(to: @user.email, subject: 'Welcome to Capish!')
   end
 
