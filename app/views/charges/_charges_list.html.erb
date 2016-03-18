@@ -22,23 +22,23 @@
                                    <%= link_to detail_path(:id => x.id), :class=> "clearfix" do  %>
                                          <span class="row row0 clearfix"><span class="pull-left proposalname"><%=x.product_name%></span>
 
-                               <% if x.state="pending" %>
+                               <% if x.state=="pending" %>
                                      <span class="pull-right proposalstatus pending">
                                          <i class="fa fa-circle-o"></i> pending</span>
                             
-                               <% elsif x.state="accepted" %>
+                               <% elsif x.state=="accepted" %>
                                      <span class="pull-right proposalstatus active">
                                       <i class="fa fa-rocket"></i> active</span>
                           
-                              <% elsif x.state="completed" %>
+                              <% elsif x.state=="completed" %>
                                      <span class="pull-right proposalstatus completed">
                                       <i class="fa fa-check"></i> completed</span>
 
-                               <% elsif x.state="declined" %>
+                               <% elsif x.state=="declined" %>
                                     <span class="pull-right proposalstatus declined">
                                     <i class="fa fa-ban"></i> declined</span>
 
-                                <% elsif x.state="release_requested" %>
+                                <% elsif x.state=="release_requested" %>
                                      <span class="pull-right proposalstatus active">
                                       <i class="fa fa-ban"></i> release requested </span>
 
