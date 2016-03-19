@@ -1,0 +1,111 @@
+
+<% @instausers.each do |x| %>
+<div class="row row0 text-center profilelist">
+        <div class="row row0 masonry-container">
+
+<div class="col-lg-6 col-sm-12 col-xs-12 thumb clearfix">
+          <div class="profilecard thumbnail">
+
+             <div class="row row0">
+
+                 <div class="col-sm-3 col-xs-3 col-thin-left profile-left">
+      <a class="avatar" href="">
+
+<img src="<%= x.profile_picture %>" width="148" height="148" onerror="imgError(this);" > 
+
+         </a>
+             </div>
+                <div class="col-sm-9 col-xs-9 col-thin-right profile-right">
+                  <div class="row"><div class="title"><% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></div></div>
+                     <div class="row info"><i class="fa fa-user"></i><% unless x.dob.nil? %><%= Date.today.year - x.dob.year %><%end%>, <%= x.gender%></div>
+                         <div class="row info"><i class="fa fa-map-marker"></i><%= x.location %></div>
+                </div>
+               </div>
+    <div class="row row0 probtnbox">
+      <%= link_to url_for(:controller=> "charges", :action=>"new", :instauser => "#{x.id}"), :class=> "probtn probtn1 pull-left" do %>
+
+     <button class="btn btn-sm pull-left"><i class="fa fa-rocket"></i>&nbsp;Collaborate</button>
+     <%end%>
+     <!--
+      <a href="#" class="probtn pull-left"><button type="submit" class="btn btn-sm pull-left"><i class="fa fa-envelope"></i> Message</button></a>  
+      <a href="#" class="probtn pull-left"><button type="submit" class="btn btn-sm pull-left"><i class="fa fa-user"></i> Profile</button></a>!-->
+    </div> 
+    <div class="row row0">
+      <div class="col-lg-6 col-sm-6 col-xs-6 pad0">
+        <div class="widget widget1">
+        <div class="widget-title">Passion</div>
+         <div class="row row-table">
+          <div class="col-xs-4 text-center pv-lg">
+             <i class="fa fa-fire"></i>
+          </div>
+          <div class="col-xs-8 pv-lg">
+             <div class="widget-text mt0"><%= x.theme %></div>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-xs-6 pad0">
+        <div class="widget widget2">
+        <div class="widget-title">Price Per Post</div>
+         <div class="row row-table">
+          <div class="col-xs-4 text-center pv-lg">
+             <i class="fa fa-money"></i>
+          </div>
+          <div class="col-xs-8 pv-lg">
+             <div class="widget-text mt0"><%= x.postprice %> </div>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-xs-6 pad0">
+        <div class="widget widget3">
+        <div class="widget-title">Followers</div>
+         <div class="row row-table">
+          <div class="col-xs-4 text-center pv-lg">
+             <i class="fa fa-users"></i>
+          </div>
+          <div class="col-xs-8 pv-lg">
+             <div class="widget-text mt0"><%= x.followed_by %></div>
+          </div>
+         </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-xs-6 pad0">
+        <div class="widget">
+        <div class="widget-title">
+          Average Likes
+        </div>
+         <div class="row row-table">
+          <div class="col-xs-4 text-center pv-lg">
+             <i class="fa fa-line-chart"></i>
+          </div>
+          <div class="col-xs-8 pv-lg">
+             <div class="widget-text mt0"><%= x.averagelikes %></div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="row row0">
+      <%  most_liked_photos= x.instaposts.where(:most_liked => true).order("likes_counts DESC").take(4) %>
+      <%if most_liked_photos.present?%>
+      <% most_liked_photos.each do |z| %> 
+      <div class="col-sm-3 col-xs-3 proimages">
+
+      <a class="" href="#"><img width="148" height="148" src="<%= z.media_thumb_url%>"></a>
+      
+      </div> 
+      <% end %>
+      <%end%>
+      </div>
+
+
+    </div>
+
+  </div>
+
+    <%end%>
+
+</div>
+</div>

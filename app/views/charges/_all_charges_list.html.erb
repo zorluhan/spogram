@@ -1,0 +1,42 @@
+ <% @charges.each do |x| %>
+
+ 
+
+                            <div class="row row0">
+                                <div class="col-sm-12 col-xs-12 proposalbox">
+                                   <%= link_to detail_path(:id => x.id), :class=> "clearfix" do  %>
+                                         <span class="row row0 clearfix"><span class="pull-left proposalname"><%=x.product_name%></span>
+
+                               <% if x.state=="pending" %>
+                                     <span class="pull-right proposalstatus pending">
+                                         <i class="fa fa-circle-o"></i> pending</span>
+                            
+                               <% elsif x.state=="accepted" %>
+                                     <span class="pull-right proposalstatus active">
+                                      <i class="fa fa-rocket"></i> active</span>
+                          
+                              <% elsif x.state=="completed" %>
+                                     <span class="pull-right proposalstatus completed">
+                                      <i class="fa fa-check"></i> completed</span>
+
+                               <% elsif x.state=="declined" %>
+                                    <span class="pull-right proposalstatus declined">
+                                    <i class="fa fa-ban"></i> declined</span>
+
+                                <% elsif x.state=="release_requested" %>
+                                     <span class="pull-right proposalstatus active">
+                                      <i class="fa fa-ban"></i> release requested </span>
+
+                                 <%end%>
+
+
+                                     </span>
+                              <%= x.post_description %>
+                             <span class="pull-right proposaldate"><%= time_ago_in_words(x.created_at) %></span>
+
+                                   <%end%>
+
+    
+                  </div>
+                  </div>
+             <%end%>

@@ -21,7 +21,7 @@
           <div class="clearfix">
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= @earned %></div>
+      <div class="widget-title proposalearn">$0.00</div>
        <div class="">Possible Earnings</div>
       </div>
     </div>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$0.00</div>
+      <div class="widget-title proposalearn">$<%= @earned %></div>
        <div class="">Total Earnings</div>
       </div>
     </div>
@@ -82,43 +82,51 @@
 
 
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
-  <div id="leftbar">
-    <ul class="list-group" id="form">
-      <font face="Lobster">
-      <li class="list-group-item">
-        <h4><font face="Lobster">
+   <div class="msgpage">
+<div class="container">
+  <h2 class="text-center">PROPOSALS</h2> 
+
+<div class="subtitle subtitle2">MY PROPOSALS <div class="scoreinfo"><span>Your engagement score is a single number used to measure how engaged your followers are. The score is based on an algorithm we developed that we are in the process of trademarking. The higher the number, the more engaged your followers are!</span><i class="fa fa-question-circle"></i></div></div>
+
+
+ 
+  <label for="name" class="lblfilter">Filter by status</label>
+
+       <ul class="nav nav-pills nav-pills-sm">
+        <li>
           <%= link_to list_charges_path(state: :accepted) do %>
             Accepted <%= unread_branduser_charges_count(current_branduser, :accepted) %>
           <% end %>
-        </h4>
+      
       </li>
-      <li class="list-group-item">
-        <h4>
+      <li >
+       
           <%= link_to 'Pending', list_charges_path(state: :pending) %>
-        </h4>
+      
       </li>
-      <li class="list-group-item">
-        <h4>
+      <li >
+        
           <%= link_to list_charges_path(state: :declined) do %>
             Declined <%= unread_branduser_charges_count(current_branduser, :declined) %>
           <% end %>
-        </h4>
+        
       </li>
-      <li class="list-group-item">
-        <h4>
+      <li>
+       
           <%= link_to list_charges_path(state: :release_requested) do %>
             Release Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
           <% end %>
-        </h4>
+       
       </li>
-      <li class="list-group-item">
-        <h4>
+      <li >
+        
           <%= link_to 'Completed', list_charges_path(state: :completed) %>
-        </h4>
+       
       </li>
-      </font>
+     
     </ul>
-  </div>
+ 
+ 
 <% else %>
   <script type="text/javascript">
     window.location.href="/"  // put your correct path in a string here

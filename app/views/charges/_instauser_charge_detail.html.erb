@@ -1,0 +1,113 @@
+
+	<div class="subtitle3">YOU'VE BEEN NOTICED BY</div>
+	<span class="proposalfrom">Proposal from: <%= @branduser.firstname %>, <%= @branduser.coname %></span>
+	
+	<div class="row row0 clearfix proposalinfo">
+	
+		<div class="row row0 clearfix proposalinfo1">
+			
+			<div class="col-sm-4 col-xs-4 col0">Status</div>
+			<div class="col-sm-8 col-xs-8"><span class="proposalstatus pending"><i class="fa fa-circle-o"></i> <%=@charge.state%></span></div>
+		</div>
+			
+		<div class="col-sm-4 col-xs-4 col0">Next Step?</div>
+		<div class="col-sm-8 col-xs-8">
+
+
+
+				<% if @charge.pending? %>
+         
+             
+			<%= link_to accept_charge_path(@charge.id), method: :patch   do  %>
+			 <button class="btn btn-sm btnprop"><i class="fa fa-check"></i> Accept</button><%end%>
+
+            <%= link_to decline_charge_path(@charge.id), method: :patch  do  %>
+              <button class= "btn btn-sm btnprop"><i class="fa fa-ban"></i> DECLINE</button>
+              <%end%>
+
+			 
+			<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with brand</button>
+            <%end %>
+           
+        <% elsif @charge.accepted? %>
+        
+              <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
+              <button class= "btn btn-sm btnprop"><i class="fa fa-check"></i> REQUEST RELEASE</button>
+              <%end%>
+
+              <%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with brand</button>
+            <%end %>
+            
+        <% else %>
+      <%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with brand</button>
+            <%end %>
+
+      <%end%>
+	
+
+
+
+
+
+			
+			 
+		</div>
+		
+	</div>
+
+	<h2 class="text-center proptitle">PROPOSAL DETAILS</h2>
+	
+	<div class="proposalinfo2">
+		<div class="subtitle">Price</div>
+		<div class="row row0 bot-buffer10"><span>Proposed Price:</span> $<%= (@charge.amount.to_f/(120)).round(2) %>&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+					 <i class="fa fa-comment"></i> Chat with brand 
+            <%end %></div>
+	
+	</div>
+
+	<div class="proposalinfo2">
+		<div class="subtitle">Product Details</div>
+		<div class="row row0 bot-buffer10"><span>Product Name:</span> <%= @charge.product_name %></div>
+		<div class="row row0 bot-buffer10"><span>Product Link:</span> <a href="<%= @charge.product_link %>" target="_blank"><%= @charge.product_link %></a></div>
+		<div class="row row0 bot-buffer10"><span>Product Description:</span> <%= @charge.product_description %></div>
+		<div class="row row0 bot-buffer10"><span>Instagram Link:</span> <a href="<%= @charge.instagram_link %>" target="_blank"><%= @charge.instagram_link %></a></div>
+	</div>
+
+	<div class="proposalinfo2">
+	<div class="subtitle">Post Details</div>
+		<div class="row row0 bot-buffer10"><span>Post Description:</span> <%= @charge.post_description %></div>
+		<div class="row row0 bot-buffer10"><span>Suggested Caption:</span> <%= @charge.suggested_caption %></div>
+		<div class="row row0 bot-buffer10"><span>Hashtags to include:</span> <%= @charge.hash_tags %></div>
+		<div class="row row0 bot-buffer10"><span>Username to include:</span> <%= @charge.user_names %></div>
+	</div>
+	
+	<div class="proposalinfo2">
+		<div class="subtitle">Timeline</div>
+		<div class="row row0 bot-buffer10"><span>Earliest post date:</span> <%= @charge.earliest_post_date %></div>
+		<div class="row row0 bot-buffer10"><span>Last post date:</span> <%= @charge.last_post_date %></div>
+	</div>
+	
+    <% if @charge.pending? %>
+         
+              <%= link_to accept_charge_path(@charge.id), method: :patch   do  %>
+              <button class= "btn btn-send"><i class="fa fa-check"></i> ACCEPT</button>
+              <%end%>
+
+              <%= link_to decline_charge_path(@charge.id), method: :patch  do  %>
+              <button class= "btn btn-send"><i class="fa fa-ban"></i> DECLINE</button>
+              <%end%>
+           
+        <% elsif @charge.accepted? %>
+        
+              <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
+              <button class= "btn btn-send"><i class="fa fa-check"></i> REQUEST RELEASE</button>
+              <%end%>
+            
+        <% else %>
+      
+
+      <%end%>
+	

@@ -1,5 +1,11 @@
 
  <%= render 'layouts/header2' %> 
+
+
+ <div class="txtpage">
+<div class="container">
+
+ <%= render :partial => 'search_box' %>
 <div>
   <% if @instausers.first.nil? %>
 
@@ -10,62 +16,10 @@
 
 </div>
 
-<% @instausers.each do |x| %>
- 
- <% @profile_picture_url=x.profile_picture %>
-
-<div class="col-md-3">
-	 <ul class="list-group" id="form">
-	 	<li class="list-group-item">
-<p><span class="username" id="any"> <% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></span></span>
- 
 
 
+<%= render :partial => "infocard" %>
 
-   <%= link_to "Collaborate", {:controller=> "charges", :action=>"new", :instauser => "#{x.id}"}, :class=> "btn btn-warning btn-xs" %>
 
-  </li>
-
-  
- <li class="list-group-item">
-    <span class="badge"><%= x.followed_by %></span>
-Followers  </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.averagelikes %></span>
-Likes on avg. </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.theme %></span>
-Theme </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.averagecomments %></span>
-Comments on avg. </li>
-
-<li class="list-group-item">
-    <span class="badge"><%= x.location %></span>
-Location  </li><li class="list-group-item">
-    <span class="badge"><%= Time.now.year-x.date_of_birth.year unless x.date_of_birth.nil? %></span>
-Age  </li><li class="list-group-item">
-    <span class="badge badge-success">$<%= x.postprice %></span>
-Price </li>
-  <% unless x.recent_media_urls="[]" %>
-<li class="list-group-item">
-
-<% c= x.recent_media_urls %>
-<% a= c.tr("[]","") %>
-<% b= a.tr('"',"") %>
-<% array= b.split(",") %>
-<p>
-<% array.each do |s| %> 
-
-<a href='<%=s%>' target="_blank"><img src='<%=s%>', width="50", onerror="imgError2(this);" ></a>
-<%end%> 
-</p>
-</li>
-<%end%>
-</ul>
- 
 </div>
-<%end%>
+</div>

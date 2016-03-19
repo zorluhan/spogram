@@ -1,7 +1,7 @@
 
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
-  <% if @charges.empty? %>
+    <% if @charges.empty? %>
                       <br>
                        <div class="row row0">
                        <div class="col-sm-12 col-xs-12 proposalbox">
@@ -12,60 +12,19 @@
                   </div>
     
     <% else %>
-               <br>
-             <% @charges.each do |x| %>
+          <br>
+          <%= render :partial=> "all_charges_list" %>
+    <%end%>
 
- 
-
-                            <div class="row row0">
-                                <div class="col-sm-12 col-xs-12 proposalbox">
-                                   <%= link_to detail_path(:id => x.id), :class=> "clearfix" do  %>
-                                         <span class="row row0 clearfix"><span class="pull-left proposalname"><%=x.product_name%></span>
-
-                               <% if x.state=="pending" %>
-                                     <span class="pull-right proposalstatus pending">
-                                         <i class="fa fa-circle-o"></i> pending</span>
-                            
-                               <% elsif x.state=="accepted" %>
-                                     <span class="pull-right proposalstatus active">
-                                      <i class="fa fa-rocket"></i> active</span>
-                          
-                              <% elsif x.state=="completed" %>
-                                     <span class="pull-right proposalstatus completed">
-                                      <i class="fa fa-check"></i> completed</span>
-
-                               <% elsif x.state=="declined" %>
-                                    <span class="pull-right proposalstatus declined">
-                                    <i class="fa fa-ban"></i> declined</span>
-
-                                <% elsif x.state=="release_requested" %>
-                                     <span class="pull-right proposalstatus active">
-                                      <i class="fa fa-ban"></i> release requested </span>
-
-                                 <%end%>
-
-
-                </span>
-                <%= x.post_description %>
-                <span class="pull-right proposaldate"><%= time_ago_in_words(x.created_at) %></span>
-
-                  <%end%>
-
-    
-                  </div>
-                  </div>
-                  <%end%>
-        <%end%>
-
-  </div>
-  </div>
+</div>
+</div>
  
  
  
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
 
-  <% if @charges.empty? %>
-     <br>
+          <% if @charges.empty? %>
+                      <br>
                        <div class="row row0">
                        <div class="col-sm-12 col-xs-12 proposalbox">
                        <a href="#" class="clearfix"><span class="row row0 clearfix"><span class="pull-left proposalname"></span></span>
@@ -73,59 +32,14 @@
                       <span class="pull-right proposaldate"></span></a>
                      </div>
                   </div>
-  <% end %>
-
-  <% @charges.each do |x| %>
-    <ul class="list-group" id="form">
-      <li class="list-group-item">
-        <h4>
-          <img src="<%= x.instauser.profile_picture %>" width="28" onerror="imgError(this);" class="margin"> 
-          <font face="lobster"><%= x.instauser.username %></font> 
-        </h4>
-        <%= link_to "Message User", new_message_path(instauser_param: x.instauser.id) %> </li>
-      <li class="list-group-item">
-        Amount: <%= "$ "%><%= x.amount.to_f/100 %></li>
-      
-      <li class="list-group-item">
-        Product Name: <%= x.product_name %></li>
-      <li class="list-group-item">
-        Product Description: <%= x.product_description %></li>
-      <li class="list-group-item">
-        Product Link: <%= x.product_link %></li>
-      <li class="list-group-item">
-        Instagram Link: <%= x.instagram_link %></li>
-
-      <li class="list-group-item">
-        Post Description: <%= x.post_description %></li>
-      <li class="list-group-item">
-        Suggested Caption: <%= x.suggested_caption %></li>
-      <li class="list-group-item">
-        Hash Tags to Include: <%= x.hash_tags %></li>
-      <li class="list-group-item">
-        Usernames to include: <%= x.user_names %></li>
-
-      <li class="list-group-item">
-        Earliest Post Date: <%= x.earliest_post_date %></li>
-      <li class="list-group-item">
-        Last Post Date: <%= x.last_post_date %></li>
-
-      <li class="list-group-item">
-        Status: <span class="label label-success"><%= x.state.titleize %></span></li>
-
-      <% if x.pending? %>
-        <li class="list-group-item" align="center">
-          <span class="btn-group">
-            <%= link_to "Edit", edit_charge_path(x.id), class: "btn btn-default"  %>
-          </span></li>
-      <% elsif x.release_requested? %>
-        <li class="list-group-item" align="center">
-          <span class="btn-group">
-            <%= link_to "Mark Complete", complete_charge_path(x.id), method: :patch, class: "btn btn-default", data: {disable_with: "Marking Complete..."}  %>
-          </span></li>
-       <% end %>
-    </ul>
-  <% end %>
-
+          <% else %>
+          <br>
+         <%= render :partial=> "all_charges_list" %>
+         <%end%>
+ </div>
+</div>
+ 
+ 
 <% else %>
   <% redirect_to root_path %>
 <% end %>

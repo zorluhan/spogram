@@ -66,7 +66,7 @@ def detail
 id= params[:id]
  @charge = Charge.find_by_id(params[:id])
  @branduser= Branduser.find_by_id(@charge.branduser_id)
- 
+ @instauser= Instauser.find_by_id(@charge.instauser_id)
 
 end 
 
