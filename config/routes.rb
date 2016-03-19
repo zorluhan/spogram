@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
   
-  resources :brandusers
+  resources :brandusers do
+    collection do
+      get 'authenticate'
+    end
+  end
   resources :instausers 
  
 
@@ -51,27 +55,18 @@ Rails.application.routes.draw do
       post 'gbill'
     end
   end
- 
-  # get 'charges/new' => 'charges#new'
-  # post '/charges/new' => 'charges#create'
-  # get '/charges/bill' => 'charges#bill'
-  # get 'charges/billed' => 'charges#billed'
-  # get '/charges/publish_proposal' => 'charges#publish_proposal', as: :publish_proposal
-  # get '/charges' => 'charges#index'
-  # get 'charges/:id'=>'charges#show', :as => 'charge'
-  # post 'charges/bill' => 'charges#bill'
-  # post '/charges' => 'charges#create'
+
  
   get '/privacy' => 'pages#privacy'
   get '/pages/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'
   get '/contact-brands' => 'instausers#brands_contact_form' , as: :brands_contact_form
-   get '/bsignup' => 'brandusers#new'
-   get '/blogin' => 'sessions#new' 
-   post '/blogin' => 'sessions#create'
-   delete '/blogout' => 'sessions#destroy'
-   get '/bdashboard' => 'brandusers#dashboard'
-   get '/message-brands' => 'instausers#formmessage' , as: :formmessage
+  get '/bsignup' => 'brandusers#new'
+  get '/blogin' => 'sessions#new' 
+  post '/blogin' => 'sessions#create'
+  delete '/blogout' => 'sessions#destroy'
+  get '/bdashboard' => 'brandusers#dashboard'
+  get '/message-brands' => 'instausers#formmessage' , as: :formmessage
     
   get '/auth' => 'instausers#auth'
   get '/signup' => 'instausers#signup'

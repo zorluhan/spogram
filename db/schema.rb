@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316171554) do
+ActiveRecord::Schema.define(version: 20160318191343) do
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20160316171554) do
     t.string   "title"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "auth_token"
+    t.boolean  "is_authenticated",   default: false
   end
 
   create_table "charges", force: true do |t|
@@ -111,6 +113,8 @@ ActiveRecord::Schema.define(version: 20160316171554) do
     t.text     "bio",               limit: 255
     t.date     "dob"
     t.string   "checkvalidation"
+    t.string   "auth_token"
+    t.boolean  "is_authenticated",              default: false
   end
 
   create_table "messages", force: true do |t|

@@ -7,20 +7,19 @@ class BrandusersController < ApplicationController
   before_action :correct_branduser , only: [:edit, :update]
 
   def new
-     reset_session
-     @branduser=Branduser.new 
-
+    reset_session
+    @branduser=Branduser.new 
   end
 
   def create 
-
-    @branduser= Branduser.create(branduser_params) 
-
+    @branduser = Branduser.new(branduser_params)
+    @branduser.auth_token = generate_access_token
     if @branduser.save 
-      branduser_log_in(@branduser)
-      redirect_to "/bdashboard"
+      # branduser_log_in(@branduser) # don't login on create
+      flash!(success: "Please check your email for account verification")
+      redirect_to root_path
     else 
-      flash!(:error => I18n.t("flash_messages.defaults.hata"))
+      flash!(error: I18n.t("flash_messages.defaults.hata"))
       render 'new'
     end 
   end 
@@ -37,11 +36,25 @@ class BrandusersController < ApplicationController
   def update
     @branduser=Branduser.find_by_id(params[:id])
     if @branduser.update(branduser_params)
-      flash!(:success => I18n.t("flash_messages.defaults.youraccountupdated"))
+      flash!(success: I18n.t("flash_messages.defaults.youraccountupdated"))
       redirect_to bdashboard_path(id: @branduser.id)
     else
-      flash!(:error => I18n.t("flash_messages.defaults.hata"))
+      flash!(error: I18n.t("flash_messages.defaults.hata"))
       render 'edit'
+    end
+  end
+
+  def authenticate
+    @branduser = Branduser.find_by(auth_token: params[:token])
+    @branduser.is_authenticated = true
+    @branduser.auth_token = nil
+    if @branduser.save
+      flash!(success: "Email verified")
+      branduser_log_in(@branduser)
+      redirect_to bdashboard_path(id: @branduser.id)
+    else
+      flash!(error: "Token invalid")
+      redirect_to root_path
     end
   end
 
@@ -60,6 +73,13 @@ class BrandusersController < ApplicationController
     def correct_branduser
       @branduser = Branduser.find_by_id(params[:id])
       redirect_to root_path unless @branduser==current_branduser 
+    end
+
+    def generate_access_token
+      loop do
+        token = Devise.friendly_token
+        break token unless Branduser.where(auth_token: token).first
+      end
     end
 
 end
