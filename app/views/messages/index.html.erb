@@ -18,7 +18,7 @@
                   <li class="list-group-item">  
               
                         <%= link_to x.coname, list_messages_path(branduser_id: x.id) %>
-                      </font>
+                     
                       <span class="pull-right">
                         <% unless !x.image.nil? %>
                           <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
@@ -30,7 +30,7 @@
                        <% lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %>
                       <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.updated_at)+ " ago" %> 
                 </li>  
-                      
+                     <br> 
                       
                   <% end %>
              </ul>  
