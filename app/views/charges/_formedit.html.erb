@@ -1,109 +1,97 @@
 <%= render 'layouts/header2' %>
+<div class="msgpage">
+<div class="container"> 
+  <h2 class="text-center proptitle">PROPOSAL EDIT FORM</h2>
 
-<div class="col-md-6 col-md-offset-3" %>
-  <div class="list-group">
-    <li class="list-group-item list-group-item-disabled" id="textcenter">
-      <h3><strong><font face="Lobster"> <%= "Proposal" %></font></strong></h3>
-    </li>
   
-    <%= form_for @charge do |f|  %>
-      <div class="center">
-        <article>
-          <% if flash[:error].present? %>
-          <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-          </div>
-          <% end %>
-        </article>
+      <%= form_for @charge do |f|  %>
 
-        <h2>Product</h2>
-        <div class="row form-group">
-          <label class="col-sm-4">Product Name: </label>
-          <div class="col-sm-8">
-            <%= f.text_field :product_name, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Product Link: </label>
-          <div class="col-sm-8">
-            <%= f.text_field :product_link, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Product Description: </label>
-          <div class="col-sm-8">
-            <%= f.text_area :product_description, cols: 40, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Instagram Link: </label>
-          <div class="col-sm-8">
-            <%= f.text_field :instagram_link, class: "form-control" %>
-          </div>
-        </div>
 
-        <br>
+<div class="proposalinfo2">
+  <div class="subtitle">Product</div>
+  
 
-        <h2>Post</h2>
-        <div class="row form-group">
-          <label class="col-sm-4">Post Description: </label>
-          <div class="col-sm-8">
-            <%= f.text_area :post_description, cols: 40, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Suggested Caption: </label>
-          <div class="col-sm-8">
-            <%= f.text_area :suggested_caption, cols: 40, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Hash Tags to include: </label>
-          <div class="col-sm-8">
-            <%= f.text_area :hash_tags, cols: 40, class: "form-control" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Usernames to include: </label>
-          <div class="col-sm-8">
-            <%= f.text_area :user_names, cols: 40, class: "form-control" %>
-          </div>
-        </div>
+  <div class="form-group">
+      <%= f.text_field :product_name, class: "form-control formcapish", placeholder: "Product Name *" ,onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Product Name *'" %>
 
-        <br>
+  </div>
 
-        <h2>Timeline</h2>
-        <div class="row form-group">
-          <label class="col-sm-4">Earliest Post Date: </label>
-          <div class="col-sm-8">
-            <%= f.text_field :earliest_post_date, class: "form-control date-field" %>
-          </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Last Post Date: </label>
-          <div class="col-sm-8">
-            <%= f.text_field :last_post_date, class: "form-control date-field" %>
-          </div>
-        </div>
 
-        <h2>Price</h2>
-        <div class="row form-group">
-          <label class="col-sm-4">Post Price: </label>
-          <div class="col-sm-8">
-            <%= f.number_field :amount, class: "form-control", value: (@charge.amount/120).round(2), step: '0.01' %>
+
+  <div class="form-group">
+     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Product Link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Product Link'" %>
+  
+
+
+  </div>
+  
+  <div class="form-group form-noborder form-groupbio">
+    <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Procuct Description'", onfocus: "this.placeholder = ''" , placeholder: "Procuct Description" %>
+     
+  </div>
+
+   <div class="form-group">
+
+     <%= f.text_field :instagram_link, type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram Username'"  %>
           </div>
-        </div>
-        <div class="row form-group">
-          <label class="col-sm-4">Service Charge: </label>
-          <div class="col-sm-8">
-            <span>20%</span>
-          </div>
-        </div><div class="row form-group">
-          <label class="col-sm-4">Total: </label>
-          <div class="col-sm-8">
-            <span id="total_updated_price">$<%= (@charge.amount/100).round(2)  %></span>
-          </div>
-        </div>
+
+  
+
+  </div>
+ 
+ 
+<div class="proposalinfo2">
+  <div class="subtitle">Post</div>
+  
+  <div class="form-group form-noborder form-groupbio">
+
+       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "Post Description" %>
+     
+  </div>
+  
+  <div class="form-group form-noborder form-groupbio">
+
+     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"Suggested Caption" %>
+
+   
+  </div>
+  
+  <div class="form-group form-noborder form-groupbio">
+     <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Hashtags to include" %>
+ 
+  </div>
+  
+  <div class="form-group form-noborder form-groupbio">
+     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Usernames to include"%>
+   
+  </div>
+</div>
+  
+<div class="proposalinfo2"> 
+
+  <div class="subtitle">Timeline</div>
+  
+  <div class="form-group form-noborder birth clearfix">
+    <label for="name" class="gender">Earliest post date *</label>
+                <%= f.text_field :earliest_post_date, class: "form-control date-field" %>
+  </div>
+  
+  <div class="form-group form-noborder birth clearfix">
+    <label for="name" class="gender">Last post date *</label>
+       <%= f.text_field :last_post_date, class: "form-control date-field" %>
+
+  </div>
+  
+</div>
+
+       <div class="proposalinfo2">
+    <div class="subtitle">Price</div>
+            <%= f.number_field :amount, class: "form-control formcağish", value: (@charge.amount/120).round(2), step: '0.01' %>
+         <div class="row row0 bot-buffer10"><span>Service Charge:</span> %20 </div><hr>
+   
+          <div class="row row0 bot-buffer10"><strong><span>Total Price: $<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %></span></span></strong><hr>
+            <font color="red">Your credit card won't be charged till Instagrammer accepts your proposal. </font></div>
+       </div>
 
         <script type="text/javascript">
           $('#charge_amount').on('change', function(e){
@@ -120,12 +108,12 @@
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
 
         <div class="actions"> 
-          <%= f.submit "Edit"  %> 
+          <%= f.submit "Edit" , class: "btn btn-send" %> 
         </div> 
-        </div>
-      </div>
+      
     <% end %>
   </div>
+</div>
 
   <!-- google analytics code !-->
   <script>
