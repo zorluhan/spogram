@@ -1,93 +1,43 @@
-<!-- search !-->
 
- <%= render 'layouts/header2' %> 
-<div class="panel" id="search">
-  <div align="center">
-    <%= form_for :instauser, url: search_path, html: {:class => "form-inline"}   do |f| %>  
+<%= render 'layouts/header2' %> 
 
-      <font size="2"> <%= "Age" %><%= ":" %>
+<div class="txtpage">
+<div class="container">
+    <h2 class="text-center">SEARCH INSTAGRAMMER</h2>
+        <div class="row row0 searchuser">
 
-      <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18', :class=> "form-group"}%><%= "-" %> 
+            <%= render :partial => 'search_box' %>
 
-      <%= f.number_field :age2 , :placeholder=>"24", :input_html => { :value => '24' } %> <br>
+        </div>
 
-      <%= "Gender:" %>
-      <%= f.select :gender,
-      options_for_select([['Male','Male'],['Female','Female']] ,2),{}%>   
-      <%= "City:" %>
-      <%= f.select :location,
-      options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin'], ['DC','DC'],['London','London']] ,2),{}%>   
-      <%= "Theme:" %>
-      <%= f.select :theme, 
-      options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}%> 
+<h2 class="text-center title2">TOP 10</h2>
 
-      <%= "Max. Price:" %>
-      <%= f.select :postprice, 
-      options_for_select([['100','100'],['200','200'], ['300','300'], ['400','400'],['500','500'],['1000','1000'],['5000','5000']],2),{} %> 
+    <div class="row row0 text-center profilelist">
+        <div class="row row0 masonry-container">
 
 
-      <%= "Min # of Followers:" %> 
-      <%= f.select :followed_by, 
-      options_for_select([['0','0'], ['5000','5000'],['10000','10000'],['15000','15000'],['30000','30000'], ['50000','50000'], ['100k','100000']],2),{} %> 
+           <%= render :partial => 'top10' %>
 
-      <%= "Min # of Average Likes:" %>
-      <%= f.select :averagelikes, 
-      options_for_select([['0','0'],['5','5'], ['10','10'], ['100','100'], ['200','200'], ['500','500']],2),{}, :placeholder=>"average likes" %> 
+ 
 
+        </div>
+    </div>
 
-      <%= f.submit "Search", class: "btn btn-xs btn-success" , data: {disable_with: "Searching.."} %> </font>
-
-    <%end%>
-  </div>
+</div>
 </div>
 
-<!-- LISTING INSTAUSERS !-->
-<div class="container">
-  <% @instausers.each do |x| %>
-     
-      <ul class="list-group" id="form">
-        <li class="list-group-item">
-          <p><span class="username" id="any">
-          <% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></span>
+<div class="footer-wrapper">
+<div class="container text-center">
+  <footer>
+    <a href="/pages/about">About</a>
+    <a href="/faq">FAQ</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/pages/terms">Terms</a>
+  </footer>
+  
+</div>
 
-          <span class="pull-right" id="any"><img src='<%= x.profile_picture %>', width="40", height= "40", class= "no-wrap", onerror="imgError(this);" > </span></p>
-        </li>
-        <li class="list-group-item">
-          <span class="badge"><%= x.followed_by %></span>
-          Followers  </li>
-        <li class="list-group-item">
-          <span class="label label-info pull-right"><%= x.theme %></span>
-          Theme </li>
-        <li class="list-group-item">
-          <span class="badge"><%= x.averagelikes %></span>
-          Likes on avg. </li>
-        <li class="list-group-item">
-          <span class="badge"><%= x.averagecomments %></span>
-          Comments on avg. </li>
-        <li class="list-group-item">
-          <span class="badge"><%= x.location %></span>
-          Location  </li><li class="list-group-item">
-          <span class="badge"><%= Time.now.year-x.date_of_birth.year unless x.date_of_birth.nil?  %></span>
-          Age  </li><li class="list-group-item">
-          <span class="badge badge-success">$<%= x.postprice %></span>
-          Post Price </li>
-        <li class="list-group-item">
-          <% unless x.recent_media_urls="[]" %>
-          <% c= x.recent_media_urls %>
-          <% a= c.tr("[]","") %>
-          <% b= a.tr('"',"") %>
-          <% array= b.split(",") %>
-          <p>
-            <% array.each do |s| %> 
-            <img src='<%=s%>', width="50", height="50", onerror="imgError2(this);" ></a>
-            <%end%> 
-          </p>
-          <%end%>
-        </li>
-      </ul>
-    
-  <% end %>
-<!-- google analytics code !-->
+ 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -98,3 +48,12 @@
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">
+  $('.selectpicker').selectpicker({
+  size: 4
+});   
+</script>
+
+
+</div>
+

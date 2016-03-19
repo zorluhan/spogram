@@ -26,7 +26,8 @@ class BrandusersController < ApplicationController
 
   def dashboard
     @branduser= Branduser.find_by_id(session[:buser_id])
-    @instausers=Instauser.all 
+    @instausers=Instauser.where(:disabled=>false)
+
   end
 
   def edit
