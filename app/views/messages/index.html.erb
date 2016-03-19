@@ -13,24 +13,24 @@
               <div id="leftbar" class="messages-leftbar">
 
  
-               <ul class="list-group" id="form">  
-                  <% @brandusers.each do |x| %>
-                  <li class="list-group-item">  
-              
-                        <%= link_to x.coname, list_messages_path(branduser_id: x.id) %>
+                  <ul class="list-group" id="form">  
+                       <% @brandusers.each do |x| %>
+                         <li class="list-group-item">  
+                          <font face="Roboto" size="3"> 
+                         <%= link_to x.coname, list_messages_path(branduser_id: x.id) %></font>
                      
-                      <span class="pull-right">
-                        <% unless !x.image.nil? %>
-                          <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
-                        <% end %>
-                      </span>
+                              <span class="pull-right">
+                              <% unless !x.image.nil? %>
+                              <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
+                                <% end %>
+                               </span>
 
-                      <% count = unread_instauser_messages_count(current_instauser, x) %>
-                      <%= "#{count} unread".html_safe if count > 0 %><br>
-                       <% lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %>
-                      <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.updated_at)+ " ago" %> 
-                </li>  
-                     <br> 
+                                    <% count = unread_instauser_messages_count(current_instauser, x) %>
+                                    <%= "#{count} unread".html_safe if count > 0 %><br>
+                                     <% lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %>
+                                    <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.updated_at)+ " ago" %> 
+                             </li>  
+                           <br> 
                       
                   <% end %>
              </ul>  
