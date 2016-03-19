@@ -27,8 +27,8 @@
 
                                     <% count = unread_instauser_messages_count(current_instauser, x) %>
                                     <%= "#{count} unread".html_safe if count > 0 %><br>
-                                     <% lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %>
-                                    <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.created_at)+ " ago" %> 
+                                     <% @lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %> 
+                                    <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(@lastmessage.created_at)+ " ago" %>  
                              </li>  
                            <br> 
                       
