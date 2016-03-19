@@ -237,7 +237,7 @@ Devise.setup do |config|
   when 'development', 'test'
     config.omniauth :linkedin, "751bs8oao46qrl", "Dg4XUJnMTREEgtiJ", { :scope => 'r_basicprofile r_emailaddress' }
   when 'production'
-    config.omniauth :linkedin, "75kopz23sxkoxu", "F9N6X4cKwqBdHEcs", { :scope => 'r_basicprofile r_emailaddress' }
+    config.omniauth :linkedin, "77vd7xm8r8a8x4", "e8sfg8MVvwT2sFh9", { :scope => 'r_basicprofile r_emailaddress' }
   end
 
   # ==> Warden configuration
