@@ -9,7 +9,7 @@
 	<div class="row row0 clearfix proposalinfo">
 	
 		<div class="row row0 clearfix proposalinfo1">
-			<div class="col-sm-4 col-xs-4 col0">Amount</div><div class="col-sm-8 col-xs-8">$<%= (@charge.amount.to_f/(120)).round(2) %></div> 
+			
 			<div class="col-sm-4 col-xs-4 col0">Status</div>
 			<div class="col-sm-8 col-xs-8"><span class="proposalstatus pending"><i class="fa fa-circle-o"></i> <%=@charge.state%></span></div>
 		</div>
@@ -64,6 +64,14 @@
 
 	<h2 class="text-center proptitle">PROPOSAL DETAILS</h2>
 	
+	<div class="proposalinfo2">
+		<div class="subtitle">Price</div>
+		<div class="row row0 bot-buffer10"><span>Proposed Price:</span> $<%= (@charge.amount.to_f/(120)).round(2) %>&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+					 <i class="fa fa-comment"></i> Chat with brand 
+            <%end %></div>
+	
+	</div>
+
 	<div class="proposalinfo2">
 		<div class="subtitle">Product Details</div>
 		<div class="row row0 bot-buffer10"><span>Product Name:</span> <%= @charge.product_name %></div>

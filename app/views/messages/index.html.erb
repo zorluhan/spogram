@@ -11,10 +11,12 @@
 
             <div class="col-xs-12">
               <div id="leftbar" class="messages-leftbar">
-                <ul class="list-group" id="form">
+
+ 
+               <ul class="list-group" id="form">  
                   <% @brandusers.each do |x| %>
-                    <li class="list-group-item" align="center">
-                      <font face="Roboto">
+                  <li class="list-group-item">  
+              
                         <%= link_to x.coname, list_messages_path(branduser_id: x.id) %>
                       </font>
                       <span class="pull-right">
@@ -26,10 +28,13 @@
                       <% count = unread_instauser_messages_count(current_instauser, x) %>
                       <%= "#{count} unread".html_safe if count > 0 %><br>
                        <% lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %>
-                      <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.updated_at)+ " ago" %></font>
-                    </li>
+                      <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(lastmessage.updated_at)+ " ago" %> 
+                </li>  
+                      
+                      
                   <% end %>
-                </ul>
+             </ul>  
+               
               </div>
             </div>
           </div>

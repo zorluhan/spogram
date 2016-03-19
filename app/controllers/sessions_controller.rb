@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         branduser_log_in(@branduser) 
         redirect_to bdashboard_path(id: @branduser.id)
       else
-        flash_now!(error: "You need to authenticate your account before login"))
+        flash_now!(error: "You need to authenticate your account before login")
         render 'new'
       end
     else

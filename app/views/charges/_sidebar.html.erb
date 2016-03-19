@@ -45,31 +45,32 @@
  
   <label for="name" class="lblfilter">Filter by status</label>
 
-      
+       <ul class="nav nav-pills nav-pills-sm">
+   
         
-           <%= link_to "Accepted", list_charges_path(state: :accepted) %>  
-           <%= "|" %>
+        <li>   <%= link_to "Accepted", list_charges_path(state: :accepted) %>  </li>
+           
        
-            <%= link_to list_charges_path(state: :pending) do %>
+<li><%= link_to list_charges_path(state: :pending) do %>
               Pending<% count = unread_charges_count(current_instauser) %> 
               <%= "(#{count})" if count > 0 %>
-            <% end %>
-          <%= "|" %>
+            <% end %></li>
+          
         
-          <%= link_to "Declined", list_charges_path(state: :declined) %>  
-          <%= "|" %>
+         <li> <%= link_to "Declined", list_charges_path(state: :declined) %>  </li>
+           
          
-          <%= link_to "Release Requested", list_charges_path(state: :release_requested) %>  
-          <%= "|" %>
+      <li>    <%= link_to "Release", list_charges_path(state: :release_requested) %>  </li>
+         
         
-            <%= link_to list_charges_path(state: :completed) do %>
+     <li>       <%= link_to list_charges_path(state: :completed) do %>
               Completed
               <% count = completed_charges_count(current_instauser) %> 
               <%= "(#{count})" if count > 0 %>
-            <% end %>
+            <% end %></li>
            
        
-    
+    </ul>
      
 
   <% end %>
