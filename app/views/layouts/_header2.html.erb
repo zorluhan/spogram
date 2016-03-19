@@ -148,6 +148,46 @@
     </ul>
 
 
+    <!-- mobil nav !-->
+    <nav class="mobilenav">
+      <span class="navbar-brand" href="#" title="capish">capish</span>
+      <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
+      <ul class="mainNavDropDown clearfix">
+        <li class="active"> 
+          <%= link_to charges_path   do %>
+            Proposals  <% count = unread_charges_count(current_branduser) %>  
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
+          <% end %> 
+        </li>
+        <li>
+          <%= link_to messages_path do %>
+            Messages 
+            <% count = branduser_unread_total_messages_count(current_branduser) %>
+            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to 'Brands', brands_path %>
+        </li>
+
+        <li>
+          <a href="<%= dashboard_path(current_branduser) %>" class="btn4">
+            <% unless current_branduser.firstname.nil? %><%=  current_branduser.firstname %><% end %>
+          </a>
+        </li>
+
+        <li><a href="<%=edit_branduser_path(current_branduser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
+        <!--  <li><i class="fa fa-cog"></i><%= link_to "Settings", edit_instauser_path(current_instauser), :class=> "btn4" %></li> !-->
+        <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
+
+        <li><%= link_to logout_path(current_branduser),  :class=>"btn4",  :method => :delete do %>
+<i class="fa fa-sign-out"></i>&nbsp;Logout
+<%end%>
+        </li>
+      </ul>
+    </nav>
+    <!-- mobil nav end !--> 
+
 
 
     
