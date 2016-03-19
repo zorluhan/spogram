@@ -1,12 +1,12 @@
 
 <div class="signup">
 <div class="container">
-<a class="logo" href="#" title="capish">capish</a>
+<a class="logo" href="/" title="capish">capish</a>
 <h2 class="text-center">BRAND LOG IN</h2>
  
 <%= form_for(:session, url: '/blogin') do |f| %>  
            <div class="form-group form-groupemail">
-            <div class="form-group">
+           
               <%= f.email_field :email, :placeholder => "Email", class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''",onblur: "this.placeholder='Email'" %> <br />
             </div>
              <div class="form-group form-grouppass">
@@ -14,18 +14,12 @@
             </div>
            <div class="row row0 text-right">
               <%= f.submit "LOG IN", class: "btn btn-send" %><br /></div>
-
-              <div class="row row0 text-right"><a href="/brandusers/auth/Linkedin" class="linkedin"></a></div>
+  <hr>
+ <span class="formcapish">- OR - </span>
+              <div class="row row0 text-left"><a href="/brandusers/auth/Linkedin" class="linkedin"></a></div>
               
-           
           </div>
         <% end %>
-
-
-
-
- 
-
  
 </div>
 </div>
@@ -39,51 +33,6 @@
     <a href="#">Terms</a>
   </footer>
 </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%= render 'layouts/header2' %>
-<div class="jumbotron" id="form">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-5" id="form">
-        <br>  	 
-        <%= form_for(:session, url: '/blogin') do |f| %>  
-          <div class="input-group"> 
-            <div class="form-group">
-              <%= f.email_field :email, :placeholder => "Email", class: "form-control" %> <br />
-            </div>
-            <div class="form-group">
-              <%= f.password_field :password, :placeholder => "Password", class: "form-control" %> <br />
-            </div>
-            <div class="actions"> 
-              <%= f.submit "Log in", class: "btn btn-primary" %><br />
-              OR <%= link_to 'Sign in with LinkedIn', "/brandusers/auth/Linkedin", class: "btn" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div> 
-
-
-
-  <!-- google analytics code !-->
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -97,6 +46,21 @@
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
 
