@@ -155,15 +155,15 @@
       <ul class="mainNavDropDown clearfix">
         <li class="active"> 
           <%= link_to charges_path   do %>
-            Proposals  <% count = unread_charges_count(current_branduser) %>  
-            <%= "<sup>#{count}</sup>".html_safe if count > 0 %> </span></span>
+            Proposals   <% count = branduser_total_unread_charges_count(current_branduser) %>
+          <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %> 
         </li>
         <li>
           <%= link_to messages_path do %>
             Messages 
-            <% count = branduser_unread_total_messages_count(current_branduser) %>
-            <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
+           <% count = branduser_unread_total_messages_count(current_branduser) %>
+          <%= "<sup>#{count}</sup>".html_safe if count > 0 %>
           <% end %>
         </li>
         <li>
