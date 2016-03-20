@@ -1,25 +1,31 @@
   <h2 class="text-center">SEARCH INSTAGRAMMER</h2>
         <div class="row row0 searchuser">
-          <%= form_for :instauser, url: search_path  do |f| %>  
+      
+
+  <%= form_for :instauser, url: search_path  do |f| %>  
 
 
   <div class="form-group form-selectfull form-noborder">
     <%= f.select :theme, 
-      options_for_select([['General','General'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {:placeholder=>"Passions"}, :class=>"form-control" %> 
+      options_for_select([['Lifestyle','Lifestyle'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, :class=>"form-control" %> 
 
   </div>
   
+  <!--
   <div class="form-group form-selectfull form-noborder">
     <%= f.select :location,
       options_for_select([['İstanbul','İstanbul'],['İzmir','İzmir'], ['Ankara','Ankara'], ['Samsun','Samsun'],['New York','New York'],['Amsterdam','Amsterdam'],['Berlin','Berlin'], ['DC','DC'],['London','London']] ,2),{}, :class=>"form-control" %>   
   </div>
-  
+   !--> 
+
   <div class="form-group form-selectfull form-noborder">
       <%= f.select :gender,
       options_for_select([['Male','Male'],['Female','Female']] ,2),{}, :class=> "form-control" %> 
   </div>
   
   <div class="clearfix">
+<!--
+
     <div class="form-group form-groupname1 pull-left">
 
 <%= f.number_field :age1 , :placeholder=>"18", :input_html => { :value => '18' }, type:"lastnam", onblur: "this.placeholder='Min Age'", onfocus: "this.placeholder = ''", :placeholder =>"Min Age" ,id: "usr", :class=> "form-control formcapish" %> 
@@ -32,8 +38,9 @@
 
  
     </div>
+    !-->
   </div>
-  
+  <!--
   <div class="form-group form-groupscore">
 
      <%= f.number_field :engagementscore , :input_html => { :value => '18'}, type: "lastname", onblur: "this.placeholder='Engagement Sore'" , onfocus: "this.placeholder = ''" , placeholder: "Engagement Sore",  id: "usr", class: "form-control formcapish"%>
@@ -46,7 +53,7 @@
 
      
   </div>
-  
+  !-->
   <div class="form-group form-groupfollower">
       <%= f.number_field :followed_by, :input_html => { :value => '5000'}, type:"fullname", onblur:"this.placeholder='Min Folowers'", onfocus:"this.placeholder = ''" ,placeholder:"Min Folowers", id:"usr", :class=> "form-control formcapish" %> 
      
