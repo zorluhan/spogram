@@ -60,7 +60,7 @@
          <li> <%= link_to "Declined", list_charges_path(state: :declined) %>  </li>
            
          
-      <li>    <%= link_to "Release", list_charges_path(state: :release_requested) %>  </li>
+      <li>    <%= link_to "Requested", list_charges_path(state: :release_requested) %>  </li>
          
         
      <li>       <%= link_to list_charges_path(state: :completed) do %>
@@ -114,7 +114,7 @@
       <li>
        
           <%= link_to list_charges_path(state: :release_requested) do %>
-            Release Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
+            Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
           <% end %>
        
       </li>

@@ -19,12 +19,12 @@
          
              
 			<%= link_to edit_charge_path(@charge.id) do %>
-			 <button class="btn btn-sm btnprop"><i class="fa fa-check"></i>EDIT</button><%end%>
+			 <button class="btn btn-sm btnprop"><i class="fa fa-pencil"></i> EDIT</button><%end%>
 
   
 			 
 			<%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with Instagrammer</button>
+					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> MESSAGE</button>
             <%end %>
            
         <% elsif @charge.release_requested? %>
@@ -33,13 +33,13 @@
 				              <%end%>
 
 				              <%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-									<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with User</button>
+									<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> MESSAGE</button>
 		            <%end %>
             
         <% else %>
 
 		    	  <%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-							<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with User</button>
+							<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> MESSAGE</button>
 		            <%end %>
 
      	 <%end%>
@@ -52,10 +52,10 @@
 
 	<h2 class="text-center proptitle">PROPOSAL DETAILS</h2>
 	
-	<div class="proposalinfo2">
+	<div class="proposalinfo2 proposalinfo3">
 		<div class="subtitle">Price</div>
-		<div class="row row0 bot-buffer10"><span>Proposed Price:</span> $<%= (@charge.amount.to_f/100).round(2) %>&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-					 <i class="fa fa-comment"></i> Chat with User 
+		<div class="row row0 bot-buffer10"><span>Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/100).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
+					 <i class="fa fa-comment"></i> MESSAGE
             <%end %></div>
 	
 	</div>
@@ -85,7 +85,7 @@
     <% if @charge.pending? %>
          
              <%= link_to edit_charge_path(@charge.id) do %>
-              <button class= "btn btn-send"><i class="fa fa-check"></i> EDIT</button>
+              <button class= "btn btn-send"><i class="fa fa-pencil"></i> EDIT</button>
               <%end%>
 
             

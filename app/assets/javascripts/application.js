@@ -27,16 +27,21 @@
 
 function imgError(image) {
     image.onerror = "";
-    image.src = "/assets/missing2.png";
+    image.src = "<%= image_url('missing2.png') %>";
     return true;
 }
 
 function imgError2(image) {
     image.onerror = "";
-    image.src = "/assets/missing3.png";
+    image.src = "<%= image_url('missing3.png') %>";
     return true;
 }
 
+function imgError3(image) {
+    image.onerror = "";
+    image.src = "<%= image_url('defaultimg.png') %>";
+    return true;
+}
  
 $(document).ready(function() {
   $("input.date-field").datepicker({

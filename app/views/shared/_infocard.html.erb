@@ -1,7 +1,8 @@
 
-<% @instausers.each do |x| %>
 <div class="row row0 text-center profilelist">
         <div class="row row0 masonry-container">
+
+<% @instausers.each do |x| %>
 
 <div class="col-lg-6 col-sm-12 col-xs-12 thumb clearfix">
           <div class="profilecard thumbnail">
@@ -52,7 +53,7 @@
              <i class="fa fa-money"></i>
           </div>
           <div class="col-xs-8 pv-lg">
-             <div class="widget-text mt0"><%= x.postprice %> </div>
+             <div class="widget-text mt0"><%= x.postprice %>&nbsp;USD</div>
           </div>
          </div>
         </div>
@@ -89,15 +90,25 @@
   
     <div class="row row0">
       <%  most_liked_photos= x.instaposts.where(:most_liked => true).order("likes_counts DESC").take(4) %>
-      <%if most_liked_photos.present?%>
-      <% most_liked_photos.each do |z| %> 
-      <div class="col-sm-3 col-xs-3 proimages">
-
-      <a class="" href="#"><img width="148" height="148" src="<%= z.media_thumb_url%>"></a>
-      
-      </div> 
-      <% end %>
-      <%end%>
+            <% counter=0 %>
+                    <% if most_liked_photos.present? %>
+                    <% most_liked_photos.each do |z| %> 
+                    <div class="col-sm-3 col-xs-3 proimages">
+                    
+                    <a class="" href="#"><img width="148" height="148" src="<%= z.media_thumb_url%>"></a>
+                    
+                    </div>
+                     <% counter=counter+1 %>
+                    <% end %>
+                    <%end%>
+            <% while counter < 4 do %>
+                     <div class="col-sm-3 col-xs-3 proimages">
+                    
+                    <a class="" href="#"><img width="148" height="148" src="<%= image_url('defaultimg.png')%>"></a>
+                    
+                    </div> <% counter=counter+1 %> 
+            <%end%>
+     
       </div>
 
 

@@ -1,86 +1,94 @@
-
- <%= render 'layouts/header2' %> 
+ 
+<div class="signup">
+<div class="signup signup2">
 <div class="container">
-  <div class="row">
-    <div class="col-xs-5" id="form">
-      <%= link_to 'Sign Up with LinkedIn', "/brandusers/auth/Linkedin", class: "btn btn-primary" %>
-      <br>
-      <h2>Sign Up </h2>
-      <%= form_for(@branduser)  do |f| %>
-        <%= render 'shared/error_messages' %>
-        <div class="input-group"> 
-          <div class="form-group"> 
-            <%= f.label :firstname %> <br> 
-            <%= f.text_field :firstname, class: "form-control", size: "50" %> <br>
-          </div>
-           <%= f.label :lastname %> <br> 
-            <%= f.text_field :lastname, class: "form-control", size: "50" %> <br>
-          <%= f.label :email  %> <br>
-          <%= f.text_field :email, class: "form-control" %> <br>
-          <%= f.label :password %><br> 
-          <%= f.password_field :password, class: "form-control" %> <br>
-          <%= f.label :phone %><br> 
-          <%= f.number_field :phone, class: "form-control" %> <br>
-          <%= f.label :company %><br> 
-          <%= f.text_field :coname, class: "form-control" %> <br>
-             <%= "Your Title" %><br> 
-          <%= f.text_field :title, class: "form-control" %> <br>
-          <%= f.label :country %><br> 
-          <%= f.select :country, 
-          options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
-          {}, { :class => 'form-control' }  %>
 
-          <%= f.label :website %> <br>
-          <%= f.text_field :cowebsite, class: "form-control"  %> <br>
-          <%= "Number of Employees:" %> <br>
-          <%= f.select :comsize, 
+ <span class="logo" title="capish">capish</span>
+ 
+<h2 class="text-center">BRAND SIGN UP</h2>
+<!--  <div class="row row0 text-left"><a href="/brandusers/auth/Linkedin" class="linkedin"></a></div>
+    !-->
+   <%= form_for(@branduser)  do |f| %>  
+   
+    <%= render 'shared/error_messages' %>
+
+			  <div class="form-group form-groupname1 pull-left">
+
+			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder'First Name'" %> 
+			  </div>
+
+
+
+				<div class="form-group form-groupname2 pull-right">
+					 <%= f.text_field :lastname,  class: "form-control formcapish",  id:"usr" , placeholder: "Last Name",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Last Name'" %>
+
+				</div>
+	
+				<div class="form-group form-groupemail">
+
+				<%= f.text_field :email, type:"email" , onblur: "this.placeholder='kimkardashian@gmail.com'",  onfocus: "this.placeholder = ''" , placeholder: "kimkardashian@gmail.com" , id: "email" , class: "form-control formcapish" %>
+			   
+
+			  </div>
+  
+			  <div class="form-group form-grouppass">
+
+
+			  <%= f.password_field :password , type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
+			     
+			  </div>
+  
+				<div class="form-group form-groupphone">
+
+					<%= f.number_field :phone, type: "email", class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
+
+					 
+				  </div>
+	  
+				  <div class="form-group form-groupcomp">
+
+				  	<%= f.text_field :coname, type: "email",  class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
+
+					 
+				  </div>
+	  
+				  <div class="form-group form-grouptitle">
+				  	<%= f.text_field :title, type: "email" , class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
+				  </div>
+	  
+					  <div class="form-group form-selectfull form-noborder">
+					<label for="name" class="gender"><i class="fa fa-globe"></i>Country</label>
+					<%= f.select :country, 
+				          options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
+				          {}, { :class => 'form-control' }  %>
+
+					</div>
+
+					   <div class="form-group form-groupweb">
+
+					   	<%= f.text_field :cowebsite, type: "email" , class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
+					 
+					  </div>
+	  
+	  <div class="form-group form-selectfull form-noborder">
+	<label for="name" class="gender"><i class="fa fa-users"></i>Number of Employees</label>
+
+	<%= f.select :comsize, 
           options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
-          {}, { :class => 'form-control' }  %> <br>
+          {}, { :class => 'form-control' }  %> 
+	</div>
+	
+  <div class="row row0 text-right"> <%= button_tag(type: 'submit', class: "btn btn-send") do %>  SAVE <% end %></div>
+  <div class="row row0 text-right terms">By clicking save, you agree to our <a href="/pages/terms">terms of use</a></div>
+<%end%>
 
-          <!-- 
-          <%= f.label :image %> <br>
-          <%= f.file_field :image, class: "form-control" %> <br> !-->
-        </div> <br>
-        <div class="actions"> 
-          <%= f.submit "Create"  %> 
-        </div> 
-        <br>
-      <% end %>
-    </div>
-    
-    <div class="col-xs-1">
-    </div>
-    
-    <div class="col-xs-5">
-      <h3>We are looking to work with a select
-        group of brands as part of our early 
-        access program.  </h3><br>
-      <h4><font color="gray">
-        Access our platform and connect with 
-        Instagrammers prior to general release. Set up 
-        campaigns based on your budget. <br><br>
-        No hassle payment using one of the world’s 
-        most secure and trusted payment platforms. <br><br>
-        Provide feedback directly to our team to 
-        ensure the current and future platform features 
-        reflect market needs. <br><br>
-        One on one access to our Marketing team to 
-        ensure the success of your campaign. </h4><br><br>
-    </div>
-  </div>
+</div>
+</div>
 </div>
 
-
-
-<!-- google analytics code !-->
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-73073794-1', 'auto');
-  ga('send', 'pageview');
-
+ 
+<script type="text/javascript">
+	$('.selectpicker').selectpicker({
+  size: 4
+});		
 </script>
-

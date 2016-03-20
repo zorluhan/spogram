@@ -134,7 +134,7 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to do %>
+      <li><%= link_to bdashboard_path do %>
         <% unless current_branduser.firstname.nil? %>
        <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%><%end%> </li>
       <li><%= link_to edit_branduser_path(current_branduser) do  %>
@@ -177,7 +177,7 @@
         
         <li><a href="<%=faq_path%>" class="btn2"><i class="fa fa-question-circle"></i>&nbsp;FAQ</a></li>
 
-        <li><%= link_to logout_path(current_branduser),  :class=>"btn4",  :method => :delete do %>
+        <li><%= link_to blogout_path(current_branduser),  :class=>"btn4",  :method => :delete do %>
 <i class="fa fa-sign-out"></i>&nbsp;Logout
 <%end%>
         </li>
@@ -228,8 +228,8 @@
 
 </header>  
  
-      <div class="container">     <span id="flash_messages"><%= flash_messages(:close)  %></span> 
-   </div> 
+  <div class="container"><span id="flash_messages"><%= flash_messages(:close)  %></span> 
+   </div>  
 
 </div>
 
