@@ -1,4 +1,4 @@
-  <h2 class="text-center">SEARCH INSTAGRAMMER</h2>
+ <h2 class="text-center">SEARCH INSTAGRAMMER</h2>
         <div class="row row0 searchuser">
       
 
@@ -7,7 +7,7 @@
 
   <div class="form-group form-selectfull form-noborder">
     <%= f.select :theme, 
-      options_for_select([['Lifestyle','Lifestyle'],['Food','Food'],['Travel','Travel'], ['Art','Art'], ['Beauty','Beauty'], ['Fashion','Fashion'],['Dance','Dance'],['Motorcycle','Motorcycle'],['Music','Music'],['Nature','Nature'],['Sport','Sport'], ['Urban Life','Urban Life'],['Fitness','Fitness'], ['Design','Design']], 2), {}, :class=>"form-control" %> 
+      options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']], 2), {}, :class=>"form-control" %> 
 
   </div>
   
@@ -55,7 +55,7 @@
   </div>
   !-->
   <div class="form-group form-groupfollower">
-      <%= f.number_field :followed_by, :input_html => { :value => '5000'}, type:"fullname", onblur:"this.placeholder='Min Folowers'", onfocus:"this.placeholder = ''" ,placeholder:"Min Folowers", id:"usr", :class=> "form-control formcapish" %> 
+      <%= f.number_field :followed_by, type:"fullname", onblur:"this.placeholder='Min Folowers'", onfocus:"this.placeholder = ''" ,placeholder:"Min Folowers", id:"usr", :class=> "form-control formcapish" %> 
      
   </div>
   <div class="row row0 text-right text-xs-center"><%= f.submit "SEARCH", class: "btn btn-send" , data: {disable_with: "Searching.."} %> </div>
