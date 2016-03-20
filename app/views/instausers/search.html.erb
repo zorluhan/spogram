@@ -9,7 +9,7 @@
 <div>
   <% if @instausers.first.nil? %>
 
-<img src="/assets/monkey.png", width="300"> 
+<img src="<%= image_url('monkey.png') %>", width="200"> 
 <%= link_to "No users found, search again", bdashboard_path(:id => current_branduser) %></font>
 
  <%end%>
