@@ -63,7 +63,7 @@
 	<div class="proposalinfo2 proposalinfo3">
 		<div class="subtitle">Price</div>
 		<div class="row row0 bot-buffer10"><span>Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/(120)).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
-					 <i class="fa fa-comment"></i> Chat with brand 
+					 <i class="fa fa-comment"></i> Negotiate 
             <%end %></div>
 	
 	</div>

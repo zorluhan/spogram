@@ -2,19 +2,23 @@
 <div class="signup">
 <div class="signup signup2">
 <div class="container">
-
+   
  <span class="logo" title="capish">capish</span>
  
-<h2 class="text-center">BRAND SIGN UP</h2>
+<h2 class="text-center">BRAND SIGN UP
+     </h2>
 <!--  <div class="row row0 text-left"><a href="/brandusers/auth/Linkedin" class="linkedin"></a></div>
     !-->
-   <%= form_for(@branduser)  do |f| %>  
-   
-    <%= render 'shared/error_messages' %>
 
+
+
+   <%= form_for(@branduser)  do |f| %>  
+
+<%= render 'shared/error_messages' %>
+  
 			  <div class="form-group form-groupname1 pull-left">
 
-			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder'First Name'" %> 
+			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder='First Name'" %> 
 			  </div>
 
 
@@ -26,7 +30,7 @@
 	
 				<div class="form-group form-groupemail">
 
-				<%= f.text_field :email, type:"email" , onblur: "this.placeholder='kimkardashian@gmail.com'",  onfocus: "this.placeholder = ''" , placeholder: "kimkardashian@gmail.com" , id: "email" , class: "form-control formcapish" %>
+				<%= f.email_field :email, :autocomplete => :off, onblur: "this.placeholder='kimkardashian@gmail.com'",  onfocus: "this.placeholder = ''" , placeholder: "kimkardashian@gmail.com" , id: "email" , class: "form-control formcapish" %>
 			   
 
 			  </div>
@@ -34,26 +38,26 @@
 			  <div class="form-group form-grouppass">
 
 
-			  <%= f.password_field :password , type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
+			  <%= f.password_field :password , :autocomplete => :off,  class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
 			     
 			  </div>
   
 				<div class="form-group form-groupphone">
 
-					<%= f.number_field :phone, type: "email", class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
+					<%= f.number_field :phone, type:"telephone"  ,class: "form-control formcapish", placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-groupcomp">
 
-				  	<%= f.text_field :coname, type: "email",  class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
+				  	<%= f.text_field :coname,   class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-grouptitle">
-				  	<%= f.text_field :title, type: "email" , class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
+				  	<%= f.text_field :title,  class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
 				  </div>
 	  
 					  <div class="form-group form-selectfull form-noborder">
@@ -66,11 +70,12 @@
 
 					   <div class="form-group form-groupweb">
 
-					   	<%= f.text_field :cowebsite, type: "email" , class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
+					   	<%= f.url_field :cowebsite,   class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
 					 
 					  </div>
 	  
 	  <div class="form-group form-selectfull form-noborder">
+	
 	<label for="name" class="gender"><i class="fa fa-users"></i>Number of Employees</label>
 
 	<%= f.select :comsize, 

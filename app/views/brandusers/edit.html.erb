@@ -8,7 +8,7 @@
  
 <h2 class="text-center">SETTINGS</h2>
  
-   <%= form_for(@branduser)  do |f| %>  
+   <%= form_for(@branduser, :html => {:role => 'form', :autocomplete => 'off'})  do |f| %>  
 			  <div class="form-group form-groupname1 pull-left">
 
 			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder'First Name'" %> 
@@ -31,26 +31,26 @@
 			  <div class="form-group form-grouppass">
 
 
-			  <%= f.password_field :password , type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
+			  <%= f.password_field :password,  type: "password", class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
 			     
 			  </div>
   
 				<div class="form-group form-groupphone">
 
-					<%= f.number_field :phone, type: "email", class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
+					<%= f.number_field :phone, class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-groupcomp">
 
-				  	<%= f.text_field :coname, type: "email",  class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
+				  	<%= f.text_field :coname, class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-grouptitle">
-				  	<%= f.text_field :title, type: "email" , class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
+				  	<%= f.text_field :title,  class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
 				  </div>
 	  
 					  <div class="form-group form-selectfull form-noborder">
@@ -63,7 +63,7 @@
 
 					   <div class="form-group form-groupweb">
 
-					   	<%= f.text_field :cowebsite, type: "email" , class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
+					   	<%= f.text_field :cowebsite, class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
 					 
 					  </div>
 	  
