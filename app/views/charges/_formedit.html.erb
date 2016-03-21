@@ -24,15 +24,17 @@
 
 
   </div>
-  
+
   <div class="form-group form-noborder form-groupbio">
-    <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Procuct Description'", onfocus: "this.placeholder = ''" , placeholder: "Procuct Description" %>
+      <label for="name" class="gender">Product Description</label>
+  
+    <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Product Description'", onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
 
    <div class="form-group">
 
-     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram Username'"  %>
+     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "@ Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='@ Instagram Username'"  %>
           </div>
 
   
@@ -44,25 +46,28 @@
   <div class="subtitle">Post</div>
   
   <div class="form-group form-noborder form-groupbio">
-
-       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "Post Description" %>
+        <label for="name" class="gender">Post Description</label>
+       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
   
   <div class="form-group form-noborder form-groupbio">
+    <label for="name" class="gender">Suggested Caption</label>
 
-     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"Suggested Caption" %>
+     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"" %>
 
    
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-     <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Hashtags to include" %>
+    <label for="name" class="gender">Hashtags to include</label>
+     <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "" %>
  
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Usernames to include"%>
+    <label for="name" class="gender">Usernames to include</label>
+     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='@ Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: ""%>
    
   </div>
 </div>
@@ -84,13 +89,15 @@
   
 </div>
 
-       <div class="proposalinfo2">
+       <div class="proposalinfo2 proposalinfo3">
     <div class="subtitle">Price</div>
-            <%= f.number_field :amount, class: "form-control formcağish", value: (@charge.amount/120).round(2), step: '0.01' %>
+     <div class="form-group form-groupmoney">
+            <%= f.number_field :amount, class: "form-control formcapish", value: (@charge.amount/120).round(2), step: '0.01' %></div>
          <div class="row row0 bot-buffer10"><span>Service Charge:</span> %20 </div><hr>
    
-          <div class="row row0 bot-buffer10"><strong><span>Total Price: $<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %></span></span></strong><hr>
-            <font color="red">Your credit card won't be charged till Instagrammer accepts your proposal. </font></div>
+          <div class="row row0 bot-buffer10"><strong><span>Total Price:&nbsp;<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %>&nbsp;USD</span></span></strong><hr>
+           </div>
+           <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card won't be charged till instagrammer accepts your proposal.)</div>
        </div>
 
         <script type="text/javascript">

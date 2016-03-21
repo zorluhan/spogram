@@ -23,15 +23,15 @@
 
 
   </div>
-  
+  <label for="name" class="gender">Product Description</label>
   <div class="form-group form-noborder form-groupbio">
-    <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Procuct Description'", onfocus: "this.placeholder = ''" , placeholder: "Procuct Description" %>
+    <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Product Description'", onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
 
    <div class="form-group">
 
-     <%= f.text_field :instagram_link, type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram Username'"  %>
+     <%= f.text_field :instagram_link, type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "@ Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='@ Instagram Username'"  %>
           </div>
 
   
@@ -43,25 +43,27 @@
   <div class="subtitle">Post</div>
   
   <div class="form-group form-noborder form-groupbio">
-
-       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "Post Description" %>
+    <label for="name" class="gender">Post Description</label>
+       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-
-     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"Suggested Caption" %>
+    <label for="name" class="gender">Suggested Caption</label>
+     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"" %>
 
    
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-     <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Hashtags to include" %>
+    <label for="name" class="gender">Hashtags to include</label>
+     <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "" %>
  
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: "Usernames to include"%>
+    <label for="name" class="gender">Usernames to include</label>
+     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: ""%>
    
   </div>
 </div>
@@ -72,25 +74,26 @@
   
   <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender">Earliest post date *</label>
-                <%= f.text_field :earliest_post_date, class: "form-control date-field" %>
+                <%= f.text_field :earliest_post_date, class: "form-control date-field" , :placeholder=>"dd-mm-yyyy"%>
   </div>
   
   <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender">Last post date *</label>
-       <%= f.text_field :last_post_date, class: "form-control date-field" %>
+       <%= f.text_field :last_post_date, class: "form-control date-field", :placeholder=>"dd-mm-yyyy"%>
 
   </div>
   
 </div>
 
   
-  <div class="proposalinfo2">
+  <div class="proposalinfo2 proposalinfo3">
     <div class="subtitle">Price</div>
-    <div class="row row0 bot-buffer10"><span>Instagrammer's Price:</span> $<%= @amount/100 %></div>
-    <div class="row row0 bot-buffer10"><span>Service Charge:</span> $<%= (@amount*0.20/100).round(2) %></div>
+    <div class="row row0 bot-buffer10"><span>Instagrammer's Price:</span>&nbsp;<%= @amount/100 %>&nbsp;USD</div>
+    <div class="row row0 bot-buffer10"><span>Service Charge:</span>&nbsp;<%= (@amount*0.20/100).round(2) %>&nbsp;USD</div>
      <hr>
-    <div class="row row0 bot-buffer10"><strong><span>TOTAL:</span> $<%= (@amount*1.20/100).round(2) %></strong><hr>
-    <font color="red">Your credit card won't be charged till Instagrammer accepts your proposal. </font></div>
+    <div class="row row0 bot-buffer10"><strong><span>TOTAL:</span>&nbsp;<%= (@amount*1.20/100).round(2) %>&nbsp;USD</strong> 
+    </div>
+    <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card won't be charged till instagrammer accepts your proposal.)</div>
   </div>
 
    
@@ -101,15 +104,15 @@
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
-          <span align="right">
+           <div class="row row0 text-right">
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description=<%= @message %>
             data-amount= <%= (@amount*1.20).round(2) %>
             data-locale="auto"
-            data-label="Submit to Stripe"
+            data-label="SUBMIT via STRIPE"
             data-email= <%=@branduser.email%>  
-            data-allow-remember-me= "false" >SEND</script>  <br> <br>Stripe is a world-wide trusted payment platform.</span>
+            data-allow-remember-me= "false" >SEND</script></div> <div class="row row0 text-right proposalstripe"><a href="https://stripe.com/" target="_blank">Stripe</a> is a world-wide trusted payment platform.</div>
            
  <% end %>
 

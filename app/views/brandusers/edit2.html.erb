@@ -1,17 +1,11 @@
- 
- <%= render 'layouts/header2' %> 
-
 <div class="signup signup2">
 <div class="container">
 
-  
- 
-<h2 class="text-center">SETTINGS</h2>
- 
-   <%= form_for(@branduser, :html => {:role => 'form', :autocomplete => 'off'})  do |f| %>  
-			  <div class="form-group form-groupname1 pull-left">
+<h2 class="text-center">BRAND SIGN UP</h2>
 
-			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder'First Name'" %> 
+   <%= form_for(@branduser)  do |f| %>  
+			  <div class="form-group form-groupname1 pull-left">
+			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" placeholder: "First Name", onfocus: "this.placeholder = ''" , onblur: "this.placeholder='First Name'" %> 
 			  </div>
 
 
@@ -31,39 +25,39 @@
 			  <div class="form-group form-grouppass">
 
 
-			  <%= f.password_field :password,  type: "password", class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
+			  <%= f.password_field :password , type: "email" , class: "form-control formcapish",  id: "email" , placeholder: "Password" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Password'"%>
 			     
 			  </div>
   
 				<div class="form-group form-groupphone">
 
-					<%= f.number_field :phone, class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
+					<%= f.number_field :phone, type: "email", class: "form-control formcapish",  id: "email" , placeholder: "Phone" , onfocus: "this.placeholder = ''", onblur: "this.placeholder='Phone'" %>
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-groupcomp">
 
-				  	<%= f.text_field :coname, class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
+				  	<%= f.text_field :coname, type: "email",  class: "form-control formcapish",  id: "email",  placeholder: "Company" , onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Company'"  %> 
 
 					 
 				  </div>
 	  
 				  <div class="form-group form-grouptitle">
-				  	<%= f.text_field :title,  class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
+				  	<%= f.text_field :title, type: "email" , class: "form-control formcapish" , id: "email" ,placeholder: "Your Title", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title'" %>
 				  </div>
 	  
 					  <div class="form-group form-selectfull form-noborder">
 					<label for="name" class="gender"><i class="fa fa-globe"></i>Country</label>
 					<%= f.select :country, 
 				          options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
-				          {}, { :class => 'form-control' }  %>
+				          {}, { :class => 'selectpicker' }  %>
 
 					</div>
 
 					   <div class="form-group form-groupweb">
 
-					   	<%= f.text_field :cowebsite, class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
+					   	<%= f.text_field :cowebsite, type: "email" , class: "form-control formcapish", id: "email" , placeholder: "Website",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Website'"   %>
 					 
 					  </div>
 	  
@@ -72,16 +66,15 @@
 
 	<%= f.select :comsize, 
           options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
-          {}, { :class => 'form-control' }  %> 
+          {}, { :class => 'selectpicker' }  %> 
 	</div>
 	
-  <div class="row row0 text-right"> <%= button_tag(type: 'submit', class: "btn btn-send") do %>  SAVE <% end %></div>
+  <div class="row row0 text-right"> <%= f.submit do %> <button type="submit" class="btn btn-send">SAVE</button> <% end %></div>
   <div class="row row0 text-right terms">By clicking save, you agree to our <a href="/pages/terms">terms of use</a></div>
 <%end%>
 
 </div>
 </div>
- 
 
 <div class="footer-wrapper">
 <div class="container text-center">
