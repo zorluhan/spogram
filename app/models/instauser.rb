@@ -33,6 +33,16 @@ class Instauser < ActiveRecord::Base
     end
   end
 
+  def potential_earnings
+    charges.where(state: :pending).sum(:amount).to_f/120.round(2)
+  end
+  def upcomming_eatnings
+    charges.where(state: [:accepted, :release_requested]).sum(:amount).to_f/120.round(2)
+  end
+  def total_earnings
+    charges.where(state: :completed).sum(:amount).to_f/120.round(2)
+  end
+
 
   def fetch_instagram_timeline
     if access_token.present?

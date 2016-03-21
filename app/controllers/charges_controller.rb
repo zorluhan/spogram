@@ -28,16 +28,12 @@ class ChargesController < ApplicationController
 
   def index
     if branduser_logged_in? 
-      @charges = Charge.where(branduser_id: current_branduser.id )
+      @charges            = current_branduser.charges
     elsif instauser_logged_in?
-      @charges = Charge.where(instauser_id: current_instauser.id )
-      @earned  = current_instauser.charges.where(state: :completed).sum(:amount).to_f/120.round(2) 
-      # @earned  = 0
-      # @charges.each do |x|
-      #   if x.accepted? 
-      #     @earned = @earned + (x.amount/120).round(2)
-      #   end
-      # end
+      @charges            = current_instauser.charges
+      @potential_earnings = current_instauser.potential_earnings
+      @upcomming_eatnings = current_instauser.upcomming_eatnings
+      @total_earnings     = current_instauser.total_earnings
     else
       redirect_to root_path
     end
@@ -46,16 +42,18 @@ class ChargesController < ApplicationController
   def list
     state = params[:state]
     if branduser_logged_in? 
-      @charges = Charge.where(branduser_id: current_branduser.id, state: state)
+      @charges            = current_branduser.charges.where(state: state)
       if ['accepted', 'declined', 'release_requested'].include? state
         @charges.where(state: state, is_read: false).update_all(is_read: true)
       end
     elsif instauser_logged_in?
-      @charges = Charge.where(instauser_id: current_instauser.id, state: state)
+      @charges            = current_instauser.charges.where(state: state)
+      @potential_earnings = current_instauser.potential_earnings
+      @upcomming_eatnings = current_instauser.upcomming_eatnings
+      @total_earnings     = current_instauser.total_earnings
       if ['pending', 'completed'].include? state
         @charges.where(state: state, is_read: false).update_all(is_read: true)
       end
-      @earned  = current_instauser.charges.where(state: :completed).sum(:amount).to_f/120.round(2)
     else
      redirect_to root_path
     end
