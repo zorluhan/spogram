@@ -13,7 +13,7 @@ class Branduser < ActiveRecord::Base
   validates :cowebsite, presence: true 
   validates :email, presence: true 
   validates :email, uniqueness: true 
-  validates :email, :email_format => {:message => 'is not looking good'}
+  validates :email, :email_format => {:message => 'is not an email, pls enter an email'}
   # validates :email, :uniqueness => {:link => Rails.application.routes.url_helpers.bsignup_path}
   validates :title, presence: :true 
   validates :firstname, presence: :true 

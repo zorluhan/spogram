@@ -1,6 +1,6 @@
 
 	<div class="subtitle3">YOU'VE BEEN NOTICED BY</div>
-	<span class="proposalfrom">Proposal from: <%= @branduser.firstname %>, <%= @branduser.coname %></span>
+	<span class="proposalfrom">Proposal from: <% unless @branduser.nil? %><%= @branduser.firstname %>, <%= @branduser.coname %><%end%></span>
 	
 	<div class="row row0 clearfix proposalinfo">
 	
@@ -19,7 +19,7 @@
          
              
 			<%= link_to accept_charge_path(@charge.id), method: :patch   do  %>
-			 <button class="btn btn-sm btnprop"><i class="fa fa-check"></i> Accept</button><%end%>
+			 <button class="btn btn-sm btnprop"><i class="fa fa-check"></i> ACCEPT</button><%end%>
 
             <%= link_to decline_charge_path(@charge.id), method: :patch  do  %>
               <button class= "btn btn-sm btnprop"><i class="fa fa-ban"></i> DECLINE</button>
@@ -27,7 +27,7 @@
 
 			 
 			<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
-					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with brand</button>
+					<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> NEGOTIATE</button>
             <%end %>
            
         <% elsif @charge.accepted? %>
@@ -62,9 +62,9 @@
 	
 	<div class="proposalinfo2 proposalinfo3">
 		<div class="subtitle">Price</div>
-		<div class="row row0 bot-buffer10"><span>Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/(120)).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+		<div class="row row0 bot-buffer10"><span>Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/(120)).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<% if @charge.pending? %><%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
 					 <i class="fa fa-comment"></i> Negotiate 
-            <%end %></div>
+            <%end %><%end%></div>
 	
 	</div>
 

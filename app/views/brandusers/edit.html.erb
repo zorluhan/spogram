@@ -98,3 +98,66 @@
   size: 4
 });		
 </script>
+
+
+<script>
+$(function() {
+
+    var valid = {};
+
+    valid['branduser[firstname]'] = true;
+    valid['branduser[lastname]'] = true;
+    valid['branduser[email]'] = true;
+    valid['branduser[password]'] = true;
+    valid['branduser[phone]'] = true;
+    valid['branduser[coname]'] = true;
+    valid['branduser[title]'] = true;
+    valid['branduser[cowebsite]'] = true;
+
+    var $submitBtn = $('button[type=submit]');
+    var mailRegex = /^\w+([\.\-\']?\w+)*@\w+([\.\-\']?\w+)*(\.\w{2,8})/;
+
+    function check() {
+        var isValid = true;
+        for (var item in valid) {
+            var $c = $('[name="' + item + '"]');
+            valid[item] = !!($c.val().trim());
+            if (valid[item] && item == 'branduser[email]') {
+                valid[item] = mailRegex.test($c.val());
+            }
+            $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
+            if (!valid[item])
+                isValid = false;
+        }
+        return isValid;
+    }
+
+
+    for (var item in valid) {
+        (function(item) {
+            var handler = function(e) {
+                var isValid = !!($(this).val().trim());
+                if (isValid && item == 'branduser[email]') {
+                    isValid = mailRegex.test($(this).val());
+                }
+                $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+            };
+
+            var $c = $('[name="' + item + '"]');
+            $c.change(handler);
+            $c.blur(handler);
+        })(item);
+    }
+
+    $('button[type=submit]').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation;
+
+        if (!check()) {
+            //todo
+        } else {
+            $('form').submit();
+        }
+    });
+
+}); </script>

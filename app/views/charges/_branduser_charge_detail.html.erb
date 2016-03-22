@@ -1,6 +1,6 @@
 
-	<div class="subtitle3">YOU'VE SENT PROPOSAL</div>
-	<span class="proposalfrom">To: <%= @instauser.firstname %>&nbsp;<%= @instauser.lastname %></span>
+	<div class="subtitle3">YOU'VE SENT PROPOSAL TO</div>
+	<span class="proposalfrom"><% unless @instauser.profile_picture.nil? %><a class="avatar"><img src="<%= @instauser.profile_picture %>" width="45"></a>&nbsp;<%end%><%= @instauser.firstname %>&nbsp;<%= @instauser.lastname %></span>
 	
 	<div class="row row0 clearfix proposalinfo">
 	
