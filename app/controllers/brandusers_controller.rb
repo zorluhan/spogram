@@ -17,7 +17,7 @@ class BrandusersController < ApplicationController
     if @branduser.save 
       # branduser_log_in(@branduser) # don't login on create
       flash!(success: "Please check your email for account verification")
-      redirect_to root_path
+      redirect_to "/pages/brandwaitlist"
     else 
       flash!(error: I18n.t("flash_messages.defaults.hata"))
       render 'new'
