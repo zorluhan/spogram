@@ -52,33 +52,35 @@
 
   <!-- brand user !--> 
   <% if current_branduser %>
+  <a href="/messages"><%= "<" + "   "+ @messages.first.instauser.firstname %></a><br><br>
+    <ul class="messageul">
     <% @messages.each do |z| %>
-      <div class="single-message">
+     
         <% if z.sender==1 && z.message!="" %>
-          <div class="panel-body left-message">
-            <%= image_tag(z.instauser.profile_picture, width: "40", class: "margin", onerror: "imgError(this);") %>
-            <%= z.message %>
-            <br>
-            <span class="margin" id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span>
-          </div>
+          <li class="clearfix">
+        <div class="messagebox pull-left"><span class="messagename"><%= z.instauser.firstname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
+       </li>
+
+             
         <% elsif z.sender==0 && z.message!="" %>
-          <div class="panel-body right-message" id="mm">
-            <% unless !z.branduser.image.nil? %>
-              <%= image_tag(z.branduser.image, width: "40") %>
-            <%end%>
-            <%= z.message %><br>
-            <span id="timeago"><%= time_ago_in_words(z.created_at)+" ago" %></span> 
-          </div>
+           <li class="clearfix">
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
+        </li> 
+
+
+   
         <% end %>
-      </div>
+ 
     <% end %>
 
-    <div>
+     </ul>
       <%= form_for Message.new(), remote: true do |f| %>
-        <%= f.text_area :message, class: "form-control", rows: "5" %><br> 
-        <div class="actions"> 
-          <%= f.submit "Send", class: 'btn btn-default btn-lg', data: {disable_with: "Sending..."} %> 
-        </div>
+        <%= f.text_area :message, class: "form-control", rows: "4" %><br> 
+       <div class="row row0 text-right">  
+           <%= button_tag(type: 'submit', class: "btn btn-send btn-send2",  data: {disable_with: "SENDING..."} ) do %>
+<i class="fa fa-paper-plane"></i>&nbsp;&nbsp;SEND
+<% end %>
+         </div>
         <%= f.hidden_field :branduser_id, value: current_branduser.id %>
         <%= f.hidden_field :instauser_id, value: @instauser.id %>
         <%= f.hidden_field :sender, value: 0 %>
@@ -86,6 +88,9 @@
     </div>
   <% end %>
 <% end %>
+<br><br>
+<div class="row row0 text-right">  
+<a href="/messages"><%= "BACK TO MESSAGES" %></a></DİV><br><br>
  <!-- google analytics code !-->
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -51,29 +51,32 @@
 
   <% elsif branduser_logged_in? && !instauser_logged_in? %>
     <% if @instausers.present? %>
-      <div class="row">
-        <div class="col-xs-4">
-          <div id="leftbar" class="messages-leftbar">
-            <ul class="list-group" id="form">
+      <h2 class="text-center">  MESSAGES</h2>
+      <div id="publish" class="messages-list">
+        <div class="msgpage">
+          <div class="container">
+
+            <div class="col-xs-12">
+              <div id="leftbar" class="messages-leftbar">
+
+ 
+                  <ul class="list-group" id="form">  
               <% @instausers.each do |x| %>
-                <li class="list-group-item">
-                  <font face="Lobster">
-                    <h4>
+                      <li class="list-group-item">  
+                          <font face="Roboto" size="3"> 
                     <%= link_to x.firstname, list_messages_path(instauser_id: x.id) %>
                     <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span>
                     </h4>
-                  </font>
+                           </font>
 
-                  <% count = unread_branduser_messages_count(current_branduser, x) %>
-                  <%= "#{count} unread".html_safe if count > 0 %>            
-                </li>
-              <% end %> 
-            </ul>
+                         <% count = unread_branduser_messages_count(current_branduser, x) %>
+                         <%= "#{count} unread".html_safe if count > 0 %>            
+                       </li>
+                 <% end %> 
+                   </ul>
+               </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-8">
-          <div id="publish" class="messages-list">
-          </div> 
         </div>
       </div>
     <% else %>
