@@ -59,6 +59,11 @@
       <span class="navbar-brand" href="#" title="capish">capish</span>
       <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
       <ul class="mainNavDropDown clearfix">
+          <li>
+          <a href="<%= dashboard_path(current_instauser) %>" class="btn4">
+            <% unless current_instauser.firstname.nil? %><%=  current_instauser.firstname %><% end %>
+          </a>
+        </li>
         <li class="active"> 
           <%= link_to charges_path   do %>
             Proposals  <% count = unread_charges_count(current_instauser) %>  
@@ -76,11 +81,7 @@
           <%= link_to 'Brands', brands_path %>
         </li>
 
-        <li>
-          <a href="<%= dashboard_path(current_instauser) %>" class="btn4">
-            <% unless current_instauser.firstname.nil? %><%=  current_instauser.firstname %><% end %>
-          </a>
-        </li>
+      
 
         <li><a href="<%=edit_instauser_path(current_instauser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
       
