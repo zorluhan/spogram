@@ -26,7 +26,7 @@ class BrandusersController < ApplicationController
 
   def dashboard
     @branduser= Branduser.find_by_id(session[:buser_id])
-    @instausers=Instauser.where(:disabled=>false).take(10)
+    @instausers=Instauser.where(:disabled=>false).order("followed_by ASC").take(12)
 
   end
 
