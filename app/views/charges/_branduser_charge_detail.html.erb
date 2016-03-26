@@ -78,8 +78,8 @@
 	
 	<div class="proposalinfo2">
 		<div class="subtitle">Timeline</div>
-		<div class="row row0 bot-buffer10"><span>Earliest post date:</span> <%= @charge.earliest_post_date %></div>
-		<div class="row row0 bot-buffer10"><span>Last post date:</span> <%= @charge.last_post_date %></div>
+		<div class="row row0 bot-buffer10"><span>Earliest post date:</span> <% unless @charge.earliest_post_date.nil? %><%= @charge.earliest_post_date.strftime("%d/%m/%Y") %><%end%></div>
+		<div class="row row0 bot-buffer10"><span>Last post date:</span><% unless @charge.last_post_date.nil? %> <%= @charge.last_post_date.strftime("%d/%m/%Y") %><%end%></div>
 	</div>
 	
     <% if @charge.pending? %>
