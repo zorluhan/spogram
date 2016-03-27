@@ -5,19 +5,19 @@
   <% if current_instauser %>
  
 
-<a href="/messages" class="msgback"><i class="fa fa-angle-left"></i><%= @messages.first.branduser.coname.upcase %></a><br><br>
+<a href="/messages" class="msgback"><i class="fa fa-angle-left"></i> <%= @messages.first.branduser.coname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
 
     <% if z.sender==0 && z.message!="" %>
        <li class="clearfix">
-        <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"><%= z.message %></p></div>
+        <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
        </li>
 
          
         <% elsif z.sender==1 && z.message!="" %>
         <li class="clearfix">
-          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"> <%= z.message %></p></div>
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
         </li> 
         
         <% end %>
@@ -51,19 +51,19 @@
 
   <!-- brand user !--> 
   <% if current_branduser %>
-  <a href="/messages" class="msgback"><i class="fa fa-angle-left"></i><%= @messages.first.instauser.firstname.upcase %></a><br><br>
+  <a href="/messages" class="msgback"><i class="fa fa-angle-left"></i> <%= @messages.first.instauser.firstname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
      
         <% if z.sender==1 && z.message!="" %>
           <li class="clearfix">
-        <div class="messagebox pull-left"><span class="messagename"><%= z.instauser.firstname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"><%= z.message %></p></div>
+        <div class="messagebox pull-left"><span class="messagename"><%= z.instauser.firstname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
        </li>
 
              
         <% elsif z.sender==0 && z.message!="" %>
            <li class="clearfix">
-          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"> <%= z.message %></p></div>
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
         </li> 
 
 
