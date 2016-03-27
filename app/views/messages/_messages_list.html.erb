@@ -5,7 +5,7 @@
   <% if current_instauser %>
  
 
-<a href="/messages"><%= "<" + "   "+ @messages.first.branduser.coname.upcase %></a><br><br>
+<a href="/messages" class="msgback"><i class="fa fa-angle-left"></i><%= @messages.first.branduser.coname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
 
@@ -51,7 +51,7 @@
 
   <!-- brand user !--> 
   <% if current_branduser %>
-  <a href="/messages"><%= "<" + "   "+ @messages.first.instauser.firstname.upcase %></a><br><br>
+  <a href="/messages" class="msgback"><i class="fa fa-angle-left"></i><%= @messages.first.instauser.firstname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
      
