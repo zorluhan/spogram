@@ -1,9 +1,22 @@
 <%= render 'layouts/header2' %>
 
 <div class="container">
-  <h3>Success! Your payment of  <%= @charge.amount.to_f/100 %> was received. Once the Instagrammer accepts your proposal, you will be able to send direct messages to discuss the campaign in further detail. To check the status of your proposal, go to <%= link_to "Proposals.", charges_path(current_branduser) %></h3>
- 
-  <div class="row"><br><br>
-    Transaction ID: <%= @charge.id %>
-  </div>
+  <h3>Success! Your payment of  <%= @charge.amount.to_f/100 %> was received. Once the Instagrammer accepts your proposal, you will be able to send direct messages to discuss the campaign in further detail.<br><br> To check the status of your proposal, go to <%= link_to "Proposals.", charges_path(current_branduser) %></h3><br><br>
+  Transaction ID: <%= @charge.id %>
+
+</div>
+
+
+
+ <div class="footer-wrapper">
+<div class="container text-center">
+  <footer>
+    <a href="/pages/about">About</a>
+    <a href="/faq">FAQ</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/pages/terms">Terms</a>
+  </footer>
+  
+</div>
+
 </div>
