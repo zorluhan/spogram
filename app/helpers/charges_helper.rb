@@ -19,6 +19,6 @@ module ChargesHelper
 
   def unread_branduser_charges_count current_branduser, state
     count = current_branduser.charges.where(is_read: false, state: state).count
-    count > 0 ? "(#{count})" : ""
+    count > 0 ? "#{count}" : ""
   end
 end

@@ -52,8 +52,8 @@
            
        
 <li><%= link_to list_charges_path(state: :pending) do %>
-              Pending<% count = unread_charges_count(current_instauser) %> 
-              <%= "(#{count})" if count > 0 %>
+              Pending <% count = unread_charges_count(current_instauser) %> 
+             <% if count>0 %> <span><em><%= "#{count}" if count > 0 %></em></span><%end%>
             <% end %></li>
           
         
@@ -66,7 +66,7 @@
      <li>       <%= link_to list_charges_path(state: :completed) do %>
               Completed
               <% count = completed_charges_count(current_instauser) %> 
-              <%= "(#{count})" if count > 0 %>
+           <% if count>0 %>  <span><em> <%= "#{count}" if count > 0 %></em></span> <%end%>
             <% end %></li>
            
        
@@ -95,7 +95,7 @@
        <ul class="nav nav-pills nav-pills-sm">
         <li>
           <%= link_to list_charges_path(state: :accepted) do %>
-            Accepted <%= unread_branduser_charges_count(current_branduser, :accepted) %>
+            Accepted  <% if unread_branduser_charges_count(current_branduser, :accepted)!="" %> <span><em><%= unread_branduser_charges_count(current_branduser, :accepted) %></em></span> <%end%>
           <% end %>
       
       </li>
@@ -107,14 +107,14 @@
       <li >
         
           <%= link_to list_charges_path(state: :declined) do %>
-            Declined <%= unread_branduser_charges_count(current_branduser, :declined) %>
+            Declined <%if unread_branduser_charges_count(current_branduser, :declined)!=""%> <span><em><%= unread_branduser_charges_count(current_branduser, :declined) %></em></span> <%end%>
           <% end %>
         
       </li>
       <li>
        
           <%= link_to list_charges_path(state: :release_requested) do %>
-            Requested <%= unread_branduser_charges_count(current_branduser, :release_requested) %>
+            Requested <% if unread_branduser_charges_count(current_branduser, :release_requested)!="" %> <span><em> <%= unread_branduser_charges_count(current_branduser, :release_requested) %></em></span> <%end%>
           <% end %>
        
       </li>

@@ -1,14 +1,14 @@
 <%= render 'layouts/header2' %>
 <div class="msgpage">
 <div class="container"> 
-  <h2 class="text-center proptitle">PROPOSAL EDIT FORM</h2>
+  <h2 class="text-center proptitle">EDIT PROPOSAL</h2>
 
   
       <%= form_for @charge do |f|  %>
 
 
 <div class="proposalinfo2">
-  <div class="subtitle">Product</div>
+  <div class="subtitle"><i class="fa fa-diamond"></i> Product</div>
   
 
   <div class="form-group">
@@ -18,23 +18,23 @@
 
 
 
-  <div class="form-group">
+  <div class="form-group form-groupweb">
      <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Product Link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Product Link'" %>
   
 
 
   </div>
-
+<!-- 
   <div class="form-group form-noborder form-groupbio">
       <label for="name" class="gender">Product Description</label>
   
     <%= f.text_area :product_description, cols: 40, onblur: "this.placeholder='Product Description'", onfocus: "this.placeholder = ''" , placeholder: "" %>
      
-  </div>
+  </div> !-->
 
-   <div class="form-group">
+   <div class="form-group form-groupinsta">
 
-     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "@ Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='@ Instagram Username'"  %>
+     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "Instagram Username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram Username'"  %>
           </div>
 
   
@@ -43,38 +43,35 @@
  
  
 <div class="proposalinfo2">
-  <div class="subtitle">Post</div>
+  <div class="subtitle"><i class="fa fa-instagram"></i> Post</div>
   
   <div class="form-group form-noborder form-groupbio">
-        <label for="name" class="gender">Post Description</label>
+        <label for="name" class="gender"><i class="fa fa-file-text-o"></i>Post Description</label>
        <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post Description'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
   
-  <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender">Suggested Caption</label>
-
-     <%= f.text_area :suggested_caption, cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"" %>
+ <div class="form-group form-groupcaption">
+     <%= f.text_field :suggested_caption, class: "form-control formcapish", cols: 40, onblur: "this.placeholder='Suggested Caption'", onfocus:"this.placeholder = ''" , placeholder:"" %>
 
    
   </div>
   
   <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender">Hashtags to include</label>
+    <label for="name" class="gender"><i class="fa fa-hashtag"></i>Hashtags to include</label>
      <%= f.text_area :hash_tags, cols: 40, onblur: "this.placeholder='Hashtags to include'" , onfocus: "this.placeholder = ''" ,placeholder: "" %>
  
   </div>
   
-  <div class="form-group form-noborder form-groupbio">
-    <label for="name" class="gender">Usernames to include</label>
-     <%= f.text_area :user_names, cols: 40, onblur: "this.placeholder='@ Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: ""%>
+  <div class="form-group form-groupinsta2">
+     <%= f.text_field :user_names, class: "form-control formcapish",cols: 40, onblur: "this.placeholder='Usernames to include'" , onfocus: "this.placeholder = ''" ,placeholder: ""%>
    
   </div>
 </div>
   
-<div class="proposalinfo2"> 
+<div class="proposalinfo2 proposalinfo4"> 
 
-  <div class="subtitle">Timeline</div>
+  <div class="subtitle"><i class="fa fa-calendar"></i> Timeline</div>
   
   <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender">Earliest post date *</label>
@@ -90,12 +87,12 @@
 </div>
 
        <div class="proposalinfo2 proposalinfo3">
-    <div class="subtitle">Price</div>
-     <div class="form-group form-groupmoney">
-            <%= f.number_field :amount, class: "form-control formcapish", value: (@charge.amount/120).round(2), step: '0.01' %></div>
-         <div class="row row0 bot-buffer10"><span>Service Charge:</span> %20 </div><hr>
+    <div class="subtitle"><i class="fa fa-credit-card"></i> Price</div>
+     <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>Instagrammer's Price:</span>
+            <%= f.number_field :amount, class: "form-control" , type: "fullname", value: (@charge.amount/120).round(2), step: '0.01' %></div>
+         <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>Service Charge:</span> %20 </div><hr>
    
-          <div class="row row0 bot-buffer10"><strong><span>Total Price:&nbsp;<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %>&nbsp;USD</span></span></strong><hr>
+          <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i> TOTAL:&nbsp;<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %>&nbsp;USD</span></span></strong><hr>
            </div>
            <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card won't be charged till instagrammer accepts your proposal.)</div>
        </div>
@@ -114,9 +111,17 @@
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
 
-        <div class="actions"> 
-          <%= f.submit "Edit" , class: "btn btn-send" %> 
-        </div> 
+
+
+ 
+   <div class="row row0 text-right">
+    <%= button_tag(type: 'submit', class: "btn btn-send" ) do %>
+<i class="fa fa-pencil"></i> EDIT
+<% end %></div>
+
+
+
+ <br><br>
       
     <% end %>
   </div>

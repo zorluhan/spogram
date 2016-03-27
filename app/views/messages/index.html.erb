@@ -1,5 +1,5 @@
 <%= render 'layouts/header2' %>
-<div class="txtpage">
+<div class="msgpage">
 <div class="container">
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
@@ -17,7 +17,7 @@
                        <% @brandusers.each do |x| %>
                          <li class="list-group-item">  
                           <font face="Roboto" size="3"> 
-                         <%= link_to x.coname, list_messages_path(branduser_id: x.id) %></font>
+                         <%= link_to x.coname.upcase, list_messages_path(branduser_id: x.id) %></font>
                      
                               <span class="pull-right">
                               <% unless !x.image.nil? %>
@@ -64,7 +64,7 @@
               <% @instausers.each do |x| %>
                       <li class="list-group-item">  
                           <font face="Roboto" size="3"> 
-                    <%= link_to x.firstname, list_messages_path(instauser_id: x.id) %>
+                    <%= link_to x.firstname.upcase, list_messages_path(instauser_id: x.id) %>
                     <span class="pull-right"><img src="<%= x.profile_picture %>" width= "28" onerror="imgError(this);"></span>
                     </h4>
                            </font>
@@ -96,10 +96,8 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-73073794-1', 'auto');
   ga('send', 'pageview');
-
 </script>
 <div class="footer-wrapper">
 <div class="container text-center">

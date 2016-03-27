@@ -1,4 +1,3 @@
-
 <% if @messages.nil? %>
   <%= there is no message %>
 <% else %>
@@ -6,19 +5,19 @@
   <% if current_instauser %>
  
 
-<a href="/messages"><%= "<" + "   "+ @messages.first.branduser.coname %></a><br><br>
+<a href="/messages"><%= "<" + "   "+ @messages.first.branduser.coname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
 
     <% if z.sender==0 && z.message!="" %>
        <li class="clearfix">
-        <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
+        <div class="messagebox pull-left"><span class="messagename"><%= z.branduser.coname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"><%= z.message %></p></div>
        </li>
 
          
         <% elsif z.sender==1 && z.message!="" %>
         <li class="clearfix">
-          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"> <%= z.message %></p></div>
         </li> 
         
         <% end %>
@@ -52,19 +51,19 @@
 
   <!-- brand user !--> 
   <% if current_branduser %>
-  <a href="/messages"><%= "<" + "   "+ @messages.first.instauser.firstname %></a><br><br>
+  <a href="/messages"><%= "<" + "   "+ @messages.first.instauser.firstname.upcase %></a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
      
         <% if z.sender==1 && z.message!="" %>
           <li class="clearfix">
-        <div class="messagebox pull-left"><span class="messagename"><%= z.instauser.firstname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"><%= z.message %></p></div>
+        <div class="messagebox pull-left"><span class="messagename"><%= z.instauser.firstname %><em class="pull-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"><%= z.message %></p></div>
        </li>
 
              
         <% elsif z.sender==0 && z.message!="" %>
            <li class="clearfix">
-          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble bubble2"> <%= z.message %></p></div>
+          <div class="messagebox pull-right"><span class="messagename"><em class="text-right"><%= time_ago_in_words(z.created_at)+" ago" %></em></span><p class="bubble"> <%= z.message %></p></div>
         </li> 
 
 
@@ -85,7 +84,7 @@
         <%= f.hidden_field :instauser_id, value: @instauser.id %>
         <%= f.hidden_field :sender, value: 0 %>
       <% end %>
-    </div>
+     
   <% end %>
 <% end %>
 <br><br>
@@ -97,8 +96,6 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-73073794-1', 'auto');
   ga('send', 'pageview');
-
 </script>

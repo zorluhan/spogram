@@ -1,16 +1,45 @@
 
-	<div class="subtitle3">YOU'VE SENT PROPOSAL TO</div>
-	<span class="proposalfrom"><% unless @instauser.profile_picture.nil? %><a class="avatar"><img src="<%= @instauser.profile_picture %>" width="45"></a>&nbsp;<%end%><%= @instauser.firstname %>&nbsp;<%= @instauser.lastname %></span>
+<div class="msgpage">
+<div class="container">	
+
+
+<h2 class="text-center">THE PROPOSAL</h2> 
+
+
+<div class="subtitle">SUMMARY</div>
+
+<div class="row row0 clearfix proposalinfo">
+
+		<div class="row row0 clearfix">
+
+		 <div class="col-sm-4 col-xs-4 col0">To:</div>
+		<div class="col-sm-8 col-xs-8"><span class="proposalfrom"><%= @instauser.firstname.upcase %>&nbsp;<%= @instauser.lastname.upcase %></span></div>
+
+		</div>
 	
-	<div class="row row0 clearfix proposalinfo">
-	
+	 	
 		<div class="row row0 clearfix proposalinfo1">
 			
 			<div class="col-sm-4 col-xs-4 col0">Status</div>
-			<div class="col-sm-8 col-xs-8"><span class="proposalstatus pending"><i class="fa fa-circle-o"></i> <%=@charge.state%></span></div>
+			<div class="col-sm-8 col-xs-8">
+				 
+
+					<% if @charge.state=="pending" %>
+							<span class="proposalstatus pending"><i class="fa fa-circle-o"></i> <%=@charge.state%></span> 
+					<% elsif @charge.state=="declined" %>
+							<span class="proposalstatus declined"><i class="fa fa-ban"></i> <%=@charge.state%></span> 
+					<% elsif @charge.state=="accepted" %>
+							<span class="proposalstatus active"><i class="fa fa-rocket"></i> <%=@charge.state%></span> 
+					<% elsif @charge.state=="release_requested" %>
+							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> <%=@charge.state%></span> 
+					<% elsif @charge.state=="completed" %>
+							<span class="proposalstatus completed"><i class="fa fa-check"></i> <%=@charge.state%></span> 
+					<%end%>
+			</div>
 		</div>
 			
-		<div class="col-sm-4 col-xs-4 col0">Next Step?</div>
+			<div class="row row0 clearfix">
+		<div class="col-sm-4 col-xs-4 col0">Next Step:</div>
 		<div class="col-sm-8 col-xs-8">
 
 
@@ -19,7 +48,7 @@
          
              
 			<%= link_to edit_charge_path(@charge.id) do %>
-			 <button class="btn btn-sm btnprop"><i class="fa fa-pencil"></i> EDIT</button><%end%>
+			 <button class="btn btn-sm btnprop"><i class="fa fa-pencil"></i> EDIT?</button><%end%>
 
   
 			 
@@ -49,19 +78,14 @@
 		</div>
 		
 	</div>
+</div>
 
-	<h2 class="text-center proptitle">PROPOSAL DETAILS</h2>
+	<div class="subtitle">DETAILS</div>
 	
-	<div class="proposalinfo2 proposalinfo3">
-		<div class="subtitle">Price</div>
-		<div class="row row0 bot-buffer10"><span>Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/100).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-					 <i class="fa fa-comment"></i> Negotiate
-            <%end %></div>
 	
-	</div>
 
 	<div class="proposalinfo2">
-		<div class="subtitle">Product Details</div>
+		<div class="subtitle"><i class="fa fa-diamond"></i> Product Details</div>
 		<div class="row row0 bot-buffer10"><span>Product Name:</span> <%= @charge.product_name %></div>
 		<div class="row row0 bot-buffer10"><span>Product Link:</span> <a href="<%= @charge.product_link %>" target="_blank"><%= @charge.product_link %></a></div>
 		<div class="row row0 bot-buffer10"><span>Product Description:</span> <%= @charge.product_description %></div>
@@ -69,7 +93,7 @@
 	</div>
 
 	<div class="proposalinfo2">
-	<div class="subtitle">Post Details</div>
+	<div class="subtitle"><i class="fa fa-instagram"></i> Post Details</div>
 		<div class="row row0 bot-buffer10"><span>Post Description:</span> <%= @charge.post_description %></div>
 		<div class="row row0 bot-buffer10"><span>Suggested Caption:</span> <%= @charge.suggested_caption %></div>
 		<div class="row row0 bot-buffer10"><span>Hashtags to include:</span> <%= @charge.hash_tags %></div>
@@ -77,15 +101,25 @@
 	</div>
 	
 	<div class="proposalinfo2">
-		<div class="subtitle">Timeline</div>
+		<div class="subtitle"><i class="fa fa-calendar"></i> Timeline</div>
 		<div class="row row0 bot-buffer10"><span>Earliest post date:</span> <% unless @charge.earliest_post_date.nil? %><%= @charge.earliest_post_date.strftime("%d/%m/%Y") %><%end%></div>
 		<div class="row row0 bot-buffer10"><span>Last post date:</span><% unless @charge.last_post_date.nil? %> <%= @charge.last_post_date.strftime("%d/%m/%Y") %><%end%></div>
 	</div>
+
+
+<div class="proposalinfo2 proposalinfo3">
+		<div class="subtitle"><i class="fa fa-credit-card"></i> Price</div>
+		<div class="row row0 bot-buffer10"><span><i class="fa fa-shopping-cart"></i> Total Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/100).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp; </div>
+	
+	</div>
+
+
+
 	
     <% if @charge.pending? %>
          
              <%= link_to edit_charge_path(@charge.id) do %>
-              <button class= "btn btn-send"><i class="fa fa-pencil"></i> EDIT</button>
+              <button class= "btn btn-send"><i class="fa fa-pencil"></i> EDIT?</button>
               <%end%>
 
             
@@ -97,10 +131,10 @@
               <%end%>
             
         <% else %>
-       <%= link_to  new_message_path(instauser_param: @charge.instauser_id)  do %>
-							<button class="btn btn-sm btnprop"><i class="fa fa-comment"></i> Chat with User</button>
-		            <%end %>
+     
 
 
       <%end%>
 	
+	</div>
+</div>

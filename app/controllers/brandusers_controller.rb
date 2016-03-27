@@ -19,7 +19,6 @@ class BrandusersController < ApplicationController
       flash!(success: "Please check your email for account verification")
       redirect_to "/pages/brandwaitlist"
     else 
-      flash!(error: I18n.t("flash_messages.defaults.hata"))
       render 'new'
     end 
   end 
@@ -40,7 +39,6 @@ class BrandusersController < ApplicationController
       flash!(success: I18n.t("flash_messages.defaults.youraccountupdated"))
       redirect_to bdashboard_path(id: @branduser.id)
     else
-      flash!(error: I18n.t("flash_messages.defaults.hata"))
       render 'edit'
     end
   end

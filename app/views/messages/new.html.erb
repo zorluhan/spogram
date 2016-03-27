@@ -6,54 +6,56 @@ branduser: <%= @branduser_id %>
 sender: <%= @sender %>  !-->
  
 
-<div class="container">
+<div class="msgpage">
+<div class="container"> 
+  <h2 class="text-center proptitle">SEND A MESSAGE</h2>
 
- <% if @sender==0 %>
+  
+  <% if @sender==0 %>
 
-  <%= form_for(@message) do |f| %>  
+        <%= form_for(@message) do |f| %>  
 
+    <div class="clearfix">
+      <a class="avatar" href="#"><img width="30" height="30" src="<%= @instauser.profile_picture%>"></a>
+      <span class="messageto">To: <%= @instauser.firstname %></span>
+    </div>
+    <div class="form-group form-noborder form-message">
 
+      <%= f.text_area :message, onblur: "this.placeholder='write a message...'", onfocus: "this.placeholder = ''" , placeholder: "write a message...", rows: "15" %>
+       
+    </div>
+    <div class="row row0 text-right">
+    <%= button_tag(type: 'submit', class: "btn btn-send btn-send2",  data: {disable_with: "SENDING..."} ) do %>
+<i class="fa fa-paper-plane"></i>&nbsp;&nbsp;SEND
+<% end %></div>
 
- 
-
-    <div class="badge badge-info"><h4>
-<% res = Net::HTTP.get_response(URI.parse(@profile_picture)) %>
-<% if res.code.to_i >= 200 && res.code.to_i < 400 %>    
- 
-<%= image_tag(src=@profile_picture, width: "50", class: "margin") %><%end%> To: <%= @instauser.firstname %></h4> </div>
-      <br> 
-      <br>
-
- <div class="input-group-lg"> 
-    <div class="form-group">
-
-
-     <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
-       <div class="actions"> 
-    <%= f.submit "Send", data: {disable_with: "Uploading Now..."} %> 
-   </div>
-     <%=  f.hidden_field :instauser_id, :value => @instauser_id %>
+<%=  f.hidden_field :instauser_id, :value => @instauser_id %>
      <%= f.hidden_field :branduser_id, :value => @branduser_id %>
       <%= f.hidden_field :sender, :value => @sender %>
-  </div>  
- <%end%>
+   
+<%end%>
 
-  <% elsif @sender==1 %>
+<% elsif @sender==1 %>
     
   <%= form_for(@message) do |f| %>  
-      <div class="badge badge-info"><h4> <% unless @branduser.nil? %>To:  <%= @branduser.coname %><%end%></h4> </div>
-      <br> 
-      <br>
-     <%= f.text_area :message, class: "form-control" , rows: "15" %><br> 
-       <div class="actions"> 
-    <%= f.submit "Send", data: {disable_with: "Sending..."} %> 
-   </div>
+      <div class="clearfix">
+       
+      <span class="messageto"> <% unless @branduser.nil? %>To:  <%= @branduser.coname %><%end%></span>
+    </div>
+    <div class="form-group form-noborder form-message">
+ <%= f.text_area :message, onblur: "this.placeholder='write a message...'", onfocus: "this.placeholder = ''" , placeholder: "write a message...", rows: "15" %>
+
+ </div>
+    <div class="row row0 text-right">
+    <%= button_tag(type: 'submit', class: "btn btn-send btn-send2",  data: {disable_with: "SENDING..."} ) do %>
+<i class="fa fa-paper-plane"></i>&nbsp;&nbsp;SEND
+<% end %></div>
+
      <%=  f.hidden_field :instauser_id, :value => @instauser_id %>
      <%= f.hidden_field :branduser_id, :value => @branduser_id %>
       <%= f.hidden_field :sender, :value => @sender %>
-  </div>  
-
-   <% end %>
+      
+ <%end%>
 
 
 <% else %>
@@ -61,4 +63,13 @@ sender: <%= @sender %>  !-->
 
 <%end%>
 
+
+
+
+
+
+
+
+
+</div>
 </div>
