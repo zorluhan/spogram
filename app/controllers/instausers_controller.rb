@@ -151,7 +151,7 @@ def formmessage
 end
 
  def destroy
-    Instauser.find(params[:id]).update(:disabled => true)
+    Instauser.find(params[:id]).destroy
     redirect_to "/pages/logout" 
   end
 

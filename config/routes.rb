@@ -78,9 +78,9 @@ Rails.application.routes.draw do
    
   get '/checkin' => 'instausers#checkin'
   post '/search' => 'instausers#search'
-delete '/destroy/:id' => 'instausers#destroy' 
+delete '/destroy/:id' => 'instausers#destroy' , as: :destroy 
   get '/cities' => 'application#cities'
-patch 'destroy/:id'=> 'instausers#destroy', as: :destroy 
+patch 'destroy/:id'=> 'instausers#destroy'
  
 
 end
