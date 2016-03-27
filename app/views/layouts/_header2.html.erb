@@ -169,9 +169,9 @@
     
 
         <li>
-          <a href="<%= dashboard_path(current_branduser) %>" class="btn4">
-            <% unless current_branduser.firstname.nil? %><%=  current_branduser.firstname %><% end %>
-          </a>
+        <%= link_to bdashboard_path do %>
+        <% unless current_branduser.firstname.nil? %>
+       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%><%end%>
         </li>
 
         <li><a href="<%= edit_branduser_path(current_branduser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
