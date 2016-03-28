@@ -3,9 +3,9 @@
 <div class="container">
 <a class="logo" href="/" title="capish">capish</a>
 <h2 class="text-center">BRAND LOGIN</h2>
- 
+
 <%= form_for(:session, url: '/blogin', :html => {:role => 'form', :autocomplete => 'off'}) do |f| %>  
- 
+   <span id="flash_messages"><%= flash_messages  %></span> 
            <div class="form-group form-groupemail">
            
               <%= f.email_field :email, :placeholder => "Email", class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''",onblur: "this.placeholder='Email'" %> <br />

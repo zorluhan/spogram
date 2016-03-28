@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to "/pages/verification"
       end
     else
-      flash_now!(error: I18n.t("flash_messages.defaults.youarenotauser"))
+      flash!(error: "Wrong email and password combination")
       render 'new'
     end
   end 
