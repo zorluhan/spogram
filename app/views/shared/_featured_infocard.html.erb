@@ -18,7 +18,7 @@
          </a>
              </div>
                 <div class="col-sm-9 col-xs-9 col-thin-right profile-right">
-                  <div class="row"><div class="title"><% if !x.firstname.nil? %><%= x.firstname %><%else%><%= "Enter Your First Name" %><%end%></div></div>
+                  <div class="row"><div class="title"><% if !x.firstname.nil? %><% link_to x.firstname, profile_path(x.id)  %><%else%><%= "Enter Your First Name" %><%end%></div></div>
                      <div class="row info"><i class="fa fa-user"></i><% unless x.dob.nil? %><%= Date.today.year - x.dob.year %><%end%>, <%= x.gender%></div>
                          <div class="row info"><i class="fa fa-map-marker"></i><%= x.location %></div>
                 </div>
