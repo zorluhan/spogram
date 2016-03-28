@@ -5,6 +5,7 @@
 <h2 class="text-center">BRAND LOGIN</h2>
  
 <%= form_for(:session, url: '/blogin', :html => {:role => 'form', :autocomplete => 'off'}) do |f| %>  
+ 
            <div class="form-group form-groupemail">
            
               <%= f.email_field :email, :placeholder => "Email", class: "form-control formcapish", id: "email", placeholder: "Email", onfocus: "this.placeholder = ''",onblur: "this.placeholder='Email'" %> <br />

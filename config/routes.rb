@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   get '/detail/:id' => 'charges#detail', as: :detail
   patch '/pages/results' => 'pages#results'
   get '/welcome' => 'pages#welcome'
-   
   get '/brandwaitlist' => 'pages#brandwaitlist'
+  get 'pages/brandwaitlist' => 'pages#brandwaitlist'
   get'/pages/home' => 'pages#home'
   get 'pages/logout2'=> 'pages#logout2'  
   resources :charges do

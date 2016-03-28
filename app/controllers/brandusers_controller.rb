@@ -44,22 +44,26 @@ class BrandusersController < ApplicationController
   end
 
   def authenticate
-    @branduser = Branduser.find_by(auth_token: params[:token])
+    @branduser = Branduser.find_by_auth_token(params[:token])
     @branduser.is_authenticated = true
     @branduser.auth_token = nil
+
     if @branduser.save
       flash!(success: "Email verified")
       branduser_log_in(@branduser)
       redirect_to bdashboard_path(id: @branduser.id)
     else
+      errs= @branduser.errors.full_messages
       flash!(error: "Token invalid")
-      redirect_to root_path
+      flash!(error: errs)
+      redirect_to '/pages/about'
     end
+    
   end
 
   private
     def branduser_params
-      params.require(:branduser).permit(:coname, :title, :comsize, :country, :phone, :firstname, :lastname, :cowebsite, :email, :password,  :image)
+      params.require(:branduser).permit(:coname, :auth_token, :is_authenticated, :title, :comsize, :country, :phone, :firstname, :lastname, :cowebsite, :email, :password,  :image)
     end
 
     def logged_in_branduser
