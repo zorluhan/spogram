@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     end
   end
 
- 
+  get '/pages/verification' => 'pages#verification'
   get '/privacy' => 'pages#privacy'
   get '/pages/privacy' => 'pages#privacy'
   get '/brands'=> 'instausers#brands'

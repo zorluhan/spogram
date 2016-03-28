@@ -16,8 +16,8 @@ class BrandusersController < ApplicationController
     @branduser.auth_token = generate_access_token
     if @branduser.save 
       # branduser_log_in(@branduser) # don't login on create
-      flash!(success: "Please check your email for account verification")
-      redirect_to "/pages/brandwaitlist"
+      
+      redirect_to "/pages/verification"
     else 
       render 'new'
     end 

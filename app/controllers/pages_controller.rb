@@ -17,6 +17,8 @@ class PagesController < ApplicationController
   end 
 
  
+def verification
+end
 
 
   def brandwaitlist

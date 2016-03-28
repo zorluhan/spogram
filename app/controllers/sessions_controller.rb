@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         redirect_to bdashboard_path(id: @branduser.id)
       else
         flash_now!(error: "You need to authenticate your account before login")
-        render 'new'
+        redirect_to "/pages/verification"
       end
     else
       flash_now!(error: I18n.t("flash_messages.defaults.youarenotauser"))
