@@ -18,13 +18,13 @@
   
 			  <div class="form-group form-groupname1 pull-left">
 
-			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First Name *", onfocus: "this.placeholder = ''" , onblur: "this.placeholder='First Name *'" %> 
+			  	  <%= f.text_field :firstname, class: "form-control formcapish" , id: "usr" ,placeholder: "First name *", onfocus: "this.placeholder = ''" , onblur: "this.placeholder='First name *'" %> 
 			  </div>
 
 
 
 				<div class="form-group form-groupname2 pull-right">
-					 <%= f.text_field :lastname,  class: "form-control formcapish",  id:"usr" , placeholder: "Last Name *",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Last Name *'" %>
+					 <%= f.text_field :lastname,  class: "form-control formcapish",  id:"usr" , placeholder: "Last name *",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Last name *'" %>
 
 				</div>
 	
@@ -57,13 +57,13 @@
 				  </div>
 	  
 				  <div class="form-group form-grouptitle">
-				  	<%= f.text_field :title,  class: "form-control formcapish" , id: "email" ,placeholder: "Your Title *", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your Title *'" %>
+				  	<%= f.text_field :title,  class: "form-control formcapish" , id: "email" ,placeholder: "Your title *", onfocus: "this.placeholder = ''",  onblur: "this.placeholder='Your title *'" %>
 				  </div>
 	  
 					  <div class="form-group form-selectfull form-noborder">
 					<label for="name" class="gender"><i class="fa fa-globe"></i>Country *</label>
 					<%= f.select :country, 
-				          options_for_select([['Turkey','Turkey'],['USA','USA'], ['Netherlands', 'Netherlands']], params[:country]),
+				          options_for_select([['Germany', 'Germany'], ['Italy', 'Italy'], ['Netherlands', 'Netherlands'],['Romania','Romania'],['Turkey','Turkey'],['UAE', 'UAE'], ['USA','USA']], params[:country]),
 				          {}, { :class => 'form-control' }  %>
 
 					</div>
@@ -79,7 +79,7 @@
 	<label for="name" class="gender"><i class="fa fa-users"></i>Number of Employees *</label>
 
 	<%= f.select :comsize, 
-          options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'], ['101-1000','101-1000'],['1001+','1001+']],2),
+          options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'],['101-500', '101-500'],['501-1000','501-1000'],['1001+','1001+']],2),
           {}, { :class => 'form-control' }  %> 
 	</div>
 	
