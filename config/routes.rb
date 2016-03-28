@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get 'pages/brandwaitlist' => 'pages#brandwaitlist'
   get'/pages/home' => 'pages#home'
   get 'pages/logout2'=> 'pages#logout2'  
+  get 'profile/:id' => 'brandusers#profile', as: :profile
+
+
   resources :charges do
     collection do
       get 'list'

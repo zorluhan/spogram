@@ -10,7 +10,7 @@
              <div class="row row0">
 
                  <div class="col-sm-3 col-xs-3 col-thin-left profile-left">
-      <a class="avatar" href="">
+      <a class="avatar" href="<%= profile_path(x.id) %>">
 
 <img src="<%= x.profile_picture %>" width="148" height="148" onerror="imgError(this);" > 
 
@@ -27,6 +27,7 @@
 
      <button class="btn btn-sm pull-left"><i class="fa fa-rocket"></i>&nbsp;Collaborate</button>
      <%end%>
+     <a href="<%= profile_path(x.id) %>" class="probtn pull-left"><button type="submit" class="btn btn-sm btn-info pull-left"><i class="fa fa-user"></i> Profile</button></a>
      <!--
       <a href="#" class="probtn pull-left"><button type="submit" class="btn btn-sm pull-left"><i class="fa fa-envelope"></i> Message</button></a>  
       <a href="#" class="probtn pull-left"><button type="submit" class="btn btn-sm pull-left"><i class="fa fa-user"></i> Profile</button></a>!-->

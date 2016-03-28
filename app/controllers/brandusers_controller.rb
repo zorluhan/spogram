@@ -3,7 +3,7 @@ class BrandusersController < ApplicationController
   include BrandusersHelper
 
   before_action :require_buser, only: [:dashboard]
-  before_action :logged_in_branduser , only: [:edit, :update, :dashboard]
+  before_action :logged_in_branduser , only: [:edit, :update, :dashboard, :profile]
   before_action :correct_branduser , only: [:edit, :update]
 
   def new
@@ -60,6 +60,18 @@ class BrandusersController < ApplicationController
     end
     
   end
+
+
+  def profile
+    @instauser = Instauser.find_by_id(params[:id])
+    @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false)
+    @instauser_most_liked_posts = @instauser.instaposts.where(:most_liked => true).order("likes_counts DESC")
+    # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
+    SnsFeedsWorker.perform_async(@instauser.id)
+
+
+  end
+
 
   private
     def branduser_params

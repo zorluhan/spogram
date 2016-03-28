@@ -1,0 +1,190 @@
+ <%= render 'layouts/header2' %> 
+  <div class="container">
+ 
+<!--
+ <div class="row">
+        <%if @instauser.followed_by < 5000 %>
+          Unfortunately your application has been declined. 
+        <% elsif @instauser.followed_by>5000 %>
+          <font color="red">Congratulations! Welcome to capish! </font>
+        <%end%>
+</div>
+    !-->
+
+    <div class="col-sm-12 page-content col-thin-right">
+<div class="row">
+ <div class="col-sm-3 col-thin-left text-center profile-left">
+  <a href="#" class="avatar"> <img width="148" height="148" src="<%= @instauser.profile_picture %>" /></a>
+    </div>
+ <div class="col-sm-9 col-thin-right profile-right">
+        <div class="row"><h1 class="text-center-xs"><% unless @instauser.firstname.nil? %><%= @instauser.firstname %><%end%><%= " " %><% unless @instauser.lastname.nil? %><%= @instauser.lastname %><%end%></h1></div>
+
+
+         <div class="row info">
+        <div class="col-md-3 col-sm-3 text-center-xs">
+          <% if @instauser.dob.present? %>
+        <i class="fa fa-user"></i><%= Date.today.year - @instauser.dob.year %><%end%>, <%= @instauser.gender %></div>
+        <div class="col-md-3 col-sm-3 text-center-xs">
+         <%if @instauser.location.split(',').count==2 %>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %>
+        <%elsif @instauser.location.split(',').count==3 or @instauser.location.split(',').count>3 %>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-3]},#{@instauser.location.split(',').last}" %>
+        <%else%>
+        <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',').last}" %><%end%>
+      </div>
+        </div>
+
+         <div class="row bio text-center-xs"> <% if @instauser.bio.nil? %>
+          The user has not filled the bio section yet. You can remind the user to do so when messaging. <%elsif @instauser.bio.present? %> <%= @instauser.bio %> <%else%><%= "Your bio is a great way for brands to get to know you better. To edit your bio, please go to Settings → Edit Profile." %><%end%>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+  <h2>THE SCOOP</h2>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Passion</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-fire"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.theme %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Price Per Post</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-money"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0">$<%= @instauser.postprice %> </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<h2>MOST LIKED</h2>
+ <% @instauser_most_liked_posts.each do |x| %>
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail" target="_blank"><img class="img-responsive" src="<%= x.media_standard_url%>" /><span><i class="fa fa-heart"></i>&nbsp;<%= x.likes_counts %></span></a></div> 
+   <%end%>
+</div>
+<div class="row"><div class="alert alert-info alertsmall"><i class="fa fa-info-circle"></i>  The stats and most liked photos are based on most recent 60 posts.</div></div>
+<div class="row">
+  <h2>STATS</h2>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    
+
+<div class="widget-title">
+      Engagement Score <div class="scoreinfo"><span>Your engagement score measures the engagement of your followers. It’s calculated using an algorithm we’ve developed and is a cool stat to keep tabs on. If your engagement goes up, your score goes up!</span><i class="fa fa-info-circle"></i></div>
+    </div>
+
+
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-line-chart"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+
+         <div class="widget-text mt0"><%= @instauser.engagementscore %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Average likes</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-heart"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.averagelikes %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Number of followers</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-users"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.followed_by %></div>
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-sm-6 col-xs-12 col0">
+    <div class="panel widget">
+    <div class="widget-title">Average comments</div>
+     <div class="row row-table">
+      <div class="col-xs-4 text-center pv-lg">
+         <i class="fa fa-comment"></i>
+      </div>
+      <div class="col-xs-8 pv-lg">
+         <div class="widget-text mt0"><%= @instauser.averagecomments %> </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+<h2>MOST RECENT</h2>
+  <% @instauser_recent_posts.each do |x| %>
+<div class="col-lg-3 col-md-4 col-sm-3 col-xs-6 thumb"><a href="<%= x.media_standard_url%>" class="thumbnail" target="_blank"><img class="img-responsive" src="<%= x.media_standard_url%>" /></a></div> <%end%>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+<div class="footer-wrapper">
+<div class="container text-center">
+  <footer>
+    <a href="/pages/about">About Us</a>
+    <a href="/faq">FAQ</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/pages/terms">Terms</a>
+  </footer>
+</div>
+</div>
+      
+   
+
+
+
+
+<!-- google analytics code !-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73073794-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
