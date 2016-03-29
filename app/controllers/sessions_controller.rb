@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         redirect_to "/pages/verification"
       end
     else
-      flash!(error: "Wrong email and password combination")
+      flash_now!(error: "Wrong email and password combination")
       render 'new'
     end
   end 

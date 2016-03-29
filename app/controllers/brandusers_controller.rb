@@ -53,10 +53,8 @@ class BrandusersController < ApplicationController
       branduser_log_in(@branduser)
       redirect_to bdashboard_path(id: @branduser.id)
     else
-      errs= @branduser.errors.full_messages
       flash!(error: "Token invalid")
-      flash!(error: errs)
-      redirect_to '/pages/about'
+      redirect_to '/pages/verification'
     end
     
   end
