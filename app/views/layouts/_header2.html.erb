@@ -135,9 +135,9 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to bdashboard_path do %>
+      
         <% unless current_branduser.firstname.nil? %>
-       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%><%end%> </li>
+       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%>  </li>
       <li><%= link_to edit_branduser_path(current_branduser) do  %>
         <i class="fa fa-cog"></i>
         <%end%>
@@ -169,9 +169,9 @@
     
 
         <li>
-        <%= link_to bdashboard_path do %>
+        
         <% unless current_branduser.firstname.nil? %>
-       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%><%end%>
+       <%= "Hello"+" "+current_branduser.firstname+"!" %><%end%> 
         </li>
 
         <li><a href="<%= edit_branduser_path(current_branduser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
