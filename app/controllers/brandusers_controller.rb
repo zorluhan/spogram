@@ -27,7 +27,7 @@ class BrandusersController < ApplicationController
     @branduser= Branduser.find_by_id(session[:buser_id])
     @instausers=Instauser.where(:disabled=>false).order("followed_by DESC").take(4)
     @featured=Instauser.where("username = ? OR  username= ?", "tanemsivar", "cagrierdogdu").order("followed_by DESC")
-    @all= Instauser.all..where(:disabled=>false)
+    @all= Instauser.all.where(:disabled=>false)
   end
 
   def edit
