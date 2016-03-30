@@ -71,21 +71,24 @@ end
 
 
   def create 
-    @charge = Charge.new(charge_params)
+    
     useremail   = params[:useremail]
-    amount      = params[:amount]
-    explanation = params[:charge][:explanation]
-
+    amount = params[:charge][:amount].to_i * 120  
+    params[:charge][:amount]= amount
+    
+    @charge = Charge.new(charge_params)
+    
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source => params[:stripeToken],
-      :description => "#{amount},#{useremail},#{explanation}")
+      :description => "#{amount},#{useremail}")
+   
 
     @charge.customer  = customer.id 
     @charge.useremail = useremail
-
+   
     if @charge.save
-      flash!(:success => I18n.t("flash_messages.defaults.payment_notify_branduser"))
+       
       redirect_to charge_path(@charge)
     end 
   end 

@@ -1,13 +1,13 @@
  <h2 class="text-center">SEARCH FOR INSTAGRAMMERS</h2>
         <div class="row row0 searchuser">
-      
+ 
 
   <%= form_for :instauser, url: search_path  do |f| %>  
 
 
   <div class="form-group form-selectfull form-noborder">
     <%= f.select :theme, 
-      options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']], 2), {}, :class=>"form-control" %> 
+      options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']],2), {} , :class=>"form-control" %> 
 
   </div>
   

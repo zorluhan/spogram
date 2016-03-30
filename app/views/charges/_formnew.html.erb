@@ -92,22 +92,23 @@
   </div>
   
 </div>
-
+ 
   
   <div class="proposalinfo2 proposalinfo3">
     <div class="subtitle"><i class="fa fa-credit-card"></i> Price</div>
-    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>Price per post:</span>&nbsp;<%= @amount/100 %>&nbsp;USD</div>
-    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>Service charge:</span>&nbsp;<%= (@amount*0.20/100).round(2) %>&nbsp;USD</div>
+    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Price:</span>&nbsp;<%= f.number_field :amount, type: "fullname", class: "editprice", col: 80, value: (@amount/100) %>&nbsp;USD</div>
+
+    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Service charge:</span>&nbsp;<%= "%20" %></div>
      <hr>
-    <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i> TOTAL:</span>&nbsp;<%= (@amount*1.20/100).round(2) %>&nbsp;USD</strong> 
+    <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i> &nbsp;TOTAL:</span>&nbsp;<span id="total_updated_price"><%= (@amount*1.20/100).round(2) %>&nbsp;USD</span></strong> 
     </div>
     <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card won't be charged till instagrammer accepts your proposal.)</div>
   </div>
 
    
      
-          <%= hidden_field_tag 'charge[amount]', (@amount*1.20).round(2) %> 
-          <%= hidden_field_tag :amount, (@amount*1.20).round(2) %> 
+        
+  
           <%= hidden_field_tag :useremail, @instauser.email %>
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
@@ -116,9 +117,9 @@
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description=<%= @message %>
-            data-amount= <%= (@amount*1.20).round(2) %>
+            
             data-locale="auto"
-            data-label="SUBMIT via STRIPE"
+            data-label="SUBMIT to Stripe"
             data-email= <%=@branduser.email%>  
             data-allow-remember-me= "false" >SEND</script></div> <div class="row row0 text-right proposalstripe"><a href="https://stripe.com/" target="_blank">Stripe</a> is a world-wide trusted payment platform.</div>
            
@@ -126,6 +127,12 @@
 
 </div>
 </div>
+   <script type="text/javascript">
+          $('#charge_amount').on('change', function(e){
+            $('#total_updated_price').html(($(this).val()*1.20).toFixed(2));
+          });
+        </script>
+
 
 <div class="footer-wrapper">
 <div class="container text-center">

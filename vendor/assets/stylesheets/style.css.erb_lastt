@@ -134,11 +134,9 @@ h2{font-size:20px;line-height:20px;color:#666;margin-bottom:12px;margin-top:30px
 	margin-top:40px;
 	padding:20px 0 10px;
 }
-.footer-wrapper .container{min-height:auto !important;}
 .footer-wrapper a{font-size:13px;color:#666;margin:0 15px 10px;display:inline-block;}
 
 .widget{position: relative;padding:10px 20px 10px 15px;color:#666;background:#fff;box-shadow:0 1px 0.5px rgba(0, 0, 0, 0.07);}
-.msgpage .widget{padding-right:10px;}
 .widget-title {
     font-size: 12px;
     line-height: 1.1;
@@ -688,17 +686,16 @@ color: #999 !important;
 .proposaldate{color:#999;font-size:10px;margin-top:10px;}
 .proposalinfo{color:#333;font-size:14px;margin-top:15px;margin-bottom:35px;background:#fff;border-radius:3px;border:1px solid #eee;padding:15px;box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.07);}
 .proposalinfo1{margin-bottom:15px;margin-top:10px;}
-.proposalinfo1b{margin-bottom:10px;margin-top:10px;}
 .btnprop{margin-bottom:5px;background:#14c1d7 !important;color:#fff;border-radius:0;}
 .btnprop i{font-size:13px;}
 .btnprop:hover{color:#fff;opacity:0.9;}
 .proposalinfo2{background:#fff;border:1px dashed #e5e5e5;margin-bottom:20px;padding:15px 15px 0 15px;line-height:18px;color:#777;box-shadow:0 1px 0.5px rgba(0, 0, 0, 0.10);}
-.proposalinfo2 span{color:#444;}
+.proposalinfo2 span{color:#333;}
 .proposalinfo2 label{margin-bottom:10px;}
-.proposalinfo3{font-size:16px;background:#FFF7D6;box-shadow:none;border:1px dashed #EAD06A;color:#555;}
+.proposalinfo3{font-size:16px;background:#FFF7D6;box-shadow:none;border:1px dashed #EAD06A;}
 .proposalinfo4{background:#fff;}
 .proposalinfo3 hr{border-color:#EFE4B8;}
-.proposalinfo3 strong{font-size:19px;font-weight:600;color:#333;}
+.proposalinfo3 strong{font-size:19px;font-weight:600;color:#666;}
 .proposalinfo3 strong span{font-size:16px;}
 .proposalcardinfo{font-size:12px;color:#777;margin-top:20px;}
 .proposalstripe{font-size:13px;color:#666;margin-top:30px;}
@@ -714,8 +711,6 @@ color: #999 !important;
 .profilecard .profile-left{padding:15px 0 0 15px;margin-top:0;}
 .profilecard .profile-right{margin-top:0;}
 .profilecard .title{font-size:24px;font-weight: 300;line-height: 30px;margin:15px 0 0 15px;text-align:left;}
-.profilecard .title a{color:#333;}
-.profilecard .title a:hover{color:#000;text-decoration:none;}
 .profilecard .info{font-size:12px;text-align:left;font-weight:400;padding:0 0 0 17px;color:#888;}
 .profilecard .info i{font-size:13px;font-weight:400;padding-right:5px;color:#999;}
 .profilecard .widget{font-size:13px;font-weight:400;margin:0;padding:5px 12px 15px;}
@@ -758,11 +753,6 @@ color: #999 !important;
 .brandprofile h2 {color: #666;font-size:27px;font-weight: 300;line-height:27px;margin-bottom:10px;margin-top:40px;}
 .searchbread{margin-bottom:10px;color:#666;}
 .searchbread i{color:#999;margin:0 2px;}
-.alert-success{background-color:#b7f5b6;border-color: #AFE881;}
-.alert-success:before {font-family:'FontAwesome';  content: "\f00c";color:#3c763d;font-size:17px;padding-right:2px;}
-.alert-danger{background-color:#f4cbcb;border-color: #e6bac1;color:#a94442;}
-.alert-danger:before {font-family:'FontAwesome';  content: "\f05e";color:#a94442;font-size:15px;padding-right:2px;}
-.editprice{width:80px;border:1px solid #ccc;background:#fff;padding:2px 0;color:#333;text-align:center;font-weight:400;font-size:17px;box-shadow:1px 3px 2px #eee inset;}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome

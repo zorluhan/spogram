@@ -695,7 +695,7 @@ color: #999 !important;
 .proposalinfo2{background:#fff;border:1px dashed #e5e5e5;margin-bottom:20px;padding:15px 15px 0 15px;line-height:18px;color:#777;box-shadow:0 1px 0.5px rgba(0, 0, 0, 0.10);}
 .proposalinfo2 span{color:#444;}
 .proposalinfo2 label{margin-bottom:10px;}
-.proposalinfo3{font-size:16px;background:#FFF7D6;box-shadow:none;border:1px dashed #EAD06A;color:#555;}
+.proposalinfo3{font-size:16px;background:#FFF7D6;box-shadow:none;border:1px dashed #EAD06A;}
 .proposalinfo4{background:#fff;}
 .proposalinfo3 hr{border-color:#EFE4B8;}
 .proposalinfo3 strong{font-size:19px;font-weight:600;color:#333;}
@@ -762,7 +762,7 @@ color: #999 !important;
 .alert-success:before {font-family:'FontAwesome';  content: "\f00c";color:#3c763d;font-size:17px;padding-right:2px;}
 .alert-danger{background-color:#f4cbcb;border-color: #e6bac1;color:#a94442;}
 .alert-danger:before {font-family:'FontAwesome';  content: "\f05e";color:#a94442;font-size:15px;padding-right:2px;}
-.editprice{width:80px;border:1px solid #ccc;background:#fff;padding:2px 0;color:#333;text-align:center;font-weight:400;font-size:17px;box-shadow:1px 3px 2px #eee inset;}
+.editprice{width:60px;border:0;border-bottom:1px dashed #322D1C;background:#FFEFB3;padding:1px 0;color:#444;text-align:center;font-weight:600;font-size:18px;}
 
 /*!
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
