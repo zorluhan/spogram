@@ -1,13 +1,9 @@
 <%= render 'layouts/header2' %>
 <div class="msgpage">
 <div class="container"> 
-  <h2 class="text-center proptitle">EDIT PROPOSAL</h2>
+  <h2 class="text-center proptitle">EDIT PROPOSAL<br><br> <a class="avatar" href="#"><img width="50" height="50" src="<%= @instauser.profile_picture%>"></a></h2>
 
- <div class="clearfix"><h3>
-      <a class="avatar" href="#"><img width="50" height="50" src="<%= @instauser.profile_picture%>"></a>
-      <span class="subtitle">To: <%= @instauser.firstname %></span></h3>
-    </div>
-<br>
+ 
 
       <%= form_for @charge do |f|  %>
 
