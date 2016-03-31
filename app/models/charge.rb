@@ -6,6 +6,8 @@ class Charge < ActiveRecord::Base
 
   after_create :send_new_proposal_email
 
+ 
+
   state_machine do
     state :pending # first one is initial state
     state :accepted
