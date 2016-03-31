@@ -2,7 +2,12 @@
         <div class="row row0 searchuser">
  
 
+
+
   <%= form_for :instauser, url: search_path  do |f| %>  
+
+  <div class="form-group form-groupfollower">
+      <%= f.number_field :username, type:"fullname", onblur:"this.placeholder='Username'", onfocus:"this.placeholder = ''" ,placeholder:"Username", id:"usr", :class=> "form-control formcapish" %> 
 
 
   <div class="form-group form-selectfull form-noborder">
