@@ -100,18 +100,46 @@ end
 
   def search
    #@instausers=Instauser.where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >=?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >=?", params[:instauser][:averagelikes]).where(:disabled=> false)  if !params[:instauser].nil?  
+
+if params[:instauser][:theme]=="Passion"
+flash!(:error => "Please select a passion")  
+  redirect_to "/bdashboard"
+else
+
+
 if params[:instauser][:followed_by]=="" 
-  flash!(:error => "Write min. number of followers you are looking for")  
+
+  if params[:instauser][:gender]=="Gender"
+
+    @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme])
+
+  else
+
+   @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender])  
+
+  end 
+   
  #redirect_to "/bdashboard"
 elsif !(params[:instauser][:followed_by].to_i.to_s==params[:instauser][:followed_by])
    flash!(:error => "Please enter a number")  
   redirect_to "/bdashboard"
-else
- instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by]).where(:gender => params[:instauser][:gender])
+
+ else
+      if params[:instauser][:gender]=="Gender"
+
+   @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by])
+
+      else
+
+   @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by]).where(:gender=> params[:instauser][:gender])
+      end 
+
+   
 
 
 #@instausers=Instauser.where(:disabled => false).where((theme = ? OR followed_by = ? ) OR gender = ? , params[:instauser][:theme], params[:instauser][:followed_by], params[:instauser][:gender])
 
+end
 end
  
 end
