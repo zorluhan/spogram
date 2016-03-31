@@ -12,14 +12,14 @@
   
 
   <div class="form-group">
-      <%= f.text_field :product_name, class: "form-control formcapish", placeholder: "Product name *" ,onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Product name *'" %>
+      <%= f.text_field :product_name, class: "form-control formcapish", placeholder: "Name *" ,onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Name *'" %>
 
   </div>
 
 
 
   <div class="form-group form-groupweb">
-     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Product link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Product link'" %>
+     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link'" %>
   
 
 
@@ -34,7 +34,7 @@
 
    <div class="form-group form-groupinsta">
 
-     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "Instagram username",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram username'"  %>
+     <%= f.text_field :instagram_link, class: "form-control formcapish", placeholder: "Instagram name",  onfocus: "this.placeholder = ''" , onblur: "this.placeholder='Instagram name'"  %>
           </div>
 
   
@@ -79,7 +79,7 @@
   </div>
   
   <div class="form-group form-noborder birth clearfix">
-    <label for="name" class="gender">Latest post date *</label>
+    <label for="name" class="gender">Last post by *</label>
      <%= f.date_select :last_post_date,order: [:day, :month, :year], class: "form-control date-field" %>
 
   </div>
@@ -94,7 +94,7 @@
    
           <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i>&nbsp;TOTAL:&nbsp;<span id="total_updated_price"><%= (@charge.amount/100).round(2)  %>&nbsp;USD</span></span></strong><hr>
            </div>
-           <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card won't be charged till instagrammer accepts your proposal.)</div>
+           <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card will be charged only when the Instagrammer accepts your proposal.)</div>
        </div>
 
         <script type="text/javascript">
@@ -116,7 +116,7 @@
  
    <div class="row row0 text-right">
     <%= button_tag(type: 'submit', class: "btn btn-send" ) do %>
-<i class="fa fa-pencil"></i> EDIT
+<i class="fa fa-pencil"></i> SAVE
 <% end %></div>
 
 

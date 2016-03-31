@@ -115,7 +115,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"> 
-      <li><%= link_to "Company Dashboard", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
+      <li><%= link_to "Explore", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
       <li>
         <%= link_to charges_path , data: {disable_with: "Loading Now..."} do %>
           Proposals 
@@ -135,7 +135,8 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-      
+      <li><a>Hello <%= current_branduser.firstname %>! </a>
+      </li> 
       
       <li><%= link_to edit_branduser_path(current_branduser) do  %>
         <i class="fa fa-cog"></i>
@@ -152,6 +153,9 @@
       <span class="navbar-brand" href="<%= bdashboard_path(current_branduser) %>" title="capish">capish</span>
       <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
       <ul class="mainNavDropDown clearfix">
+
+        <li><%= link_to "Explore", bdashboard_path(id: current_branduser.id) , data: {disable_with: "Loading Now..."} %></li> 
+      <li>
         <li class="active"> 
           <%= link_to charges_path   do %>
             Proposals   <% count = branduser_total_unread_charges_count(current_branduser) %>
@@ -166,7 +170,7 @@
           <% end %>
         </li>
     
- 
+        
 
         <li><a href="<%= edit_branduser_path(current_branduser)%>" class="btn1"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
         
