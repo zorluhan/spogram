@@ -102,8 +102,8 @@ end
    #@instausers=Instauser.where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >=?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >=?", params[:instauser][:averagelikes]).where(:disabled=> false)  if !params[:instauser].nil?  
 
 if params[:instauser][:username] != ""
-
-@instausers=Instauser.where(:disabled => false).where(:username => params[:instauser][:username])
+username=params[:instauser][:username].downcase 
+@instausers=Instauser.where(:disabled => false).where(:username => username)
 
 elsif params[:instauser][:username]=""
 
