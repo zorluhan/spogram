@@ -86,15 +86,15 @@
 
 	<div class="proposalinfo2">
 		<div class="subtitle"><i class="fa fa-diamond"></i> Product details</div>
-		<div class="row row0 bot-buffer10"><span>Product name:</span> <%= @charge.product_name %></div>
-		<div class="row row0 bot-buffer10"><span>Product link:</span> <a href="<%= @charge.product_link %>" target="_blank"><%= @charge.product_link %></a></div>
-		<div class="row row0 bot-buffer10"><span>Product description:</span> <%= @charge.product_description %></div>
+		<div class="row row0 bot-buffer10"><span>Name:</span> <%= @charge.product_name %></div>
+		<div class="row row0 bot-buffer10"><span>Link:</span> <a href="<%= @charge.product_link %>" target="_blank"><%= @charge.product_link %></a></div>
+		<div class="row row0 bot-buffer10"><span>Description:</span> <%= @charge.product_description %></div>
 		<div class="row row0 bot-buffer10"><span>Instagram link:</span> <a href="<%= @charge.instagram_link %>" target="_blank"><%= @charge.instagram_link %></a></div>
 	</div>
 
 	<div class="proposalinfo2">
 	<div class="subtitle"><i class="fa fa-instagram"></i> Post details</div>
-		<div class="row row0 bot-buffer10"><span>Post description:</span> <%= @charge.post_description %></div>
+		<div class="row row0 bot-buffer10"><span>Description:</span> <%= @charge.post_description %></div>
 		<div class="row row0 bot-buffer10"><span>Suggested caption:</span> <%= @charge.suggested_caption %></div>
 		<div class="row row0 bot-buffer10"><span>Hashtags to include:</span> <%= @charge.hash_tags %></div>
 		<div class="row row0 bot-buffer10"><span>Username to include:</span> <%= @charge.user_names %></div>
@@ -103,7 +103,7 @@
 	<div class="proposalinfo2">
 		<div class="subtitle"><i class="fa fa-calendar"></i> Timeline</div>
 		<div class="row row0 bot-buffer10"><span>Earliest post date:</span> <% unless @charge.earliest_post_date.nil? %><%= @charge.earliest_post_date.strftime("%d/%m/%Y") %><%end%></div>
-		<div class="row row0 bot-buffer10"><span>Last post date:</span><% unless @charge.last_post_date.nil? %> <%= @charge.last_post_date.strftime("%d/%m/%Y") %><%end%></div>
+		<div class="row row0 bot-buffer10"><span>Last post by:</span><% unless @charge.last_post_date.nil? %> <%= @charge.last_post_date.strftime("%d/%m/%Y") %><%end%></div>
 	</div>
 
 

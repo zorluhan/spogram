@@ -203,7 +203,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "About", pages_about_path %></li>
-            <li><%= link_to "Login", login_path, data: {disable_with: "Loading Now..."} %></li> 
+           
           
           </ul>   
 
@@ -213,12 +213,11 @@
     </nav>
 
     <nav class="mobilenav">
-      <a class="navbar-brand" href="#" title="capish">capish</a>
+      <a class="navbar-brand" href="/pages/home" title="capish">capish</a>
       <div class="mainNav clearfix"><p class="navicon"><i class="fa fa-bars"></i></p></div>
       <ul class="mainNavDropDown clearfix">
         <li><%= link_to "About", pages_about_path %></li>
-        <li><%= link_to "Login", login_path, data: {disable_with: "Loading Now..."} %></li> 
-       
+      
       </ul>
     </nav>
 

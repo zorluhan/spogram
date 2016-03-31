@@ -28,9 +28,11 @@ class ChargesController < ApplicationController
 
   def index
     if branduser_logged_in? 
-      @charges            = current_branduser.charges
+      @charges            = current_branduser.charges.where(state: "pending")
+      @escrowed_spending = current_branduser.escrowed_spending
+      @total_spending = current_branduser.total_spending
     elsif instauser_logged_in?
-      @charges            = current_instauser.charges
+      @charges            = current_instauser.charges..where(state: "pending")
       @potential_earnings = current_instauser.potential_earnings
       @upcomming_eatnings = current_instauser.upcomming_eatnings
       @total_earnings     = current_instauser.total_earnings
@@ -43,6 +45,8 @@ class ChargesController < ApplicationController
     state = params[:state]
     if branduser_logged_in? 
       @charges            = current_branduser.charges.where(state: state)
+      @escrowed_spending = current_branduser.escrowed_spending
+      @total_spending = current_branduser.total_spending
       if ['accepted', 'declined', 'release_requested'].include? state
         @charges.where(state: state, is_read: false).update_all(is_read: true)
       end
@@ -71,7 +75,7 @@ end
 
 
   def create 
-    
+
     useremail   = params[:useremail]
     amount = params[:charge][:amount].to_i * 120  
     params[:charge][:amount]= amount
