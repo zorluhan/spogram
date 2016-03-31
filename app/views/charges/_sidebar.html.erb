@@ -46,18 +46,17 @@
   <label for="name" class="lblfilter">Filter by status</label>
 
        <ul class="nav nav-pills nav-pills-sm">
+
+        <li><%= link_to list_charges_path(state: :pending) do %>
+              Pending <% count = unread_charges_count(current_instauser) %> 
+             <% if count>0 %> <span><em><%= "#{count}" if count > 0 %></em></span><%end%>
+            <% end %></li>
    
         
         <li>   <%= link_to "Accepted", list_charges_path(state: :accepted) %>  </li>
            
        
-<li><%= link_to list_charges_path(state: :pending) do %>
-              Pending <% count = unread_charges_count(current_instauser) %> 
-             <% if count>0 %> <span><em><%= "#{count}" if count > 0 %></em></span><%end%>
-            <% end %></li>
-          
-        
-         <li> <%= link_to "Declined", list_charges_path(state: :declined) %>  </li>
+
            
          
       <li>    <%= link_to "Requested", list_charges_path(state: :release_requested) %>  </li>
@@ -69,6 +68,10 @@
            <% if count>0 %>  <span><em> <%= "#{count}" if count > 0 %></em></span> <%end%>
             <% end %></li>
            
+
+          
+        
+         <li> <%= link_to "Declined", list_charges_path(state: :declined) %>  </li>
        
     </ul>
      
@@ -93,24 +96,22 @@
   <label for="name" class="lblfilter">Filter by status</label>
 
        <ul class="nav nav-pills nav-pills-sm">
+
+
+              <li >
+       
+          <%= link_to 'Pending', list_charges_path(state: :pending) %>
+      
+      </li>
+
         <li>
           <%= link_to list_charges_path(state: :accepted) do %>
             Accepted  <% if unread_branduser_charges_count(current_branduser, :accepted)!="" %> <span><em><%= unread_branduser_charges_count(current_branduser, :accepted) %></em></span> <%end%>
           <% end %>
       
       </li>
-      <li >
-       
-          <%= link_to 'Pending', list_charges_path(state: :pending) %>
-      
-      </li>
-      <li >
-        
-          <%= link_to list_charges_path(state: :declined) do %>
-            Declined <%if unread_branduser_charges_count(current_branduser, :declined)!=""%> <span><em><%= unread_branduser_charges_count(current_branduser, :declined) %></em></span> <%end%>
-          <% end %>
-        
-      </li>
+
+ 
       <li>
        
           <%= link_to list_charges_path(state: :release_requested) do %>
@@ -122,6 +123,14 @@
         
           <%= link_to 'Completed', list_charges_path(state: :completed) %>
        
+      </li>
+
+           <li >
+        
+          <%= link_to list_charges_path(state: :declined) do %>
+            Declined <%if unread_branduser_charges_count(current_branduser, :declined)!=""%> <span><em><%= unread_branduser_charges_count(current_branduser, :declined) %></em></span> <%end%>
+          <% end %>
+        
       </li>
      
     </ul>
