@@ -8,7 +8,7 @@
   <%= form_for :instauser, url: search_path  do |f| %>  
 
   <div class="form-group form-groupname1">
-      <%= f.text_field :username, type:"fullname", onblur:"this.placeholder='Search by username'", onfocus:"this.placeholder = ''" ,placeholder:"Search by username", id:"usr", :class=> "form-control formcapish" %> </div>
+      <%= f.text_field :username, type:"fullname", onblur:"this.placeholder='Username'", onfocus:"this.placeholder = ''" ,placeholder:"Username", id:"usr", :class=> "form-control formcapish" %> </div>
 
   <div class="form-group form-selectfull form-noborder">
     <%= f.select :theme, 
