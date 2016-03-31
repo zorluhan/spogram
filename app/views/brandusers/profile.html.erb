@@ -16,9 +16,17 @@
  <div class="col-sm-3 col-thin-left text-center profile-left">
   <a href="#" class="avatar"> <img width="148" height="148" src="<%= @instauser.profile_picture %>" /></a>
     </div>
- <div class="col-sm-9 col-thin-right profile-right">
-        <div class="row"><h1 class="text-center-xs"><% unless @instauser.firstname.nil? %><%= @instauser.firstname %><%end%><%= " " %><% unless @instauser.lastname.nil? %><%= @instauser.lastname %><%end%></h1></div>
 
+ <div class="col-sm-9 col-thin-right profile-right">
+        <div class="row"><h1 class="text-center-xs"><% unless @instauser.firstname.nil? %><%= @instauser.firstname %><%end%><%= " " %><% unless @instauser.lastname.nil? %><%= @instauser.lastname %> <%end%><%= link_to url_for(:controller=> "charges", :action=>"new", :instauser => @instauser.id) do %>
+
+     <button class="btn btn-info btn-sm"><i class="fa fa-rocket"></i>&nbsp;Collaborate</button>
+     <%end%></h1> </div>
+ 
+   
+ 
+  
+ 
 
          <div class="row info">
         <div class="col-md-3 col-sm-3 text-center-xs">
