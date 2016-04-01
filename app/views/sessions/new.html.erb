@@ -44,6 +44,63 @@
   ga('send', 'pageview');
 
 </script> 
+<script>
+$(function() {
+
+    var valid = {};
+
+    valid['session[email]'] = true;
+    valid['session[password]'] = true;
+
+    var $submitBtn = $('input[type=submit]');
+    var mailRegex = /^\w+([\.\-\']?\w+)*@\w+([\.\-\']?\w+)*(\.\w{2,8})/;
+
+    function check() {
+        var isValid = true;
+        for (var item in valid) {
+            var $c = $('[name="' + item + '"]');
+            valid[item] = !!($c.val().trim());
+            if (valid[item] && item == 'session[email]') {
+                valid[item] = mailRegex.test($c.val());
+            }
+            $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
+            if (!valid[item])
+                isValid = false;
+        }
+        return isValid;
+    }
+
+
+    for (var item in valid) {
+        (function(item) {
+            var handler = function(e) {
+                var isValid = !!($(this).val().trim());
+                if (isValid && item == 'session[email]') {
+                    isValid = mailRegex.test($(this).val());
+                }
+                $(this).parent()[isValid ? 'removeClass' : 'addClass']('error');
+            };
+
+            var $c = $('[name="' + item + '"]');
+            $c.change(handler);
+            $c.blur(handler);
+        })(item);
+    }
+
+    $('input[type=submit]').click(function(e) {
+        e.preventDefault();
+        e.stopPropagation;
+
+        if (!check()) {
+            //todo
+        } else {
+            $('form').submit();
+        }
+    });
+
+});
+
+</script>
 </div>
 
 
