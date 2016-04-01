@@ -7,7 +7,7 @@
  
 	<h2 class="text-center">PAYMENT</h2>	
 	<div class="subtitle">SUCCESS!</div>
-	<strong>Your payment of <%= @charge.amount.to_f/100 %>  was received.</strong> Once the Instagrammer accepts your proposal, you will be able to send direct messages to discuss the campaign in further detail.<br><br> To check the status of your proposal, go to <%= link_to "Proposals.", charges_path(current_branduser) %><br><br><span class="pull-right">Proposal ID: <%= @charge.id %></span>
+	<strong>Your payment of <%= @charge.amount.to_f/100 %>  was escrowed.</strong> Once the Instagrammer accepts your proposal, your credit card will be charged. You can now send direct messages to the Instagrammer.<br><br> To check the status of your proposal, or send a direct message, please go to <%= link_to "Proposals.", charges_path(current_branduser) %><br><br><span class="pull-right">Proposal ID: <%= @charge.id %></span>
 </div>
 </div>
 

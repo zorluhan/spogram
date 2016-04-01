@@ -193,9 +193,13 @@ def formmessage
 end
 
  def destroy
-    Instauser.find(params[:id]).destroy
+    @instauser=Instauser.find(params[:id])
+    @instauser.disabled= true 
+    if @instauser.save
+
     redirect_to "/pages/logout" 
   end
+end
 
   private
 
