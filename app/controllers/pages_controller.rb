@@ -20,6 +20,8 @@ class PagesController < ApplicationController
 def verification
 end
 
+def testmarketing
+end 
 
   def brandwaitlist
   end

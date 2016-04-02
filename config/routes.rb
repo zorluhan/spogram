@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   get'/pages/home' => 'pages#home'
   get 'pages/logout2'=> 'pages#logout2'  
   get 'profile/:id' => 'brandusers#profile', as: :profile
-
+  get 'pages/testmarketing' => 'pages#testmarketing'
 
   resources :charges do
     collection do
