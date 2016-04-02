@@ -2,14 +2,11 @@
 <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @charges.empty? %>
-                      <br>
                        <div class="row row0">
-                       <div class="col-sm-12 col-xs-12 proposalbox">
-                       <a href="#" class="clearfix"><span class="row row0 clearfix"><span class="pull-left proposalname"></span></span>
-                  There are no proposals yet
-                      <span class="pull-right proposaldate"></span></a>
-                     </div>
-                  </div>
+    <div class="col-sm-12 col-xs-12 text-center proposalboxempty">      
+       There are no proposals yet
+    </div>
+  </div>
     
     <% else %>
           <br>
@@ -24,14 +21,11 @@
 <% elsif branduser_logged_in? && !instauser_logged_in? %>
 
           <% if @charges.empty? %>
-                      <br>
-                       <div class="row row0">
-                       <div class="col-sm-12 col-xs-12 proposalbox">
-                       <a href="#" class="clearfix"><span class="row row0 clearfix"><span class="pull-left proposalname"></span></span>
-                  There are no proposals yet
-                      <span class="pull-right proposaldate"></span></a>
-                     </div>
-                  </div>
+                  <div class="row row0">
+    <div class="col-sm-12 col-xs-12 text-center proposalboxempty">      
+       There are no proposals yet.
+    </div>
+  </div>
           <% else %>
           <br>
          <%= render :partial=> "all_charges_list" %>

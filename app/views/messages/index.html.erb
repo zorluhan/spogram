@@ -9,42 +9,38 @@
   <% if (instauser_logged_in? && !branduser_logged_in?) %>
 
     <% if @brandusers.present? %>
-<h2 class="text-center">  MESSAGES</h2>
-      <div id="publish" class="messages-list">
-        <div class="msgpage">
-          <div class="container">
-
-            <div class="col-xs-12">
-              <div id="leftbar" class="messages-leftbar">
-
- 
-                  <ul class="list-group" id="form">  
+<h2 class="text-center"> MESSAGES</h2>
+    <div class="col-xs-12">
+      <div class="messages-leftbar" id="leftbar">
+        <ul id="form" class="list-group">  
                        <% @brandusers.each do |x| %>
-                         <li class="list-group-item">  
-                          <font face="Roboto" size="3"> 
-                         <%= link_to x.coname.upcase, list_messages_path(branduser_id: x.id) %></font>
-                     
-                              <span class="pull-right">
-                              <% unless !x.image.nil? %>
-                              <img src="<%=x.image %>" onerror="imgError(this);" width="28" %>
-                                <% end %>
-                               </span>
 
-                                    <% count = unread_instauser_messages_count(current_instauser, x) %>
-                                    <%= "#{count} unread".html_safe if count > 0 %><br>
-                                     <% @lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %> <% unless @lastmessage.nil? %>
-                                    <font face="Roboto" size="1" color="grey"><%= "last seen " + time_ago_in_words(@lastmessage.created_at)+ " ago" %>  <% end%>
-                             </li>  
-                           <br> 
+<li class="list-group-item list-message clearfix">
+          <a href="<%= list_messages_path(branduser_id: x.id) %>" class="clearfix"><span class="pull-left"><span class="avatar"><img width="50" height="50" src="<%= image_url('white.png') %>"></span><span class="messageuser"><%= x.coname.titleize %></span></span><span class="pull-right text-right"><% count = unread_instauser_messages_count(current_instauser, x) %>
+
+            <%if count >0 %>
+            <em class="messageunread"><i class="fa fa-envelope"></i>  <%= "#{count} unread".html_safe  %></em>
+            <%elsif count==0 %>
+            <em class="messageunread messageread"><i class="fa fa-envelope-o"></i></em>
+
+
+            <%end%>
+            </span>
+            <span class="clearfix"></span>
+            <em class="lastseen text-right">
+            <% @lastmessage= Message.where(branduser_id: x.id).where(sender: "0").last %> <% unless @lastmessage.nil? %><br><%= "last seen " + time_ago_in_words(@lastmessage.created_at)+ " ago" %> <%end%></em>
+
+          </a>
+
+  </li>
+           
                       
                   <% end %>
              </ul>  
                
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          
               
     <% else %>
  
@@ -65,7 +61,17 @@
      <% @instausers.each do |x| %>
 
           <li class="list-group-item list-message clearfix">
-          <a href="<%= list_messages_path(instauser_id: x.id) %>" class="clearfix"><span class="pull-left"><span class="avatar"><img width="50" height="50" src="<%= x.profile_picture %>"></span><span class="messageuser"><%= x.firstname.titleize %></span></span><span class="pull-right text-right"><% count = unread_branduser_messages_count(current_branduser, x) %><%if count >0 %><em class="messageunread"><i class="fa fa-envelope"></i>  <%= "#{count} unread".html_safe if count > 0 %></em><%end%></span></a></li>
+          <a href="<%= list_messages_path(instauser_id: x.id) %>" class="clearfix"><span class="pull-left"><span class="avatar"><img width="50" height="50" src="<%= x.profile_picture %>"></span><span class="messageuser"><%= x.firstname.titleize %></span></span><span class="pull-right text-right"><% count = unread_branduser_messages_count(current_branduser, x) %>
+
+            <%if count >0 %>
+            <em class="messageunread"><i class="fa fa-envelope"></i>  <%= "#{count} unread".html_safe if count > 0 %></em>
+            <%elsif count==0 %>
+            <em class="messageunread messageread"><i class="fa fa-envelope"></i></em>
+
+
+            <%end%>
+
+          </span></a></li>
       
       <% end %> 
     

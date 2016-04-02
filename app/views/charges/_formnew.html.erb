@@ -1,9 +1,14 @@
 <%= render 'layouts/header2' %>
 <div class="msgpage">
 <div class="container"> 
-  <h2 class="text-center proptitle">SEND A PROPOSAL<br><br> <a class="avatar" href="#"><img width="50" height="50" src="<%= @instauser.profile_picture%>"></a></h2>
+  <h2 class="text-center proptitle">SEND A PROPOSAL</h2>
 
- 
+  <div class="row row0 proposaluser">
+  <div class="col-sm-12 text-center"><a href="#" class="avatar"><img width="75" height="75" src="<%= @instauser.profile_picture%>" /></a></div>
+</div>
+
+ <br>
+
 
    <%= form_for @charge do |f|  %>
 
@@ -18,7 +23,7 @@
 
 
 
-  <div class="form-group form-groupweb">
+  <div class="form-group form-groupweb error">
      <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link'" %>
   
 
