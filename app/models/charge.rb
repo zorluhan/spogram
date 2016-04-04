@@ -6,7 +6,10 @@ class Charge < ActiveRecord::Base
 
   after_create :send_new_proposal_email
 
- 
+ #validates :post_description, presence: true 
+ #validates :product_name, presence: true 
+ #validates :amount, :numericality => { :greater_than => 50 }
+
 
   state_machine do
     state :pending # first one is initial state
