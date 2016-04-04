@@ -28,4 +28,16 @@ en:
     formats:
       default: "%d/%m/%Y"
 
-  
+en:
+  number:
+    human:
+      decimal_units:
+        format: "%n%u"
+        seperator: "."
+        units:
+          unit: ""
+          thousand: k
+          million: m
+          billion: b
+          trillion: t
+          quadrillion: Q

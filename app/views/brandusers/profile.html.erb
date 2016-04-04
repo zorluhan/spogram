@@ -1,4 +1,6 @@
  <%= render 'layouts/header2' %> 
+
+
   <div class="container">
  
 <!--
@@ -123,7 +125,7 @@
          <i class="fa fa-heart"></i>
       </div>
       <div class="col-xs-8 pv-lg">
-         <div class="widget-text mt0"><%= number_with_delimiter(@instauser.averagelikes) %></div>
+         <div class="widget-text mt0"><%= number_to_human(@instauser.averagelikes) %></div>
       </div>
      </div>
     </div>
@@ -139,7 +141,7 @@
          <i class="fa fa-users"></i>
       </div>
       <div class="col-xs-8 pv-lg">
-         <div class="widget-text mt0"><%= number_with_delimiter(@instauser.followed_by) %></div>
+         <div class="widget-text mt0"><%= number_to_human(@instauser.followed_by) %></div>
       </div>
      </div>
     </div>
@@ -152,7 +154,7 @@
          <i class="fa fa-comment"></i>
       </div>
       <div class="col-xs-8 pv-lg">
-         <div class="widget-text mt0"><%= number_with_delimiter(@instauser.averagecomments) %> </div>
+         <div class="widget-text mt0"><%= number_to_human(@instauser.averagecomments) %> </div>
       </div>
      </div>
     </div>
