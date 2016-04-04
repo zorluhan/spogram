@@ -34,7 +34,6 @@ en:
       decimal_units:
         format: "%n%u"
         seperator: "."
-        precision: "1"
         units:
           unit: ""
           thousand: k
