@@ -28,11 +28,12 @@ class ChargesController < ApplicationController
 
   def index
     if branduser_logged_in? 
-      @charges            = current_branduser.charges.where(state: "pending")
+      @charges            = current_branduser.charges 
       @escrowed_spending = current_branduser.escrowed_spending
       @total_spending = current_branduser.total_spending
     elsif instauser_logged_in?
-      @charges            = current_instauser.charges.where(state: "pending")
+      @charges            = current_instauser.charges
+      @pendingcharges     = current_instauser.charges.where(state: "pending")
       @potential_earnings = current_instauser.potential_earnings
       @upcomming_eatnings = current_instauser.upcomming_eatnings
       @total_earnings     = current_instauser.total_earnings
