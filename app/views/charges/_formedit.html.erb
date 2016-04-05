@@ -4,11 +4,11 @@
   <h2 class="text-center proptitle">EDIT PROPOSAL</h2>
 
    <div class="row row0 proposaluser">
-  <div class="col-sm-12 text-center"><a href="#" class="avatar"><img width="75" height="75" src="<%= @instauser.profile_picture%>" /></a></div>
+  <div class="col-sm-12 text-center"><a href="#" class="avatar"><img width="75" height="75" src="<%= @instauser.profile_picture%>" /></a><br>* fields are mandatory.</div>
 </div>
 
  <br>
-
+* Mandatory
       <%= form_for @charge do |f|  %>
 
 
@@ -24,7 +24,7 @@
 
 
   <div class="form-group form-groupweb">
-     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link'" %>
+     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link *" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link *'" %>
   
 
 
@@ -51,8 +51,8 @@
   <div class="subtitle"><i class="fa fa-instagram"></i> Post</div>
   
   <div class="form-group form-noborder form-groupbio">
-        <label for="name" class="gender"><i class="fa fa-file-text-o"></i>Post description</label>
-       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post description'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
+        <label for="name" class="gender"><i class="fa fa-file-text-o"></i>Post description *</label>
+       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post description *'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
      
   </div>
   
@@ -129,6 +129,63 @@
  <br><br>
       
     <% end %>
+
+
+    <script>$(function() {
+
+    var valid = {};
+
+    valid['charge[product_name]'] = true;
+    valid['charge[product_link]'] = true;
+    valid['charge[post_description]'] = true;
+    valid['charge[amount]'] = true;
+
+    var $submitBtn = $('button[type=submit]');
+    var numericRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
+
+    function check(onlyItem) {
+        var isValid = true;
+        for (var item in valid) {
+            var $c = $('[name="' + item + '"]');
+            valid[item] = !!($c.val().trim());
+            if (valid[item] && item == 'charge[amount]') {
+                valid[item] = numericRegex.test($c.val());
+                valid[item] = ($c.val() > 0);
+            }
+            var isDdl = $c[0].tagName == 'SELECT';
+            if (!onlyItem || (onlyItem == item)) {
+                if (isDdl)
+                    $c[valid[item] ? 'removeClass' : 'addClass']('error');
+                else
+                    $c.parent()[valid[item] ? 'removeClass' : 'addClass']('error');
+            }
+            if (!valid[item])
+                isValid = false;
+        }
+
+        if (!isValid) {
+            $('button[type=submit]').attr('disabled', 'disabled');
+        }
+        else {
+            $('button[type=submit]').removeAttr('disabled');
+        }
+        return isValid;
+    }
+
+
+    for (var item in valid) {
+        (function(item) {
+            var handler = function(e) {
+                check(item);
+            };
+            var $c = $('[name="' + item + '"]');
+            $c.change(handler);
+            $c.blur(handler);
+        })(item);
+    }
+
+    $('button[type=submit]').attr('disabled', 'disabled');
+});</script>
   </div>
 </div>
 

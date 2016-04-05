@@ -135,7 +135,7 @@ end
           redirect_to charges_path
         else 
           flash!(:error => I18n.t("flash_messages.defaults.couldntgetbilled"))
-          redirect_to root_path
+          redirect_to charges_path
         end 
       end
     end

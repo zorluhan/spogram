@@ -27,10 +27,10 @@ class Branduser < ActiveRecord::Base
   after_create :send_welcome_email
 
    def escrowed_spending
-    charges.where(state: :pending).sum(:amount).to_f/120.round(2)
+    charges.where(state: :pending).sum(:amount).to_f/100.round(2)
   end
   def total_spending
-    charges.where(state: [:accepted, :release_requested]).sum(:amount).to_f/120.round(2)
+    charges.where(state: [:accepted, :release_requested]).sum(:amount).to_f/100.round(2)
   end
 
   def send_welcome_email

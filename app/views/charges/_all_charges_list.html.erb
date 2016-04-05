@@ -5,7 +5,7 @@
                             <div class="row row0">
                                 <div class="col-sm-12 col-xs-12 proposalbox">
                                    <%= link_to detail_path(:id => x.id), :class=> "clearfix" do  %>
-                                         <span class="row row0 clearfix"><span class="pull-left proposalname"><%=x.product_name%></span>
+                                         <span class="row row0 clearfix"><span class="pull-left proposalname avatar"><%= image_tag(x.instauser.profile_picture, width: "40") %> <%= x.instauser.firstname.titleize %> | <%=x.product_name%></span>
 
                                <% if x.state=="pending" %>
                                      <span class="pull-right proposalstatus pending">
@@ -31,7 +31,7 @@
 
 
                                      </span>
-                             <span class="clearfix"> <%= x.post_description %></span>
+                             <span class="clearfix"> <%= truncate(x.post_description, :length => 300) %></span>
                              <span class="pull-left proposaldate">ID #<%= x.id %></span><span class="pull-right proposaldate"><%= time_ago_in_words(x.created_at) %></span>
 
                                    <%end%>

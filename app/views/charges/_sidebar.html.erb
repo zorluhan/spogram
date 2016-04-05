@@ -11,7 +11,8 @@
       
 
   <% else %>
-   <div class="msgpage">
+
+<div class="msgpage">
 <div class="container">
   <h2 class="text-center">PROPOSALS</h2> 
   
@@ -98,13 +99,13 @@
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
       <div class="widget-title proposalearn">$<%= number_with_precision(@escrowed_spending, precision: 2)    %></div>
-       <div class="">Escrowed</div>
+       <div class="">To Be Escrowed</div>
       </div>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
       <div class="widget-title proposalearn">$<%= number_with_precision(@total_spending, precision: 2)   %></div>
-       <div class="">Total Spending</div>
+       <div class="">In Escrow</div>
       </div>
     </div>
     
