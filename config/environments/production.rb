@@ -103,5 +103,5 @@ Rails.application.configure do
     authentication: :login,
     ssl:            true }
     
-  INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
+  INSTAGRAM_CALLBACK_URL = "https://afternoon-harbor-54970.herokuapp.com/callback"
 end
