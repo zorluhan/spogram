@@ -122,12 +122,12 @@
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-image="<%= image_url('capishavatar.png') %>"
-            data-description="Your credit card won'be charged now."
-            data-name= "Capish"
-            data-panel-label= "SEND"
+            data-description="Your card won't be charged now."
+            data-name= "Important Note:"
+            data-panel-label= "SEND THE PROPOSAL"
             data-locale="auto"
             data-label="SEND via Stripe"
-           
+            data-email= "<%= @branduser.email %>"
             data-allow-remember-me= "false" >SEND</script></div> <div class="row row0 text-right proposalstripe"><a href="https://stripe.com/" target="_blank">Stripe</a> is a world-wide trusted payment platform.</div>
            
  <% end %>
