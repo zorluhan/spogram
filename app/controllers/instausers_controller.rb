@@ -17,9 +17,9 @@ class InstausersController < ApplicationController
     response = Instagram.get_access_token(params[:code], :redirect_uri => INSTAGRAM_CALLBACK_URL)
 
     client = Instagram.client(:access_token => response.access_token)
-    
+   
 
-    if client.user.username == "ozgekopuz" or client.user.username == "unbreakablx" or client.user.username == "ruzgarmiraokan" or client.user.username == "thebeachpeople" or client.user.username == "alliemtaylor" or client.user.username == "robstrok" or client.user.username == "travellingthroughtheworld" or client.user.username == "jannikobenhoff" or client.user.username == "lavinia_cernau" or client.user.username == "ashleysky" or client.user.username == "sarodjbertin" or client.user.username == "marcforne" or client.user.username == "kocinbiga" or client.user.username == "traveling.couple" or client.user.username == "claudiaalende" or client.user.username == "claireonline" or client.user.username == "muenchmax" or client.user.username == "sanndymariposa1" or client.user.username == "by_aes" or client.user.username == "eniserol" or client.user.username == "brolgun" or client.user.username == "ondertiryaki" or client.user.username == "odunherif" or client.user.username == "anastasiaashley" or client.user.username == "capish.co" or client.user.username == "ezgipolat" or client.user.username == "hassanplz" or client.user.username == "zorluhan2" or client.user.username == "meikaash" or client.user.username == "zorluhan2017" or client.user.username == "sahikasss" or client.user.username == "melihsahinkaya" or client.user.username == "opprette" or client.user.username == "tanemsivar" or  client.user.username == "vlad.bomboe" or  client.user.username == "cagrierdogdu"  or  client.user.username == "savasmazer" or client.user.username == "nilperi" or  client.user.username == "denizmarsan" or client.user.username == "edhem" or client.user.username == "aysekucuroglu" or client.user.username == "eliffkaradayi" or client.user.username == "eliffkaradayi" or client.user.username == "ardaonen" or client.user.username == "maritsanbul"  or client.user.username == "cizenbayan" or client.user.username == "rukendemirer" or client.user.username == "mervetoy" or client.user.username == "ebru_ekmekci" or client.user.username== "zorluhanzor.lu" or client.user.username == "maritsanbul"  or client.user.username == "ahmet.erdem" or client.user.username == "sert_mehmet" or client.user.username == "nineteen0seven" or client.user.username == "iremguzey" or client.user.username=="nihankayalioglu" or client.user.username == "ancienm" or client.user.username == "isingormus" or client.user.username == "yunusemreakkor" or  client.user.username == "cabukcan" or client.user.username == "admbrs" or client.user.username == "kemalilter" or  client.user.username == "citiesthatwork" or  client.user.username == "ojemrujumrimelim"  or  client.user.username == "damlamu" or client.user.username == "oanatache" or client.user.username == "wolejkowolejszo" or client.user.username == "zorluhanzor.lu" or client.user.username == "johnbiggs"  or client.user.username == "sozyitimii" or client.user.username == "socialmomm" or client.user.username == "bebisfoto" or client.user.username == "dilanbozyel" or client.user.username == "baharakinci" or client.user.username == "fcosmos" or client.user.username == "berilbayindir" or client.user.username == "sengulpalli" or  client.user.username == "cemkiziltug" or client.user.username == "oyaunustasi" or client.user.username == "murattavliofficial" or  client.user.username == "unimetre" or client.user.username == "mezederyasi" or client.user.username == "tansuoskay"  or client.user.username == "parisrehberi" or client.user.username == "ig_kilikya" or client.user.username == "alisveriscianne" or client.user.username == "melistosun" or client.user.username == "asliguvenc" or client.user.username == "sonmastori" or client.user.username == "tatdelisi"  or client.user.username == "schi" or client.user.username == "piuevents" or client.user.username == "nilii" or client.user.username == "serrahanim" or client.user.username == "a_verona" or client.user.username == "leyla_erdogan" or client.user.username == "erhansevenn" or client.user.username == "erhansevenn" or client.user.username == "billursaatci" or client.user.username == "demetzorlu" or client.user.username == "helentroyy" or client.user.username == "tugceozturkk" or client.user.username == "muratizmiroglu" or client.user.username == "sibelbuyukygurbrosslife"  or client.user.username == "muratizmiroglu" or client.user.username == "2cities1woman" or client.user.username == "neslihansadikoglu" or client.user.username == "metin.gursoy" or client.user.username == "sofia.factorygirl" or client.user.username == "baldinc" or client.user.username == "arabogluece" or client.user.username == "aycancecchi" or client.user.username == "belizozkn" 
+    if client.user.username == " irmakkazuk" or client.user.username == "atalay10" or client.user.username == "ozgekopuz" or client.user.username == "unbreakablx" or client.user.username == "ruzgarmiraokan" or client.user.username == "thebeachpeople" or client.user.username == "alliemtaylor" or client.user.username == "robstrok" or client.user.username == "travellingthroughtheworld" or client.user.username == "jannikobenhoff" or client.user.username == "lavinia_cernau" or client.user.username == "ashleysky" or client.user.username == "sarodjbertin" or client.user.username == "marcforne" or client.user.username == "kocinbiga" or client.user.username == "traveling.couple" or client.user.username == "claudiaalende" or client.user.username == "claireonline" or client.user.username == "muenchmax" or client.user.username == "sanndymariposa1" or client.user.username == "by_aes" or client.user.username == "eniserol" or client.user.username == "brolgun" or client.user.username == "ondertiryaki" or client.user.username == "odunherif" or client.user.username == "anastasiaashley" or client.user.username == "capish.co" or client.user.username == "ezgipolat" or client.user.username == "hassanplz" or client.user.username == "zorluhan2" or client.user.username == "meikaash" or client.user.username == "zorluhan2017" or client.user.username == "sahikasss" or client.user.username == "melihsahinkaya" or client.user.username == "opprette" or client.user.username == "tanemsivar" or  client.user.username == "vlad.bomboe" or  client.user.username == "cagrierdogdu"  or  client.user.username == "savasmazer" or client.user.username == "nilperi" or  client.user.username == "denizmarsan" or client.user.username == "edhem" or client.user.username == "aysekucuroglu" or client.user.username == "eliffkaradayi" or client.user.username == "eliffkaradayi" or client.user.username == "ardaonen" or client.user.username == "maritsanbul"  or client.user.username == "cizenbayan" or client.user.username == "rukendemirer" or client.user.username == "mervetoy" or client.user.username == "ebru_ekmekci" or client.user.username== "zorluhanzor.lu" or client.user.username == "maritsanbul"  or client.user.username == "ahmet.erdem" or client.user.username == "sert_mehmet" or client.user.username == "nineteen0seven" or client.user.username == "iremguzey" or client.user.username=="nihankayalioglu" or client.user.username == "ancienm" or client.user.username == "isingormus" or client.user.username == "yunusemreakkor" or  client.user.username == "cabukcan" or client.user.username == "admbrs" or client.user.username == "kemalilter" or  client.user.username == "citiesthatwork" or  client.user.username == "ojemrujumrimelim"  or  client.user.username == "damlamu" or client.user.username == "oanatache" or client.user.username == "wolejkowolejszo" or client.user.username == "zorluhanzor.lu" or client.user.username == "johnbiggs"  or client.user.username == "sozyitimii" or client.user.username == "socialmomm" or client.user.username == "bebisfoto" or client.user.username == "dilanbozyel" or client.user.username == "baharakinci" or client.user.username == "fcosmos" or client.user.username == "berilbayindir" or client.user.username == "sengulpalli" or  client.user.username == "cemkiziltug" or client.user.username == "oyaunustasi" or client.user.username == "murattavliofficial" or  client.user.username == "unimetre" or client.user.username == "mezederyasi" or client.user.username == "tansuoskay"  or client.user.username == "parisrehberi" or client.user.username == "ig_kilikya" or client.user.username == "alisveriscianne" or client.user.username == "melistosun" or client.user.username == "asliguvenc" or client.user.username == "sonmastori" or client.user.username == "tatdelisi"  or client.user.username == "schi" or client.user.username == "piuevents" or client.user.username == "nilii" or client.user.username == "serrahanim" or client.user.username == "a_verona" or client.user.username == "leyla_erdogan" or client.user.username == "erhansevenn" or client.user.username == "erhansevenn" or client.user.username == "billursaatci" or client.user.username == "demetzorlu" or client.user.username == "helentroyy" or client.user.username == "tugceozturkk" or client.user.username == "muratizmiroglu" or client.user.username == "sibelbuyukygurbrosslife"  or client.user.username == "muratizmiroglu" or client.user.username == "2cities1woman" or client.user.username == "neslihansadikoglu" or client.user.username == "metin.gursoy" or client.user.username == "sofia.factorygirl" or client.user.username == "baldinc" or client.user.username == "arabogluece" or client.user.username == "aycancecchi" or client.user.username == "belizozkn" 
 
  
 
@@ -105,51 +105,51 @@ end
    #@instausers=Instauser.where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender]).where(:age => params[:instauser][:age1]..params[:instauser][:age2]).where("followed_by >=?", params[:instauser][:followed_by]).where("postprice <?", params[:instauser][:postprice]).where("averagelikes >=?", params[:instauser][:averagelikes]).where(:disabled=> false)  if !params[:instauser].nil?  
 
 if params[:instauser][:username] != ""
-username=params[:instauser][:username].downcase 
-@instausers=Instauser.where(:disabled => false).where(:username => username)
+    username=params[:instauser][:username].downcase 
+    @instausers=Instauser.where(:disabled => false).where(:username => username)
 
 elsif params[:instauser][:username]=""
 
-if params[:instauser][:theme]=="Passion"
-flash!(:error => "Please select a passion")  
-  redirect_to "/bdashboard"
-else
+    if params[:instauser][:theme]=="Passion"
+        flash!(:error => "Please select a passion")  
+        redirect_to "/bdashboard"
+    else
 
 
-if params[:instauser][:followed_by]=="" 
+          if params[:instauser][:followed_by]=="" 
 
-  if params[:instauser][:gender]=="Gender"
+              if params[:instauser][:gender]=="Gender"
 
-    @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme])
+                  @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme])
 
-  else
+              else
 
-   @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender])  
+                 @instausers=Instauser.where(:disabled => false).where(:theme => params[:instauser][:theme]).where(:gender => params[:instauser][:gender])  
 
-  end 
+              end 
    
  #redirect_to "/bdashboard"
-elsif !(params[:instauser][:followed_by].to_i.to_s==params[:instauser][:followed_by])
-   flash!(:error => "Please enter a number")  
-  redirect_to "/bdashboard"
+          elsif !(params[:instauser][:followed_by].to_i.to_s==params[:instauser][:followed_by])
+               flash!(:error => "Please enter a number")  
+              redirect_to "/bdashboard"
 
- else
-      if params[:instauser][:gender]=="Gender"
+          else
+               if params[:instauser][:gender]=="Gender"
 
-   @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by])
+                   @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by])
 
-      else
+               else
 
-   @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by]).where(:gender=> params[:instauser][:gender])
-      end 
+                @instausers=Instauser.where(:theme => params[:instauser][:theme]).where("followed_by >=?", params[:instauser][:followed_by]).where(:gender=> params[:instauser][:gender])
+                end 
 
    
 
 
 #@instausers=Instauser.where(:disabled => false).where((theme = ? OR followed_by = ? ) OR gender = ? , params[:instauser][:theme], params[:instauser][:followed_by], params[:instauser][:gender])
 
-end
-end
+          end
+    end
 end
  
 end
