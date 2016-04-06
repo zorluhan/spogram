@@ -95,7 +95,7 @@ end
 
   def dashboard
     @instauser = current_instauser
-    @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false)
+    @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false).order("created_at DESC")
     @instauser_most_liked_posts = @instauser.instaposts.where(:most_liked => true).order("likes_counts DESC")
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
     SnsFeedsWorker.perform_async(@instauser.id)

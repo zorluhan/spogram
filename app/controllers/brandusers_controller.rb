@@ -24,6 +24,7 @@ class BrandusersController < ApplicationController
   end 
 
   def dashboard
+
     @branduser= Branduser.find_by_id(session[:buser_id])
     @instausers=Instauser.where(:disabled=>false).order("followed_by DESC").take(4)
     @featured=Instauser.where("username = ? OR  username= ?", "tanemsivar", "cagrierdogdu").order("followed_by DESC")
@@ -63,7 +64,8 @@ class BrandusersController < ApplicationController
 
   def profile
     @instauser = Instauser.find_by_id(params[:id])
-    @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false)
+    SnsFeedsWorker.perform_in(@instauser.id)
+    @instauser_recent_posts = @instauser.instaposts.where(:most_liked => false).order("created_at ASC")
     @instauser_most_liked_posts = @instauser.instaposts.where(:most_liked => true).order("likes_counts DESC")
     # fetch timelines of user in background using Sidekiq (bundle exec sidekiq)
     SnsFeedsWorker.perform_async(@instauser.id)
