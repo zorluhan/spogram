@@ -14,7 +14,7 @@ class BrandusersController < ApplicationController
   def create 
     @branduser = Branduser.new(branduser_params)
     @branduser.auth_token = generate_access_token
-    if @branduser.save 
+    if @branduser.save and @branduser.is_authenticated!= true
       # branduser_log_in(@branduser) # don't login on create
       
       redirect_to "/pages/verification"
