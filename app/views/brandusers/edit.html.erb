@@ -59,7 +59,7 @@
 					  <div class="form-group form-selectfull form-noborder">
 					<label for="name" class="gender"><i class="fa fa-globe"></i>Country *</label>
 					<%= f.select :country, 
-				          options_for_select([['Germany', 'Germany'], ['Italy', 'Italy'], ['Netherlands', 'Netherlands'],['Romania','Romania'],['Turkey','Turkey'],['UAE', 'UAE'], ['USA','USA']], params[:country]),
+				          options_for_select([['Germany', 'Germany'], ['Italy', 'Italy'], ['Netherlands', 'Netherlands'],['Romania','Romania'],['Turkey','Turkey'],['UAE', 'UAE'], ['USA','USA']], @branduser.country),
 				          {}, { :class => 'form-control' }  %>
 
 					</div>
@@ -74,7 +74,7 @@
 	<label for="name" class="gender"><i class="fa fa-users"></i>Number of employees *</label>
 
 	<%= f.select :comsize, 
-          options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'],['101-500', '101-500'] ,['501-1000','501-1000'],['1001+','1001+']],2),
+          options_for_select([['0-10','0-10'],['11-50','11-50'], ['51-100', '51-100'],['101-500', '101-500'] ,['501-1000','501-1000'],['1001+','1001+']],@branduser.comsize),
           {}, { :class => 'form-control' }  %> 
 	</div>
 	

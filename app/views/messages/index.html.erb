@@ -16,7 +16,8 @@
                        <% @brandusers.each do |x| %>
 
 <li class="list-group-item list-message clearfix">
-          <a href="<%= list_messages_path(branduser_id: x.id) %>" class="clearfix"><span class="pull-left"><span class="avatar"><img width="50" height="50" src="<%= image_url('white.png') %>"></span><span class="messageuser"><%= x.coname.titleize %></span></span><span class="pull-right text-right"><% count = unread_instauser_messages_count(current_instauser, x) %>
+
+          <a href="<%= list_messages_path(branduser_id: x.id) %>" class="clearfix"><span class="pull-left"><span class=""><img width="50" height="50" src="<%= image_url("#{x.coname.downcase}" +"m"+ ".png") %>"></span><span class="messageuser"><%= x.coname.titleize %></span></span><span class="pull-right text-right"><% count = unread_instauser_messages_count(current_instauser, x) %>
 
             <%if count >0 %>
             <em class="messageunread"><i class="fa fa-envelope"></i>  <%= "#{count} unread".html_safe  %></em>
