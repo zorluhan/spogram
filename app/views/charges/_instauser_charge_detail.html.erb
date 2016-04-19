@@ -29,9 +29,9 @@
 					<% elsif @charge.state=="declined" %>
 							<span class="proposalstatus declined"><i class="fa fa-ban"></i> <%=@charge.state%></span> 
 					<% elsif @charge.state=="accepted" %>
-							<span class="proposalstatus active"><i class="fa fa-rocket"></i> <%=@charge.state%></span> 
+							<span class="proposalstatus active"><i class="fa fa-rocket"></i> active </span> 
 					<% elsif @charge.state=="release_requested" %>
-							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> <%=@charge.state%></span> 
+							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> payment requested</span> 
 					<% elsif @charge.state=="completed" %>
 							<span class="proposalstatus completed"><i class="fa fa-check"></i> <%=@charge.state%></span> 
 					<%end%>
@@ -65,7 +65,7 @@
         <% elsif @charge.accepted? %>
         
               <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
-              <button class= "btn btn-sm btnprop"><i class="fa fa-check"></i> REQUEST RELEASE</button>
+              <button class= "btn btn-sm btnprop"><i class="fa fa-check"></i> REQUEST PAYMENT</button>
               <%end%>
 
               <%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
@@ -141,7 +141,7 @@
         <% elsif @charge.accepted? %>
         
               <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
-              <button class= "btn btn-send"><i class="fa fa-check"></i> REQUEST RELEASE</button>
+              <button class= "btn btn-send"><i class="fa fa-check"></i> REQUEST PAYMENT</button>
               <%end%>
             
         <% else %>

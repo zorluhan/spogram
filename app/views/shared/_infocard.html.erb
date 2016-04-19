@@ -96,7 +96,7 @@
                     <% most_liked_photos.each do |z| %> 
                     <div class="col-sm-3 col-xs-3 proimages">
                     
-                    <a class="" href="#"><img width="148" height="148" src="<%= z.media_thumb_url%>"></a>
+                    <a class="" href="<%= profile_path(x.id) %>"><img width="148" height="148" src="<%= z.media_thumb_url%>"></a>
                     
                     </div>
                      <% counter=counter+1 %>

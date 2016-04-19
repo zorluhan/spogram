@@ -38,9 +38,9 @@
 					<% elsif @charge.state=="declined" %>
 							<span class="proposalstatus declined"><i class="fa fa-ban"></i> <%=@charge.state%></span> 
 					<% elsif @charge.state=="accepted" %>
-							<span class="proposalstatus active"><i class="fa fa-rocket"></i> <%=@charge.state%></span> 
+							<span class="proposalstatus active"><i class="fa fa-rocket"></i> active </span> 
 					<% elsif @charge.state=="release_requested" %>
-							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> <%=@charge.state%></span> 
+							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> payment requested </span> 
 					<% elsif @charge.state=="completed" %>
 							<span class="proposalstatus completed"><i class="fa fa-check"></i> <%=@charge.state%></span> 
 					<%end%>
@@ -57,7 +57,7 @@
          
              
 			<%= link_to edit_charge_path(@charge.id) do %>
-			 <button class="btn btn-sm btnprop"><i class="fa fa-pencil"></i> EDIT?</button><%end%>
+			 <button class="btn btn-sm btnprop"><i class="fa fa-pencil"></i> EDIT</button><%end%>
 
   
 			 
@@ -128,7 +128,7 @@
     <% if @charge.pending? %>
          
              <%= link_to edit_charge_path(@charge.id) do %>
-              <button class= "btn btn-send"><i class="fa fa-pencil"></i> EDIT?</button>
+              <button class= "btn btn-send"><i class="fa fa-pencil"></i> EDIT</button>
               <%end%>
 
             
