@@ -33,6 +33,10 @@ class Branduser < ActiveRecord::Base
     charges.where(state: [:accepted, :release_requested]).sum(:amount).to_f/100.round(2)
   end
 
+   def actual_spending
+    charges.where(state: :completed).sum(:amount).to_f/100.round(2)
+  end
+
   def send_welcome_email
     # if Rails.env.production?
       # if email.present? # email needs to be present

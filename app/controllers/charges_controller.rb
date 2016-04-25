@@ -31,6 +31,7 @@ class ChargesController < ApplicationController
       @charges            = current_branduser.charges 
       @escrowed_spending = current_branduser.escrowed_spending
       @total_spending = current_branduser.total_spending
+       @actual_spending = current_branduser.actual_spending
     elsif instauser_logged_in?
       @charges            = current_instauser.charges
       @pendingcharges     = current_instauser.charges.where(state: "pending")
@@ -48,6 +49,7 @@ class ChargesController < ApplicationController
       @charges            = current_branduser.charges.where(state: state)
       @escrowed_spending = current_branduser.escrowed_spending
       @total_spending = current_branduser.total_spending
+       @actual_spending = current_branduser.actual_spending
       if ['accepted', 'declined', 'release_requested'].include? state
         @charges.where(state: state, is_read: false).update_all(is_read: true)
       end

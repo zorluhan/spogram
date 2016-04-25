@@ -51,7 +51,10 @@
 
   <!-- brand user !--> 
   <% if current_branduser %>
-  <a href="/messages" class="msgback"><i class="fa fa-angle-left"></i> <%= @messages.first.instauser.firstname.upcase %></a><br><br>
+  <div class="row row0 proposaluser">
+    <div class="col-sm-12 text-center"><a href="#" class="avatar"><img width="75" height="75" src="<%= @messages.first.instauser.profile_picture%>" /></a><br><%= @messages.first.instauser.firstname.titleize + " "+ @messages.first.instauser.lastname.titleize %></div>
+</div>
+  <a href="/messages" class="msgback"><i class="fa fa-angle-left"></i> BACK TO MESSAGES</a><br><br>
     <ul class="messageul">
     <% @messages.each do |z| %>
      

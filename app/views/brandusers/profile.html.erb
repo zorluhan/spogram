@@ -39,7 +39,7 @@
         <div class="col-md-3 col-sm-3 text-center-xs">
           <% if @instauser.dob.present? %>
         <i class="fa fa-user"></i><%= Date.today.year - @instauser.dob.year %><%end%>, <%= @instauser.gender %></div>
-        <div class="col-md-3 col-sm-3 text-center-xs">
+        <div class="col-md-9 col-sm-9 text-center-xs">
          <%if @instauser.location.split(',').count==2 %>
         <i class="fa fa-map-marker"></i><%= "#{@instauser.location.split(',')[-2]},#{@instauser.location.split(',').last}" %>
         <%elsif @instauser.location.split(',').count==3 or @instauser.location.split(',').count>3 %>
