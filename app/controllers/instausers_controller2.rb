@@ -20,7 +20,6 @@ class InstausersController < ApplicationController
    
 
 
-  
  
 
     instauser = Instauser.find_by_username(client.user.username)
