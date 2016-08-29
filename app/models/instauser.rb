@@ -103,6 +103,7 @@ class Instauser < ActiveRecord::Base
 
         end
       rescue Exception => e
+        puts "Instagram ERROR #{self.id} ================== #{e.message}"
         Rails.logger.debug "Instagram ERROR ================== #{e.message}"
       end
     end
