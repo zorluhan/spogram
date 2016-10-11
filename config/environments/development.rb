@@ -13,6 +13,8 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_mailer.perform_deliveries = true
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -37,16 +39,9 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  #config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address:              'smtp.gmail.com',
-  #   port:                 587,
-  #   domain:               'gmail.com',
-  #   user_name:            'mail@capish.co',
-  #   password:             '9uG<Ta9C',
-  #   authentication:       'plain',
-  #   enable_starttls_auto: true,
-  #   openssl_verify_mode: 'none' }
 
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
@@ -55,8 +50,9 @@ Rails.application.configure do
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
     authentication: :login,
-    ssl:            true }
-
+    ssl:            true,
+    :enable_starttls_auto  => true 
+  }
  
 
   INSTAGRAM_CALLBACK_URL = "http://localhost:3000/callback"
