@@ -101,7 +101,6 @@ Rails.application.configure do
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
     authentication: :login,
-    ssl:            true,
     :enable_starttls_auto  => true
   }
     
