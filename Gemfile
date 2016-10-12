@@ -52,14 +52,16 @@ gem "transitions", '~> 1.0.1', require: ["transitions", "active_model/transition
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
+  gem 'letter_opener'
+  gem "better_errors"
 end
 
 group :production do 
   gem 'pg' 
   gem 'rails_12factor' 
-end 
+end
 
-ruby "2.0.0"
+#ruby "2.0.0"
  
 
 

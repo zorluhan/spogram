@@ -96,12 +96,13 @@ Rails.application.configure do
  
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
-    port:           465,
+    port:           587,
     domain:         'gmail.com',
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
-    authentication: :login,
-    ssl:            true }
+    authentication: 'plain',
+    :enable_starttls_auto  => true
+  }
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
 end
