@@ -82,7 +82,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'capish.co' }
 
-  # config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   address:              'smtp.gmail.com',
   #   port:                 587,
@@ -94,29 +94,17 @@ Rails.application.configure do
   #   openssl_verify_mode: 'none' }
   
  
-  # config.action_mailer.smtp_settings = {
-  #   address:        'smtp.gmail.com',
-  #   port:           587,
-  #   domain:         'gmail.com',
-  #   user_name:      'mail@capish.co',
-  #   password:       'gjlpatqzqfjvnjsg',
-  #   authentication: 'plain',
-  #   :enable_starttls_auto  => true
-  # }
-
-  config.action_mailer.default :charset => "utf-8"
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: 'smtp.gmail.com',
-      port: 587,
-      domain: 'gmail.com',
-      user_name: "mail@capish.co",
-      password: "gjlpatqzqfjvnjsg",
-      authentication: 'plain',
-      enable_starttls_auto: true
-  }  
+    address:        'smtp.gmail.com',
+    port:           587,
+    domain:         'gmail.com',
+    # user_name:      'mail@capish.co',
+    # password:       'gjlpatqzqfjvnjsg',
+    user_name:      'rahulvi.dev@gmail.com',
+    password:       'Shelter#2016',
+    authentication: 'plain',
+    :enable_starttls_auto  => true
+  }
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
 end
