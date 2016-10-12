@@ -101,7 +101,9 @@ Rails.application.configure do
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
     authentication: :login,
-    ssl:            true }
+    ssl:            true,
+    :enable_starttls_auto  => true
+  }
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
 end
