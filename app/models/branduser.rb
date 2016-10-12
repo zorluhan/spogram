@@ -40,7 +40,7 @@ class Branduser < ActiveRecord::Base
   def send_welcome_email
     # if Rails.env.production?
       # if email.present? # email needs to be present
-        UserMailer.branduser_welcome_email(id).deliver!
+        UserMailer.branduser_welcome_email(self.id).deliver
       # end
     # end
   end

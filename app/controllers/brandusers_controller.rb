@@ -18,7 +18,8 @@ class BrandusersController < ApplicationController
       # branduser_log_in(@branduser) # don't login on create
       
       redirect_to "/pages/verification"
-    else 
+    else
+      logger.debug(@branduser.errors.full_messages)
       render 'new'
     end 
   end 
