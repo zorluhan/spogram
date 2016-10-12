@@ -100,7 +100,7 @@ Rails.application.configure do
     domain:         'gmail.com',
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
-    authentication: :login,
+    authentication: 'plain',
     :enable_starttls_auto  => true
   }
     
