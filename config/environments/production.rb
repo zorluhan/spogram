@@ -94,6 +94,7 @@ Rails.application.configure do
   #   openssl_verify_mode: 'none' }
   
  
+ 
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
     port:           465,
