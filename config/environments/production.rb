@@ -103,6 +103,7 @@ Rails.application.configure do
     user_name:      'mail@capish.co',
     password:       'gjlpatqzqfjvnjsg',
     authentication: 'plain',
+    :openssl_verify_mode => 'none',
     :enable_starttls_auto  => true
   }
     
