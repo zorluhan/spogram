@@ -100,8 +100,8 @@ Rails.application.configure do
     address:        'smtp.gmail.com',
     port:           587,
     domain:         'gmail.com',
-    user_name:      'mail@capish.co',
-    password:       'gjlpatqzqfjvnjsg',
+    user_name:      'chaudharyprakash1992@gmail.com',
+    password:       '9662402742@#1992',
     authentication: 'plain',
     :openssl_verify_mode => 'none',
     :enable_starttls_auto  => true
