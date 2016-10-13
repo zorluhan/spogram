@@ -92,7 +92,8 @@ Rails.application.configure do
   #   authentication:       'plain',
   #   enable_starttls_auto: true,
   #   openssl_verify_mode: 'none' }
-  
+  config.action_mailer.default :charset => "utf-8"
+
  
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
