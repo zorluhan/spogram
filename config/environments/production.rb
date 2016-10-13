@@ -105,6 +105,6 @@ Rails.application.configure do
     :enable_starttls_auto  => true
   }
     
-  INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
+  INSTAGRAM_CALLBACK_URL = "http://cryptic-mountain-3688.herokuapp.com/callback"
   
 end
