@@ -105,4 +105,5 @@ Rails.application.configure do
   }
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
+  
 end
