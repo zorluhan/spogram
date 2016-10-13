@@ -20,13 +20,17 @@ class Instauser < ActiveRecord::Base
 
 
   def send_welcome_email
+     p "callll instauser"
     #if Rails.env.production?
       if email.present?
         if followed_by >= 0
           # to send emails in delayed jobs use
           # UserMailer.instauser_welcome_email(id).delay.deliver!
+          p "deliver not"
           UserMailer.instauser_welcome_email(self.id).deliver
+          p "deliver =="
         else
+          p "deliver else"
           UserMailer.instauser_reject_email(self.id).deliver!
         end
       end
