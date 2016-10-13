@@ -100,7 +100,7 @@ Rails.application.configure do
     domain:         'gmail.com',
     user_name:      'rahulvi.dev',
     password:       'Shelter#2016',
-    authentication: :login,
+    authentication: 'plain',
     :enable_starttls_auto  => true
   }
     
