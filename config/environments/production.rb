@@ -80,7 +80,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'capish.co' }
+  config.action_mailer.default_url_options = { host: 'cryptic-mountain-3688.herokuapp.com' }
 
 
   config.action_mailer.delivery_method = :smtp
@@ -105,6 +105,6 @@ Rails.application.configure do
     :enable_starttls_auto  => true
   }
     
-  INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
+  INSTAGRAM_CALLBACK_URL = "http://cryptic-mountain-3688.herokuapp.com/callback"
   
 end
