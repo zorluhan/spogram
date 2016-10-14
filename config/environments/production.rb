@@ -103,8 +103,8 @@ Rails.application.configure do
     address:        'smtp.gmail.com',
     port:           587,
     domain:         'gmail.com',
-    user_name:      'mail@capish.co',
-    password:       'gjlpatqzqfjvnjsg',
+    user_name:      'dave.demo99@gmail.com',
+    password:       '99davejc@99',
     authentication: 'plain',
     :enable_starttls_auto  => true
   }
