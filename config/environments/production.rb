@@ -84,7 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'cryptic-mountain-3688.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'capish.co' }
 
   config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
@@ -103,8 +103,8 @@ Rails.application.configure do
     address:        'smtp.gmail.com',
     port:           587,
     domain:         'gmail.com',
-    user_name:      'dave.demo99@gmail.com',
-    password:       '99davejc@99',
+    user_name:      'mail@capish.co',
+    password:       'gjlpatqzqfjvnjsg',
     authentication: 'plain',
     :enable_starttls_auto  => true
   }
