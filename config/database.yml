@@ -5,13 +5,14 @@
 #   gem 'sqlite3'
 #
 development:
-  adapter: sqlite3
-  database: my_database_development
+  adapter: postgresql
+  encoding: unicode
+  database: capish_development
   pool: 5
   timeout: 5000
 
 test:
-  adapter: sqlite3
+  adapter: postgresql
   database: my_database_test
   pool: 5
   timeout: 5000
