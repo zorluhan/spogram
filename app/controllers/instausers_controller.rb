@@ -77,9 +77,7 @@ class InstausersController < ApplicationController
     if @instauser.update(instauser_params)
       session[:instauser_id] = nil
       instauser_log_in(@instauser)
-      p "============user #{instauser_log_in(@instauser).inspect}"
       @instauser.send_welcome_email
-      p "==================after mail send====="
       redirect_to "/dashboard"
     else
 
