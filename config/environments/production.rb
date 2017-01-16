@@ -62,7 +62,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -93,8 +93,18 @@ Rails.application.configure do
   #   enable_starttls_auto: true,
   #   openssl_verify_mode: 'none' }
   config.action_mailer.default :charset => "utf-8"
+  ActionMailer::Base.smtp_settings = {
+    :user_name => Rails.application.secrets.sndgr_name,
+    :password => Rails.application.secrets.sndgr_pwd,
+    :domain => 'capish.co',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
  
+<<<<<<< HEAD
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
     port:           465,
@@ -104,6 +114,17 @@ Rails.application.configure do
     authentication: 'plain',
     :enable_starttls_auto  => true
   }
+=======
+  # config.action_mailer.smtp_settings = {
+  #   address:        'smtp.gmail.com',
+  #   port:           587,
+  #   domain:         'gmail.com',
+  #   user_name:      'mail@capish.co',
+  #   password:       'gjlpatqzqfjvnjsg',
+  #   authentication: 'plain',
+  #   :enable_starttls_auto  => true
+  # }
+>>>>>>> bd5b7754a3ebc00f097a9bac693cdb0b7254eb5a
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
 end
