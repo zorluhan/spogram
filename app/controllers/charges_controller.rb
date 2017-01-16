@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
   def new
     @charge    = Charge.new 
     @instauser = Instauser.find_by_id(params[:instauser])
-    @amount    = @instauser.postprice*100
+    # @amount    = @instauser.postprice*100
     @branduser = current_branduser
     buserid    = @branduser.id 
     buser      = @branduser.fullname
@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
   def edit
     @charge    = Charge.find_by_id(params[:id])
     @instauser = @charge.instauser
-    @amount    = @instauser.postprice*100
+    # @amount    = @instauser.postprice*100
     @branduser = current_branduser
 
     unless @charge.pending? && branduser_logged_in? 
@@ -80,18 +80,18 @@ end
   def create 
 
     useremail   = params[:useremail]
-    amount = params[:charge][:amount].to_i * 120  
-    params[:charge][:amount]= amount
+    # amount = params[:charge][:amount].to_i * 120  
+    # params[:charge][:amount]= amount
     
     @charge = Charge.new(charge_params)
     
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source => params[:stripeToken],
-      :description => "#{amount},#{useremail}")
+    # customer = Stripe::Customer.create(
+    #   :email => params[:stripeEmail],
+    #   :source => params[:stripeToken],
+    #   :description => "#{amount},#{useremail}")
    
 
-    @charge.customer  = customer.id 
+    # @charge.customer  = customer.id 
     @charge.useremail = useremail
    
     if @charge.save
@@ -101,9 +101,9 @@ end
   end 
 
   def update
-    amount = params[:charge][:amount].to_i
-    params[:charge][:amount] = amount * 1.20 * 100
-    @charge = Charge.find_by_id(params[:id])
+    # amount = params[:charge][:amount].to_i
+    # params[:charge][:amount] = amount * 1.20 * 100
+     @charge = Charge.find_by_id(params[:id])
     if @charge.pending? && branduser_logged_in? 
       if @charge.update(charge_params)
         @charge.edited_proposal_email
@@ -125,13 +125,13 @@ end
       flash!(:error => I18n.t("flash_messages.defaults.recurring"))
       redirect_to root_path 
     else 
-      charge=Stripe::Charge.create(
-        :customer =>  "#{customerid}", 
-        :amount   => "#{amount}" ,
-        :description => "#{useremail}",
-        :currency => 'usd')
+      # charge=Stripe::Charge.create(
+      #   :customer =>  "#{customerid}", 
+      #   :amount   => "#{amount}" ,
+      #   :description => "#{useremail}",
+      #   :currency => 'usd')
 
-      if charge["paid"] == true
+      # if charge["paid"] == true
         if @charge.accepted!
           flash!(:alert => I18n.t("flash_messages.defaults.payment_notify_instauser")) 
           redirect_to charges_path
@@ -139,7 +139,7 @@ end
           flash!(:error => I18n.t("flash_messages.defaults.couldntgetbilled"))
           redirect_to charges_path
         end 
-      end
+      # end
     end
   rescue Stripe::CardError => e 
     flash[:error]=e.message

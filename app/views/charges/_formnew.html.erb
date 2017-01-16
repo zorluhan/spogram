@@ -16,14 +16,14 @@
   
 
   <div class="form-group">
-      <%= f.text_field :product_name, class: "form-control formcapish", id:"email", placeholder: "Name *" ,onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Name *'" %>
+      <%= f.text_field :product_name, class: "form-control formcapish", id:"email", placeholder: "Name *" ,onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Name *'",required: true %>
 
   </div>
 
 
 
   <div class="form-group form-groupweb">
-     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link *" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link *'" %>
+     <%= f.text_field :product_link, class: "form-control formcapish", id: "email", placeholder: "Link *" , onfocus: "this.placeholder = ''" ,onblur: "this.placeholder='Link *'" ,required: true%>
   
 
 
@@ -52,7 +52,7 @@
   
   <div class="form-group form-noborder form-groupbio">
     <label for="name" class="gender"><i class="fa fa-file-text-o"></i>Post description *</label>
-       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post description *'" , onfocus: "this.placeholder = ''" , placeholder: "" %>
+       <%= f.text_area :post_description, cols: 40, onblur: "this.placeholder='Post description *'" , onfocus: "this.placeholder = ''" , placeholder: "",required: true %>
      
   </div>
   
@@ -99,16 +99,16 @@
 </div>
  
   
-  <div class="proposalinfo2 proposalinfo3">
+<!--   <div class="proposalinfo2 proposalinfo3">
     <div class="subtitle"><i class="fa fa-credit-card"></i> Price *</div>
-    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Price:</span>&nbsp;<%= f.number_field :amount, type: "fullname", class: "editprice", col: 80, value: (@amount/100) %>&nbsp;USD</div>
+    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Price:</span>&nbsp;<%#= f.number_field :amount, type: "fullname", class: "editprice", col: 80, value: (@amount/100) %>&nbsp;USD</div>
 
-    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Service charge:</span>&nbsp;<%= "%20" %></div>
+    <div class="row row0 bot-buffer10"><i class="fa fa-plus"></i><span>&nbsp;Service charge:</span>&nbsp;<%#= "%20" %></div>
      <hr>
-    <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i> &nbsp;TOTAL:</span>&nbsp;<span id="total_updated_price"><%= (@amount*1.20/100).round(2) %>&nbsp;USD</span></strong> 
+    <div class="row row0 bot-buffer10"><strong><span><i class="fa fa-shopping-cart"></i> &nbsp;TOTAL:</span>&nbsp;<span id="total_updated_price"><%#= (@amount*1.20/100).round(2) %>&nbsp;USD</span></strong> 
     </div>
     <div class="row row0 bot-buffer10 proposalcardinfo">(Your credit card will be charged only when the Instagrammer accepts your proposal.)</div>
-  </div>
+  </div> -->
 
    
      
@@ -118,29 +118,34 @@
           <%= hidden_field_tag 'charge[branduser_id]', @branduser.id %>
           <%= hidden_field_tag 'charge[instauser_id]', @instauser.id %>
           <%= hidden_field_tag 'charge[status]', "unaccepted" %> 
-           <div class="row row0 text-right">
+  <!--          <div class="row row0 text-right">
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-image="<%= image_url('capishavatar.png') %>"
+            data-key="<%#= Rails.configuration.stripe[:publishable_key] %>"
+            data-image="<%#= image_url('capishavatar.png') %>"
             data-description="Your card won't be charged now."
             data-name= "Important Note:"
             data-panel-label= "SEND THE PROPOSAL"
             data-locale="auto"
             data-label="SEND via Stripe"
-            data-email= "<%= @branduser.email %>"
-            data-allow-remember-me= "false" >SEND</script></div> <div class="row row0 text-right proposalstripe"><a href="https://stripe.com/" target="_blank">Stripe</a> is a world-wide trusted payment platform.</div>
-           
+            data-email= "<%#= @branduser.email %>"
+            data-allow-remember-me= "false" >SEND</script></div> <div class="row row0 text-right proposalstripe"><a href="https://stripe.com/" target="_blank">Stripe</a> is a world-wide trusted payment platform.</div> -->
+
+    <div class="row row0 text-right">
+        <%= button_tag(type: 'submit', class: "btn btn-send" ) do %>
+        <i class="fa fa-pencil"></i> SAVE
+        <% end %>
+    </div>
  <% end %>
 
 </div>
 </div>
-   <script type="text/javascript">
+<!--    <script type="text/javascript">
           $('#charge_amount').on('change', function(e){
             $('#total_updated_price').html(($(this).val()*1.20).toFixed(2));
           });
-        </script>
+        </script> -->
 
-<script>$(function() {
+<!-- <script>$(function() {
 
     var valid = {};
 
@@ -194,7 +199,7 @@
     }
 
     $('button[type=submit]').attr('disabled', 'disabled');
-});</script>
+});</script> -->
 
 <div class="footer-wrapper">
 <div class="container text-center">

@@ -16,30 +16,30 @@
 <div class="container">
   <h2 class="text-center">PROPOSALS</h2> 
   
-  <div class="subtitle">EARNINGS SNAPSHOT <div class="scoreinfo"><span>This is a snapshot of your earnings. We define what each of these values in our <a href="/faq">FAQ</a>.</span><i class="fa fa-question-circle"></i></div></div>
+ <!--  <div class="subtitle">EARNINGS SNAPSHOT <div class="scoreinfo"><span>This is a snapshot of your earnings. We define what each of these values in our <a href="/faq">FAQ</a>.</span><i class="fa fa-question-circle"></i></div></div>
      
          
           <div class="clearfix">
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@potential_earnings, precision: 2)    %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@potential_earnings, precision: 2)    %></div>
        <div class="">Potential</div>
       </div>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@upcomming_eatnings , precision: 2)  %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@upcomming_eatnings , precision: 2)  %></div>
        <div class="">In Progress</div>
       </div>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@total_earnings , precision: 2) %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@total_earnings , precision: 2) %></div>
        <div class="">Total Earnings</div>
       </div>
     </div>
   </div>
-
+ -->
   <div class="subtitle subtitle2">MY PROPOSALS <div class="scoreinfo"><span>This is your proposals inbox. When a brand is interested in working with you, a proposal will appear in Pending. You can ask questions or discuss details directly with the brand by clicking on Message within the proposal details. Visit our <a href="/faq">FAQ</a> for more on what each proposal status means. 
 </span><i class="fa fa-question-circle"></i></div></div>
 
@@ -61,7 +61,7 @@
 
            
          
-      <li>    <%= link_to "Payment", list_charges_path(state: :release_requested) %>  </li>
+       <li>    <%= link_to "Requested", list_charges_path(state: :release_requested) %>  </li> 
          
         
      <li>       <%= link_to list_charges_path(state: :completed) do %>
@@ -92,31 +92,31 @@
   <h2 class="text-center">PROPOSALS</h2> 
 
 
-
-  <div class="subtitle">SPENDING SNAPSHOT <div class="scoreinfo"><span>This is a snapshot of your earnings. We define what each of these values in our <a href="/faq">FAQ</a>.</span><i class="fa fa-question-circle"></i></div></div>
+<!-- 
+  <div class="subtitle">SPENDING SNAPSHOT <div class="scoreinfo"><span>This is a snapshot of your earnings. We define what each of these values in our <a href="/faq">FAQ</a>.</span><i class="fa fa-question-circle"></i></div></div> -->
      
          
-          <div class="clearfix">
+<!--           <div class="clearfix">
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@escrowed_spending, precision: 2)    %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@escrowed_spending, precision: 2)    %></div>
        <div class="">Pending</div>
       </div>
     </div>
     <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@total_spending, precision: 2)   %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@total_spending, precision: 2)   %></div>
        <div class="">In Escrow</div>
       </div>
     </div>
      <div class="col-lg-4 col-sm-4 col-xs-12 col0">
       <div class="panel widget">
-      <div class="widget-title proposalearn">$<%= number_with_precision(@actual_spending, precision: 2)    %></div>
+      <div class="widget-title proposalearn">$<%#= number_with_precision(@actual_spending, precision: 2)    %></div>
        <div class="">Paid</div>
       </div>
     </div>
     
-  </div>
+  </div> -->
 
 <div class="subtitle subtitle2">MY PROPOSALS <div class="scoreinfo"><span>This is where you will manage your proposals. Your proposals will first appear under Pending. We explain each status in detail in our <a href="/faq">FAQ</a> section. </span><i class="fa fa-question-circle"></i></div></div>
 
@@ -144,10 +144,10 @@
       <li>
        
           <%= link_to list_charges_path(state: :release_requested) do %>
-            Payment <% if unread_branduser_charges_count(current_branduser, :release_requested)!="" %> <span><em> <%= unread_branduser_charges_count(current_branduser, :release_requested) %></em></span> <%end%>
+            Request <% if unread_branduser_charges_count(current_branduser, :release_requested)!="" %> <span><em> <%= unread_branduser_charges_count(current_branduser, :release_requested) %></em></span> <%end%>
           <% end %>
        
-      </li>
+      </li> 
       <li >
         
           <%= link_to 'Completed', list_charges_path(state: :completed) %>

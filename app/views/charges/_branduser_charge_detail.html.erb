@@ -40,7 +40,7 @@
 					<% elsif @charge.state=="accepted" %>
 							<span class="proposalstatus active"><i class="fa fa-rocket"></i> active </span> 
 					<% elsif @charge.state=="release_requested" %>
-							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> payment requested </span> 
+							<span class="proposalstatus requested"><i class="fa fa-shopping-cart"></i> confirmation requested </span> 
 					<% elsif @charge.state=="completed" %>
 							<span class="proposalstatus completed"><i class="fa fa-check"></i> <%=@charge.state%></span> 
 					<%end%>
@@ -116,12 +116,12 @@
 	</div>
 
 
-<div class="proposalinfo2 proposalinfo3">
+<!-- <div class="proposalinfo2 proposalinfo3">
 		<div class="subtitle"><i class="fa fa-credit-card"></i> Price</div>
-		<div class="row row0 bot-buffer10"><span><i class="fa fa-shopping-cart"></i> Total Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/100).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp; </div>
+		<div class="row row0 bot-buffer10"><span><i class="fa fa-shopping-cart"></i> Total Price:</span>&nbsp;<%#= number_with_precision((@charge.amount.to_f/100).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp; </div>
 	
 	</div>
-
+ -->
 
 
 	
