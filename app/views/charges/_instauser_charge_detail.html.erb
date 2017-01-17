@@ -65,7 +65,7 @@
         <% elsif @charge.accepted? %>
         
               <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
-              <button class= "btn btn-sm btnprop"><i class="fa fa-check"></i> REQUEST PAYMENT</button>
+              <button class= "btn btn-sm btnprop"><i class="fa fa-check"></i> REQUEST CONFIRMATION</button>
               <%end%>
 
               <%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
@@ -117,13 +117,13 @@
 		<div class="row row0 bot-buffer10"><span>Last post by:</span> <%= @charge.last_post_date %></div>
 	</div>
 
-<div class="proposalinfo2 proposalinfo3">
+<!-- <div class="proposalinfo2 proposalinfo3">
 		<div class="subtitle"><i class="fa fa-credit-card"></i> Price</div>
-		<div class="row row0 bot-buffer10"><span><i class="fa fa-shopping-cart"></i> Proposed Price:</span>&nbsp;<%= number_with_precision((@charge.amount.to_f/(120)).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<% if @charge.pending? %><%= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
+		<div class="row row0 bot-buffer10"><span><i class="fa fa-shopping-cart"></i> Proposed Price:</span>&nbsp;<%#= number_with_precision((@charge.amount.to_f/(120)).round(2), :precision=>2) %>&nbsp;USD&nbsp;&nbsp;&nbsp;<% #if @charge.pending? %><%#= link_to  new_message_path(branduser_param: @charge.branduser_id)  do %>
 					 <i class="fa fa-comment"></i> Negotiate 
-            <%end %><%end%></div>
+            <%#end %><%#end%></div>
 	
-	</div>
+	</div> -->
 
 
 
@@ -141,7 +141,7 @@
         <% elsif @charge.accepted? %>
         
               <%= link_to release_request_charge_path(@charge.id), method: :patch  do  %>
-              <button class= "btn btn-send"><i class="fa fa-check"></i> REQUEST PAYMENT</button>
+              <button class= "btn btn-send"><i class="fa fa-check"></i> REQUEST CONFIRMATION</button>
               <%end%>
             
         <% else %>

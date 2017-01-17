@@ -6,14 +6,14 @@
  
  
    <div class="form-group form-groupname1 pull-left">
-   <%= f.text_field :firstname,  :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First name *", :onfocus => "this.placeholder = 'First name *'", :onblur => "this.placeholder='First name *'" %> <br>
+   <%= f.text_field :firstname,  :type=> "firstname", :class=> "form-control formcapish", :id => "usr", :placeholder => "First name *", :onfocus => "this.placeholder = 'First name *'", :onblur => "this.placeholder='First name *'", required: true %> <br>
   </div>
   <div class="form-group form-groupname2 pull-right">
-   <%= f.text_field :lastname, :type=> "lastname", :class=> "form-control formcapish", :id => "usr", :placeholder => "Last name *", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Last name *'" %> <br>
+   <%= f.text_field :lastname, :type=> "lastname", :class=> "form-control formcapish", :id => "usr", :placeholder => "Last name *", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Last name *'", required: true %> <br>
   </div>
    <div class="form-group form-grouploc">
    
-   <%= f.text_field :location, :type=> "fullname", :class=> "gmapsinput form-control formcapish" , :id => "usr", :placeholder => "Start typing a city", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Start typing a city *'" %> 
+   <%= f.text_field :location, :type=> "fullname", :class=> "gmapsinput form-control formcapish" , :id => "usr", :placeholder => "Start typing a city", :onfocus => "this.placeholder = ''", :onblur => "this.placeholder='Start typing a city *'" , required: true %> 
     <div id="gmaps-error" style="display: none;"></div>
               <div id="gmaps-canvas" style="display: none;"></div>
   </div>
@@ -21,16 +21,16 @@
 
   <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender"><i class="fa fa-birthday-cake"></i>Date of birth *</label>
-  <%= f.date_select :dob, {order: [:day, :month, :year], :selected => @instauser.dob , start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname"%>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :selected => @instauser.dob , start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname", required: true %>
   </div> 
 
   <div class="form-group form-selectfull form-noborder">
-  <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>  <%= f.select :gender, options_for_select([['Female','Female'],['Male','Male']], @instauser.gender),{}, {:class=> "form-control"} %>
+  <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>  <%= f.select :gender, options_for_select([['Female','Female'],['Male','Male']], @instauser.gender),{}, {:class=> "form-control", required: true}%>
   </div>
 
    <div class="form-group form-selectfull form-noborder"><label for="name" class="gender"><i class="fa fa-fire"></i>What passion best describes your Instagram feed? *</label>
     <%= f.select :theme, 
-              options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']],@instauser.theme),{}, {class: 'form-control'} %>
+              options_for_select([['Animals','Animals'],['Arts','Arts'],['Auto','Auto'], ['Beauty','Beauty'], ['Design','Design'], ['Fashion','Fashion'],['Fitness','Fitness'],['Food','Food'],['Home','Home'],['Lifestyle','Lifestyle'],['Music','Music'], ['Nature','Nature'], ['Nautical','Nautical'],['Parenting','Parenting'], ['Sports','Sports'],['Travel','Travel'], ['Urban','Urban']],@instauser.theme),{}, {class: 'form-control', required: true} %>
             </div>
 
             <div class="form-group form-noborder form-groupbio">
@@ -42,10 +42,10 @@
 
   </div>
 
-   <label for="name" class="gender clearfix"><span class="moneyicon pull-left">Min. Price per post *</span><span class="lblright pull-left"></span></label>
+<!--    <label for="name" class="gender clearfix"><span class="moneyicon pull-left">Min. Price per post *</span><span class="lblright pull-left"></span></label>
       <div class="form-group form-groupmoney">
-        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
-      </div>
+        <%#= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
+      </div> -->
 
     <div class="row row0 text-right">
 
@@ -86,7 +86,7 @@
     });
 </script>
 
-<script>$(function() {
+<!-- <script>$(function() {
 
     var valid = {};
 
@@ -154,5 +154,5 @@
 
 });
 </script>
-
+ -->
 
