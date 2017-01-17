@@ -107,21 +107,6 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-<<<<<<< HEAD
- 
-<<<<<<< HEAD
-  config.action_mailer.smtp_settings = {
-    address:        'smtp.gmail.com',
-    port:           465,
-    domain:         'gmail.com',
-    user_name:      'mail@capish.co',
-    password:       'gjlpatqzqfjvnjsg',
-    authentication: 'plain',
-    :enable_starttls_auto  => true
-  }
-=======
-=======
->>>>>>> 7e5dc01d2caf6d2aea2601ef918ea9191bc17675
   # config.action_mailer.smtp_settings = {
   #   address:        'smtp.gmail.com',
   #   port:           587,
@@ -131,7 +116,6 @@ Rails.application.configure do
   #   authentication: 'plain',
   #   :enable_starttls_auto  => true
   # }
->>>>>>> bd5b7754a3ebc00f097a9bac693cdb0b7254eb5a
     
   INSTAGRAM_CALLBACK_URL = "http://www.capish.co/callback"
 end
