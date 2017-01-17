@@ -14,25 +14,25 @@
       <%= render 'shared/instauser_signup_error_messages' %> 
 
       <div class="form-group form-groupemail">
-        <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email *'" ,required: true %>
+        <%= f.text_field :email, class: "form-control formcapish", id: "email", placeholder: "Email *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Email *'"%>
       </div>
 
       <div class="form-group form-groupname1 pull-left">
-        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First name *'",required: true %>
+        <%= f.text_field :firstname, class: "form-control formcapish", id: "firstname", placeholder: "First name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='First name *'"%>
       </div>
 
       <div class="form-group form-groupname2 pull-right">
-        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last name *'",required: true %>
+        <%= f.text_field :lastname, class: "form-control formcapish", id: "lastname", placeholder: "Last name *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Last name *'" %>
       </div>
       
       <div class="form-group form-grouploc">
-        <%= f.text_field :location, class: "gmapsinput form-control formcapish", placeholder: "Start typing a city *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Start typing a city *'",required: true %>
+        <%= f.text_field :location, class: "gmapsinput form-control formcapish", placeholder: "Start typing a city *", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Start typing a city *'"%>
         <div id="gmaps-error" style="display: none;"></div>
         <div id="gmaps-canvas" style="display: none;"></div>        
       </div>
 <div class="form-group form-noborder birth clearfix">
     <label for="name" class="gender"><i class="fa fa-birthday-cake"></i>Date of birth *</label>
-  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Day', :month => 'Month', :year => 'Year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname",required: true %>
+  <%= f.date_select :dob, {order: [:day, :month, :year], :prompt => { :day => 'Day', :month => 'Month', :year => 'Year' },  start_year: Date.today.year - 18, end_year: Date.today.year - 100}, :type=> "fullname"%>
   </div> 
       <div class="form-group form-selectfull form-noborder">
         <label for="name" class="gender"><i class="fa fa-venus-mars"></i>Gender *</label>
@@ -45,17 +45,17 @@
       </div>
       
  
-<!--       <label for="name" class="gender clearfix"><span class="moneyicon pull-left">Min. Price per post *</span><span class="lblright pull-left">This is the price per post brands will see on your profile. You can change this at any time.
+      <label for="name" class="gender clearfix"><span class="moneyicon pull-left">Min. Price per post *</span><span class="lblright pull-left">This is the price per post brands will see on your profile. You can change this at any time.
 </span></label>
       <div class="form-group form-groupmoney">
-        <%#= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
+        <%= f.text_field :postprice, class: "form-control formcapish", id: "postprice", placeholder: "", onfocus: "this.placeholder = ''", onblur: "this.placeholder=''" %>
       </div>
       
       <label class="gender clearfix"><span class="moneyicon pull-left"><i class="fa fa-paypal"></i>PayPal email</span><a href="http://www.paypal.com.tr" class="lblright pull-left" target="_blank">Don't have a PayPal account?</a></label>
       <div class="form-group form-grouppaypal">
-        <%#= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter your PayPal account email.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter your PayPal account email.
+        <%= f.text_field :paypal_email, class: "form-control formcapish", id: "paypal_email", placeholder: "Enter your PayPal account email.", onfocus: "this.placeholder = ''", onblur: "this.placeholder='Enter your PayPal account email.
 '" %>      
-      </div> -->
+      </div>
 
       <div class="row row0 text-right">
         <%= f.hidden_field :id, :value => session[:instauser_id] %>
@@ -70,7 +70,7 @@
 </div>
 
 
-<!-- <script>$(function() {
+<script>$(function() {
 
     var valid = {
         email: true,
@@ -152,7 +152,7 @@
     });
 
 });
- </script> -->
+ </script>
 
 
 
