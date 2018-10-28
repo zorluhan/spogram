@@ -1,0 +1,7 @@
+pkg
+*.gem
+.bundle
+.idea/
+Gemfile.lock
+gemfiles/*.lock
+*.swp
