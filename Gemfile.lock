@@ -143,7 +143,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.21.0)
+    pg (0.18.4)
     polyglot (0.3.5)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -256,7 +256,7 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   omniauth-oauth2 (~> 1.3.1)
   paperclip (~> 4.2)
-  pg (~> 0.21.0)
+  pg (~> 0.18.4)
   pry
   puma
   rails (= 4.1.4)
@@ -272,6 +272,9 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   validates_email_format_of
+
+RUBY VERSION
+   ruby 2.3.7p456
 
 BUNDLED WITH
    1.17.1
