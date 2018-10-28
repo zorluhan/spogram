@@ -262,7 +262,7 @@ DEPENDENCIES
   instagram
   jbuilder (~> 2.0)
   jquery-rails
-  json (~> 1.8.5)
+  json
   letter_opener
   omniauth
   omniauth-linkedin-oauth2
