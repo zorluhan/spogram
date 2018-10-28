@@ -30,7 +30,7 @@ gem 'instagram'
 gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'sinatra'
-gem 'json'
+gem 'json' , '~> 1.8.5'
  
 gem 'paperclip', '~> 4.2'
 # gem 'jquery-turbolinks' 
