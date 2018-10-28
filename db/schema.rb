@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160422121513) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "authorizations", force: true do |t|
     t.string   "provider"
     t.string   "username"
@@ -72,9 +69,9 @@ ActiveRecord::Schema.define(version: 20160422121513) do
     t.string   "instagram_link",      default: ""
   end
 
-  add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id", using: :btree
-  add_index "charges", ["instauser_id"], name: "index_charges_on_instauser_id", using: :btree
-  add_index "charges", ["state"], name: "index_charges_on_state", using: :btree
+  add_index "charges", ["branduser_id"], name: "index_charges_on_branduser_id"
+  add_index "charges", ["instauser_id"], name: "index_charges_on_instauser_id"
+  add_index "charges", ["state"], name: "index_charges_on_state"
 
   create_table "instaposts", force: true do |t|
     t.integer  "instauser_id",                       null: false
@@ -107,17 +104,17 @@ ActiveRecord::Schema.define(version: 20160422121513) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "access_token"
-    t.float    "engagementscore",   default: 0.0
+    t.float    "engagementscore",               default: 0.0
     t.datetime "last_updated"
-    t.boolean  "disabled",          default: true
+    t.boolean  "disabled",                      default: true
     t.string   "paypal_email"
-    t.boolean  "send_email",        default: true
+    t.boolean  "send_email",                    default: true
     t.string   "passion"
-    t.text     "bio"
+    t.text     "bio",               limit: 255
     t.date     "dob"
     t.string   "checkvalidation"
     t.string   "auth_token"
-    t.boolean  "is_authenticated",  default: false
+    t.boolean  "is_authenticated",              default: false
   end
 
   create_table "messages", force: true do |t|
@@ -126,8 +123,8 @@ ActiveRecord::Schema.define(version: 20160422121513) do
     t.integer  "branduser_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "message"
-    t.boolean  "is_read",      default: false
+    t.text     "message",      limit: 255
+    t.boolean  "is_read",                  default: false
   end
 
   create_table "users", force: true do |t|
@@ -145,7 +142,7 @@ ActiveRecord::Schema.define(version: 20160422121513) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
