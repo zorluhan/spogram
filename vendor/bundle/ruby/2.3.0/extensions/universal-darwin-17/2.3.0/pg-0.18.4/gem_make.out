@@ -1,5 +1,5 @@
 current directory: /Users/zorluhanzorlu/spogram/vendor/bundle/ruby/2.3.0/gems/pg-0.18.4/ext
-/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20181028-10277-1ukzn7e.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20181028-10395-1jtb7lx.rb extconf.rb
 checking for pg_config... yes
 Using config values from /usr/local/bin/pg_config
 checking for libpq-fe.h... yes

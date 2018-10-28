@@ -84,7 +84,7 @@ ld: warning: The i386 architecture is deprecated for macOS (remove from the Xcod
 ld: warning: ignoring file /usr/local/lib/libpq.dylib, file was built for x86_64 which is not the architecture being linked (i386): /usr/local/lib/libpq.dylib
 Undefined symbols for architecture i386:
   "_PQconnectdb", referenced from:
-      _t in conftest-5d082a.o
+      _t in conftest-5af984.o
 ld: symbol(s) not found for architecture i386
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
