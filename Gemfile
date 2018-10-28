@@ -31,7 +31,7 @@ gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'sinatra'
 gem 'json'  
- 
+  
 gem 'paperclip', '~> 4.2'
 # gem 'jquery-turbolinks' 
 # Use jquery as the JavaScript library
@@ -57,7 +57,7 @@ group :development, :test do
 end
 
 group :production do 
-  gem 'pg' 
+  gem 'pg', '~> 0.18' 
   gem 'rails_12factor' 
 end
 
