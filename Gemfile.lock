@@ -143,7 +143,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (1.1.3)
+    pg (0.20.0)
     polyglot (0.3.5)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -155,6 +155,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.3.2)
     rails (4.1.4)
       actionmailer (= 4.1.4)
       actionpack (= 4.1.4)
@@ -256,9 +257,10 @@ DEPENDENCIES
   omniauth-linkedin-oauth2
   omniauth-oauth2 (~> 1.3.1)
   paperclip (~> 4.2)
-  pg
+  pg (~> 0.20.0)
   pry
   puma
+  rack-timeout (= 0.3.2)
   rails (= 4.1.4)
   rails_12factor
   sass-rails (~> 4.0.3)
