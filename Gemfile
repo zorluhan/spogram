@@ -31,7 +31,7 @@ gem 'validates_email_format_of'
 gem 'bcrypt'
 gem 'sinatra'
 gem 'json'  
-gem 'rack-timeout', '0.3.2' 
+ 
 gem 'paperclip', '~> 4.2'
 # gem 'jquery-turbolinks' 
 # Use jquery as the JavaScript library
