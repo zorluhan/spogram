@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
  
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -57,7 +57,7 @@ group :development, :test do
 end
 
 group :production do 
-  gem 'pg' 
+  gem 'pg'  
   gem 'rails_12factor' 
 end
 
